@@ -1,0 +1,63 @@
+static_vms:
+  - &client_machine
+    os_type: ubuntu2004
+    ip_address: 10.250.18.9
+    internal_ip: 10.250.18.9
+    user_name: ansible
+    ssh_private_key: /home/ansible/.ssh/id_rsa
+  - &controller_machine
+    os_type: ubuntu2004
+    ip_address: 10.250.18.9
+    internal_ip: 10.250.18.9
+    user_name: ansible
+    ssh_private_key: /home/ansible/.ssh/id_rsa
+  - &worker_machine_0
+    os_type: ubuntu2004
+    ip_address: 10.250.18.10
+    internal_ip: 10.250.18.10
+    user_name: ansible
+    ssh_private_key: /home/ansible/.ssh/id_rsa
+  - &worker_machine_1
+    os_type: ubuntu2004
+    ip_address: 10.250.18.11
+    internal_ip: 10.250.18.11
+    user_name: ansible
+    ssh_private_key: /home/ansible/.ssh/id_rsa
+  - &worker_machine_2
+    os_type: ubuntu2004
+    ip_address: 10.250.18.12
+    internal_ip: 10.250.18.12
+    user_name: ansible
+    ssh_private_key: /home/ansible/.ssh/id_rsa
+
+intel_gms:
+  description: GoogleMicroService Benchmark
+  vm_groups:
+    client:
+      vm_count: 1
+      static_vms:
+        - *client_machine
+    controller:
+      vm_count: 1
+      static_vms:
+        - *controller_machine
+    worker:
+      vm_count: 3
+      static_vms:
+        - *worker_machine_0
+        - *worker_machine_1
+        - *worker_machine_2
+  flags:
+    kubeconfig: /home/ansible/.kube/config
+    replica_count: 1
+    k8s_get_retry_count: 5
+    gms_tarball_archive_url: /home/ansible/yulu/gms.rc2.tar.gz
+    gms_images_registry: 10.250.18.9:5000/
+    gms_wrk_threads: 20
+    gms_client_connections: 1600
+    gms_namespace: gms
+    gms_images_tag: rc2
+    gms_namespace_count: 1
+    #gms_p99_sla_only: true
+    gms_wrk_init_rate: 48000
+    gms_wrk_rate_increment: 1000

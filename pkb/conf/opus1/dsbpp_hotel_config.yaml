@@ -1,0 +1,76 @@
+# Example static configuration file
+# Notes:
+# - client_machine and controller_machine can be same
+# - must have at least one worker
+# - client is optional if running client in the cluster (as a POD)
+
+static_vms:
+  - &client_machine
+    os_type: ubuntu2004
+    ip_address: 10.250.18.9
+    internal_ip: 10.250.18.9
+    user_name: ansible
+    ssh_private_key: /home/ansible/.ssh/id_rsa
+  - &controller_machine
+    os_type: ubuntu2004
+    ip_address: 10.250.18.9 
+    internal_ip: 10.250.18.9
+    user_name: ansible 
+    ssh_private_key: 
+  - &worker_machine_0
+    os_type: ubuntu2004
+    ip_address: 10.250.18.10 
+    internal_ip: 10.250.18.10
+    user_name: ansible
+    ssh_private_key: /home/ansible/.ssh/id_rsa
+
+  - &worker_machine_1
+    os_type: ubuntu2004
+    ip_address: 10.250.18.11
+    internal_ip: 10.250.18.11
+    user_name: ansible
+    ssh_private_key: /home/ansible/.ssh/id_rsa
+
+  - &worker_machine_2
+    os_type: ubuntu2004
+    ip_address: 10.250.18.12
+    internal_ip: 10.250.18.12
+    user_name: ansible
+    ssh_private_key: /home/ansible/.ssh/id_rsa
+
+dsbpp_hotel:
+  description: DeathStarBenchPlusPlus Hotel Reservation
+  vm_groups:
+    client:
+      vm_count: 1
+      static_vms:
+        - *client_machine
+    controller:
+      vm_count: 1
+      static_vms:
+        - *controller_machine
+    worker:
+      vm_count: 3
+      static_vms:
+        - *worker_machine_0
+        - *worker_machine_1
+        - *worker_machine_2
+  flags:
+    # full path to kubeconfig file on controller node
+    kubeconfig: /home/ansible/.kube/config
+    # large number of retries to allow time to start up all pods
+    k8s_get_retry_count: 500
+    #
+    # Parameters to dsbpp_hotel benchmark
+    #
+    dsbpp_hotel_image_cache: "" # don't use Intel CaaS cache if using a cluster without access to Intel network
+    dsbpp_hotel_client_rate_autoscale_min: 1000
+    svrinfo_tarball: /home/ansible/yulu/MicroservicesWorkloadsRelease/infra/CodeBase/cloud.benchmarking.deployment/k8s/internal_tools/svr-info-internal-2.0.2.tgz
+    dsbpp_hotel_dsb_archive: ./perfkitbenchmarker/data/dsbpp_hotel/dsbplusplus_hotel_rc2.tar.gz
+    emon_tarball: /home/ansible/yulu/MicroservicesWorkloadsRelease/infra/CodeBase/cloud.benchmarking.deployment/k8s/internal_tools/sep_private_5_34_linux_050122015feb2b5.tar.bz2
+    dsbpp_hotel_client_connections: 1920
+    dsbpp_hotel_client_threads: 48
+    dsbpp_hotel_docker_image: "lianhao/dsbpp_hotel_reserv:rc2"
+    dsbpp_hotel_memctimeout: 10
+    # dsbpp_hotel_github_token: github token to download DSBPP
+
