@@ -1,0 +1,69 @@
+static_vms:
+  - &client_machine
+    os_type: ubuntu2004
+    ip_address: 172.16.27.100
+    internal_ip: 172.16.27.100
+    user_name: ansible
+    ssh_private_key: /home/ansible/.ssh/id_rsa
+  - &controller_machine
+    os_type: ubuntu2004
+    ip_address: 172.16.27.100
+    internal_ip: 172.16.27.100
+    user_name: ansible
+    ssh_private_key: /home/ansible/.ssh/id_rsa
+  - &worker_machine_0
+    os_type: ubuntu2004
+    ip_address: 172.16.27.110
+    internal_ip: 172.16.27.110
+    user_name: ansible
+    ssh_private_key: /home/ansible/.ssh/id_rsa
+
+  - &worker_machine_1
+    os_type: ubuntu2004
+    ip_address: 172.16.27.140
+    internal_ip: 172.16.27.140
+    user_name: ansible
+    ssh_private_key: /home/ansible/.ssh/id_rsa
+
+  - &worker_machine_2
+    os_type: ubuntu2004
+    ip_address: 172.16.27.150
+    internal_ip: 172.16.27.150
+    user_name: ansible
+    ssh_private_key: /home/ansible/.ssh/id_rsa
+
+intel_gms:
+  description: GoogleMicroService Benchmark
+  vm_groups:
+    client:
+      vm_count: 1
+      static_vms:
+        - *client_machine
+    controller:
+      vm_count: 1
+      static_vms:
+        - *controller_machine
+    worker:
+      vm_count: 3
+      static_vms:
+        - *worker_machine_0
+        - *worker_machine_1
+        - *worker_machine_2
+  flags:
+    kubeconfig: /home/ansible/.kube/config
+    replica_count: 1
+    k8s_get_retry_count: 5
+    gms_tarball_archive_url: /home/yangfen1/go/src/MicroservicesWorkloadsRelease/googleMicroServices/CodeBase/gms_rc2.tar.gz
+    gms_images_registry: 172.16.27.100:5000/
+    gms_wrk_threads: 20
+    gms_client_connections: 1600
+    #svrinfo_tarball: <absolute path for svr info package>
+    gms_images_tag: rc2.1
+    #intel_gms_p99_sla_only: true
+    gms_wrk_init_rate: 40000
+    gms_wrk_rate_increment: 2500
+    #    svrinfo: false 
+    #emon: False
+    trace_vm_groups: worker
+    #    gms_namespace: gms
+    gms_namespace_count: 2
