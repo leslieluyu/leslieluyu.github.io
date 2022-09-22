@@ -1,0 +1,21 @@
+[users]
+172.16.5.6
+172.16.5.7
+172.16.5.8
+172.16.5.9
+[masters]
+master ansible_user=ansible ansible_host=172.16.5.6
+
+[masters:vars]
+
+[clients]
+client ansible_user=ansible ansible_host=172.16.5.6
+
+[clients:vars]
+
+[workers]
+worker-0 ansible_user=ansible ansible_host=172.16.5.7
+worker-1 ansible_user=ansible ansible_host=172.16.5.8
+worker-2 ansible_user=ansible ansible_host=172.16.5.9
+
+[workers:vars]
