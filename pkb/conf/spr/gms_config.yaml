@@ -53,17 +53,13 @@ intel_gms:
     kubeconfig: /home/ansible/.kube/config
     replica_count: 1
     k8s_get_retry_count: 5
-    gms_tarball_archive_url: /home/yangfen1/go/src/MicroservicesWorkloadsRelease/googleMicroServices/CodeBase/gms_rc2.tar.gz
-    gms_images_registry: 172.16.27.100:5000/
+    gms_tarball_archive_url: /home/ansible/yulu/gms.rc2.tar.gz
+    gms_images_registry: 10.250.18.9:5000/
     gms_wrk_threads: 20
     gms_client_connections: 1600
-    #svrinfo_tarball: <absolute path for svr info package>
-    gms_images_tag: rc2.1
-    #intel_gms_p99_sla_only: true
-    gms_wrk_init_rate: 40000
-    gms_wrk_rate_increment: 2500
-    #    svrinfo: false 
-    #emon: False
-    trace_vm_groups: worker
-    #    gms_namespace: gms
-    gms_namespace_count: 2
+    gms_namespace: gms
+    gms_images_tag: rc2
+    gms_namespace_count: 1
+    #gms_p99_sla_only: true
+    gms_wrk_init_rate: 48000
+    gms_wrk_rate_increment: 1000
