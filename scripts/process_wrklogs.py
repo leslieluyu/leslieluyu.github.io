@@ -1,13 +1,7 @@
-import fileinput
 import os
-import posixpath
-import logging
 import time
 import re
-import glob
 import json
-import yaml
-import requests
 import argparse
 
 
