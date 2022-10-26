@@ -1,0 +1,20 @@
+[users]
+172.31.150.10
+172.31.150.11
+172.31.150.12
+[masters]
+master ansible_user=ubuntu ansible_host=172.31.150.9
+
+[masters:vars]
+
+[clients]
+client ansible_user=ubuntu ansible_host=172.31.150.9
+
+[clients:vars]
+
+[workers]
+worker-0 ansible_user=ubuntu ansible_host=172.31.150.10
+worker-1 ansible_user=ubuntu ansible_host=172.31.150.11
+worker-2 ansible_user=ubuntu ansible_host=172.31.150.12
+
+[workers:vars]
