@@ -1,0 +1,123 @@
+---
+- hosts: "masters"
+  remote_user: "{{ ansible_user }}"
+  connection: ssh
+  vars_files:
+    - wrk_vars.yaml
+  tasks:
+    - name: Get frontend node ip
+      command: "kubectl get nodes -o jsonpath='{.items[0].status.addresses[0].address}'"
+      register: frontend_ip
+    - name: Get frontend node port
+      command: "kubectl -n {{ k8s_namespace }} get -o jsonpath='{.spec.ports[0].nodePort}' services {{ k8s_service }}"
+      register: frontend_port
+    - name: Check frontend node ip/port
+      assert:
+        that:
+          - frontend_port.stdout | int > 0
+          - frontend_ip.stdout | trim != ""
+    - name: save frontend information
+      add_host:
+        name: "DUMMY_HOST"
+        ip: "{{ frontend_ip.stdout }}"
+        port: "{{ frontend_port.stdout }}"
+
+- hosts: "workers, clients"
+  remote_user: "{{ ansible_user }}"
+  vars_files:
+    - wrk_vars.yaml
+  vars_prompt:
+    - name: collect_duration
+      prompt: "How long(seconds) to profiling"
+      private: no
+      default: 30
+
+  tasks:
+    - name: Check collect_duration
+      run_once: yes
+      assert:
+        that: collect_duration | int + 15 <= wrk_duration | int 
+        fail_msg: "variable collect_duration should be 15 seconds less than wrk_duration({{ wrk_duration }})"
+      delegate_to: localhost
+
+    - name: clear previous results
+      file:
+        dest: /tmp/flamegraph
+        state: absent
+      when: inventory_hostname in groups['workers']
+
+    - name: create result directory
+      file:
+        dest: /tmp/flamegraph
+        mode: "0777"
+        state: directory
+      when: inventory_hostname in groups['workers']
+
+    - name: "Run wrk with -T {{ wrk_timeout }}s -t {{ wrk_thread }} -c {{ wrk_connection }} -s {{ wrk_lua_script }} -d {{ wrk_duration }} -R {{ wrk_rate }}"
+      command:
+        cmd: "./wrk -D exp -L -T {{ wrk_timeout }}s -t {{ wrk_thread }} -c {{ wrk_connection }} -s {{ wrk_lua_script }} -d {{ wrk_duration }} -R {{ wrk_rate }} http://{{ hostvars['DUMMY_HOST']['ip'] }}:{{ hostvars['DUMMY_HOST']['port'] }}"
+        chdir: /opt/cnb/wrk2/
+      async: "{{ wrk_duration | int + 3}}"
+      poll: 0
+      ignore_errors: yes
+      register: wrk_sleeper
+      when: inventory_hostname in groups['clients']
+
+    - pause: seconds=10
+
+    - name: "Collect perf"
+      become: yes
+      command: "perf record -a -g -o /tmp/flamegraph/perf.data.cycle-{{ inventory_hostname }} -- sleep {{ collect_duration }}"
+      when: inventory_hostname in groups['workers']
+
+    - name: Wait for wrk to finish
+      async_status:
+        jid: "{{ wrk_sleeper.ansible_job_id }}"
+      register: wrk_result
+      until: wrk_result.finished
+      retries: 100
+      delay: 5
+      when: inventory_hostname in groups['clients']
+      
+    - name: change result file onwership
+      become: yes
+      file:
+        dest: /tmp/flamegraph
+        recurse: yes
+        owner: "{{ ansible_user }}"
+        group: "{{ ansible_user }}"
+      when: inventory_hostname in groups['workers']
+
+    - name: generate flamegraph for cpu cycles step 1
+      shell:
+        chdir: /tmp/flamegraph
+        cmd: "perf script -i perf.data.cycle-{{ inventory_hostname }} | /opt/cnb/FlameGraph/stackcollapse-perf.pl > out.perf-folded-{{ inventory_hostname }}"
+      when: inventory_hostname in groups['workers']
+
+    - name: generate flamegraph for cpu cycles step 2
+      shell:
+        chdir: /tmp/flamegraph
+        cmd: "/opt/cnb/FlameGraph/flamegraph.pl --title='CPU Cycle Flame Graph - {{ inventory_hostname }}' out.perf-folded-{{ inventory_hostname }} > cpucycle-{{ inventory_hostname }}.svg"
+      when: inventory_hostname in groups['workers']
+
+    - name: get result back 
+      synchronize:
+        mode: pull
+        src: /tmp/flamegraph
+        dest: "flamegraph-results"
+      when: inventory_hostname in groups['workers']
+
+    - name: Save wrk result
+      copy:
+         dest: flamegraph-results/wrk-result.txt
+         content: "{{ wrk_result.stdout }}"
+      delegate_to: localhost
+      ignore_errors: yes
+      when: inventory_hostname in groups['clients']
+
+    - name: save wrk parameter
+      lineinfile:
+        dest: flamegraph-results/wrk-result.txt
+        line: "./wrk -D exp -L -T {{ wrk_timeout }}s -t {{ wrk_thread }} -c {{ wrk_connection }} -s {{ wrk_lua_script }} -d {{ wrk_duration }} -R {{ wrk_rate }} http://{{ hostvars['DUMMY_HOST']['ip'] }}:{{ hostvars['DUMMY_HOST']['port'] }}"
+      delegate_to: localhost
+      when: inventory_hostname in groups['clients']
