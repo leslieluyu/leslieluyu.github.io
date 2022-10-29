@@ -1,0 +1,22 @@
+[masters]
+master1 ansible_user=ansible ansible_host=192.168.122.200 k8s_namespace=hotel-res1
+#master2 ansible_user=ansible ansible_host=192.168.122.200 k8s_namespace=hotel-res2
+master3 ansible_user=ansible ansible_host=192.168.122.55 k8s_namespace=hotel-res3
+#master4 ansible_user=ansible ansible_host=192.168.122.55 k8s_namespace=hotel-res4
+
+[masters:vars]
+
+[clients]
+client1 ansible_user=ansible ansible_host=192.168.122.200 ref_host_name=master1
+#client2 ansible_user=ansible ansible_host=192.168.122.200 ref_host_name=master2
+client3 ansible_user=ansible ansible_host=192.168.122.55  ref_host_name=master3
+#client4 ansible_user=ansible ansible_host=192.168.122.55  ref_host_name=master4
+
+[clients:vars]
+
+[workers]
+worker-0 ansible_user=ansible ansible_host=10.45.247.140
+worker-1 ansible_user=ansible ansible_host=10.45.247.142
+worker-2 ansible_user=ansible ansible_host=10.45.247.145
+
+[workers:vars]

@@ -1,0 +1,11 @@
+# You need to adjust this to suit your environment
+- name: delete old helm release in {{ k8s_namespace }}
+  command: "helm -n {{ k8s_namespace }} delete test"
+  ignore_errors: yes
+- name: delete namespace NS {{ k8s_namespace }}
+  command: kubectl delete ns {{ k8s_namespace }}
+  ignore_errors: yes
+- name: deploy workload in NS {{ k8s_namespace }}
+  command:
+    cmd: helm install test . -n {{ k8s_namespace }} -f testing-values.yaml --create-namespace
+    chdir: /home/ansible/DeathStarBenchPlusPlus/hotelReservation/helm

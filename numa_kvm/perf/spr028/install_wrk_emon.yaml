@@ -1,0 +1,250 @@
+---
+- hosts: "masters, clients, workers"
+  remote_user: "{{ ansible_user }}"
+  become: yes
+  become_method: sudo
+  become_user: root
+  connection: ssh
+
+  tasks:
+    - name: make sure base directory
+      file:
+        path: /opt/cnb
+        state: directory
+        mode: '0777'
+    - name: copy cpufreq_governor.sh scripts
+      copy:
+        dest: /opt/cnb/cpufreq_governor.sh
+        src: "{{ playbook_dir }}/../internal_tools/cpufreq_governor.sh"
+
+- hosts: "clients"
+  remote_user: "{{ ansible_user }}"
+  gather_facts: yes
+  connection: ssh
+  throttle: 1
+
+  tasks:
+    - name: make sure wrk2 directory
+      become: yes
+      file:
+        path: /opt/cnb
+        state: directory
+        mode: '0777'
+
+    - name: Extract wrk2 source file
+      unarchive:
+         src: "{{ playbook_dir }}/../internal_tools/wrk2.tar.gz"
+         dest: /opt/cnb
+
+    - name: Install dependencies
+      become: yes
+      apt:
+        name:
+          - build-essential
+          - luarocks
+          - libssl-dev
+          - zlib1g-dev
+        state: present
+
+    - name: Install lua dependencies
+      command: luarocks install luasocket
+      become: yes
+
+    - name: clean wrk2
+      command:
+        cmd: make clean
+        chdir: /opt/cnb/wrk2/
+
+    - name: build wrk2
+      command:
+        cmd: make
+        chdir: /opt/cnb/wrk2/
+
+- hosts: "workers"
+  remote_user: "{{ ansible_user }}"
+  become: yes
+  become_method: sudo
+  become_user: root
+  gather_facts: yes
+  connection: ssh
+  
+  tasks:
+    - name: get kernel version
+      command: uname -r
+      register: kernelver
+
+    - name: Installing basic perf packages
+      apt: 
+        name:
+          - linux-tools-common
+          - build-essential
+          - linux-headers-{{ kernelver.stdout }}
+          - linux-tools-{{ kernelver.stdout }}
+          - perl
+          - unzip
+          - util-linux
+          - bison
+          - cmake
+          - flex
+          - git
+          - libedit-dev
+          - libllvm12
+          - llvm-12-dev
+          - libclang-12-dev
+          - zlib1g-dev
+          - libelf-dev
+          - libfl-dev
+          - python3
+          - python-is-python3
+          - python3-distutils
+        state: present
+
+    - name: Install perf flamegraph tool
+      git:
+        repo: https://github.com/brendangregg/FlameGraph
+        dest: /opt/cnb/FlameGraph
+
+    - name: Get bcc source code
+      git:
+        repo: https://github.com/iovisor/bcc.git
+        dest: /opt/cnb/bcc
+
+    - name: create bcc installation script
+      copy:
+        dest: /opt/cnb/install_bcc.sh
+        content: |
+          #!/bin/bash
+          mkdir bcc/build; cd bcc/build
+          cmake ..
+          make
+          sudo make install
+          cmake -DPYTHON_CMD=python3 .. # build python3 binding
+          pushd src/python/
+          make
+          sudo make install
+          popd
+        mode: '0755'
+
+    - name: build and install bcc
+      command:
+        cmd: /opt/cnb/install_bcc.sh
+        chdir: /opt/cnb/
+
+    - name: make sure emon directory
+      file:
+        path: /opt/cnb/emon/results
+        state: directory
+        mode: '0777'
+
+    - block:
+      - name: extract emon installation package
+        unarchive:
+          src: "{{ playbook_dir }}/../internal_tools/sep_private_5_37_linux_101222070cbac49.tar.bz2"
+          dest: /opt/cnb/emon
+
+      - name: find emon source tarball
+        find:
+          paths: /opt/cnb/emon
+          patterns: 'sep_private*.tar.bz2'
+          recurse: yes
+        register: emon_source
+
+      - name: Extract emon source tarball
+        unarchive:
+          src: "{{ emon_source['files'][0]['path'] }}"
+          remote_src: yes
+          dest: /opt/cnb/emon
+
+      - name: Build emon driver
+        command:
+          cmd: "./build-driver -ni"
+          chdir: /opt/cnb/emon/sepdk/src
+
+      - name: Create emon sanity check script
+        copy:
+          dest: /opt/cnb/emon/sanity_check.sh
+          mode: '0755'
+          content: |
+            #!/bin/bash
+            set -Eeuo pipefail
+            output_dir=$1
+            echo "Clean previous emon result"
+            rm -f "$output_dir/*emon*"
+            rm -f "output_dir/*edp*.csv"
+            EMON_INSTALL_DIR=/opt/cnb/emon
+            $EMON_INSTALL_DIR/sepdk/src/rmmod-sep -s
+            $EMON_INSTALL_DIR/sepdk/src/insmod-sep -g root
+            set +Eeuo pipefail
+            source $EMON_INSTALL_DIR/sep_vars.sh
+            set -Eeuo pipefail
+            echo "emon -v > $output_dir/emon-v.dat"
+            emon -v > $output_dir/emon-v.dat
+            echo "emon -M > $output_dir/emon-M.dat"
+            emon -M > $output_dir/emon-M.dat
+            v_count=`wc -c $output_dir/emon-v.dat | awk '{ print $1}'`
+            M_count=`wc -c $output_dir/emon-M.dat | awk '{ print $1}'`
+            if (( ${v_count} <= 0 || ${M_count} <= 0 )); then
+              echo "EMON sanity checking script failed with invalid output in $output_dir/emon-v.dat and/or $output_dir/emon-M.dat"
+            fi
+            $EMON_INSTALL_DIR/sepdk/src/rmmod-sep -s
+
+      - name: Check emon sanity
+        command: /opt/cnb/emon/sanity_check.sh /opt/cnb/emon/results
+
+      - name: Create emon start script
+        copy:
+          dest: /opt/cnb/emon/start.sh
+          mode: '0755'
+          content: |
+            #!/bin/bash
+            output_dir=$1
+            emon_event=$2
+            EMON_INSTALL_DIR=/opt/cnb/emon
+            $EMON_INSTALL_DIR/sepdk/src/rmmod-sep -s
+            $EMON_INSTALL_DIR/sepdk/src/insmod-sep -g root
+            source $EMON_INSTALL_DIR/sep_vars.sh
+            rm -f $output_dir/emon.dat
+            echo "emon -collect-edp $emon_event > $output_dir/emon.dat"
+            emon -collect-edp $emon_event > $output_dir/emon.dat
+
+      - name: Create emon stop script
+        copy:
+          dest: /opt/cnb/emon/stop.sh
+          mode: '0755'
+          content: |
+            #!/bin/bash
+            EMON_INSTALL_DIR=/opt/cnb/emon
+            source $EMON_INSTALL_DIR/sep_vars.sh
+            $EMON_INSTALL_DIR/bin64/emon -stop
+            sleep 5
+            pkill -9 -x emon
+            $EMON_INSTALL_DIR/sepdk/src/rmmod-sep -s
+
+      - name: Create emon post process script
+        copy:
+          dest: /opt/cnb/emon/post-process.sh
+          mode: '0755'
+          content: |
+            #!/bin/bash
+            output_dir=$1
+            edp_script=$2
+            emon_edp_config=$3
+            EMON_INSTALL_DIR=/opt/cnb/emon
+            $EMON_INSTALL_DIR/sepdk/src/rmmod-sep -s
+            $EMON_INSTALL_DIR/sepdk/src/insmod-sep
+            source $EMON_INSTALL_DIR/sep_vars.sh
+            cd $output_dir
+            if ! [[ "$edp_script" == *"ruby"* ]]; then
+              script_option="py"
+            else
+              script_option=""
+            fi
+            if [ -z $emon_edp_config ]; then
+              echo "emon -process-${script_option}edp $EMON_INSTALL_DIR/config/edp/${script_option}edp_config.txt"
+              emon -process-${script_option}edp $EMON_INSTALL_DIR/config/edp/${script_option}edp_config.txt
+            else
+              echo "emon -process-${script_option}edp $emon_edp_config"
+              emon -process-${script_option}edp $emon_edp_config
+            fi
+            $EMON_INSTALL_DIR/sepdk/src/rmmod-sep -s
+      when: ansible_architecture == "x86_64"

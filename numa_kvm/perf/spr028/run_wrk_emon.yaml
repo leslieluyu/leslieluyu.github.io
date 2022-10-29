@@ -1,0 +1,193 @@
+---
+- hosts: localhost
+  gather_facts: false
+  vars_files:
+    - wrk_vars.yaml
+  tasks:
+    - name: Delete previous results directory
+      file:
+        path: "{{ result_dir }}"
+        state: absent
+    - name: Create directory to save results
+      file:
+        path: "{{ result_dir }}"
+        state: directory
+
+- hosts: all
+  gather_facts: false
+  become: yes
+  tasks:
+    - name: Set CPU governor to performance
+      command: bash /opt/cnb/cpufreq_governor.sh performance
+      register: governor
+
+    - debug:
+        msg: "CPU governor on host {{ inventory_hostname }} has been set to {{ governor.stdout }}!"
+
+- hosts: clients
+  remote_user: "{{ ansible_user }}"
+  vars_files:
+    - wrk_vars.yaml
+  tasks:
+    - name: Set maximum open file limit
+      throttle: 1
+      become: yes
+      pam_limits:
+        domain: "{{ ansible_user }}"
+        use_max: yes
+        limit_type: "-"
+        limit_item: nofile
+        value: "{{ wrk_connection | int * 4 }}"
+
+- hosts: "masters"
+  remote_user: "{{ ansible_user }}"
+  any_errors_fatal: true
+  gather_facts: false
+  vars_files:
+    - wrk_vars.yaml
+  tasks:
+    - name: "Get user {{ ansible_user }} home directory"
+      shell: >
+             getent passwd {{ ansible_user }}  | awk -F: '{ print $6 }'
+      changed_when: false
+      register: homedir
+    - name: upload check_pod.py
+      copy:
+        src: "{{ playbook_dir }}/../internal_tools/check_pod.py"
+        dest: "{{ homedir.stdout }}/check_pod.py"
+        owner: "{{ ansible_user }}"
+        group: "{{ ansible_user }}"
+        mode: '0755'
+    - include_tasks: custom_deploy.yaml
+      when: redeploy | default(true) | bool
+    - name: wait for all pod to be ready
+      command: "{{ homedir.stdout }}/check_pod.py -n {{ k8s_namespace }} wait -r 300"
+    - name: Get frontend node ip
+      command: "kubectl get nodes -n {{ k8s_namespace }} -o jsonpath='{.items[0].status.addresses[0].address}'"
+      register: frontend_ip
+    - name: Get frontend node port
+      command: "kubectl -n {{ k8s_namespace }} get -o jsonpath='{.spec.ports[0].nodePort}' services {{ k8s_service }}"
+      register: frontend_port
+    - name: Check frontend node ip/port
+      assert:
+        that:
+          - frontend_port.stdout | int > 0
+          - frontend_ip.stdout | trim != ""
+    - name: save frontend_url
+      set_fact:
+        frontend_url: "{{ frontend_ip.stdout }}:{{ frontend_port.stdout }}"
+    - pause:
+        seconds: 10
+    - name: record pod status before running
+      command: "{{ homedir.stdout }}/check_pod.py -n {{ k8s_namespace }} get -f {{ homedir.stdout }}/{{ k8s_namespace }}_pod_status.json"
+
+- hosts: "workers"
+  remote_user: "{{ ansible_user }}"
+  vars_files:
+    - wrk_vars.yaml
+  
+  tasks:
+    - name: Start emon
+      command: "sudo /opt/cnb/emon/start.sh /opt/cnb/emon/results"
+      async: "{{ wrk_duration | int + 10}}"
+      poll: 0
+      when: need_emon | default(false) | bool
+
+- hosts: "clients"
+  remote_user: "{{ ansible_user }}"
+  gather_facts: false
+  vars_files:
+    - wrk_vars.yaml
+
+  tasks:
+    - name: get frontend URL
+      set_fact:
+        frontend_url: "{{ hostvars[ref_host_name].frontend_url }}"
+    - name: "Run wrk with -T {{ wrk_timeout }}s -t {{ wrk_thread }} -c {{ wrk_connection }} -s {{ wrk_lua_script }} -d {{ wrk_duration }} -R {{ wrk_rate }}"
+      command:
+        cmd: "./wrk -D exp -L -T {{ wrk_timeout }}s -t {{ wrk_thread }} -c {{ wrk_connection }} -s {{ wrk_lua_script }} -d {{ wrk_duration }} -R {{ wrk_rate }} http://{{ frontend_url }}"
+        chdir: /opt/cnb/wrk2/
+      async: "{{ wrk_duration | int + 3}}"
+      poll: 5
+      ignore_errors: yes
+      register: wrk_result
+
+- hosts: "workers"
+  remote_user: "{{ ansible_user }}"
+  become: yes
+  become_method: sudo
+  become_user: root
+  connection: ssh
+  gather_facts: false
+  vars_files:
+    - wrk_vars.yaml
+  
+  tasks:
+    - block:
+        - name: Stop emon
+          command: "sudo /opt/cnb/emon/stop.sh"
+        - name: get emon results
+          synchronize:
+            mode: pull
+            src: /opt/cnb/emon/results
+            dest: "{{ result_dir }}/emon-results-{{ inventory_hostname }}"
+      when: need_emon | default(false) | bool
+
+    - name: Get dmesg content
+      command: dmesg --time-format iso
+      register: dmesg_result
+
+- hosts: "masters"
+  remote_user: "{{ ansible_user }}"
+  gather_facts: false
+  vars_files:
+    - wrk_vars.yaml
+  tasks:
+    - name: "Get user {{ ansible_user }} home directory"
+      shell: >
+             getent passwd {{ ansible_user }}  | awk -F: '{ print $6 }'
+      changed_when: false
+      register: homedir
+    - name: check pod status after running
+      command: "{{ homedir.stdout }}/check_pod.py -n {{ k8s_namespace }} diff -p {{ homedir.stdout }}/{{ k8s_namespace }}_pod_status.json"
+    - name: Create directory to save pod logs
+      file:
+        path: "{{ homedir.stdout }}/{{ k8s_namespace }}_pod_logs"
+        state: directory
+    - name: Get pod logs
+      command: "{{ homedir.stdout }}/check_pod.py -n {{ k8s_namespace }} logs -o {{ homedir.stdout }}/{{ k8s_namespace }}_pod_logs"
+    - name: Save pod logs to local
+      synchronize:
+        mode: pull
+        src: "{{ homedir.stdout }}/{{ k8s_namespace }}_pod_logs"
+        dest: "{{ result_dir }}"
+    - name: Delete directory to save pod logs
+      file:
+        path: "{{ homedir.stdout }}/{{ k8s_namespace }}_pod_logs"
+        state: absent
+
+- hosts: "localhost"
+  gather_facts: false
+  vars_files:
+    - wrk_vars.yaml
+  tasks:
+    - name: Save wrk stdout result to localhost
+      copy:
+        dest: "{{ result_dir }}/wrk-result.stdout.{{ item }}"
+        content: "{{ hostvars[item].wrk_result.stdout }}"
+      loop: "{{ groups['clients'] }}"
+    - name: Save wrk parameter to localhost
+      lineinfile:
+        path: "{{ result_dir }}/wrk-result.stdout.{{ item }}"
+        line: "Run wrk with -D exp -T {{ wrk_timeout }}s -t {{ wrk_thread }} -c {{ wrk_connection }} -s {{ wrk_lua_script }} -d {{ wrk_duration }} -R {{ wrk_rate }}"
+      loop: "{{ groups['clients'] }}"
+    - name: Save wrk stderr result to localhost
+      copy:
+        dest: "{{ result_dir }}/wrk-result.stderr.{{ item }}"
+        content: "{{ hostvars[item].wrk_result.stderr }}"
+      loop: "{{ groups['clients'] }}"
+    - name: check wrk failure
+      fail:
+        msg: "wrk on {{ item }} failed!"
+      when: hostvars[item].wrk_result.stderr | length > 0
+      loop: "{{ groups['clients'] }}"

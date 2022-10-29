@@ -1,0 +1,14 @@
+#need_emon: false
+#redeploy: true
+
+result_dir: 1ns_docker_results
+
+#k8s_namespace: hotel-res
+k8s_service: frontend-test-hotelres
+
+wrk_timeout: 5
+wrk_lua_script: scripts/hotel-reservation/mixed-workload_type_1.lua
+wrk_thread: 32
+wrk_connection: 1280
+wrk_duration: 120
+#wrk_rate: 90000
