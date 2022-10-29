@@ -1,0 +1,11 @@
+[opus1-vms-numa0]
+192.168.122.236
+192.168.122.150
+192.168.122.170
+192.168.122.115
+
+
+[all:vars]
+ansible_connection=ssh
+ansible_user=ubuntu
+ansible_ssh_common_args='-o StrictHostKeyChecking=no'

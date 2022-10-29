@@ -1,0 +1,42 @@
+#cloud-config
+manage_etc_hosts: localhost
+fqdn: master-numa0.local
+users:
+  - name: ubuntu
+    sudo: ALL=(ALL) NOPASSWD:ALL
+    groups: users, admin, sudo
+    home: /home/ubuntu
+    shell: /bin/bash
+    lock_passwd: false
+    ssh-authorized-keys:
+      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCgHkPKD6Zcg3G0eyyDfGaEDM0VONZQzlcwXY9bdX3yJhzwcTERM5tmxnuIVPD6NnhNE1uORMJ0mKqcsruOZ9sdcoJFzqIjDSfr5VBidS81DosGBxvxBbmchW0a9v0lpWdUeyTgRPK13OcqzrQRRi6jEMmdUU6iCeOa4APlVbSxOYommLT2dHODVz/etz1M4/ktSdHoxmfh41/7pnYMwtNBTRXW7mDUB6EKX/Sj/oxdVAbh1vwvlBaxwhe3KLsKwixgACWTYoC96j3s7ozqvR1BYg+/qiP7B5kwgyQGvjPtrQsFTK/7N6me961KgT4cG0ivGp9WFHsRdjpqaBTzVAw7I6WHDjn1D+UzX8z4W3YTeVc+0ag5jrWD2zDfoR1EjM2bfi5qcpHSkZ4nIoc2OsRb/vJQ7z2mt8GyU+sN+kSqojIKqDQfVZHKtKqqnAVbAVRXe3oDNPFCmPLMZfXLwuvE0SJqjwj7+Ay/8Qj6KW945mbsQRJo4nAGGKhZ2fHQdts= ansible@r18s09
+ssh_genkeytypes:
+  - rsa
+  - dsa
+# only cert auth via ssh (console access can still login)
+ssh_pwauth: False
+disable_root: False
+chpasswd:
+  list: |
+     ubuntu:linux
+  expire: False
+write_files:
+  - path: /etc/apt/apt.conf.d/00-proxy
+    permissions: 0640
+    owner: root
+    content: |
+      Acquire::http { Proxy "http://proxy-dmz.intel.com:912"; };
+      Acquire::https { Proxy "http://proxy-dmz.intel.com:912"; };
+      Acquire::http::Pipeline-Depth "23";
+      Acquire::Languages "none";
+packages:
+ - linux-firmware
+ - linux-modules-extra-5.15.0-52-generic
+runcmd:
+ - modprobe ice
+ - echo "export http_proxy=http://proxy-dmz.intel.com:912" >>/etc/environment
+ - echo "export https_proxy=http://proxy-dmz.intel.com:912" >>/etc/environment
+ - echo "export no_proxy=localhost,127.0.0.1,intel.com,.intel.com,172.31.150.0/24,172.31.151.0/24,192.168.0.0/16" >>/etc/environment
+
+# written to /var/log/cloud-init-output.log
+final_message: "The system is finally up, after  seconds"
