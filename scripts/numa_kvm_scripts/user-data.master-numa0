@@ -9,7 +9,7 @@ users:
     shell: /bin/bash
     lock_passwd: false
     ssh-authorized-keys:
-      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCgHkPKD6Zcg3G0eyyDfGaEDM0VONZQzlcwXY9bdX3yJhzwcTERM5tmxnuIVPD6NnhNE1uORMJ0mKqcsruOZ9sdcoJFzqIjDSfr5VBidS81DosGBxvxBbmchW0a9v0lpWdUeyTgRPK13OcqzrQRRi6jEMmdUU6iCeOa4APlVbSxOYommLT2dHODVz/etz1M4/ktSdHoxmfh41/7pnYMwtNBTRXW7mDUB6EKX/Sj/oxdVAbh1vwvlBaxwhe3KLsKwixgACWTYoC96j3s7ozqvR1BYg+/qiP7B5kwgyQGvjPtrQsFTK/7N6me961KgT4cG0ivGp9WFHsRdjpqaBTzVAw7I6WHDjn1D+UzX8z4W3YTeVc+0ag5jrWD2zDfoR1EjM2bfi5qcpHSkZ4nIoc2OsRb/vJQ7z2mt8GyU+sN+kSqojIKqDQfVZHKtKqqnAVbAVRXe3oDNPFCmPLMZfXLwuvE0SJqjwj7+Ay/8Qj6KW945mbsQRJo4nAGGKhZ2fHQdts= ansible@r18s09
+      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDPz6jMT3FPqoFARsR2/NUR28iFtWL3M/Aiq6N/2O1lCLidxNCguNgf7cxdEe2nqKYbEuoaOOrlgOFPmFicX6KqLoRR43H5CY6zKWZIJjubDRIvskfFOpFdqSsmO9IpUYie6GtuWcFB2ds7MiyPu2Ca1gE8JtkG2EefYygMNLCByooPeUtPH6BpJj/4teUGuff9ro0KNlStgpPF8yI0LHx6soeIS7Cg5QZQBv9RYyt9YKsWBn5O6/uT4zPyreBruWQKUokvyMe0p9JIVdrv5K5Cc1VLEbiUWqmYVQUOoyozdj0KzROnEoG/pYEnY2wGz/xEUBqR2EfVCs0JrSY0eNSb
 ssh_genkeytypes:
   - rsa
   - dsa
@@ -36,7 +36,7 @@ runcmd:
  - modprobe ice
  - echo "export http_proxy=http://proxy-dmz.intel.com:912" >>/etc/environment
  - echo "export https_proxy=http://proxy-dmz.intel.com:912" >>/etc/environment
- - echo "export no_proxy=localhost,127.0.0.1,intel.com,.intel.com,172.31.150.0/24,172.31.151.0/24,192.168.0.0/16" >>/etc/environment
+ - echo "export no_proxy=localhost,127.0.0.1,intel.com,.intel.com,172.31.150.0/24,172.31.151.0/24,192.168.0.0/16,172.16.27.0/24" >>/etc/environment
 
 # written to /var/log/cloud-init-output.log
 final_message: "The system is finally up, after  seconds"

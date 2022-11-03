@@ -5,10 +5,10 @@
 
 ######################################################
 #######Change these fieleds for each nodes###########
-IP1=172.31.150.10/24
-IP2=172.31.151.10/24
-INSTANCE1_NAME=master-numa0
-INSTANCE2_NAME=master-numa1
+IP1=172.31.150.14/24
+IP2=172.31.151.14/24
+INSTANCE1_NAME=worker2-numa0
+INSTANCE2_NAME=worker2-numa1
 
 #######################################################
 ###Change this feileds for each HW configuration#######
@@ -18,8 +18,8 @@ ETH1=ens2
 ETH2=enp187s0
 
 # default gateway ip address
-GATEWAY1=172.31.150.10
-GATEWAY2=172.31.151.10
+GATEWAY1=172.31.150.16
+GATEWAY2=172.31.151.16
 
 IMAGE_SIZE=30G
 VCPU_CFG="sockets=1,cores=56,threads=2"
@@ -133,13 +133,13 @@ done
 ip link|grep -w $ETH1
 if [ $? -ne 0 ]; then
   echo "Ethernet $ETH1 detect failed"
-  exit -1
+  #exit -1
 fi
 
 ip link|grep -w $ETH2
 if [ $? -ne 0 ]; then
   echo "Ethernet $ETH2 detect failed"
-  exit -1
+  #exit -1
 fi
 ## prepare for instance-1
 PCI_DEVICE1=$(get_pci_from_eth $ETH1)

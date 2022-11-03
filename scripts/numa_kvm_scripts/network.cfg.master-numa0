@@ -3,4 +3,4 @@ ethernets:
   enp1s0:
      dhcp4: true
   enp5s0:
-     addresses: [ 172.31.150.09/24 ]
+     addresses: [ 172.31.150.16/24 ]

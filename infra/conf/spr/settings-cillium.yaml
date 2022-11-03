@@ -5,7 +5,7 @@
 #intel_proxy: "http://proxy-dmz.intel.com:912"
 #no_proxy: "localhost,127.0.0.1,intel.com,.intel.com,10.0.0.0/8,<all your nodes' ip addresses>"
 intel_proxy: "http://proxy-dmz.intel.com:912"
-no_proxy: "localhost,127.0.0.1,intel.com,.intel.com,10.45.247.75,10.45.247.76,10.45.247.79,10.45.247.80,172.16.27.100,172.16.27.110,172.16.27.140,172.16.27.150,10.0.0.0/8"
+no_proxy: "localhost,127.0.0.1,intel.com,.intel.com,10.45.247.75,10.45.247.76,10.45.247.79,10.45.247.80,172.16.27.160,172.16.27.110,172.16.27.140,172.16.27.150,10.0.0.0/8"
 
 # The following settings are for playbook create_user.yaml
 #
@@ -28,7 +28,7 @@ use_crirm: true
 # The ip address to listen on the K8S master node for K8S API server.
 # Set this if you don't want to use the default ip address of the K8S master node
 # k8s_apiserver_ip: <one of the valid ip address of K8S master node>
-k8s_apiserver_ip: "172.16.27.100"
+k8s_apiserver_ip: "172.16.27.160"
 
 # Kubernetes CNI to use, e.g. calico, cilium
 cni: cilium
