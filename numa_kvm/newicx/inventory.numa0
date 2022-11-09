@@ -1,0 +1,22 @@
+[users]
+172.31.150.110
+172.31.150.120
+172.31.150.130
+172.31.150.140
+[masters]
+master ansible_user=ubuntu ansible_host=172.31.150.110 kubelet_node_ip=172.31.150.110
+
+
+[masters:vars]
+
+[clients]
+client ansible_user=ubuntu ansible_host=172.31.150.110
+
+[clients:vars]
+
+[workers]
+worker-0 ansible_user=ubuntu ansible_host=172.31.150.120 kubelet_node_ip=172.31.150.120
+worker-1 ansible_user=ubuntu ansible_host=172.31.150.130 kubelet_node_ip=172.31.150.130
+worker-2 ansible_user=ubuntu ansible_host=172.31.150.140 kubelet_node_ip=172.31.150.140
+
+[workers:vars]
