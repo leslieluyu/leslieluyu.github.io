@@ -1,0 +1,74 @@
+# PKB benchmark config file for DSB hotel_reservation
+
+# Cluster Configuration:
+# - client_machine: Node to run load generator
+# - controller_machine: K8S master node
+# - worker_machine_x: K8S worker node
+# Notes:
+# - client_machine and controller_machine are the same 
+# - At least one worker node
+# - ip_address can be public/private address
+# - Make sure you can manually ssh to each node through user_name:ssh_private_key
+static_vms:
+  - &client_machine
+    os_type: ubuntu2004
+    ip_address: 10.45.247.81
+    user_name: ansible
+    ssh_private_key: ~/.ssh/id_rsa
+  - &controller_machine
+    os_type: ubuntu2004
+    ip_address: 10.45.247.81
+    user_name: ansible
+    ssh_private_key: ~/.ssh/id_rsa
+  - &worker_machine_0
+    os_type: ubuntu2004
+    ip_address: 10.45.247.76
+    user_name: ansible
+    ssh_private_key: ~/.ssh/id_rsa
+  - &worker_machine_1
+    os_type: ubuntu2004
+    ip_address: 10.45.247.79
+    user_name: ansible
+    ssh_private_key: ~/.ssh/id_rsa
+  - &worker_machine_2
+    os_type: ubuntu2004
+    ip_address: 10.45.247.80
+    user_name: ansible
+    ssh_private_key: ~/.ssh/id_rsa
+
+# Example Workload:
+dsbpp_hotel:
+  description: DeathStarBenchPlusPlus Hotel Reservation
+  vm_groups:
+    client:
+      vm_count: 1
+      static_vms:
+        - *client_machine
+    controller:
+      vm_count: 1
+      static_vms:
+        - *controller_machine
+    worker:
+      vm_count: 3
+      static_vms:
+        - *worker_machine_0
+        - *worker_machine_1
+        - *worker_machine_2
+  flags:
+    # Path to K8S config file on controller_machine
+    kubeconfig: /home/ansible/.kube/config
+    # Collect svrinfo
+    svrinfo: false
+    # Path to svrinfo tarball
+    svrinfo_tarball: ../infra/k8s/internal_tools/svr-info-internal-2.0.3.tgz
+    # Registry to pull workload images
+    # - Leave empty to pull from dockerhub
+    # - Do not use Intel CaaS cache without access to Intel network
+    dsbpp_hotel_image_cache: ""
+    # Name and tags of images
+    dsbpp_hotel_docker_image: "lianhao/dsbpp_hotel_reserv:1.0"
+    # Path to DSB tarball
+    dsbpp_hotel_dsb_archive: ./DeathStarBenchPlusPlus.tar
+    # Workload configuration
+    dsbpp_hotel_memctimeout: 10
+
