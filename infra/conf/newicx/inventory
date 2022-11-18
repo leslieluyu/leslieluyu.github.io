@@ -1,0 +1,21 @@
+[users]
+10.211.248.78
+10.211.248.77
+10.211.248.61
+10.211.248.62
+[masters]
+master ansible_user=ansible ansible_host=10.211.248.78 kubelet_node_ip=172.16.27.110
+
+[masters:vars]
+
+[clients]
+client ansible_user=ansible ansible_host=10.211.248.78 
+
+[clients:vars]
+
+[workers]
+worker-0 ansible_user=ansible ansible_host=10.211.248.77 kubelet_node_ip=172.16.27.120
+worker-1 ansible_user=ansible ansible_host=10.211.248.61 kubelet_node_ip=172.16.27.130
+worker-2 ansible_user=ansible ansible_host=10.211.248.62 kubelet_node_ip=172.16.27.140
+
+[workers:vars]

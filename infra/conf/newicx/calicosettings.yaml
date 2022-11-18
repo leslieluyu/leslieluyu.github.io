@@ -1,0 +1,58 @@
+# The following settings are for all playbooks
+#
+# Uncomment and set the followings if you're behind intel proxy
+# Make sure you've put all your nodes' ip addresses into no_proxy
+intel_proxy: "http://proxy-dmz.intel.com:912"
+no_proxy: "localhost,127.0.0.1,intel.com,.intel.com,10.0.0.0/8,172.16.27.0/16"
+
+
+# The following settings are for playbook create_user.yaml
+#
+# Set this if you plan to create user other than the defaul ansible user
+#new_user: ansible
+
+
+# The following settings are for playbook cluster_init_containerd/reset.yaml:
+#
+# Control whether to deploy a docker registry on the first node in the masters group
+deploy_docker_registry_on_master: true
+
+# Control whether to use CRI-RM
+use_crirm: true
+
+# K8S pod nework CIDR
+# Set this if your environment has a conflict ip range against the default value
+# pod_network_cidr: 10.244.0.0/16
+
+# The ip address to listen on the K8S master node for K8S API server.
+# Set this if you don't want to use the default ip address of the K8S master node
+# k8s_apiserver_ip: <one of the valid ip address of K8S master node>
+k8s_apiserver_ip: 172.16.27.110
+# Kubernetes CNI to use, e.g. calico, cilium
+#cni: cilium
+cni: calico
+
+# Only valid if cni is set to calico and node have multiple NICs
+# Set this if want Calico to auto detect the NIC to be used based on NIC's CIDR
+#calico_node_addr_detect_cidr: 10.250.18.0/24
+
+# Only valid if cni is set to calico and node have multiple NICs
+# Set this if want Calico to auto detect the NIC to be used based on NIC's interface name
+#calico_node_addr_detect_intf: <regular express to match the NIC's interace name>
+calico_node_addr_detect_intf: ens786
+
+# Only valid if cni is set to cilium
+# Set this value to a comma separated list of NIC name in the curly bracket '{<nic1 name>,<nic2 name...}'.
+# These NICs can run eBPF datapath, which means that a packet sent from a pod to a destination outside
+# the cluster will be masqueraded.
+#cilium_devices: '{eth1,eth0}'
+#cilium_devices: '{ens7f0}'
+
+# Set this value to one of the NIC name set in cilium_devices
+# Only one NIC device can be used for direct routing between Cilium nodes
+# cilium_direct_routing_dev: <nic name>
+#cilium_direct_routing_dev: ens7f0
+
+
+# list of K8S addon to be installed
+#addons: []
