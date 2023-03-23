@@ -1,0 +1,3 @@
+docker () {
+	    command sudo nerdctl "$@"
+}

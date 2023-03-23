@@ -1,0 +1,2963 @@
+[
+  {
+    "Name": "Host",
+    "Category": 0,
+    "AllHostValues": [
+      {
+        "Name": "10.45.247.81",
+        "ValueNames": [
+          "Name",
+          "Time"
+        ],
+        "Values": [
+          [
+            "ai-master",
+            "Thu Mar  9 01:46:08 UTC 2023"
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "Name": "System",
+    "Category": 0,
+    "AllHostValues": [
+      {
+        "Name": "10.45.247.81",
+        "ValueNames": [
+          "Manufacturer",
+          "Product Name",
+          "Version",
+          "Serial #",
+          "UUID"
+        ],
+        "Values": [
+          [
+            "Intel Corporation",
+            "ArcherCity",
+            "....................",
+            "............",
+            "88888888-8887-0c16-0c12-1b14a5a5a5a5"
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "Name": "Baseboard",
+    "Category": 0,
+    "AllHostValues": [
+      {
+        "Name": "10.45.247.81",
+        "ValueNames": [
+          "Manufacturer",
+          "Product Name",
+          "Version",
+          "Serial #"
+        ],
+        "Values": [
+          [
+            "Intel Corporation",
+            "ArcherCity",
+            "..........",
+            "............"
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "Name": "Chassis",
+    "Category": 0,
+    "AllHostValues": [
+      {
+        "Name": "10.45.247.81",
+        "ValueNames": [
+          "Manufacturer",
+          "Type",
+          "Version",
+          "Serial #"
+        ],
+        "Values": [
+          [
+            "...............................",
+            "Rack Mount Chassis",
+            "..................",
+            ".................."
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "Name": "BIOS",
+    "Category": 0,
+    "AllHostValues": [
+      {
+        "Name": "10.45.247.81",
+        "ValueNames": [
+          "Vendor",
+          "Version",
+          "Release Date"
+        ],
+        "Values": [
+          [
+            "Intel Corporation",
+            "EGSDCRB1.SYS.8901.P01.2209200243",
+            "09/20/2022"
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "Name": "Operating System",
+    "Category": 0,
+    "AllHostValues": [
+      {
+        "Name": "10.45.247.81",
+        "ValueNames": [
+          "OS",
+          "Kernel",
+          "Microcode"
+        ],
+        "Values": [
+          [
+            "Ubuntu 22.04.1 LTS",
+            "5.15.0-60-generic",
+            "0x2b0000a1"
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "Name": "Software Version",
+    "Category": 0,
+    "AllHostValues": [
+      {
+        "Name": "10.45.247.81",
+        "ValueNames": [
+          "GCC",
+          "GLIBC",
+          "Binutils",
+          "Python",
+          "Python3",
+          "Java",
+          "OpenSSL"
+        ],
+        "Values": [
+          [
+            "gcc (Ubuntu 11.3.0-1ubuntu1~22.04) 11.3.0",
+            "ldd (Ubuntu GLIBC 2.35-0ubuntu3.1) 2.35",
+            "GNU ld (GNU Binutils for Ubuntu) 2.38",
+            "",
+            "Python 3.10.6",
+            "",
+            "OpenSSL 3.0.2 15 Mar 2022 (Library: OpenSSL 3.0.2 15 Mar 2022)"
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "Name": "CPU",
+    "Category": 1,
+    "AllHostValues": [
+      {
+        "Name": "10.45.247.81",
+        "ValueNames": [
+          "CPU Model",
+          "Architecture",
+          "Microarchitecture",
+          "Family",
+          "Model",
+          "Stepping",
+          "Base Frequency",
+          "Maximum Frequency",
+          "All-core Maximum Frequency",
+          "CPUs",
+          "On-line CPU List",
+          "Hyperthreading",
+          "Cores per Socket",
+          "Sockets",
+          "NUMA Nodes",
+          "NUMA CPU List",
+          "CHA Count",
+          "L1d Cache",
+          "L1i Cache",
+          "L2 Cache",
+          "L3 Cache",
+          "Memory Channels",
+          "Prefetchers",
+          "Intel Turbo Boost",
+          "PPINs"
+        ],
+        "Values": [
+          [
+            "Intel(R) Xeon(R) Platinum 8480+",
+            "x86_64",
+            "EMR",
+            "6",
+            "143",
+            "8",
+            "2.0GHz",
+            "3.8GHz",
+            "3.0GHz",
+            "224",
+            "0-223",
+            "Enabled",
+            "56",
+            "2",
+            "2",
+            "0-55,112-167 :: 56-111,168-223",
+            "56",
+            "5.3 MiB (112 instances)",
+            "3.5 MiB (112 instances)",
+            "224 MiB (112 instances)",
+            "210 MiB (2 instances)",
+            "8",
+            "L2 HW, L2 Adj., DCU HW, DCU IP",
+            "Enabled",
+            "28bf2fca874a6f56,28bf2fcbd5e99639"
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "Name": "ISA",
+    "Category": 1,
+    "AllHostValues": [
+      {
+        "Name": "10.45.247.81",
+        "ValueNames": [
+          "AVX - Advanced Vector Extensions",
+          "AVX2 - Advanced Vector Extensions 2",
+          "AVX512F - AVX-512 Foundation",
+          "AVX512_VNNI - Vector Neural Network Instructions",
+          "AVX512_4VNNIW - VNNI Word Variable Precision",
+          "AVX512_BF16 - BFLOAT16",
+          "AES - Advanced Encryption Standard New Instructions (AES-NI)",
+          "VAES - Vector AES",
+          "AMX-BF16 - Advanced Matrix Extensions Tile BFLOAT16",
+          "AMX-TILE - Advanced Matrix Extensions Tile Architecture",
+          "AMX-INT8 - Advanced Matrix Extensions Tile 8-bit Integer"
+        ],
+        "Values": [
+          [
+            "Yes",
+            "Yes",
+            "Yes",
+            "Yes",
+            "No",
+            "Yes",
+            "Yes",
+            "Yes",
+            "Yes",
+            "Yes",
+            "Yes"
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "Name": "Accelerator",
+    "Category": 1,
+    "AllHostValues": [
+      {
+        "Name": "10.45.247.81",
+        "ValueNames": [
+          "QAT",
+          "DSA",
+          "IAA",
+          "DLB"
+        ],
+        "Values": [
+          [
+            "2",
+            "2",
+            "2",
+            "2"
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "Name": "Power",
+    "Category": 2,
+    "AllHostValues": [
+      {
+        "Name": "10.45.247.81",
+        "ValueNames": [
+          "TDP",
+          "Power \u0026 Perf Policy",
+          "Frequency Governor",
+          "Frequency Driver",
+          "Max C-State"
+        ],
+        "Values": [
+          [
+            "350 watts",
+            "Performance",
+            "powersave",
+            "intel_pstate",
+            "9"
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "Name": "Memory",
+    "Category": 3,
+    "AllHostValues": [
+      {
+        "Name": "10.45.247.81",
+        "ValueNames": [
+          "Installed Memory",
+          "MemTotal",
+          "MemFree",
+          "MemAvailable",
+          "Buffers",
+          "Cached",
+          "HugePages_Total",
+          "Hugepagesize",
+          "Transparent Huge Pages",
+          "Automatic NUMA Balancing",
+          "Populated Memory Channels"
+        ],
+        "Values": [
+          [
+            "1024GB (32x32GB \u003cOUT OF SPEC\u003e 4800 MT/s [4400 MT/s])",
+            "1056499968 kB",
+            "1013538304 kB",
+            "1031699748 kB",
+            "425552 kB",
+            "22038252 kB",
+            "0",
+            "2048 kB",
+            "madvise",
+            "Enabled",
+            "16"
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "Name": "DIMM Population",
+    "Category": 3,
+    "AllHostValues": [
+      {
+        "Name": "10.45.247.81",
+        "ValueNames": [
+          "Bank Locator",
+          "Locator",
+          "Manufacturer",
+          "Part",
+          "Serial",
+          "Size",
+          "Type",
+          "Detail",
+          "Speed",
+          "Rank",
+          "Configured Speed",
+          "Derived Socket",
+          "Derived Channel",
+          "Derived Slot"
+        ],
+        "Values": [
+          [
+            "NODE 0",
+            "CPU0_DIMM_A1",
+            "Samsung",
+            "M321R4GA3BB0-CQKVE",
+            "01A1AEDC",
+            "32 GB",
+            "\u003cOUT OF SPEC\u003e",
+            "Synchronous Registered (Buffered)",
+            "4800 MT/s",
+            "2",
+            "4400 MT/s",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "NODE 0",
+            "CPU0_DIMM_A2",
+            "Samsung",
+            "M321R4GA3BB0-CQKVE",
+            "01A5923A",
+            "32 GB",
+            "\u003cOUT OF SPEC\u003e",
+            "Synchronous Registered (Buffered)",
+            "4800 MT/s",
+            "2",
+            "4400 MT/s",
+            "0",
+            "0",
+            "1"
+          ],
+          [
+            "NODE 0",
+            "CPU0_DIMM_B1",
+            "Samsung",
+            "M321R4GA3BB0-CQKVE",
+            "01A59187",
+            "32 GB",
+            "\u003cOUT OF SPEC\u003e",
+            "Synchronous Registered (Buffered)",
+            "4800 MT/s",
+            "2",
+            "4400 MT/s",
+            "0",
+            "1",
+            "0"
+          ],
+          [
+            "NODE 0",
+            "CPU0_DIMM_B2",
+            "Samsung",
+            "M321R4GA3BB0-CQKVE",
+            "01A59262",
+            "32 GB",
+            "\u003cOUT OF SPEC\u003e",
+            "Synchronous Registered (Buffered)",
+            "4800 MT/s",
+            "2",
+            "4400 MT/s",
+            "0",
+            "1",
+            "1"
+          ],
+          [
+            "NODE 1",
+            "CPU0_DIMM_C1",
+            "Samsung",
+            "M321R4GA3BB0-CQKVE",
+            "01A59261",
+            "32 GB",
+            "\u003cOUT OF SPEC\u003e",
+            "Synchronous Registered (Buffered)",
+            "4800 MT/s",
+            "2",
+            "4400 MT/s",
+            "0",
+            "2",
+            "0"
+          ],
+          [
+            "NODE 1",
+            "CPU0_DIMM_C2",
+            "Samsung",
+            "M321R4GA3BB0-CQKVE",
+            "01A1B194",
+            "32 GB",
+            "\u003cOUT OF SPEC\u003e",
+            "Synchronous Registered (Buffered)",
+            "4800 MT/s",
+            "2",
+            "4400 MT/s",
+            "0",
+            "2",
+            "1"
+          ],
+          [
+            "NODE 1",
+            "CPU0_DIMM_D1",
+            "Samsung",
+            "M321R4GA3BB0-CQKVE",
+            "01A59199",
+            "32 GB",
+            "\u003cOUT OF SPEC\u003e",
+            "Synchronous Registered (Buffered)",
+            "4800 MT/s",
+            "2",
+            "4400 MT/s",
+            "0",
+            "3",
+            "0"
+          ],
+          [
+            "NODE 1",
+            "CPU0_DIMM_D2",
+            "Samsung",
+            "M321R4GA3BB0-CQKVE",
+            "01A59223",
+            "32 GB",
+            "\u003cOUT OF SPEC\u003e",
+            "Synchronous Registered (Buffered)",
+            "4800 MT/s",
+            "2",
+            "4400 MT/s",
+            "0",
+            "3",
+            "1"
+          ],
+          [
+            "NODE 2",
+            "CPU0_DIMM_E1",
+            "Samsung",
+            "M321R4GA3BB0-CQKVE",
+            "01A1AE74",
+            "32 GB",
+            "\u003cOUT OF SPEC\u003e",
+            "Synchronous Registered (Buffered)",
+            "4800 MT/s",
+            "2",
+            "4400 MT/s",
+            "0",
+            "4",
+            "0"
+          ],
+          [
+            "NODE 2",
+            "CPU0_DIMM_E2",
+            "Samsung",
+            "M321R4GA3BB0-CQKVE",
+            "01A1B086",
+            "32 GB",
+            "\u003cOUT OF SPEC\u003e",
+            "Synchronous Registered (Buffered)",
+            "4800 MT/s",
+            "2",
+            "4400 MT/s",
+            "0",
+            "4",
+            "1"
+          ],
+          [
+            "NODE 2",
+            "CPU0_DIMM_F1",
+            "Samsung",
+            "M321R4GA3BB0-CQKVE",
+            "01A1AE86",
+            "32 GB",
+            "\u003cOUT OF SPEC\u003e",
+            "Synchronous Registered (Buffered)",
+            "4800 MT/s",
+            "2",
+            "4400 MT/s",
+            "0",
+            "5",
+            "0"
+          ],
+          [
+            "NODE 2",
+            "CPU0_DIMM_F2",
+            "Samsung",
+            "M321R4GA3BB0-CQKVE",
+            "01A592C9",
+            "32 GB",
+            "\u003cOUT OF SPEC\u003e",
+            "Synchronous Registered (Buffered)",
+            "4800 MT/s",
+            "2",
+            "4400 MT/s",
+            "0",
+            "5",
+            "1"
+          ],
+          [
+            "NODE 3",
+            "CPU0_DIMM_G1",
+            "Samsung",
+            "M321R4GA3BB0-CQKVE",
+            "01A1AF70",
+            "32 GB",
+            "\u003cOUT OF SPEC\u003e",
+            "Synchronous Registered (Buffered)",
+            "4800 MT/s",
+            "2",
+            "4400 MT/s",
+            "0",
+            "6",
+            "0"
+          ],
+          [
+            "NODE 3",
+            "CPU0_DIMM_G2",
+            "Samsung",
+            "M321R4GA3BB0-CQKVE",
+            "01A592B8",
+            "32 GB",
+            "\u003cOUT OF SPEC\u003e",
+            "Synchronous Registered (Buffered)",
+            "4800 MT/s",
+            "2",
+            "4400 MT/s",
+            "0",
+            "6",
+            "1"
+          ],
+          [
+            "NODE 3",
+            "CPU0_DIMM_H1",
+            "Samsung",
+            "M321R4GA3BB0-CQKVE",
+            "01A1AEB0",
+            "32 GB",
+            "\u003cOUT OF SPEC\u003e",
+            "Synchronous Registered (Buffered)",
+            "4800 MT/s",
+            "2",
+            "4400 MT/s",
+            "0",
+            "7",
+            "0"
+          ],
+          [
+            "NODE 3",
+            "CPU0_DIMM_H2",
+            "Samsung",
+            "M321R4GA3BB0-CQKVE",
+            "01A1B0AA",
+            "32 GB",
+            "\u003cOUT OF SPEC\u003e",
+            "Synchronous Registered (Buffered)",
+            "4800 MT/s",
+            "2",
+            "4400 MT/s",
+            "0",
+            "7",
+            "1"
+          ],
+          [
+            "NODE 4",
+            "CPU1_DIMM_A1",
+            "Samsung",
+            "M321R4GA3BB0-CQKVE",
+            "01A59214",
+            "32 GB",
+            "\u003cOUT OF SPEC\u003e",
+            "Synchronous Registered (Buffered)",
+            "4800 MT/s",
+            "2",
+            "4400 MT/s",
+            "1",
+            "0",
+            "0"
+          ],
+          [
+            "NODE 4",
+            "CPU1_DIMM_A2",
+            "Samsung",
+            "M321R4GA3BB0-CQKVE",
+            "01A1AEE9",
+            "32 GB",
+            "\u003cOUT OF SPEC\u003e",
+            "Synchronous Registered (Buffered)",
+            "4800 MT/s",
+            "2",
+            "4400 MT/s",
+            "1",
+            "0",
+            "1"
+          ],
+          [
+            "NODE 4",
+            "CPU1_DIMM_B1",
+            "Samsung",
+            "M321R4GA3BB0-CQKVE",
+            "01A59219",
+            "32 GB",
+            "\u003cOUT OF SPEC\u003e",
+            "Synchronous Registered (Buffered)",
+            "4800 MT/s",
+            "2",
+            "4400 MT/s",
+            "1",
+            "1",
+            "0"
+          ],
+          [
+            "NODE 4",
+            "CPU1_DIMM_B2",
+            "Samsung",
+            "M321R4GA3BB0-CQKVE",
+            "01A591A7",
+            "32 GB",
+            "\u003cOUT OF SPEC\u003e",
+            "Synchronous Registered (Buffered)",
+            "4800 MT/s",
+            "2",
+            "4400 MT/s",
+            "1",
+            "1",
+            "1"
+          ],
+          [
+            "NODE 5",
+            "CPU1_DIMM_C1",
+            "Samsung",
+            "M321R4GA3BB0-CQKVE",
+            "01A591CE",
+            "32 GB",
+            "\u003cOUT OF SPEC\u003e",
+            "Synchronous Registered (Buffered)",
+            "4800 MT/s",
+            "2",
+            "4400 MT/s",
+            "1",
+            "2",
+            "0"
+          ],
+          [
+            "NODE 5",
+            "CPU1_DIMM_C2",
+            "Samsung",
+            "M321R4GA3BB0-CQKVE",
+            "01A59297",
+            "32 GB",
+            "\u003cOUT OF SPEC\u003e",
+            "Synchronous Registered (Buffered)",
+            "4800 MT/s",
+            "2",
+            "4400 MT/s",
+            "1",
+            "2",
+            "1"
+          ],
+          [
+            "NODE 5",
+            "CPU1_DIMM_D1",
+            "Samsung",
+            "M321R4GA3BB0-CQKVE",
+            "01A591EA",
+            "32 GB",
+            "\u003cOUT OF SPEC\u003e",
+            "Synchronous Registered (Buffered)",
+            "4800 MT/s",
+            "2",
+            "4400 MT/s",
+            "1",
+            "3",
+            "0"
+          ],
+          [
+            "NODE 5",
+            "CPU1_DIMM_D2",
+            "Samsung",
+            "M321R4GA3BB0-CQKVE",
+            "01A592B3",
+            "32 GB",
+            "\u003cOUT OF SPEC\u003e",
+            "Synchronous Registered (Buffered)",
+            "4800 MT/s",
+            "2",
+            "4400 MT/s",
+            "1",
+            "3",
+            "1"
+          ],
+          [
+            "NODE 6",
+            "CPU1_DIMM_E1",
+            "Samsung",
+            "M321R4GA3BB0-CQKVE",
+            "01A1AEFE",
+            "32 GB",
+            "\u003cOUT OF SPEC\u003e",
+            "Synchronous Registered (Buffered)",
+            "4800 MT/s",
+            "2",
+            "4400 MT/s",
+            "1",
+            "4",
+            "0"
+          ],
+          [
+            "NODE 6",
+            "CPU1_DIMM_E2",
+            "Samsung",
+            "M321R4GA3BB0-CQKVE",
+            "01A1AFCF",
+            "32 GB",
+            "\u003cOUT OF SPEC\u003e",
+            "Synchronous Registered (Buffered)",
+            "4800 MT/s",
+            "2",
+            "4400 MT/s",
+            "1",
+            "4",
+            "1"
+          ],
+          [
+            "NODE 6",
+            "CPU1_DIMM_F1",
+            "Samsung",
+            "M321R4GA3BB0-CQKVE",
+            "01A59193",
+            "32 GB",
+            "\u003cOUT OF SPEC\u003e",
+            "Synchronous Registered (Buffered)",
+            "4800 MT/s",
+            "2",
+            "4400 MT/s",
+            "1",
+            "5",
+            "0"
+          ],
+          [
+            "NODE 6",
+            "CPU1_DIMM_F2",
+            "Samsung",
+            "M321R4GA3BB0-CQKVE",
+            "01A59224",
+            "32 GB",
+            "\u003cOUT OF SPEC\u003e",
+            "Synchronous Registered (Buffered)",
+            "4800 MT/s",
+            "2",
+            "4400 MT/s",
+            "1",
+            "5",
+            "1"
+          ],
+          [
+            "NODE 7",
+            "CPU1_DIMM_G1",
+            "Samsung",
+            "M321R4GA3BB0-CQKVE",
+            "01A1AFDB",
+            "32 GB",
+            "\u003cOUT OF SPEC\u003e",
+            "Synchronous Registered (Buffered)",
+            "4800 MT/s",
+            "2",
+            "4400 MT/s",
+            "1",
+            "6",
+            "0"
+          ],
+          [
+            "NODE 7",
+            "CPU1_DIMM_G2",
+            "Samsung",
+            "M321R4GA3BB0-CQKVE",
+            "01A1B04F",
+            "32 GB",
+            "\u003cOUT OF SPEC\u003e",
+            "Synchronous Registered (Buffered)",
+            "4800 MT/s",
+            "2",
+            "4400 MT/s",
+            "1",
+            "6",
+            "1"
+          ],
+          [
+            "NODE 7",
+            "CPU1_DIMM_H1",
+            "Samsung",
+            "M321R4GA3BB0-CQKVE",
+            "01A592A4",
+            "32 GB",
+            "\u003cOUT OF SPEC\u003e",
+            "Synchronous Registered (Buffered)",
+            "4800 MT/s",
+            "2",
+            "4400 MT/s",
+            "1",
+            "7",
+            "0"
+          ],
+          [
+            "NODE 7",
+            "CPU1_DIMM_H2",
+            "Samsung",
+            "M321R4GA3BB0-CQKVE",
+            "01A1B151",
+            "32 GB",
+            "\u003cOUT OF SPEC\u003e",
+            "Synchronous Registered (Buffered)",
+            "4800 MT/s",
+            "2",
+            "4400 MT/s",
+            "1",
+            "7",
+            "1"
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "Name": "DIMM",
+    "Category": 3,
+    "AllHostValues": [
+      {
+        "Name": "10.45.247.81",
+        "ValueNames": [
+          "Bank Locator",
+          "Locator",
+          "Manufacturer",
+          "Part",
+          "Serial",
+          "Size",
+          "Type",
+          "Detail",
+          "Speed",
+          "Rank",
+          "Configured Speed"
+        ],
+        "Values": [
+          [
+            "NODE 0",
+            "CPU0_DIMM_A1",
+            "Samsung",
+            "M321R4GA3BB0-CQKVE",
+            "01A1AEDC",
+            "32 GB",
+            "\u003cOUT OF SPEC\u003e",
+            "Synchronous Registered (Buffered)",
+            "4800 MT/s",
+            "2",
+            "4400 MT/s"
+          ],
+          [
+            "NODE 0",
+            "CPU0_DIMM_A2",
+            "Samsung",
+            "M321R4GA3BB0-CQKVE",
+            "01A5923A",
+            "32 GB",
+            "\u003cOUT OF SPEC\u003e",
+            "Synchronous Registered (Buffered)",
+            "4800 MT/s",
+            "2",
+            "4400 MT/s"
+          ],
+          [
+            "NODE 0",
+            "CPU0_DIMM_B1",
+            "Samsung",
+            "M321R4GA3BB0-CQKVE",
+            "01A59187",
+            "32 GB",
+            "\u003cOUT OF SPEC\u003e",
+            "Synchronous Registered (Buffered)",
+            "4800 MT/s",
+            "2",
+            "4400 MT/s"
+          ],
+          [
+            "NODE 0",
+            "CPU0_DIMM_B2",
+            "Samsung",
+            "M321R4GA3BB0-CQKVE",
+            "01A59262",
+            "32 GB",
+            "\u003cOUT OF SPEC\u003e",
+            "Synchronous Registered (Buffered)",
+            "4800 MT/s",
+            "2",
+            "4400 MT/s"
+          ],
+          [
+            "NODE 1",
+            "CPU0_DIMM_C1",
+            "Samsung",
+            "M321R4GA3BB0-CQKVE",
+            "01A59261",
+            "32 GB",
+            "\u003cOUT OF SPEC\u003e",
+            "Synchronous Registered (Buffered)",
+            "4800 MT/s",
+            "2",
+            "4400 MT/s"
+          ],
+          [
+            "NODE 1",
+            "CPU0_DIMM_C2",
+            "Samsung",
+            "M321R4GA3BB0-CQKVE",
+            "01A1B194",
+            "32 GB",
+            "\u003cOUT OF SPEC\u003e",
+            "Synchronous Registered (Buffered)",
+            "4800 MT/s",
+            "2",
+            "4400 MT/s"
+          ],
+          [
+            "NODE 1",
+            "CPU0_DIMM_D1",
+            "Samsung",
+            "M321R4GA3BB0-CQKVE",
+            "01A59199",
+            "32 GB",
+            "\u003cOUT OF SPEC\u003e",
+            "Synchronous Registered (Buffered)",
+            "4800 MT/s",
+            "2",
+            "4400 MT/s"
+          ],
+          [
+            "NODE 1",
+            "CPU0_DIMM_D2",
+            "Samsung",
+            "M321R4GA3BB0-CQKVE",
+            "01A59223",
+            "32 GB",
+            "\u003cOUT OF SPEC\u003e",
+            "Synchronous Registered (Buffered)",
+            "4800 MT/s",
+            "2",
+            "4400 MT/s"
+          ],
+          [
+            "NODE 2",
+            "CPU0_DIMM_E1",
+            "Samsung",
+            "M321R4GA3BB0-CQKVE",
+            "01A1AE74",
+            "32 GB",
+            "\u003cOUT OF SPEC\u003e",
+            "Synchronous Registered (Buffered)",
+            "4800 MT/s",
+            "2",
+            "4400 MT/s"
+          ],
+          [
+            "NODE 2",
+            "CPU0_DIMM_E2",
+            "Samsung",
+            "M321R4GA3BB0-CQKVE",
+            "01A1B086",
+            "32 GB",
+            "\u003cOUT OF SPEC\u003e",
+            "Synchronous Registered (Buffered)",
+            "4800 MT/s",
+            "2",
+            "4400 MT/s"
+          ],
+          [
+            "NODE 2",
+            "CPU0_DIMM_F1",
+            "Samsung",
+            "M321R4GA3BB0-CQKVE",
+            "01A1AE86",
+            "32 GB",
+            "\u003cOUT OF SPEC\u003e",
+            "Synchronous Registered (Buffered)",
+            "4800 MT/s",
+            "2",
+            "4400 MT/s"
+          ],
+          [
+            "NODE 2",
+            "CPU0_DIMM_F2",
+            "Samsung",
+            "M321R4GA3BB0-CQKVE",
+            "01A592C9",
+            "32 GB",
+            "\u003cOUT OF SPEC\u003e",
+            "Synchronous Registered (Buffered)",
+            "4800 MT/s",
+            "2",
+            "4400 MT/s"
+          ],
+          [
+            "NODE 3",
+            "CPU0_DIMM_G1",
+            "Samsung",
+            "M321R4GA3BB0-CQKVE",
+            "01A1AF70",
+            "32 GB",
+            "\u003cOUT OF SPEC\u003e",
+            "Synchronous Registered (Buffered)",
+            "4800 MT/s",
+            "2",
+            "4400 MT/s"
+          ],
+          [
+            "NODE 3",
+            "CPU0_DIMM_G2",
+            "Samsung",
+            "M321R4GA3BB0-CQKVE",
+            "01A592B8",
+            "32 GB",
+            "\u003cOUT OF SPEC\u003e",
+            "Synchronous Registered (Buffered)",
+            "4800 MT/s",
+            "2",
+            "4400 MT/s"
+          ],
+          [
+            "NODE 3",
+            "CPU0_DIMM_H1",
+            "Samsung",
+            "M321R4GA3BB0-CQKVE",
+            "01A1AEB0",
+            "32 GB",
+            "\u003cOUT OF SPEC\u003e",
+            "Synchronous Registered (Buffered)",
+            "4800 MT/s",
+            "2",
+            "4400 MT/s"
+          ],
+          [
+            "NODE 3",
+            "CPU0_DIMM_H2",
+            "Samsung",
+            "M321R4GA3BB0-CQKVE",
+            "01A1B0AA",
+            "32 GB",
+            "\u003cOUT OF SPEC\u003e",
+            "Synchronous Registered (Buffered)",
+            "4800 MT/s",
+            "2",
+            "4400 MT/s"
+          ],
+          [
+            "NODE 4",
+            "CPU1_DIMM_A1",
+            "Samsung",
+            "M321R4GA3BB0-CQKVE",
+            "01A59214",
+            "32 GB",
+            "\u003cOUT OF SPEC\u003e",
+            "Synchronous Registered (Buffered)",
+            "4800 MT/s",
+            "2",
+            "4400 MT/s"
+          ],
+          [
+            "NODE 4",
+            "CPU1_DIMM_A2",
+            "Samsung",
+            "M321R4GA3BB0-CQKVE",
+            "01A1AEE9",
+            "32 GB",
+            "\u003cOUT OF SPEC\u003e",
+            "Synchronous Registered (Buffered)",
+            "4800 MT/s",
+            "2",
+            "4400 MT/s"
+          ],
+          [
+            "NODE 4",
+            "CPU1_DIMM_B1",
+            "Samsung",
+            "M321R4GA3BB0-CQKVE",
+            "01A59219",
+            "32 GB",
+            "\u003cOUT OF SPEC\u003e",
+            "Synchronous Registered (Buffered)",
+            "4800 MT/s",
+            "2",
+            "4400 MT/s"
+          ],
+          [
+            "NODE 4",
+            "CPU1_DIMM_B2",
+            "Samsung",
+            "M321R4GA3BB0-CQKVE",
+            "01A591A7",
+            "32 GB",
+            "\u003cOUT OF SPEC\u003e",
+            "Synchronous Registered (Buffered)",
+            "4800 MT/s",
+            "2",
+            "4400 MT/s"
+          ],
+          [
+            "NODE 5",
+            "CPU1_DIMM_C1",
+            "Samsung",
+            "M321R4GA3BB0-CQKVE",
+            "01A591CE",
+            "32 GB",
+            "\u003cOUT OF SPEC\u003e",
+            "Synchronous Registered (Buffered)",
+            "4800 MT/s",
+            "2",
+            "4400 MT/s"
+          ],
+          [
+            "NODE 5",
+            "CPU1_DIMM_C2",
+            "Samsung",
+            "M321R4GA3BB0-CQKVE",
+            "01A59297",
+            "32 GB",
+            "\u003cOUT OF SPEC\u003e",
+            "Synchronous Registered (Buffered)",
+            "4800 MT/s",
+            "2",
+            "4400 MT/s"
+          ],
+          [
+            "NODE 5",
+            "CPU1_DIMM_D1",
+            "Samsung",
+            "M321R4GA3BB0-CQKVE",
+            "01A591EA",
+            "32 GB",
+            "\u003cOUT OF SPEC\u003e",
+            "Synchronous Registered (Buffered)",
+            "4800 MT/s",
+            "2",
+            "4400 MT/s"
+          ],
+          [
+            "NODE 5",
+            "CPU1_DIMM_D2",
+            "Samsung",
+            "M321R4GA3BB0-CQKVE",
+            "01A592B3",
+            "32 GB",
+            "\u003cOUT OF SPEC\u003e",
+            "Synchronous Registered (Buffered)",
+            "4800 MT/s",
+            "2",
+            "4400 MT/s"
+          ],
+          [
+            "NODE 6",
+            "CPU1_DIMM_E1",
+            "Samsung",
+            "M321R4GA3BB0-CQKVE",
+            "01A1AEFE",
+            "32 GB",
+            "\u003cOUT OF SPEC\u003e",
+            "Synchronous Registered (Buffered)",
+            "4800 MT/s",
+            "2",
+            "4400 MT/s"
+          ],
+          [
+            "NODE 6",
+            "CPU1_DIMM_E2",
+            "Samsung",
+            "M321R4GA3BB0-CQKVE",
+            "01A1AFCF",
+            "32 GB",
+            "\u003cOUT OF SPEC\u003e",
+            "Synchronous Registered (Buffered)",
+            "4800 MT/s",
+            "2",
+            "4400 MT/s"
+          ],
+          [
+            "NODE 6",
+            "CPU1_DIMM_F1",
+            "Samsung",
+            "M321R4GA3BB0-CQKVE",
+            "01A59193",
+            "32 GB",
+            "\u003cOUT OF SPEC\u003e",
+            "Synchronous Registered (Buffered)",
+            "4800 MT/s",
+            "2",
+            "4400 MT/s"
+          ],
+          [
+            "NODE 6",
+            "CPU1_DIMM_F2",
+            "Samsung",
+            "M321R4GA3BB0-CQKVE",
+            "01A59224",
+            "32 GB",
+            "\u003cOUT OF SPEC\u003e",
+            "Synchronous Registered (Buffered)",
+            "4800 MT/s",
+            "2",
+            "4400 MT/s"
+          ],
+          [
+            "NODE 7",
+            "CPU1_DIMM_G1",
+            "Samsung",
+            "M321R4GA3BB0-CQKVE",
+            "01A1AFDB",
+            "32 GB",
+            "\u003cOUT OF SPEC\u003e",
+            "Synchronous Registered (Buffered)",
+            "4800 MT/s",
+            "2",
+            "4400 MT/s"
+          ],
+          [
+            "NODE 7",
+            "CPU1_DIMM_G2",
+            "Samsung",
+            "M321R4GA3BB0-CQKVE",
+            "01A1B04F",
+            "32 GB",
+            "\u003cOUT OF SPEC\u003e",
+            "Synchronous Registered (Buffered)",
+            "4800 MT/s",
+            "2",
+            "4400 MT/s"
+          ],
+          [
+            "NODE 7",
+            "CPU1_DIMM_H1",
+            "Samsung",
+            "M321R4GA3BB0-CQKVE",
+            "01A592A4",
+            "32 GB",
+            "\u003cOUT OF SPEC\u003e",
+            "Synchronous Registered (Buffered)",
+            "4800 MT/s",
+            "2",
+            "4400 MT/s"
+          ],
+          [
+            "NODE 7",
+            "CPU1_DIMM_H2",
+            "Samsung",
+            "M321R4GA3BB0-CQKVE",
+            "01A1B151",
+            "32 GB",
+            "\u003cOUT OF SPEC\u003e",
+            "Synchronous Registered (Buffered)",
+            "4800 MT/s",
+            "2",
+            "4400 MT/s"
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "Name": "NIC",
+    "Category": 4,
+    "AllHostValues": [
+      {
+        "Name": "10.45.247.81",
+        "ValueNames": [
+          "Name",
+          "Model",
+          "Speed",
+          "Link",
+          "Bus",
+          "Driver",
+          "Driver Version",
+          "Firmware Version",
+          "MAC Address",
+          "NUMA Node",
+          "IRQBalance"
+        ],
+        "Values": [
+          [
+            "enp1s0",
+            "Ethernet Controller I225-LM",
+            "Unknown!",
+            "no",
+            "0000:01:00.0",
+            "igc",
+            "5.15.0-60-generic",
+            "1053:8754",
+            "98:4f:ee:00:6d:97",
+            "0",
+            "Enabled"
+          ],
+          [
+            "ens2",
+            "Ethernet Controller E810-C for QSFP",
+            "100000Mb/s",
+            "no",
+            "0000:16:00.0",
+            "ice",
+            "5.15.0-60-generic",
+            "3.10 0x8000acc8 1.3106.0",
+            "40:a6:b7:7b:19:a8",
+            "0",
+            "Enabled"
+          ],
+          [
+            "ens255",
+            "Ethernet Controller E810-C for QSFP",
+            "100000Mb/s",
+            "no",
+            "0000:19:00.0",
+            "ice",
+            "5.15.0-60-generic",
+            "3.10 0x8000acc8 1.3106.0",
+            "40:a6:b7:7b:19:ac",
+            "0",
+            "Enabled"
+          ],
+          [
+            "ens1f0",
+            "Ethernet Controller XXV710 for 25GbE SFP28",
+            "25000Mb/s",
+            "yes",
+            "0000:27:00.0",
+            "i40e",
+            "5.15.0-60-generic",
+            "8.10 0x80009424 1.2829.0",
+            "40:a6:b7:26:01:1c",
+            "0",
+            "Enabled"
+          ],
+          [
+            "ens1f1",
+            "Ethernet Controller XXV710 for 25GbE SFP28",
+            "25000Mb/s",
+            "no",
+            "0000:27:00.1",
+            "i40e",
+            "5.15.0-60-generic",
+            "8.10 0x80009424 1.2829.0",
+            "40:a6:b7:26:01:1d",
+            "0",
+            "Enabled"
+          ],
+          [
+            "ens4",
+            "Ethernet Controller E810-C for QSFP",
+            "100000Mb/s",
+            "no",
+            "0000:b8:00.0",
+            "ice",
+            "5.15.0-60-generic",
+            "3.10 0x8000acc8 1.3106.0",
+            "40:a6:b7:7b:19:bc",
+            "1",
+            "Enabled"
+          ],
+          [
+            "enp187s0",
+            "Ethernet Controller E810-C for QSFP",
+            "100000Mb/s",
+            "no",
+            "0000:bb:00.0",
+            "ice",
+            "5.15.0-60-generic",
+            "3.10 0x8000acc8 1.3106.0",
+            "40:a6:b7:7b:19:b8",
+            "1",
+            "Enabled"
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "Name": "Network IRQ Mapping",
+    "Category": 4,
+    "AllHostValues": [
+      {
+        "Name": "10.45.247.81",
+        "ValueNames": [
+          "Interface",
+          "CPU:IRQs CPU:IRQs ..."
+        ],
+        "Values": [
+          [
+            "ens1f0",
+            "0:553 1:604 2:646 3:640 4:616 5:610 6:588 7:619 8:601 9:607,665 10:581 11:550,627 12:551 13:587 14:660 15:661 16:630 17:547 18:582 19:606 20:628 21:599,663 22:664 23:549 24:650 25:651 26:564 27:565 28:629 29:634 30:618 31:615 32:598 33:633 34:556 35:557 36:592 37:555 38:657 39:578 40:608 41:643 42:576 43:577 45:603 46:554 47:658 48:647 49:624 50:636 51:605 52:566 53:567 54:659 55:621 112:639 113:623 114:590 115:575 116:579,655 117:648 118:625 119:656 120:620 121:626 122:600 123:654 124:552,560 125:652 126:613 127:586 128:611 129:612 130:638 131:569 132:572 133:644 134:580,589 135:614 136:585 137:632 138:573 139:602 141:653 142:562 143:662 144:570,635 145:558 146:631 147:622 148:563 149:574 150:571 151:597 152:609,617 153:568 154:595 155:642 156:593 157:594 158:591 159:649 160:561 161:559 162:637,645 163:596 164:641 165:548 166:583 167:584"
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "Name": "Disk",
+    "Category": 5,
+    "AllHostValues": [
+      {
+        "Name": "10.45.247.81",
+        "ValueNames": [
+          "NAME",
+          "MODEL",
+          "SIZE",
+          "MOUNTPOINT",
+          "FSTYPE",
+          "RQ-SIZE",
+          "MIN-IO",
+          "FwRev"
+        ],
+        "Values": [
+          [
+            "nvme0n1",
+            "INTEL SSDPEK1A058GA",
+            "54.9G",
+            "",
+            "",
+            "1023",
+            "512",
+            ""
+          ],
+          [
+            "nvme0n1p1",
+            "",
+            "512M",
+            "/boot/efi",
+            "vfat",
+            "1023",
+            "512",
+            ""
+          ],
+          [
+            "nvme0n1p2",
+            "",
+            "54.4G",
+            "/",
+            "ext4",
+            "1023",
+            "512",
+            ""
+          ],
+          [
+            "nvme0n1p3",
+            "",
+            "65M",
+            "",
+            "iso9660",
+            "1023",
+            "512",
+            ""
+          ],
+          [
+            "nvme1n1",
+            "INTEL SSDPF21Q400GB",
+            "372.6G",
+            "",
+            "",
+            "1023",
+            "512",
+            ""
+          ],
+          [
+            "nvme1n1p1",
+            "",
+            "372.6G",
+            "",
+            "ext4",
+            "1023",
+            "512",
+            ""
+          ],
+          [
+            "nvme2n1",
+            "INTEL SSDPF21Q400GB",
+            "372.6G",
+            "",
+            "",
+            "1023",
+            "512",
+            ""
+          ],
+          [
+            "nvme2n1p1",
+            "",
+            "372.6G",
+            "",
+            "ext4",
+            "1023",
+            "512",
+            ""
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "Name": "Filesystem",
+    "Category": 5,
+    "AllHostValues": [
+      {
+        "Name": "10.45.247.81",
+        "ValueNames": [
+          "Filesystem",
+          "Size",
+          "Used",
+          "Avail",
+          "Use%",
+          "Mounted"
+        ],
+        "Values": [
+          [
+            "tmpfs",
+            "101G",
+            "7.1M",
+            "101G",
+            "1%",
+            "/run"
+          ],
+          [
+            "/dev/nvme0n1p2",
+            "54G",
+            "30G",
+            "22G",
+            "58%",
+            "/"
+          ],
+          [
+            "tmpfs",
+            "504G",
+            "0",
+            "504G",
+            "0%",
+            "/dev/shm"
+          ],
+          [
+            "tmpfs",
+            "5.0M",
+            "0",
+            "5.0M",
+            "0%",
+            "/run/lock"
+          ],
+          [
+            "/dev/nvme0n1p1",
+            "511M",
+            "6.1M",
+            "505M",
+            "2%",
+            "/boot/efi"
+          ],
+          [
+            "tmpfs",
+            "101G",
+            "4.0K",
+            "101G",
+            "1%",
+            "/run/user/1003"
+          ],
+          [
+            "shm",
+            "64M",
+            "0",
+            "64M",
+            "0%",
+            "/run/containerd/io.containerd.grpc.v1.cri/sandboxes/fd1fcce576c2c2feae5591c5748f8164291bf7857653676984aee4395716da9a/shm"
+          ],
+          [
+            "shm",
+            "64M",
+            "0",
+            "64M",
+            "0%",
+            "/run/containerd/io.containerd.grpc.v1.cri/sandboxes/ad65938e50e5e6766fe8fa26d0884f386e72a1a11f6aff14ab03df73b89168c9/shm"
+          ],
+          [
+            "shm",
+            "64M",
+            "0",
+            "64M",
+            "0%",
+            "/run/containerd/io.containerd.grpc.v1.cri/sandboxes/0e95263af015aad066a73888f46547e49ab693cac94bfdf984c8fe2fbbca26e9/shm"
+          ],
+          [
+            "shm",
+            "64M",
+            "0",
+            "64M",
+            "0%",
+            "/run/containerd/io.containerd.grpc.v1.cri/sandboxes/d2504bc379f68c2d6847387789cfd0c296894759e2fc2b4eea5401b601b2673b/shm"
+          ],
+          [
+            "shm",
+            "64M",
+            "0",
+            "64M",
+            "0%",
+            "/run/containerd/io.containerd.grpc.v1.cri/sandboxes/da72bd48662678e1f957beee80934949c9a556e1476bed953b3c75e482c57f53/shm"
+          ],
+          [
+            "shm",
+            "64M",
+            "0",
+            "64M",
+            "0%",
+            "/run/containerd/io.containerd.grpc.v1.cri/sandboxes/19245aaf4ccaf6425f34685985ed751e6adb52a2fbad21f2cc86a210cbb01321/shm"
+          ],
+          [
+            "shm",
+            "64M",
+            "0",
+            "64M",
+            "0%",
+            "/run/containerd/io.containerd.grpc.v1.cri/sandboxes/9affe86e7d89218d1a093b6ff5bb67ebfd7bb7b7e212ebeb51a4b1694f580bef/shm"
+          ],
+          [
+            "shm",
+            "64M",
+            "0",
+            "64M",
+            "0%",
+            "/run/containerd/io.containerd.grpc.v1.cri/sandboxes/830f312f58e3d611fe594c96a1d21aa8b75ffe907fabcc5156d3b194648fa622/shm"
+          ],
+          [
+            "shm",
+            "64M",
+            "0",
+            "64M",
+            "0%",
+            "/run/containerd/io.containerd.grpc.v1.cri/sandboxes/c5d1c271e38de6a4bc2b963dcbaee8578f60b200a4285cac208786951fb26fea/shm"
+          ],
+          [
+            "shm",
+            "64M",
+            "0",
+            "64M",
+            "0%",
+            "/run/containerd/io.containerd.grpc.v1.cri/sandboxes/467f3f2e464c9b01bc623f1d1e4e63e2920c5de9b29b6176ee0fb747156b305f/shm"
+          ],
+          [
+            "shm",
+            "64M",
+            "0",
+            "64M",
+            "0%",
+            "/run/containerd/io.containerd.grpc.v1.cri/sandboxes/592754e66677154b43b3e2b39abe2f2f35115c42b83e8d1564cd5c1028cffed5/shm"
+          ],
+          [
+            "shm",
+            "64M",
+            "0",
+            "64M",
+            "0%",
+            "/run/containerd/io.containerd.grpc.v1.cri/sandboxes/9b85981f49c1171fa76923e4c8e41ef6af5feb1301bc80f29d8fab10689bf077/shm"
+          ],
+          [
+            "shm",
+            "64M",
+            "0",
+            "64M",
+            "0%",
+            "/run/containerd/io.containerd.grpc.v1.cri/sandboxes/2224e8522402db7ee1d933997cf919e2e29f10a63270575ed05027a85b2f774b/shm"
+          ],
+          [
+            "shm",
+            "64M",
+            "0",
+            "64M",
+            "0%",
+            "/run/containerd/io.containerd.grpc.v1.cri/sandboxes/e8e10f6ebab9f32c18ab8916e3e6c07ecb9f7aedd9274e6435855152dd67b751/shm"
+          ],
+          [
+            "shm",
+            "64M",
+            "0",
+            "64M",
+            "0%",
+            "/run/containerd/io.containerd.grpc.v1.cri/sandboxes/77acc7466149f8e7a90ae356e146c7f61110474f78ccdca72c96756ebc37e8ea/shm"
+          ],
+          [
+            "shm",
+            "64M",
+            "0",
+            "64M",
+            "0%",
+            "/run/containerd/io.containerd.grpc.v1.cri/sandboxes/462824409f4d8a5f4f902be77b19367bf97170bf5862f11fb371c8cba718f0cf/shm"
+          ],
+          [
+            "shm",
+            "64M",
+            "0",
+            "64M",
+            "0%",
+            "/run/containerd/io.containerd.grpc.v1.cri/sandboxes/7080c5f6d7a56a1582acce728b9bc3a6aed12952dfb5964f88b1812f8d665bda/shm"
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "Name": "GPU",
+    "Category": 6,
+    "AllHostValues": [
+      {
+        "Name": "10.45.247.81",
+        "ValueNames": [
+          "Manufacturer",
+          "Model",
+          "PCI ID"
+        ],
+        "Values": [
+          [
+            "ASPEED",
+            "Unknown",
+            "2000"
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "Name": "Vulnerability",
+    "Category": 7,
+    "AllHostValues": [
+      {
+        "Name": "10.45.247.81",
+        "ValueNames": [
+          "CVE-2017-5753",
+          "CVE-2017-5715",
+          "CVE-2017-5754",
+          "CVE-2018-3640",
+          "CVE-2018-3639",
+          "CVE-2018-3615",
+          "CVE-2018-3620",
+          "CVE-2018-3646",
+          "CVE-2018-12126",
+          "CVE-2018-12130",
+          "CVE-2018-12127",
+          "CVE-2019-11091",
+          "CVE-2019-11135",
+          "CVE-2018-12207",
+          "CVE-2020-0543"
+        ],
+        "Values": [
+          [
+            "OK (Mitigation: usercopy/swapgs barriers and __user pointer sanitization)",
+            "OK (Enhanced IBRS + IBPB are mitigating the vulnerability)",
+            "OK (Not affected)",
+            "OK (your CPU microcode mitigates the vulnerability)",
+            "OK (Mitigation: Speculative Store Bypass disabled via prctl and seccomp)",
+            "OK (your CPU microcode mitigates the vulnerability)",
+            "OK (Not affected)",
+            "OK (your kernel reported your CPU model as not affected)",
+            "OK (Not affected)",
+            "OK (Not affected)",
+            "OK (Not affected)",
+            "OK (Not affected)",
+            "OK (your CPU vendor reported your CPU model as not affected)",
+            "OK (this system is not running a hypervisor)",
+            "OK (your CPU vendor reported your CPU model as not affected)"
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "Name": "Process",
+    "Category": 8,
+    "AllHostValues": [
+      {
+        "Name": "10.45.247.81",
+        "ValueNames": [
+          "PID",
+          "PPID",
+          "%CPU",
+          "%MEM",
+          "RSS",
+          "COMMAND"
+        ],
+        "Values": [
+          [
+            "76121",
+            "75893",
+            "18.9",
+            "0.0",
+            "681188",
+            "kube-apiserver --advertise-address=10.45.247.81 --allow-privileged=true --authorization-mode=Node,RBAC --client-ca-file=/etc/kubernetes/pki/ca.crt --enable-admission-plugins=NodeRestriction --enable-bootstrap-token-auth=true --etcd-cafile=/etc/kubernetes/pki/etcd/ca.crt --etcd-certfile=/etc/kubernetes/pki/apiserver-etcd-client.crt --etcd-keyfile=/etc/kubernetes/pki/apiserver-etcd-client.key --etcd-servers=https://127.0.0.1:2379 --kubelet-client-certificate=/etc/kubernetes/pki/apiserver-kubelet-client.crt --kubelet-client-key=/etc/kubernetes/pki/apiserver-kubelet-client.key --kubelet-preferred-address-types=InternalIP,ExternalIP,Hostname --proxy-client-cert-file=/etc/kubernetes/pki/front-proxy-client.crt --proxy-client-key-file=/etc/kubernetes/pki/front-proxy-client.key --requestheader-allowed-names=front-proxy-client --requestheader-client-ca-file=/etc/kubernetes/pki/front-proxy-ca.crt --requestheader-extra-headers-prefix=X-Remote-Extra- --requestheader-group-headers=X-Remote-Group --requestheader-username-headers=X-Remote-User --secure-port=6443 --service-account-issuer=https://kubernetes.default.svc.cluster.local --service-account-key-file=/etc/kubernetes/pki/sa.pub --service-account-signing-key-file=/etc/kubernetes/pki/sa.key --service-cluster-ip-range=10.96.0.0/12 --tls-cert-file=/etc/kubernetes/pki/apiserver.crt --tls-private-key-file=/etc/kubernetes/pki/apiserver.key"
+          ],
+          [
+            "76403",
+            "1",
+            "10.0",
+            "0.0",
+            "140816",
+            "/usr/bin/kubelet --bootstrap-kubeconfig=/etc/kubernetes/bootstrap-kubelet.conf --kubeconfig=/etc/kubernetes/kubelet.conf --config=/var/lib/kubelet/config.yaml --container-runtime=remote --container-runtime-endpoint=/run/containerd/containerd.sock --pod-infra-container-image=k8s.gcr.io/pause:3.6 --max-pods 500 --node-ip 10.45.247.81"
+          ],
+          [
+            "76128",
+            "75902",
+            "5.0",
+            "0.0",
+            "102376",
+            "etcd --advertise-client-urls=https://10.45.247.81:2379 --cert-file=/etc/kubernetes/pki/etcd/server.crt --client-cert-auth=true --data-dir=/var/lib/etcd --initial-advertise-peer-urls=https://10.45.247.81:2380 --initial-cluster=ai-master=https://10.45.247.81:2380 --key-file=/etc/kubernetes/pki/etcd/server.key --listen-client-urls=https://127.0.0.1:2379,https://10.45.247.81:2379 --listen-metrics-urls=http://127.0.0.1:2381 --listen-peer-urls=https://10.45.247.81:2380 --name=ai-master --peer-cert-file=/etc/kubernetes/pki/etcd/peer.crt --peer-client-cert-auth=true --peer-key-file=/etc/kubernetes/pki/etcd/peer.key --peer-trusted-ca-file=/etc/kubernetes/pki/etcd/ca.crt --snapshot-count=10000 --trusted-ca-file=/etc/kubernetes/pki/etcd/ca.crt"
+          ],
+          [
+            "79049",
+            "79034",
+            "4.3",
+            "0.0",
+            "65984",
+            "calico-node -felix"
+          ],
+          [
+            "76143",
+            "75944",
+            "4.2",
+            "0.0",
+            "151304",
+            "kube-controller-manager --allocate-node-cidrs=true --authentication-kubeconfig=/etc/kubernetes/controller-manager.conf --authorization-kubeconfig=/etc/kubernetes/controller-manager.conf --bind-address=127.0.0.1 --client-ca-file=/etc/kubernetes/pki/ca.crt --cluster-cidr=10.244.0.0/16 --cluster-name=kubernetes --cluster-signing-cert-file=/etc/kubernetes/pki/ca.crt --cluster-signing-key-file=/etc/kubernetes/pki/ca.key --controllers=*,bootstrapsigner,tokencleaner --kubeconfig=/etc/kubernetes/controller-manager.conf --leader-elect=true --requestheader-client-ca-file=/etc/kubernetes/pki/front-proxy-ca.crt --root-ca-file=/etc/kubernetes/pki/ca.crt --service-account-private-key-file=/etc/kubernetes/pki/sa.key --service-cluster-ip-range=10.96.0.0/12 --use-service-account-credentials=true"
+          ],
+          [
+            "73848",
+            "1",
+            "3.0",
+            "0.0",
+            "98068",
+            "/usr/bin/containerd"
+          ],
+          [
+            "1841209",
+            "1841169",
+            "1.7",
+            "0.0",
+            "15896",
+            "/tmp/svr-info.tmp.95MF8ykw8C/collector /tmp/svr-info.tmp.95MF8ykw8C/10.45.247.81_reports_collector.yaml"
+          ],
+          [
+            "1841169",
+            "1841102",
+            "1.6",
+            "0.0",
+            "14464",
+            "sshd: ansible@notty"
+          ],
+          [
+            "80339",
+            "80247",
+            "0.8",
+            "0.0",
+            "80476",
+            "./apiserver --secure-port=5443"
+          ],
+          [
+            "80341",
+            "80204",
+            "0.7",
+            "0.0",
+            "80144",
+            "./apiserver --secure-port=5443"
+          ],
+          [
+            "77738",
+            "77663",
+            "0.7",
+            "0.0",
+            "87468",
+            "operator"
+          ],
+          [
+            "1841092",
+            "127074",
+            "0.6",
+            "0.0",
+            "13836",
+            "svr-info -all -targets ./targets"
+          ],
+          [
+            "76144",
+            "75961",
+            "0.6",
+            "0.0",
+            "68592",
+            "kube-scheduler --authentication-kubeconfig=/etc/kubernetes/scheduler.conf --authorization-kubeconfig=/etc/kubernetes/scheduler.conf --bind-address=127.0.0.1 --kubeconfig=/etc/kubernetes/scheduler.conf --leader-elect=true"
+          ],
+          [
+            "3389",
+            "1",
+            "0.6",
+            "0.0",
+            "6784",
+            "/usr/sbin/irqbalance --foreground"
+          ],
+          [
+            "78977",
+            "78783",
+            "0.5",
+            "0.0",
+            "62472",
+            "/coredns -conf /etc/coredns/Corefile"
+          ],
+          [
+            "78878",
+            "78676",
+            "0.5",
+            "0.0",
+            "65396",
+            "/coredns -conf /etc/coredns/Corefile"
+          ],
+          [
+            "78794",
+            "78612",
+            "0.5",
+            "0.0",
+            "59924",
+            "/metrics-server --cert-dir=/tmp --secure-port=4443 --kubelet-preferred-address-types=InternalIP,ExternalIP,Hostname --kubelet-use-node-status-port --metric-resolution=15s --kubelet-insecure-tls"
+          ],
+          [
+            "78557",
+            "1",
+            "0.5",
+            "0.0",
+            "11428",
+            "/usr/bin/containerd-shim-runc-v2 -namespace k8s.io -id c5d1c271e38de6a4bc2b963dcbaee8578f60b200a4285cac208786951fb26fea -address /run/containerd/containerd.sock"
+          ],
+          [
+            "1813074",
+            "1812986",
+            "0.3",
+            "0.0",
+            "82804",
+            "/home/ansible/.vscode-server/bin/92da9481c0904c6adfe372c12da3b7748d74bdcb/node /home/ansible/.vscode-server/bin/92da9481c0904c6adfe372c12da3b7748d74bdcb/out/bootstrap-fork --type=extensionHost --transformURIs --useHostProxy=false"
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "Name": "Sensor",
+    "Category": 8,
+    "AllHostValues": [
+      {
+        "Name": "10.45.247.81",
+        "ValueNames": [
+          "Sensor",
+          "Reading",
+          "Status"
+        ],
+        "Values": [
+          [
+            "System Airflow",
+            "30 unspecified",
+            "ok"
+          ],
+          [
+            "PSU2 In Current",
+            "2.42 Amps",
+            "ok"
+          ],
+          [
+            "PSU2 Out Current",
+            "45 Amps",
+            "ok"
+          ],
+          [
+            "Cpu Energy CPU1",
+            "823.20 unspecif",
+            "ok"
+          ],
+          [
+            "Cpu Energy CPU2",
+            "369.60 unspecif",
+            "ok"
+          ],
+          [
+            "Dimm Energy CPU1",
+            "268.80 unspecif",
+            "ok"
+          ],
+          [
+            "Dimm Energy CPU2",
+            "2133.60 unspeci",
+            "ok"
+          ],
+          [
+            "Platform Energy",
+            "0 unspecified",
+            "ok"
+          ],
+          [
+            "Pwm 1",
+            "30.18 unspecifi",
+            "ok"
+          ],
+          [
+            "Pwm 2",
+            "30.18 unspecifi",
+            "ok"
+          ],
+          [
+            "Pwm 3",
+            "30.18 unspecifi",
+            "ok"
+          ],
+          [
+            "Pwm 4",
+            "30.18 unspecifi",
+            "ok"
+          ],
+          [
+            "Pwm 5",
+            "29.79 unspecifi",
+            "ok"
+          ],
+          [
+            "Pwm 6",
+            "29.79 unspecifi",
+            "ok"
+          ],
+          [
+            "Pwm 13",
+            "29.79 unspecifi",
+            "ok"
+          ],
+          [
+            "Pwm 14",
+            "29.79 unspecifi",
+            "ok"
+          ],
+          [
+            "Pwm 15",
+            "29.79 unspecifi",
+            "ok"
+          ],
+          [
+            "Pwm 16",
+            "30.18 unspecifi",
+            "ok"
+          ],
+          [
+            "Pwm PSU2 Fan 1",
+            "39.98 unspecifi",
+            "ok"
+          ],
+          [
+            "Fan 1",
+            "7742 RPM",
+            "ok"
+          ],
+          [
+            "Fan 2",
+            "7644 RPM",
+            "ok"
+          ],
+          [
+            "Fan 3",
+            "0 RPM",
+            "ok"
+          ],
+          [
+            "Fan 4",
+            "7546 RPM",
+            "ok"
+          ],
+          [
+            "Fan 5",
+            "7644 RPM",
+            "ok"
+          ],
+          [
+            "Fan 6",
+            "7644 RPM",
+            "ok"
+          ],
+          [
+            "Fan 7",
+            "0 RPM",
+            "ok"
+          ],
+          [
+            "Fan 8",
+            "7546 RPM",
+            "ok"
+          ],
+          [
+            "Fan 9",
+            "0 RPM",
+            "ok"
+          ],
+          [
+            "Fan 10",
+            "0 RPM",
+            "ok"
+          ],
+          [
+            "PSU2 Fan Speed 1",
+            "12508 RPM",
+            "ok"
+          ],
+          [
+            "CPU Power",
+            "380 Watts",
+            "ok"
+          ],
+          [
+            "Cpu Power Averag",
+            "202 Watts",
+            "ok"
+          ],
+          [
+            "Cpu Power Averag",
+            "180 Watts",
+            "ok"
+          ],
+          [
+            "Cpu Power Cap CP",
+            "204 Watts",
+            "ok"
+          ],
+          [
+            "Cpu Power Cap CP",
+            "204 Watts",
+            "ok"
+          ],
+          [
+            "Dimm Power Avera",
+            "24 Watts",
+            "ok"
+          ],
+          [
+            "Dimm Power Avera",
+            "20 Watts",
+            "ok"
+          ],
+          [
+            "Dimm Power Cap C",
+            "0 Watts",
+            "ok"
+          ],
+          [
+            "Dimm Power Cap C",
+            "0 Watts",
+            "ok"
+          ],
+          [
+            "Memory Power",
+            "44 Watts",
+            "ok"
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "Name": "Chassis Status",
+    "Category": 8,
+    "AllHostValues": [
+      {
+        "Name": "10.45.247.81",
+        "ValueNames": [
+          "Last Power Event",
+          "Power Overload",
+          "Main Power Fault",
+          "Power Restore Policy",
+          "Drive Fault",
+          "Cooling/Fan Fault",
+          "System Time"
+        ],
+        "Values": [
+          [
+            "",
+            "false",
+            "false",
+            "always-off",
+            "false",
+            "false",
+            "03/08/23 17:46:08 PST"
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "Name": "System Event Log",
+    "Category": 8,
+    "AllHostValues": [
+      {
+        "Name": "10.45.247.81",
+        "ValueNames": [
+          "Date",
+          "Time",
+          "Sensor",
+          "Status",
+          "Event"
+        ],
+        "Values": []
+      }
+    ]
+  },
+  {
+    "Name": "Kernel Log",
+    "Category": 8,
+    "AllHostValues": [
+      {
+        "Name": "10.45.247.81",
+        "ValueNames": [
+          "Entries"
+        ],
+        "Values": [
+          [
+            "[  +0.000013] audit: type=1400 audit(1678326358.607:20803477): apparmor=\"DENIED\" operation=\"open\" profile=\"snap.net-snmp.snmpd\" name=\"/proc/sys/net/ipv6/neigh/lo/retrans_time_ms\" pid=3765 comm=\"snmpd\" requested_mask=\"r\" denied_mask=\"r\" fsuid=0 ouid=0"
+          ],
+          [
+            "[  +0.000010] audit: type=1400 audit(1678326358.607:20803478): apparmor=\"DENIED\" operation=\"open\" profile=\"snap.net-snmp.snmpd\" name=\"/proc/sys/net/ipv6/conf/lo/forwarding\" pid=3765 comm=\"snmpd\" requested_mask=\"r\" denied_mask=\"r\" fsuid=0 ouid=0"
+          ],
+          [
+            "[  +0.000008] audit: type=1400 audit(1678326358.607:20803479): apparmor=\"DENIED\" operation=\"open\" profile=\"snap.net-snmp.snmpd\" name=\"/proc/sys/net/ipv6/neigh/lo/base_reachable_time_ms\" pid=3765 comm=\"snmpd\" requested_mask=\"r\" denied_mask=\"r\" fsuid=0 ouid=0"
+          ],
+          [
+            "[  +0.000444] audit: type=1400 audit(1678326358.607:20803480): apparmor=\"DENIED\" operation=\"open\" profile=\"snap.net-snmp.snmpd\" name=\"/proc/sys/net/ipv4/neigh/ens1f0/retrans_time_ms\" pid=3765 comm=\"snmpd\" requested_mask=\"r\" denied_mask=\"r\" fsuid=0 ouid=0"
+          ],
+          [
+            "[  +0.000018] audit: type=1400 audit(1678326358.607:20803481): apparmor=\"DENIED\" operation=\"open\" profile=\"snap.net-snmp.snmpd\" name=\"/proc/sys/net/ipv6/neigh/ens1f0/retrans_time_ms\" pid=3765 comm=\"snmpd\" requested_mask=\"r\" denied_mask=\"r\" fsuid=0 ouid=0"
+          ],
+          [
+            "[  +0.000009] audit: type=1400 audit(1678326358.607:20803482): apparmor=\"DENIED\" operation=\"open\" profile=\"snap.net-snmp.snmpd\" name=\"/proc/sys/net/ipv6/conf/ens1f0/forwarding\" pid=3765 comm=\"snmpd\" requested_mask=\"r\" denied_mask=\"r\" fsuid=0 ouid=0"
+          ],
+          [
+            "[  +0.000009] audit: type=1400 audit(1678326358.607:20803483): apparmor=\"DENIED\" operation=\"open\" profile=\"snap.net-snmp.snmpd\" name=\"/proc/sys/net/ipv6/neigh/ens1f0/base_reachable_time_ms\" pid=3765 comm=\"snmpd\" requested_mask=\"r\" denied_mask=\"r\" fsuid=0 ouid=0"
+          ],
+          [
+            "[  +0.001116] audit: type=1400 audit(1678326358.607:20803484): apparmor=\"DENIED\" operation=\"open\" profile=\"snap.net-snmp.snmpd\" name=\"/proc/sys/net/ipv4/neigh/nerdctl0/retrans_time_ms\" pid=3765 comm=\"snmpd\" requested_mask=\"r\" denied_mask=\"r\" fsuid=0 ouid=0"
+          ],
+          [
+            "[  +0.000017] audit: type=1400 audit(1678326358.607:20803485): apparmor=\"DENIED\" operation=\"open\" profile=\"snap.net-snmp.snmpd\" name=\"/proc/sys/net/ipv6/neigh/nerdctl0/retrans_time_ms\" pid=3765 comm=\"snmpd\" requested_mask=\"r\" denied_mask=\"r\" fsuid=0 ouid=0"
+          ],
+          [
+            "[  +6.001854] kauditd_printk_skb: 76 callbacks suppressed"
+          ],
+          [
+            "[  +0.000007] audit: type=1400 audit(1678326364.607:20803562): apparmor=\"DENIED\" operation=\"open\" profile=\"snap.net-snmp.snmpd\" name=\"/proc/sys/net/ipv4/neigh/lo/retrans_time_ms\" pid=3765 comm=\"snmpd\" requested_mask=\"r\" denied_mask=\"r\" fsuid=0 ouid=0"
+          ],
+          [
+            "[  +0.000012] audit: type=1400 audit(1678326364.611:20803563): apparmor=\"DENIED\" operation=\"open\" profile=\"snap.net-snmp.snmpd\" name=\"/proc/sys/net/ipv6/neigh/lo/retrans_time_ms\" pid=3765 comm=\"snmpd\" requested_mask=\"r\" denied_mask=\"r\" fsuid=0 ouid=0"
+          ],
+          [
+            "[  +0.000006] audit: type=1400 audit(1678326364.611:20803564): apparmor=\"DENIED\" operation=\"open\" profile=\"snap.net-snmp.snmpd\" name=\"/proc/sys/net/ipv6/conf/lo/forwarding\" pid=3765 comm=\"snmpd\" requested_mask=\"r\" denied_mask=\"r\" fsuid=0 ouid=0"
+          ],
+          [
+            "[  +0.000007] audit: type=1400 audit(1678326364.611:20803565): apparmor=\"DENIED\" operation=\"open\" profile=\"snap.net-snmp.snmpd\" name=\"/proc/sys/net/ipv6/neigh/lo/base_reachable_time_ms\" pid=3765 comm=\"snmpd\" requested_mask=\"r\" denied_mask=\"r\" fsuid=0 ouid=0"
+          ],
+          [
+            "[  +0.000234] audit: type=1400 audit(1678326364.611:20803566): apparmor=\"DENIED\" operation=\"open\" profile=\"snap.net-snmp.snmpd\" name=\"/proc/sys/net/ipv4/neigh/ens1f0/retrans_time_ms\" pid=3765 comm=\"snmpd\" requested_mask=\"r\" denied_mask=\"r\" fsuid=0 ouid=0"
+          ],
+          [
+            "[  +0.000015] audit: type=1400 audit(1678326364.611:20803567): apparmor=\"DENIED\" operation=\"open\" profile=\"snap.net-snmp.snmpd\" name=\"/proc/sys/net/ipv6/neigh/ens1f0/retrans_time_ms\" pid=3765 comm=\"snmpd\" requested_mask=\"r\" denied_mask=\"r\" fsuid=0 ouid=0"
+          ],
+          [
+            "[  +0.000007] audit: type=1400 audit(1678326364.611:20803568): apparmor=\"DENIED\" operation=\"open\" profile=\"snap.net-snmp.snmpd\" name=\"/proc/sys/net/ipv6/conf/ens1f0/forwarding\" pid=3765 comm=\"snmpd\" requested_mask=\"r\" denied_mask=\"r\" fsuid=0 ouid=0"
+          ],
+          [
+            "[  +0.000018] audit: type=1400 audit(1678326364.611:20803569): apparmor=\"DENIED\" operation=\"open\" profile=\"snap.net-snmp.snmpd\" name=\"/proc/sys/net/ipv6/neigh/ens1f0/base_reachable_time_ms\" pid=3765 comm=\"snmpd\" requested_mask=\"r\" denied_mask=\"r\" fsuid=0 ouid=0"
+          ],
+          [
+            "[  +0.000910] audit: type=1400 audit(1678326364.611:20803570): apparmor=\"DENIED\" operation=\"open\" profile=\"snap.net-snmp.snmpd\" name=\"/proc/sys/net/ipv4/neigh/nerdctl0/retrans_time_ms\" pid=3765 comm=\"snmpd\" requested_mask=\"r\" denied_mask=\"r\" fsuid=0 ouid=0"
+          ],
+          [
+            "[  +0.000007] audit: type=1400 audit(1678326364.611:20803571): apparmor=\"DENIED\" operation=\"open\" profile=\"snap.net-snmp.snmpd\" name=\"/proc/sys/net/ipv6/neigh/nerdctl0/retrans_time_ms\" pid=3765 comm=\"snmpd\" requested_mask=\"r\" denied_mask=\"r\" fsuid=0 ouid=0"
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "Name": "PMU",
+    "Category": 8,
+    "AllHostValues": [
+      {
+        "Name": "10.45.247.81",
+        "ValueNames": [
+          "cpu_cycles",
+          "instructions",
+          "ref_cycles",
+          "topdown_slots",
+          "gen_programmable_1",
+          "gen_programmable_2",
+          "gen_programmable_3",
+          "gen_programmable_4",
+          "gen_programmable_5",
+          "gen_programmable_6",
+          "gen_programmable_7",
+          "gen_programmable_8"
+        ],
+        "Values": [
+          [
+            "Active",
+            "Inactive",
+            "Inactive",
+            "Inactive",
+            "Inactive",
+            "Inactive",
+            "Inactive",
+            "Inactive",
+            "Inactive",
+            "Inactive",
+            "Inactive",
+            "Inactive"
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "Name": "Recommendation",
+    "Category": 9,
+    "AllHostValues": [
+      {
+        "Name": "10.45.247.81",
+        "ValueNames": [
+          "Short Description",
+          "Long Description"
+        ],
+        "Values": [
+          [
+            "IRQ Balance",
+            "Disabling the IRQ Balance service and manually configuring network IRQ CPU affinity may improve network bandwidth and latency."
+          ],
+          [
+            "Configured DIMM Speed",
+            "The configured speed of this server's DRAM DIMMs is less than the maximum speed supported by the DIMM. Best memory performance is achieved when DIMMs are running at maximum speed."
+          ],
+          [
+            "Frequency governor",
+            "Set the CPU Frequency Governors to 'performance' for best CPU performance."
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "Name": "Average CPU Utilization",
+    "Category": 9,
+    "AllHostValues": [
+      {
+        "Name": "10.45.247.81",
+        "ValueNames": [
+          "Time",
+          "%usr",
+          "%nice",
+          "%sys",
+          "%iowait",
+          "%irq",
+          "%soft",
+          "%steal",
+          "%guest",
+          "%gnice",
+          "%idle"
+        ],
+        "Values": []
+      }
+    ]
+  },
+  {
+    "Name": "CPU Utilization",
+    "Category": 9,
+    "AllHostValues": [
+      {
+        "Name": "10.45.247.81",
+        "ValueNames": [
+          "Time",
+          "CPU",
+          "CORE",
+          "SOCK",
+          "NODE",
+          "%usr",
+          "%nice",
+          "%sys",
+          "%iowait",
+          "%irq",
+          "%soft",
+          "%steal",
+          "%guest",
+          "%gnice",
+          "%idle"
+        ],
+        "Values": []
+      }
+    ]
+  },
+  {
+    "Name": "IRQ Rate",
+    "Category": 9,
+    "AllHostValues": [
+      {
+        "Name": "10.45.247.81",
+        "ValueNames": [
+          "Time",
+          "CPU",
+          "HI/s",
+          "TIMER/s",
+          "NET_TX/s",
+          "NET_RX/s",
+          "BLOCK/s",
+          "IRQ_POLL/s",
+          "TASKLET/s",
+          "SCHED/s",
+          "HRTIMER/s",
+          "RCU/s"
+        ],
+        "Values": []
+      }
+    ]
+  },
+  {
+    "Name": "Drive Stats",
+    "Category": 9,
+    "AllHostValues": [
+      {
+        "Name": "10.45.247.81",
+        "ValueNames": [
+          "Device",
+          "tps",
+          "kB_read/s",
+          "kB_wrtn/s",
+          "kB_dscd/s",
+          "kB_read",
+          "kB_wrtn",
+          "kB_dscd"
+        ],
+        "Values": []
+      }
+    ]
+  },
+  {
+    "Name": "Network Stats",
+    "Category": 9,
+    "AllHostValues": [
+      {
+        "Name": "10.45.247.81",
+        "ValueNames": [
+          "Time",
+          "IFACE",
+          "rxpck/s",
+          "txpck/s",
+          "rxkB/s",
+          "txkB/s",
+          "rxcmp/s",
+          "txcmp/s",
+          "rxcmt/s",
+          "%ifutil"
+        ],
+        "Values": []
+      }
+    ]
+  },
+  {
+    "Name": "Core Frequency",
+    "Category": 9,
+    "AllHostValues": [
+      {
+        "Name": "10.45.247.81",
+        "ValueNames": [
+          "Core Count",
+          "Spec Frequency (GHz)",
+          "Measured Frequency (GHz)"
+        ],
+        "Values": [
+          [
+            "1",
+            "3.8",
+            "3.8"
+          ],
+          [
+            "2",
+            "3.8",
+            "3.8"
+          ],
+          [
+            "3",
+            "3.8",
+            "2.9"
+          ],
+          [
+            "4",
+            "3.8",
+            "2.8"
+          ],
+          [
+            "5",
+            "3.8",
+            "3.1"
+          ],
+          [
+            "6",
+            "3.8",
+            "3.1"
+          ],
+          [
+            "7",
+            "3.8",
+            "3.2"
+          ],
+          [
+            "8",
+            "3.8",
+            "3.1"
+          ],
+          [
+            "9",
+            "3.8",
+            "3.2"
+          ],
+          [
+            "10",
+            "3.8",
+            "3.3"
+          ],
+          [
+            "11",
+            "3.8",
+            "3.3"
+          ],
+          [
+            "12",
+            "3.8",
+            "3.4"
+          ],
+          [
+            "13",
+            "3.8",
+            "3.2"
+          ],
+          [
+            "14",
+            "3.8",
+            "3.3"
+          ],
+          [
+            "15",
+            "3.8",
+            "3.4"
+          ],
+          [
+            "16",
+            "3.8",
+            "3.2"
+          ],
+          [
+            "17",
+            "3.8",
+            "3.2"
+          ],
+          [
+            "18",
+            "3.8",
+            "3.4"
+          ],
+          [
+            "19",
+            "3.8",
+            "3.4"
+          ],
+          [
+            "20",
+            "3.8",
+            "3.5"
+          ],
+          [
+            "21",
+            "3.8",
+            "3.5"
+          ],
+          [
+            "22",
+            "3.8",
+            "3.5"
+          ],
+          [
+            "23",
+            "3.8",
+            "3.4"
+          ],
+          [
+            "24",
+            "3.8",
+            "3.3"
+          ],
+          [
+            "25",
+            "3.8",
+            "3.2"
+          ],
+          [
+            "26",
+            "3.8",
+            "3.3"
+          ],
+          [
+            "27",
+            "3.8",
+            "3.4"
+          ],
+          [
+            "28",
+            "3.8",
+            "3.3"
+          ],
+          [
+            "29",
+            "3.6",
+            "3.4"
+          ],
+          [
+            "30",
+            "3.6",
+            "3.2"
+          ],
+          [
+            "31",
+            "3.6",
+            "3.1"
+          ],
+          [
+            "32",
+            "3.6",
+            "3.1"
+          ],
+          [
+            "33",
+            "3.6",
+            "3.1"
+          ],
+          [
+            "34",
+            "3.6",
+            "3.2"
+          ],
+          [
+            "35",
+            "3.4",
+            "3.2"
+          ],
+          [
+            "36",
+            "3.4",
+            "3.2"
+          ],
+          [
+            "37",
+            "3.4",
+            "3.2"
+          ],
+          [
+            "38",
+            "3.4",
+            "3.1"
+          ],
+          [
+            "39",
+            "3.4",
+            "3.0"
+          ],
+          [
+            "40",
+            "3.4",
+            "3.0"
+          ],
+          [
+            "41",
+            "3.2",
+            "3.0"
+          ],
+          [
+            "42",
+            "3.2",
+            "3.1"
+          ],
+          [
+            "43",
+            "3.2",
+            "3.0"
+          ],
+          [
+            "44",
+            "3.2",
+            "3.0"
+          ],
+          [
+            "45",
+            "3.1",
+            "3.0"
+          ],
+          [
+            "46",
+            "3.1",
+            "3.0"
+          ],
+          [
+            "47",
+            "3.1",
+            "3.0"
+          ],
+          [
+            "48",
+            "3.1",
+            "3.0"
+          ],
+          [
+            "49",
+            "3.1",
+            "3.0"
+          ],
+          [
+            "50",
+            "3.1",
+            "3.0"
+          ],
+          [
+            "51",
+            "3.0",
+            "3.0"
+          ],
+          [
+            "52",
+            "3.0",
+            "3.0"
+          ],
+          [
+            "53",
+            "3.0",
+            "3.0"
+          ],
+          [
+            "54",
+            "3.0",
+            "3.0"
+          ],
+          [
+            "55",
+            "3.0",
+            "3.0"
+          ],
+          [
+            "56",
+            "3.0",
+            "3.0"
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "Name": "Health",
+    "Category": 9,
+    "AllHostValues": [
+      {
+        "Name": "10.45.247.81",
+        "ValueNames": [
+          "CPU Speed",
+          "Single-core Turbo",
+          "All-core Turbo",
+          "Turbo TDP",
+          "Idle TDP",
+          "Memory Peak Bandwidth",
+          "Memory Minimum Latency",
+          "Disk Speed"
+        ],
+        "Values": [
+          [
+            "1319290 ops/s",
+            "2554 MHz",
+            "2972 MHz",
+            "722.93 Watts",
+            "219.72 Watts",
+            "449.1 GB/s",
+            "107.4 ns",
+            "21.9k iops"
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "Name": "Memory Bandwidth and Latency",
+    "Category": 9,
+    "AllHostValues": [
+      {
+        "Name": "10.45.247.81",
+        "ValueNames": [
+          "Latency (ns)",
+          "Bandwidth (GB/s)"
+        ],
+        "Values": [
+          [
+            "107.44",
+            "4.0"
+          ],
+          [
+            "116.11",
+            "7.7"
+          ],
+          [
+            "116.54",
+            "13.1"
+          ],
+          [
+            "119.89",
+            "19.9"
+          ],
+          [
+            "121.78",
+            "26.9"
+          ],
+          [
+            "122.18",
+            "34.8"
+          ],
+          [
+            "124.79",
+            "45.0"
+          ],
+          [
+            "127.66",
+            "57.9"
+          ],
+          [
+            "130.75",
+            "81.0"
+          ],
+          [
+            "135.38",
+            "112.0"
+          ],
+          [
+            "140.97",
+            "137.7"
+          ],
+          [
+            "147.18",
+            "181.3"
+          ],
+          [
+            "143.62",
+            "244.9"
+          ],
+          [
+            "289.14",
+            "448.3"
+          ],
+          [
+            "280.43",
+            "448.1"
+          ],
+          [
+            "290.91",
+            "447.0"
+          ],
+          [
+            "315.84",
+            "448.6"
+          ],
+          [
+            "324.04",
+            "449.1"
+          ],
+          [
+            "317.73",
+            "448.9"
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "Name": "Memory NUMA Bandwidth",
+    "Category": 9,
+    "AllHostValues": [
+      {
+        "Name": "10.45.247.81",
+        "ValueNames": [
+          "Node",
+          "Bandwidths 0-N"
+        ],
+        "Values": [
+          [
+            "0",
+            "224514.3,126259.5"
+          ],
+          [
+            "1",
+            "126312.0,225099.9"
+          ]
+        ]
+      }
+    ]
+  }
+]

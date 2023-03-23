@@ -1,0 +1,5 @@
+cpu_usage=
+mem_usage=847872
+ei_infer_fps=
+ei_drop_fps=
+ei_scale_ratio=

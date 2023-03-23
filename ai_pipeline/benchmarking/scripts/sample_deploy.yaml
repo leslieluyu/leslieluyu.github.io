@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ei-sample
+spec:
+  selector:
+    matchLabels:
+      app: ei-sample-pose
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: ei-sample-pose
+    spec:
+      containers:
+      - name: ei-fss
+        image: gar-registry.caas.intel.com/cpio/ei-file-stream-service:2022WW47
+        imagePullPolicy: IfNotPresent
+        env:
+        - name: VIDEO_FILE
+          value: dance.mp4
+        - name: QUEUE_HOST
+          value: ei-redis-svc
+        - name: INFER_TYPE
+          value: pose-bf16-amx
+        - name: STREAM_NAME
+          value: TF-BF16-AMX
+      initContainers:
+        - name: init-pose-sample
+          image: busybox:1.31
+          command: ['sh', '-c', 'until nslookup ei-redis-svc; do echo waiting for ei-redis-svc; sleep 2; done;']
+      nodeSelector:
+        css-actor: demo

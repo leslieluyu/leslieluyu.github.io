@@ -1,0 +1,483 @@
+2023-03-14 21:48:57,742 - INFO - Starting batch deployment...
+2023-03-14 21:48:57,744 - INFO - ------------- scenario: 1/1 ------------
+2023-03-14 21:48:57,745 - INFO - Begin set_deployment_env of scenario : NON_AMX_BF16 ...
+2023-03-14 21:48:57,778 - INFO - Setting environment variables for scenario NON_AMX_BF16...
+2023-03-14 21:48:57,799 - INFO - Setting resource requests and limits for scenario NON_AMX_BF16...
+2023-03-14 21:48:57,819 - INFO - after patch_body wait for 30 seconds to enable the new pods
+2023-03-14 21:49:27,850 - INFO - Waiting for 1 pods to be ready for scenario NON_AMX_BF16...
+2023-03-14 21:49:27,927 - INFO - pod: ei-infer-deployment-pose-bf16-amx-01-5767795f6f-mhn8x status:Running
+2023-03-14 21:49:27,928 - INFO - pod: ei-infer-deployment-pose-bf16-amx-01-5885789db6-plj6s status:Pending
+2023-03-14 21:49:27,928 - INFO - Waiting for 0 more pods to be ready, there are 1 not ready pods for scenario NON_AMX_BF16. Elapsed time: 0.08 seconds
+2023-03-14 21:49:37,966 - INFO - pod: ei-infer-deployment-pose-bf16-amx-01-5767795f6f-mhn8x status:Running
+2023-03-14 21:49:37,966 - INFO - pod: ei-infer-deployment-pose-bf16-amx-01-5885789db6-plj6s status:Pending
+2023-03-14 21:49:37,966 - INFO - Waiting for 0 more pods to be ready, there are 1 not ready pods for scenario NON_AMX_BF16. Elapsed time: 10.12 seconds
+2023-03-14 21:49:48,003 - INFO - pod: ei-infer-deployment-pose-bf16-amx-01-5767795f6f-mhn8x status:Running
+2023-03-14 21:49:48,003 - INFO - pod: ei-infer-deployment-pose-bf16-amx-01-5885789db6-plj6s status:Pending
+2023-03-14 21:49:48,003 - INFO - Waiting for 0 more pods to be ready, there are 1 not ready pods for scenario NON_AMX_BF16. Elapsed time: 20.15 seconds
+2023-03-14 21:49:58,039 - INFO - pod: ei-infer-deployment-pose-bf16-amx-01-5767795f6f-mhn8x status:Running
+2023-03-14 21:49:58,039 - INFO - pod: ei-infer-deployment-pose-bf16-amx-01-5885789db6-plj6s status:Pending
+2023-03-14 21:49:58,039 - INFO - Waiting for 0 more pods to be ready, there are 1 not ready pods for scenario NON_AMX_BF16. Elapsed time: 30.19 seconds
+2023-03-14 21:50:08,075 - INFO - pod: ei-infer-deployment-pose-bf16-amx-01-5767795f6f-mhn8x status:Running
+2023-03-14 21:50:08,075 - INFO - pod: ei-infer-deployment-pose-bf16-amx-01-5885789db6-plj6s status:Pending
+2023-03-14 21:50:08,075 - INFO - Waiting for 0 more pods to be ready, there are 1 not ready pods for scenario NON_AMX_BF16. Elapsed time: 40.22 seconds
+2023-03-14 21:50:18,112 - INFO - pod: ei-infer-deployment-pose-bf16-amx-01-5767795f6f-mhn8x status:Running
+2023-03-14 21:50:18,113 - INFO - pod: ei-infer-deployment-pose-bf16-amx-01-5885789db6-plj6s status:Pending
+2023-03-14 21:50:18,113 - INFO - Waiting for 0 more pods to be ready, there are 1 not ready pods for scenario NON_AMX_BF16. Elapsed time: 50.26 seconds
+2023-03-14 21:50:28,149 - INFO - pod: ei-infer-deployment-pose-bf16-amx-01-5767795f6f-mhn8x status:Running
+2023-03-14 21:50:28,149 - INFO - pod: ei-infer-deployment-pose-bf16-amx-01-5885789db6-plj6s status:Pending
+2023-03-14 21:50:28,149 - INFO - Waiting for 0 more pods to be ready, there are 1 not ready pods for scenario NON_AMX_BF16. Elapsed time: 60.30 seconds
+2023-03-14 21:50:38,188 - INFO - pod: ei-infer-deployment-pose-bf16-amx-01-5767795f6f-mhn8x status:Running
+2023-03-14 21:50:38,188 - INFO - pod: ei-infer-deployment-pose-bf16-amx-01-5885789db6-plj6s status:Pending
+2023-03-14 21:50:38,188 - INFO - Waiting for 0 more pods to be ready, there are 1 not ready pods for scenario NON_AMX_BF16. Elapsed time: 70.34 seconds
+2023-03-14 21:50:48,226 - INFO - pod: ei-infer-deployment-pose-bf16-amx-01-5767795f6f-mhn8x status:Running
+2023-03-14 21:50:48,226 - INFO - pod: ei-infer-deployment-pose-bf16-amx-01-5885789db6-plj6s status:Pending
+2023-03-14 21:50:48,227 - INFO - Waiting for 0 more pods to be ready, there are 1 not ready pods for scenario NON_AMX_BF16. Elapsed time: 80.38 seconds
+2023-03-14 21:50:58,265 - INFO - pod: ei-infer-deployment-pose-bf16-amx-01-5767795f6f-mhn8x status:Running
+2023-03-14 21:50:58,265 - INFO - pod: ei-infer-deployment-pose-bf16-amx-01-5885789db6-plj6s status:Pending
+2023-03-14 21:50:58,265 - INFO - Waiting for 0 more pods to be ready, there are 1 not ready pods for scenario NON_AMX_BF16. Elapsed time: 90.41 seconds
+2023-03-14 21:51:08,302 - INFO - pod: ei-infer-deployment-pose-bf16-amx-01-5767795f6f-mhn8x status:Running
+2023-03-14 21:51:08,302 - INFO - pod: ei-infer-deployment-pose-bf16-amx-01-5885789db6-plj6s status:Pending
+2023-03-14 21:51:08,303 - INFO - Waiting for 0 more pods to be ready, there are 1 not ready pods for scenario NON_AMX_BF16. Elapsed time: 100.45 seconds
+2023-03-14 21:51:18,340 - INFO - pod: ei-infer-deployment-pose-bf16-amx-01-5767795f6f-mhn8x status:Running
+2023-03-14 21:51:18,340 - INFO - pod: ei-infer-deployment-pose-bf16-amx-01-5885789db6-plj6s status:Pending
+2023-03-14 21:51:18,340 - INFO - Waiting for 0 more pods to be ready, there are 1 not ready pods for scenario NON_AMX_BF16. Elapsed time: 110.49 seconds
+2023-03-14 21:51:28,376 - INFO - pod: ei-infer-deployment-pose-bf16-amx-01-5767795f6f-mhn8x status:Running
+2023-03-14 21:51:28,376 - INFO - pod: ei-infer-deployment-pose-bf16-amx-01-5885789db6-plj6s status:Pending
+2023-03-14 21:51:28,376 - INFO - Waiting for 0 more pods to be ready, there are 1 not ready pods for scenario NON_AMX_BF16. Elapsed time: 120.53 seconds
+2023-03-14 21:51:38,413 - INFO - pod: ei-infer-deployment-pose-bf16-amx-01-5767795f6f-mhn8x status:Running
+2023-03-14 21:51:38,413 - INFO - pod: ei-infer-deployment-pose-bf16-amx-01-5885789db6-plj6s status:Pending
+2023-03-14 21:51:38,413 - INFO - Waiting for 0 more pods to be ready, there are 1 not ready pods for scenario NON_AMX_BF16. Elapsed time: 130.56 seconds
+2023-03-14 21:51:48,449 - INFO - pod: ei-infer-deployment-pose-bf16-amx-01-5767795f6f-mhn8x status:Running
+2023-03-14 21:51:48,449 - INFO - pod: ei-infer-deployment-pose-bf16-amx-01-5885789db6-plj6s status:Pending
+2023-03-14 21:51:48,449 - INFO - Waiting for 0 more pods to be ready, there are 1 not ready pods for scenario NON_AMX_BF16. Elapsed time: 140.60 seconds
+2023-03-14 21:51:58,479 - INFO - pod: ei-infer-deployment-pose-bf16-amx-01-5885789db6-plj6s status:Running
+2023-03-14 21:51:58,479 - INFO - All 1 pods are ready for scenario NON_AMX_BF16
+2023-03-14 21:51:58,481 - INFO - Finished scenario NON_AMX_BF16
+2023-03-14 21:51:58,481 - INFO - wait for 2m to get stable metrics ...
+2023-03-14 21:53:58,581 - INFO - Running benchmarking script for scenario NON_AMX_BF16...
+2023-03-14 21:53:58,594 - INFO - TS=20230314215358
+2023-03-14 21:54:00,581 - INFO - 10.45.247.200 | CHANGED | rc=0 >>
+2023-03-14 21:54:00,582 - INFO - Reading package lists...
+2023-03-14 21:54:00,582 - INFO - Building dependency tree...
+2023-03-14 21:54:00,582 - INFO - Reading state information...
+2023-03-14 21:54:00,582 - INFO - linux-tools-5.15.0-60-generic is already the newest version (5.15.0-60.66).
+2023-03-14 21:54:00,582 - INFO - sysstat is already the newest version (12.5.2-2ubuntu0.1).
+2023-03-14 21:54:00,582 - INFO - The following packages were automatically installed and are no longer required:
+2023-03-14 21:54:00,582 - INFO - cgroupfs-mount libltdl7 pigz
+2023-03-14 21:54:00,582 - INFO - Use 'sudo apt autoremove' to remove them.
+2023-03-14 21:54:00,582 - INFO - 0 upgraded, 0 newly installed, 0 to remove and 44 not upgraded.
+2023-03-14 21:54:00,582 - INFO - WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+2023-03-14 21:54:01,694 - INFO - 10.45.247.200 | CHANGED | rc=0 >>
+2023-03-14 21:54:01,694 - INFO - 
+2023-03-14 21:54:02,753 - INFO - 10.45.247.200 | CHANGED | rc=0 >>
+2023-03-14 21:54:02,754 - INFO - performance
+2023-03-14 21:54:02,851 - INFO - Run on test AiPipeline_20230314215358_5651_NON_AMX_BF16_6
+2023-03-14 21:54:02,851 - INFO - TT=AiPipeline_20230314215358_5651_NON_AMX_BF16_6,WRKDIR=/home/ansible/yulu/ai_pipeline/ai_pipeline_benchmark/benchmarking/scripts/emon
+2023-03-14 21:54:02,857 - INFO - -----------loop num:1/3------------
+2023-03-14 21:54:12,864 - INFO - 1.  fetch_emon.sh
+2023-03-14 21:54:12,865 - INFO - pwd=/home/ansible/yulu/ai_pipeline/ai_pipeline_benchmark/benchmarking/scripts/emon
+2023-03-14 21:54:14,173 - INFO - 10.45.247.200 | SUCCESS => {
+2023-03-14 21:54:14,173 - INFO - "ansible_facts": {
+2023-03-14 21:54:14,173 - INFO - "discovered_interpreter_python": "/usr/bin/python3"
+2023-03-14 21:54:14,173 - INFO - },
+2023-03-14 21:54:14,173 - INFO - "changed": false,
+2023-03-14 21:54:14,174 - INFO - "checksum": "1bb1c680bf42bce57bd33e9ee945d27bb8aeaafc",
+2023-03-14 21:54:14,174 - INFO - "dest": "runemon.sh",
+2023-03-14 21:54:14,174 - INFO - "gid": 1007,
+2023-03-14 21:54:14,174 - INFO - "group": "ansible",
+2023-03-14 21:54:14,174 - INFO - "mode": "0755",
+2023-03-14 21:54:14,174 - INFO - "owner": "ansible",
+2023-03-14 21:54:14,174 - INFO - "path": "runemon.sh",
+2023-03-14 21:54:14,174 - INFO - "size": 452,
+2023-03-14 21:54:14,174 - INFO - "state": "file",
+2023-03-14 21:54:14,174 - INFO - "uid": 1006
+2023-03-14 21:54:14,174 - INFO - }
+2023-03-14 21:54:15,588 - INFO - 10.45.247.200 | SUCCESS => {
+2023-03-14 21:54:15,588 - INFO - "ansible_facts": {
+2023-03-14 21:54:15,589 - INFO - "discovered_interpreter_python": "/usr/bin/python3"
+2023-03-14 21:54:15,589 - INFO - },
+2023-03-14 21:54:15,589 - INFO - "changed": false,
+2023-03-14 21:54:15,589 - INFO - "checksum": "0b7ce1d178a191ee4962273d5bcbcac8b825066d",
+2023-03-14 21:54:15,589 - INFO - "dest": "sapphirerapids_server_events_private.txt",
+2023-03-14 21:54:15,589 - INFO - "gid": 1007,
+2023-03-14 21:54:15,589 - INFO - "group": "ansible",
+2023-03-14 21:54:15,589 - INFO - "mode": "0664",
+2023-03-14 21:54:15,589 - INFO - "owner": "ansible",
+2023-03-14 21:54:15,589 - INFO - "path": "sapphirerapids_server_events_private.txt",
+2023-03-14 21:54:15,589 - INFO - "size": 23423,
+2023-03-14 21:54:15,589 - INFO - "state": "file",
+2023-03-14 21:54:15,589 - INFO - "uid": 1006
+2023-03-14 21:54:15,590 - INFO - }
+2023-03-14 21:54:16,664 - INFO - 10.45.247.200 | CHANGED | rc=0 >>
+2023-03-14 21:54:16,664 - INFO - 
+2023-03-14 21:54:17,709 - INFO - 10.45.247.200 | CHANGED | rc=0 >>
+2023-03-14 21:54:17,709 - INFO - 
+2023-03-14 21:54:17,803 - INFO - Sleep 5 seconds then collect emon data for 30 seconds
+2023-03-14 21:54:22,806 - INFO - Collecting 30 seconds sar data background
+2023-03-14 21:54:24,776 - INFO - 10.45.247.200 | CHANGED | rc=0 >>
+2023-03-14 21:54:24,776 - INFO - 
+2023-03-14 21:54:26,835 - INFO - 10.45.247.200 | CHANGED | rc=0 >>
+2023-03-14 21:54:26,835 - INFO - 
+2023-03-14 21:54:28,907 - INFO - 10.45.247.200 | CHANGED | rc=0 >>
+2023-03-14 21:54:28,907 - INFO - 
+2023-03-14 21:54:30,970 - INFO - 10.45.247.200 | CHANGED | rc=0 >>
+2023-03-14 21:54:30,970 - INFO - 
+2023-03-14 21:54:31,067 - INFO - Collecting EMON data
+2023-03-14 21:55:02,570 - INFO - 10.45.247.200 | CHANGED | rc=0 >>
+2023-03-14 21:55:02,571 - INFO - Usage: sep_vars.sh [emon_api]
+2023-03-14 21:55:02,571 - INFO - PATH=/opt/intel/sep/bin64:/opt/intel/sep/android_target:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin
+2023-03-14 21:55:02,571 - INFO - CPATH=/opt/intel/sep/config/emon_api:
+2023-03-14 21:55:02,571 - INFO - LIBRARY_PATH=/opt/intel/sep/lib64:
+2023-03-14 21:55:02,571 - INFO - LD_LIBRARY_PATH=
+2023-03-14 21:55:02,571 - INFO - SEP_BASE_DIR=/opt/intel/sep/bin64
+2023-03-14 21:55:02,571 - INFO - SEP is currently installed under /opt/intel/sep/bin64
+2023-03-14 21:55:02,571 - INFO - EMON collector successfully stopped.
+2023-03-14 21:55:02,676 - INFO - Sleep another 30 seconds to make sure the previous run exit
+2023-03-14 21:55:32,714 - INFO - Copy dat files
+2023-03-14 21:55:33,726 - INFO - 10.45.247.200 | CHANGED => {
+2023-03-14 21:55:33,727 - INFO - "changed": true,
+2023-03-14 21:55:33,727 - INFO - "checksum": "f4f6edb2de03cec1329306710da2bf695d37762b",
+2023-03-14 21:55:33,727 - INFO - "dest": "/home/ansible/yulu/ai_pipeline/ai_pipeline_benchmark/benchmarking/scripts/emon/emon10000/10.45.247.200/emon10000/cpuutil.log",
+2023-03-14 21:55:33,727 - INFO - "md5sum": "5511ae0e6a5b6c86cebe604f0f274062",
+2023-03-14 21:55:33,727 - INFO - "remote_checksum": "f4f6edb2de03cec1329306710da2bf695d37762b",
+2023-03-14 21:55:33,727 - INFO - "remote_md5sum": null
+2023-03-14 21:55:33,727 - INFO - }
+2023-03-14 21:55:34,875 - INFO - 10.45.247.200 | CHANGED => {
+2023-03-14 21:55:34,877 - INFO - "changed": true,
+2023-03-14 21:55:34,877 - INFO - "checksum": "64074ac418f10abb7b0bb141ed2b690e45d32c13",
+2023-03-14 21:55:34,877 - INFO - "dest": "/home/ansible/yulu/ai_pipeline/ai_pipeline_benchmark/benchmarking/scripts/emon/emon10000/10.45.247.200/emon10000/diskutil.log",
+2023-03-14 21:55:34,877 - INFO - "md5sum": "e2031906c3f705afd32b06f270ceefd1",
+2023-03-14 21:55:34,877 - INFO - "remote_checksum": "64074ac418f10abb7b0bb141ed2b690e45d32c13",
+2023-03-14 21:55:34,877 - INFO - "remote_md5sum": null
+2023-03-14 21:55:34,877 - INFO - }
+2023-03-14 21:55:35,968 - INFO - 10.45.247.200 | CHANGED => {
+2023-03-14 21:55:35,968 - INFO - "changed": true,
+2023-03-14 21:55:35,968 - INFO - "checksum": "1b44ffd41c4cb2be609beaf13f877ff9f8e5407e",
+2023-03-14 21:55:35,968 - INFO - "dest": "/home/ansible/yulu/ai_pipeline/ai_pipeline_benchmark/benchmarking/scripts/emon/emon10000/10.45.247.200/emon10000/netutil.log",
+2023-03-14 21:55:35,968 - INFO - "md5sum": "28c2c2a61ba1f07b92dcf8980e3edb0e",
+2023-03-14 21:55:35,968 - INFO - "remote_checksum": "1b44ffd41c4cb2be609beaf13f877ff9f8e5407e",
+2023-03-14 21:55:35,969 - INFO - "remote_md5sum": null
+2023-03-14 21:55:35,969 - INFO - }
+2023-03-14 21:55:37,129 - INFO - 10.45.247.200 | CHANGED => {
+2023-03-14 21:55:37,130 - INFO - "changed": true,
+2023-03-14 21:55:37,130 - INFO - "checksum": "760cecbee0204295bc9f9d5d75b4039d30923f77",
+2023-03-14 21:55:37,130 - INFO - "dest": "/home/ansible/yulu/ai_pipeline/ai_pipeline_benchmark/benchmarking/scripts/emon/emon10000/10.45.247.200/emon10000/top.log",
+2023-03-14 21:55:37,130 - INFO - "md5sum": "44cdce09a0309560e1b2dcd122cb758e",
+2023-03-14 21:55:37,130 - INFO - "remote_checksum": "760cecbee0204295bc9f9d5d75b4039d30923f77",
+2023-03-14 21:55:37,130 - INFO - "remote_md5sum": null
+2023-03-14 21:55:37,130 - INFO - }
+2023-03-14 21:55:38,222 - INFO - 10.45.247.200 | CHANGED => {
+2023-03-14 21:55:38,223 - INFO - "changed": true,
+2023-03-14 21:55:38,223 - INFO - "checksum": "0eecf027044a52ff57e87a1ef1f9277e1ceb146e",
+2023-03-14 21:55:38,223 - INFO - "dest": "/home/ansible/yulu/ai_pipeline/ai_pipeline_benchmark/benchmarking/scripts/emon/emon10000/10.45.247.200/emon10000/emon-v.dat",
+2023-03-14 21:55:38,223 - INFO - "md5sum": "9ed6ca61f164c3a1ddac82b3adb8e41f",
+2023-03-14 21:55:38,223 - INFO - "remote_checksum": "0eecf027044a52ff57e87a1ef1f9277e1ceb146e",
+2023-03-14 21:55:38,223 - INFO - "remote_md5sum": null
+2023-03-14 21:55:38,223 - INFO - }
+2023-03-14 21:55:39,317 - INFO - 10.45.247.200 | CHANGED => {
+2023-03-14 21:55:39,317 - INFO - "changed": true,
+2023-03-14 21:55:39,317 - INFO - "checksum": "553de59ae1f861c17499a345947edac24f5ef5e6",
+2023-03-14 21:55:39,317 - INFO - "dest": "/home/ansible/yulu/ai_pipeline/ai_pipeline_benchmark/benchmarking/scripts/emon/emon10000/10.45.247.200/emon10000/emon-M.dat",
+2023-03-14 21:55:39,317 - INFO - "md5sum": "82b2e5d1d33c2feb6e5d5290b113dd3f",
+2023-03-14 21:55:39,318 - INFO - "remote_checksum": "553de59ae1f861c17499a345947edac24f5ef5e6",
+2023-03-14 21:55:39,318 - INFO - "remote_md5sum": null
+2023-03-14 21:55:39,318 - INFO - }
+2023-03-14 21:55:40,930 - INFO - 10.45.247.200 | CHANGED => {
+2023-03-14 21:55:40,931 - INFO - "changed": true,
+2023-03-14 21:55:40,931 - INFO - "checksum": "798a85a0049790c0b8424321888c532ab2f9f54f",
+2023-03-14 21:55:40,931 - INFO - "dest": "/home/ansible/yulu/ai_pipeline/ai_pipeline_benchmark/benchmarking/scripts/emon/emon10000/10.45.247.200/emon10000/emon.dat",
+2023-03-14 21:55:40,931 - INFO - "md5sum": "7b6cb0ed64899764b804d8d4e14bb406",
+2023-03-14 21:55:40,931 - INFO - "remote_checksum": "798a85a0049790c0b8424321888c532ab2f9f54f",
+2023-03-14 21:55:40,931 - INFO - "remote_md5sum": null
+2023-03-14 21:55:40,931 - INFO - }
+2023-03-14 21:55:41,039 - INFO - 2. fetch the matrics of ai_pipeline
+2023-03-14 21:55:41,039 - INFO - 3.  collect the result
+2023-03-14 21:55:41,200 - INFO - The query to fetch metrics from prometheus is: http://10.45.247.81:31090/api/v1/query?query=avg_over_time(rate(container_cpu_usage_seconds_total{namespace="default", container!=""}[2m])[2m:])
+2023-03-14 21:55:41,201 - INFO - metric_name is: cpu_usage
+2023-03-14 21:55:41,217 - INFO - result is: [{'metric': {'container': 'ei-fss', 'cpu': 'total', 'endpoint': 'https-metrics', 'id': '/kubepods.slice/kubepods-besteffort.slice/kubepods-besteffort-pod37bfe08c_1a35_4f31_aee2_d3ed773045f6.slice/cri-containerd-32957fce66e8ca89850f6a363f2bad55c4c434f4dd10e8ee22d59409d4d63156.scope', 'image': 'gar-registry.caas.intel.com/cpio/ei-file-stream-service:2022WW47', 'instance': '10.45.247.200:10250', 'job': 'kubelet', 'metrics_path': '/metrics/cadvisor', 'name': '32957fce66e8ca89850f6a363f2bad55c4c434f4dd10e8ee22d59409d4d63156', 'namespace': 'default', 'node': 'ai-worker0', 'pod': 'ei-sample-deployment-pose-bf16-amx-06-59c94bd6dd-7fqpw', 'service': 'kubelet'}, 'value': [1678856141.2, '0.07460886388887755']}, {'metric': {'container': 'ei-fss', 'cpu': 'total', 'endpoint': 'https-metrics', 'id': '/kubepods.slice/kubepods-besteffort.slice/kubepods-besteffort-pod443d56fd_7192_407b_aa7f_3a19c6164b35.slice/cri-containerd-8ef35ec5e997b42b467e9a537ce481f8b80255b055daf3b4d653e511cc959b79.scope', 'image': 'gar-registry.caas.intel.com/cpio/ei-file-stream-service:2022WW47', 'instance': '10.45.247.200:10250', 'job': 'kubelet', 'metrics_path': '/metrics/cadvisor', 'name': '8ef35ec5e997b42b467e9a537ce481f8b80255b055daf3b4d653e511cc959b79', 'namespace': 'default', 'node': 'ai-worker0', 'pod': 'ei-sample-deployment-pose-bf16-amx-02-59c94bd6dd-hf2k2', 'service': 'kubelet'}, 'value': [1678856141.2, '0.07417539166668172']}, {'metric': {'container': 'ei-fss', 'cpu': 'total', 'endpoint': 'https-metrics', 'id': '/kubepods.slice/kubepods-besteffort.slice/kubepods-besteffort-pod5b20665e_1471_41e3_a906_37dbadf61ded.slice/cri-containerd-1903d9a29e2cc9280c983cf212ed426789dd4724ed212d8d6aaa692b7099b21d.scope', 'image': 'gar-registry.caas.intel.com/cpio/ei-file-stream-service:2022WW47', 'instance': '10.45.247.200:10250', 'job': 'kubelet', 'metrics_path': '/metrics/cadvisor', 'name': '1903d9a29e2cc9280c983cf212ed426789dd4724ed212d8d6aaa692b7099b21d', 'namespace': 'default', 'node': 'ai-worker0', 'pod': 'ei-sample-deployment-pose-bf16-amx-05-59c94bd6dd-2vw5v', 'service': 'kubelet'}, 'value': [1678856141.2, '0.07667378333333343']}, {'metric': {'container': 'ei-fss', 'cpu': 'total', 'endpoint': 'https-metrics', 'id': '/kubepods.slice/kubepods-besteffort.slice/kubepods-besteffort-podc1b02e88_e7c7_494d_b700_42e46c1f306d.slice/cri-containerd-8eb30a61e0cb53f9f0a8c0c18dc645c56eb3686a459ce4441c537113ae8007ae.scope', 'image': 'gar-registry.caas.intel.com/cpio/ei-file-stream-service:2022WW47', 'instance': '10.45.247.200:10250', 'job': 'kubelet', 'metrics_path': '/metrics/cadvisor', 'name': '8eb30a61e0cb53f9f0a8c0c18dc645c56eb3686a459ce4441c537113ae8007ae', 'namespace': 'default', 'node': 'ai-worker0', 'pod': 'ei-sample-deployment-pose-bf16-amx-04-59c94bd6dd-whjrf', 'service': 'kubelet'}, 'value': [1678856141.2, '0.06843935555556932']}, {'metric': {'container': 'ei-fss', 'cpu': 'total', 'endpoint': 'https-metrics', 'id': '/kubepods.slice/kubepods-besteffort.slice/kubepods-besteffort-podf0bbadd5_e728_4dc7_ac09_67de87ab9ed9.slice/cri-containerd-d2606d2272b90c545952113b692da741b7958b163650096e2f624aeee76293a8.scope', 'image': 'gar-registry.caas.intel.com/cpio/ei-file-stream-service:2022WW47', 'instance': '10.45.247.200:10250', 'job': 'kubelet', 'metrics_path': '/metrics/cadvisor', 'name': 'd2606d2272b90c545952113b692da741b7958b163650096e2f624aeee76293a8', 'namespace': 'default', 'node': 'ai-worker0', 'pod': 'ei-sample-deployment-pose-bf16-amx-03-59c94bd6dd-57bn5', 'service': 'kubelet'}, 'value': [1678856141.2, '0.06960914444443915']}, {'metric': {'container': 'ei-fss', 'cpu': 'total', 'endpoint': 'https-metrics', 'id': '/kubepods.slice/kubepods-besteffort.slice/kubepods-besteffort-podf765b16c_07f8_4261_9b64_3517dc6bafb7.slice/cri-containerd-88d725ffe5a1ce389c7c711b044f1cbdd7b97a922268c6d9d0735d1ba203f048.scope', 'image': 'gar-registry.caas.intel.com/cpio/ei-file-stream-service:2022WW47', 'instance': '10.45.247.200:10250', 'job': 'kubelet', 'metrics_path': '/metrics/cadvisor', 'name': '88d725ffe5a1ce389c7c711b044f1cbdd7b97a922268c6d9d0735d1ba203f048', 'namespace': 'default', 'node': 'ai-worker0', 'pod': 'ei-sample-deployment-pose-bf16-amx-01-59c94bd6dd-n5rdt', 'service': 'kubelet'}, 'value': [1678856141.2, '0.07638205277776755']}, {'metric': {'container': 'ei-gws', 'cpu': 'total', 'endpoint': 'https-metrics', 'id': '/kubepods.slice/kubepods-besteffort.slice/kubepods-besteffort-podaf221d52_33c6_40a0_b6bf_e5e2bc7b88db.slice/cri-containerd-870edc8724b46c501ca89d89b821712566f2c55b1d2077b638d4cbb0f32dcada.scope', 'image': 'ccr-registry.caas.intel.com/cnbench/ei-gateway-server:2022WW51-ws-8080', 'instance': '10.45.247.200:10250', 'job': 'kubelet', 'metrics_path': '/metrics/cadvisor', 'name': '870edc8724b46c501ca89d89b821712566f2c55b1d2077b638d4cbb0f32dcada', 'namespace': 'default', 'node': 'ai-worker0', 'pod': 'ei-gateway-server-deployment-694bf969dd-xhbg9', 'service': 'kubelet'}, 'value': [1678856141.2, '0.001202194444444002']}, {'metric': {'container': 'ei-infer-pose-bf16-amx-app', 'cpu': 'total', 'endpoint': 'https-metrics', 'id': '/kubepods.slice/kubepods-burstable.slice/kubepods-burstable-pod1ed9db9c_901c_4f66_8fc9_7021df62aa82.slice/cri-containerd-b859bbb535e7e5d4df15f7216c6bde41307a80821905a15f046b8a348a4601b4.scope', 'image': 'gar-registry.caas.intel.com/cpio/ei-inference-service-tensorflow:2022WW49', 'instance': '10.45.247.200:10250', 'job': 'kubelet', 'metrics_path': '/metrics/cadvisor', 'name': 'b859bbb535e7e5d4df15f7216c6bde41307a80821905a15f046b8a348a4601b4', 'namespace': 'default', 'node': 'ai-worker0', 'pod': 'ei-infer-deployment-pose-bf16-amx-01-5885789db6-plj6s', 'service': 'kubelet'}, 'value': [1678856141.2, '1.0861014078953704']}, {'metric': {'container': 'ei-wss', 'cpu': 'total', 'endpoint': 'https-metrics', 'id': '/kubepods.slice/kubepods-besteffort.slice/kubepods-besteffort-podd781997c_c6e4_4a9a_8814_f1a5e364edb4.slice/cri-containerd-d43dd1ddebde49d8cd5407a60d348e56d9384fcda992f264ae9ca5887ba0ab87.scope', 'image': 'gar-registry.caas.intel.com/cpio/ei-websocket-server:2022WW51', 'instance': '10.45.247.200:10250', 'job': 'kubelet', 'metrics_path': '/metrics/cadvisor', 'name': 'd43dd1ddebde49d8cd5407a60d348e56d9384fcda992f264ae9ca5887ba0ab87', 'namespace': 'default', 'node': 'ai-worker0', 'pod': 'ei-websocket-server-deployment-b4f68d987-95vnz', 'service': 'kubelet'}, 'value': [1678856141.2, '0.0025098333333314965']}, {'metric': {'container': 'nfs-subdir-external-provisioner', 'cpu': 'total', 'endpoint': 'https-metrics', 'id': '/kubepods.slice/kubepods-besteffort.slice/kubepods-besteffort-pod008ca2f8_cd34_4bb5_9e75_b46ec5ce9a23.slice/cri-containerd-710ae0fcfaef79b8c1cbf5871a10727a0da4ef1ca22a1fd9e475a740588b43e4.scope', 'image': 'k8s.gcr.io/sig-storage/nfs-subdir-external-provisioner:v4.0.2', 'instance': '10.45.247.200:10250', 'job': 'kubelet', 'metrics_path': '/metrics/cadvisor', 'name': '710ae0fcfaef79b8c1cbf5871a10727a0da4ef1ca22a1fd9e475a740588b43e4', 'namespace': 'default', 'node': 'ai-worker0', 'pod': 'nfs-subdir-external-provisioner-6f66496f8f-529tg', 'service': 'kubelet'}, 'value': [1678856141.2, '0.0010570333333349581']}, {'metric': {'container': 'redis', 'cpu': 'total', 'endpoint': 'https-metrics', 'id': '/kubepods.slice/kubepods-besteffort.slice/kubepods-besteffort-pod0d8f249f_8e44_4dae_82d3_618b15befd15.slice/cri-containerd-0d39607a911d680151ccaee4e31a4eeb21acbade8e1a9eb7cd5377c4796e012e.scope', 'image': 'docker.io/library/redis:6.0', 'instance': '10.45.247.200:10250', 'job': 'kubelet', 'metrics_path': '/metrics/cadvisor', 'name': '0d39607a911d680151ccaee4e31a4eeb21acbade8e1a9eb7cd5377c4796e012e', 'namespace': 'default', 'node': 'ai-worker0', 'pod': 'ei-redis-deployment-68df56c9d5-9kt42', 'service': 'kubelet'}, 'value': [1678856141.2, '0.009241677777769533']}, {'metric': {'container': 'tmp-shell', 'cpu': 'total', 'endpoint': 'https-metrics', 'id': '/kubepods.slice/kubepods-besteffort.slice/kubepods-besteffort-pod9cbe7477_0ea6_463d_8c1e_33eb5efda051.slice/cri-containerd-9093ed8c6f94ca6b98db8362a28e0ee47cc31e863e7c131462759af96d66c3e9.scope', 'image': 'docker.io/nicolaka/netshoot:latest', 'instance': '10.45.247.200:10250', 'job': 'kubelet', 'metrics_path': '/metrics/cadvisor', 'name': '9093ed8c6f94ca6b98db8362a28e0ee47cc31e863e7c131462759af96d66c3e9', 'namespace': 'default', 'node': 'ai-worker0', 'pod': 'tmp-shell', 'service': 'kubelet'}, 'value': [1678856141.2, '0']}]
+2023-03-14 21:55:41,217 - INFO - The query to fetch metrics from prometheus is: http://10.45.247.81:31090/api/v1/query?query=sum(container_memory_working_set_bytes{namespace="default",container!="", image!=""}) by (pod)
+2023-03-14 21:55:41,217 - INFO - metric_name is: memory_usage
+2023-03-14 21:55:41,217 - INFO - result is: [{'metric': {'pod': 'ei-sample-deployment-pose-bf16-amx-06-59c94bd6dd-7fqpw'}, 'value': [1678856141.205, '386293760']}, {'metric': {'pod': 'ei-sample-deployment-pose-bf16-amx-02-59c94bd6dd-hf2k2'}, 'value': [1678856141.205, '386564096']}, {'metric': {'pod': 'ei-sample-deployment-pose-bf16-amx-05-59c94bd6dd-2vw5v'}, 'value': [1678856141.205, '386572288']}, {'metric': {'pod': 'ei-sample-deployment-pose-bf16-amx-04-59c94bd6dd-whjrf'}, 'value': [1678856141.205, '386293760']}, {'metric': {'pod': 'ei-sample-deployment-pose-bf16-amx-03-59c94bd6dd-57bn5'}, 'value': [1678856141.205, '386678784']}, {'metric': {'pod': 'ei-sample-deployment-pose-bf16-amx-01-59c94bd6dd-n5rdt'}, 'value': [1678856141.205, '386007040']}, {'metric': {'pod': 'ei-gateway-server-deployment-694bf969dd-xhbg9'}, 'value': [1678856141.205, '56774656']}, {'metric': {'pod': 'ei-infer-deployment-pose-bf16-amx-01-5885789db6-plj6s'}, 'value': [1678856141.205, '518909952']}, {'metric': {'pod': 'ei-websocket-server-deployment-b4f68d987-95vnz'}, 'value': [1678856141.205, '5093265408']}, {'metric': {'pod': 'nfs-subdir-external-provisioner-6f66496f8f-529tg'}, 'value': [1678856141.205, '15564800']}, {'metric': {'pod': 'ei-redis-deployment-68df56c9d5-9kt42'}, 'value': [1678856141.205, '2445357056']}, {'metric': {'pod': 'tmp-shell'}, 'value': [1678856141.205, '847872']}]
+2023-03-14 21:55:41,218 - INFO - The query to fetch metrics from prometheus is: http://10.45.247.81:31090/api/v1/query?query=avg_over_time(ei_infer_fps{namespace="default"}[2m])
+2023-03-14 21:55:41,218 - INFO - metric_name is: ei_infer_fps
+2023-03-14 21:55:41,218 - INFO - result is: [{'metric': {'container': 'ei-infer-pose-bf16-amx-app', 'endpoint': 'web', 'instance': '10.244.120.46:8000', 'job': 'ei-infer-pose-bf16-amx-app', 'namespace': 'default', 'pod': 'ei-infer-deployment-pose-bf16-amx-01-5885789db6-plj6s', 'service': 'ei-infer-pose-bf16-amx-app'}, 'value': [1678856141.209, '13.979940034562258']}]
+2023-03-14 21:55:41,218 - INFO - The query to fetch metrics from prometheus is: http://10.45.247.81:31090/api/v1/query?query=avg_over_time(ei_drop_fps{namespace="default"}[2m])
+2023-03-14 21:55:41,218 - INFO - metric_name is: ei_drop_fps
+2023-03-14 21:55:41,218 - INFO - result is: [{'metric': {'container': 'ei-infer-pose-bf16-amx-app', 'endpoint': 'web', 'instance': '10.244.120.46:8000', 'job': 'ei-infer-pose-bf16-amx-app', 'namespace': 'default', 'pod': 'ei-infer-deployment-pose-bf16-amx-01-5885789db6-plj6s', 'service': 'ei-infer-pose-bf16-amx-app'}, 'value': [1678856141.213, '156.36972902276102']}]
+2023-03-14 21:55:41,218 - INFO - The query to fetch metrics from prometheus is: http://10.45.247.81:31090/api/v1/query?query=avg_over_time(ei_scale_ratio{namespace="default"}[2m])
+2023-03-14 21:55:41,218 - INFO - metric_name is: ei_scale_ratio
+2023-03-14 21:55:41,218 - INFO - result is: [{'metric': {'container': 'ei-infer-pose-bf16-amx-app', 'endpoint': 'web', 'instance': '10.244.120.46:8000', 'job': 'ei-infer-pose-bf16-amx-app', 'namespace': 'default', 'pod': 'ei-infer-deployment-pose-bf16-amx-01-5885789db6-plj6s', 'service': 'ei-infer-pose-bf16-amx-app'}, 'value': [1678856141.217, '12.186126628480912']}]
+2023-03-14 21:55:41,218 - INFO - Results written to metrics/5651_NON_AMX_BF16_metrics_20230314_215541.txt
+2023-03-14 21:55:41,285 - INFO - sleep 120 seconds for the next round ...
+2023-03-14 21:57:41,288 - INFO - -----------loop num:2/3------------
+2023-03-14 21:57:51,295 - INFO - 1.  fetch_emon.sh
+2023-03-14 21:57:51,297 - INFO - pwd=/home/ansible/yulu/ai_pipeline/ai_pipeline_benchmark/benchmarking/scripts/emon
+2023-03-14 21:57:53,202 - INFO - 10.45.247.200 | SUCCESS => {
+2023-03-14 21:57:53,203 - INFO - "ansible_facts": {
+2023-03-14 21:57:53,203 - INFO - "discovered_interpreter_python": "/usr/bin/python3"
+2023-03-14 21:57:53,203 - INFO - },
+2023-03-14 21:57:53,203 - INFO - "changed": false,
+2023-03-14 21:57:53,203 - INFO - "checksum": "1bb1c680bf42bce57bd33e9ee945d27bb8aeaafc",
+2023-03-14 21:57:53,203 - INFO - "dest": "runemon.sh",
+2023-03-14 21:57:53,203 - INFO - "gid": 1007,
+2023-03-14 21:57:53,203 - INFO - "group": "ansible",
+2023-03-14 21:57:53,203 - INFO - "mode": "0755",
+2023-03-14 21:57:53,203 - INFO - "owner": "ansible",
+2023-03-14 21:57:53,203 - INFO - "path": "runemon.sh",
+2023-03-14 21:57:53,203 - INFO - "size": 452,
+2023-03-14 21:57:53,204 - INFO - "state": "file",
+2023-03-14 21:57:53,204 - INFO - "uid": 1006
+2023-03-14 21:57:53,204 - INFO - }
+2023-03-14 21:57:54,762 - INFO - 10.45.247.200 | SUCCESS => {
+2023-03-14 21:57:54,763 - INFO - "ansible_facts": {
+2023-03-14 21:57:54,763 - INFO - "discovered_interpreter_python": "/usr/bin/python3"
+2023-03-14 21:57:54,763 - INFO - },
+2023-03-14 21:57:54,763 - INFO - "changed": false,
+2023-03-14 21:57:54,763 - INFO - "checksum": "0b7ce1d178a191ee4962273d5bcbcac8b825066d",
+2023-03-14 21:57:54,763 - INFO - "dest": "sapphirerapids_server_events_private.txt",
+2023-03-14 21:57:54,763 - INFO - "gid": 1007,
+2023-03-14 21:57:54,763 - INFO - "group": "ansible",
+2023-03-14 21:57:54,763 - INFO - "mode": "0664",
+2023-03-14 21:57:54,764 - INFO - "owner": "ansible",
+2023-03-14 21:57:54,764 - INFO - "path": "sapphirerapids_server_events_private.txt",
+2023-03-14 21:57:54,764 - INFO - "size": 23423,
+2023-03-14 21:57:54,764 - INFO - "state": "file",
+2023-03-14 21:57:54,764 - INFO - "uid": 1006
+2023-03-14 21:57:54,764 - INFO - }
+2023-03-14 21:57:55,820 - INFO - 10.45.247.200 | CHANGED | rc=0 >>
+2023-03-14 21:57:55,820 - INFO - 
+2023-03-14 21:57:56,869 - INFO - 10.45.247.200 | CHANGED | rc=0 >>
+2023-03-14 21:57:56,870 - INFO - 
+2023-03-14 21:57:56,968 - INFO - Sleep 5 seconds then collect emon data for 30 seconds
+2023-03-14 21:58:01,972 - INFO - Collecting 30 seconds sar data background
+2023-03-14 21:58:03,935 - INFO - 10.45.247.200 | CHANGED | rc=0 >>
+2023-03-14 21:58:03,935 - INFO - 
+2023-03-14 21:58:06,032 - INFO - 10.45.247.200 | CHANGED | rc=0 >>
+2023-03-14 21:58:06,032 - INFO - 
+2023-03-14 21:58:08,109 - INFO - 10.45.247.200 | CHANGED | rc=0 >>
+2023-03-14 21:58:08,110 - INFO - 
+2023-03-14 21:58:10,169 - INFO - 10.45.247.200 | CHANGED | rc=0 >>
+2023-03-14 21:58:10,169 - INFO - 
+2023-03-14 21:58:10,266 - INFO - Collecting EMON data
+2023-03-14 21:58:41,760 - INFO - 10.45.247.200 | CHANGED | rc=0 >>
+2023-03-14 21:58:41,761 - INFO - Usage: sep_vars.sh [emon_api]
+2023-03-14 21:58:41,761 - INFO - PATH=/opt/intel/sep/bin64:/opt/intel/sep/android_target:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin
+2023-03-14 21:58:41,761 - INFO - CPATH=/opt/intel/sep/config/emon_api:
+2023-03-14 21:58:41,761 - INFO - LIBRARY_PATH=/opt/intel/sep/lib64:
+2023-03-14 21:58:41,761 - INFO - LD_LIBRARY_PATH=
+2023-03-14 21:58:41,761 - INFO - SEP_BASE_DIR=/opt/intel/sep/bin64
+2023-03-14 21:58:41,761 - INFO - SEP is currently installed under /opt/intel/sep/bin64
+2023-03-14 21:58:41,761 - INFO - EMON collector successfully stopped.
+2023-03-14 21:58:41,867 - INFO - Sleep another 30 seconds to make sure the previous run exit
+2023-03-14 21:59:11,870 - INFO - Copy dat files
+2023-03-14 21:59:12,894 - INFO - 10.45.247.200 | CHANGED => {
+2023-03-14 21:59:12,895 - INFO - "changed": true,
+2023-03-14 21:59:12,895 - INFO - "checksum": "9b38593dbf4125b32db6a587840a2d7c0a5c837f",
+2023-03-14 21:59:12,895 - INFO - "dest": "/home/ansible/yulu/ai_pipeline/ai_pipeline_benchmark/benchmarking/scripts/emon/emon10000/10.45.247.200/emon10000/cpuutil.log",
+2023-03-14 21:59:12,895 - INFO - "md5sum": "11620e363efdc082882ddfe2ae106784",
+2023-03-14 21:59:12,895 - INFO - "remote_checksum": "9b38593dbf4125b32db6a587840a2d7c0a5c837f",
+2023-03-14 21:59:12,895 - INFO - "remote_md5sum": null
+2023-03-14 21:59:12,895 - INFO - }
+2023-03-14 21:59:14,006 - INFO - 10.45.247.200 | CHANGED => {
+2023-03-14 21:59:14,007 - INFO - "changed": true,
+2023-03-14 21:59:14,007 - INFO - "checksum": "f1afd785b6f4d10fc63f46f24a2736058593f52d",
+2023-03-14 21:59:14,007 - INFO - "dest": "/home/ansible/yulu/ai_pipeline/ai_pipeline_benchmark/benchmarking/scripts/emon/emon10000/10.45.247.200/emon10000/diskutil.log",
+2023-03-14 21:59:14,007 - INFO - "md5sum": "f2d6a9ecbcaa00c74be55a7fa232235d",
+2023-03-14 21:59:14,007 - INFO - "remote_checksum": "f1afd785b6f4d10fc63f46f24a2736058593f52d",
+2023-03-14 21:59:14,007 - INFO - "remote_md5sum": null
+2023-03-14 21:59:14,007 - INFO - }
+2023-03-14 21:59:15,136 - INFO - 10.45.247.200 | CHANGED => {
+2023-03-14 21:59:15,137 - INFO - "changed": true,
+2023-03-14 21:59:15,137 - INFO - "checksum": "9c939d1ae49fa44dda02e4ba97fd93e20b2ab732",
+2023-03-14 21:59:15,137 - INFO - "dest": "/home/ansible/yulu/ai_pipeline/ai_pipeline_benchmark/benchmarking/scripts/emon/emon10000/10.45.247.200/emon10000/netutil.log",
+2023-03-14 21:59:15,137 - INFO - "md5sum": "7269f81866035b35deccfdfcfc145238",
+2023-03-14 21:59:15,137 - INFO - "remote_checksum": "9c939d1ae49fa44dda02e4ba97fd93e20b2ab732",
+2023-03-14 21:59:15,137 - INFO - "remote_md5sum": null
+2023-03-14 21:59:15,137 - INFO - }
+2023-03-14 21:59:16,280 - INFO - 10.45.247.200 | CHANGED => {
+2023-03-14 21:59:16,280 - INFO - "changed": true,
+2023-03-14 21:59:16,280 - INFO - "checksum": "698c9d39cd607eac0827c0dfd40ce5c752aa1828",
+2023-03-14 21:59:16,280 - INFO - "dest": "/home/ansible/yulu/ai_pipeline/ai_pipeline_benchmark/benchmarking/scripts/emon/emon10000/10.45.247.200/emon10000/top.log",
+2023-03-14 21:59:16,280 - INFO - "md5sum": "e0770f3631b6bc81ae7a156fe5518029",
+2023-03-14 21:59:16,280 - INFO - "remote_checksum": "698c9d39cd607eac0827c0dfd40ce5c752aa1828",
+2023-03-14 21:59:16,281 - INFO - "remote_md5sum": null
+2023-03-14 21:59:16,281 - INFO - }
+2023-03-14 21:59:17,389 - INFO - 10.45.247.200 | CHANGED => {
+2023-03-14 21:59:17,390 - INFO - "changed": true,
+2023-03-14 21:59:17,390 - INFO - "checksum": "0eecf027044a52ff57e87a1ef1f9277e1ceb146e",
+2023-03-14 21:59:17,390 - INFO - "dest": "/home/ansible/yulu/ai_pipeline/ai_pipeline_benchmark/benchmarking/scripts/emon/emon10000/10.45.247.200/emon10000/emon-v.dat",
+2023-03-14 21:59:17,390 - INFO - "md5sum": "9ed6ca61f164c3a1ddac82b3adb8e41f",
+2023-03-14 21:59:17,390 - INFO - "remote_checksum": "0eecf027044a52ff57e87a1ef1f9277e1ceb146e",
+2023-03-14 21:59:17,390 - INFO - "remote_md5sum": null
+2023-03-14 21:59:17,390 - INFO - }
+2023-03-14 21:59:18,476 - INFO - 10.45.247.200 | CHANGED => {
+2023-03-14 21:59:18,477 - INFO - "changed": true,
+2023-03-14 21:59:18,477 - INFO - "checksum": "553de59ae1f861c17499a345947edac24f5ef5e6",
+2023-03-14 21:59:18,477 - INFO - "dest": "/home/ansible/yulu/ai_pipeline/ai_pipeline_benchmark/benchmarking/scripts/emon/emon10000/10.45.247.200/emon10000/emon-M.dat",
+2023-03-14 21:59:18,477 - INFO - "md5sum": "82b2e5d1d33c2feb6e5d5290b113dd3f",
+2023-03-14 21:59:18,477 - INFO - "remote_checksum": "553de59ae1f861c17499a345947edac24f5ef5e6",
+2023-03-14 21:59:18,477 - INFO - "remote_md5sum": null
+2023-03-14 21:59:18,477 - INFO - }
+2023-03-14 21:59:20,057 - INFO - 10.45.247.200 | CHANGED => {
+2023-03-14 21:59:20,057 - INFO - "changed": true,
+2023-03-14 21:59:20,057 - INFO - "checksum": "8d8059f4052fbc231b60f23778fa824fe1fab783",
+2023-03-14 21:59:20,057 - INFO - "dest": "/home/ansible/yulu/ai_pipeline/ai_pipeline_benchmark/benchmarking/scripts/emon/emon10000/10.45.247.200/emon10000/emon.dat",
+2023-03-14 21:59:20,057 - INFO - "md5sum": "e38a1953fbae5020ca47dbbd7cdc81d2",
+2023-03-14 21:59:20,057 - INFO - "remote_checksum": "8d8059f4052fbc231b60f23778fa824fe1fab783",
+2023-03-14 21:59:20,057 - INFO - "remote_md5sum": null
+2023-03-14 21:59:20,058 - INFO - }
+2023-03-14 21:59:20,159 - INFO - 2. fetch the matrics of ai_pipeline
+2023-03-14 21:59:20,159 - INFO - 3.  collect the result
+2023-03-14 21:59:20,317 - INFO - The query to fetch metrics from prometheus is: http://10.45.247.81:31090/api/v1/query?query=avg_over_time(rate(container_cpu_usage_seconds_total{namespace="default", container!=""}[2m])[2m:])
+2023-03-14 21:59:20,317 - INFO - metric_name is: cpu_usage
+2023-03-14 21:59:20,333 - INFO - result is: [{'metric': {'container': 'ei-fss', 'cpu': 'total', 'endpoint': 'https-metrics', 'id': '/kubepods.slice/kubepods-besteffort.slice/kubepods-besteffort-pod37bfe08c_1a35_4f31_aee2_d3ed773045f6.slice/cri-containerd-32957fce66e8ca89850f6a363f2bad55c4c434f4dd10e8ee22d59409d4d63156.scope', 'image': 'gar-registry.caas.intel.com/cpio/ei-file-stream-service:2022WW47', 'instance': '10.45.247.200:10250', 'job': 'kubelet', 'metrics_path': '/metrics/cadvisor', 'name': '32957fce66e8ca89850f6a363f2bad55c4c434f4dd10e8ee22d59409d4d63156', 'namespace': 'default', 'node': 'ai-worker0', 'pod': 'ei-sample-deployment-pose-bf16-amx-06-59c94bd6dd-7fqpw', 'service': 'kubelet'}, 'value': [1678856360.317, '0.071434308333341']}, {'metric': {'container': 'ei-fss', 'cpu': 'total', 'endpoint': 'https-metrics', 'id': '/kubepods.slice/kubepods-besteffort.slice/kubepods-besteffort-pod443d56fd_7192_407b_aa7f_3a19c6164b35.slice/cri-containerd-8ef35ec5e997b42b467e9a537ce481f8b80255b055daf3b4d653e511cc959b79.scope', 'image': 'gar-registry.caas.intel.com/cpio/ei-file-stream-service:2022WW47', 'instance': '10.45.247.200:10250', 'job': 'kubelet', 'metrics_path': '/metrics/cadvisor', 'name': '8ef35ec5e997b42b467e9a537ce481f8b80255b055daf3b4d653e511cc959b79', 'namespace': 'default', 'node': 'ai-worker0', 'pod': 'ei-sample-deployment-pose-bf16-amx-02-59c94bd6dd-hf2k2', 'service': 'kubelet'}, 'value': [1678856360.317, '0.07355901944441333']}, {'metric': {'container': 'ei-fss', 'cpu': 'total', 'endpoint': 'https-metrics', 'id': '/kubepods.slice/kubepods-besteffort.slice/kubepods-besteffort-pod5b20665e_1471_41e3_a906_37dbadf61ded.slice/cri-containerd-1903d9a29e2cc9280c983cf212ed426789dd4724ed212d8d6aaa692b7099b21d.scope', 'image': 'gar-registry.caas.intel.com/cpio/ei-file-stream-service:2022WW47', 'instance': '10.45.247.200:10250', 'job': 'kubelet', 'metrics_path': '/metrics/cadvisor', 'name': '1903d9a29e2cc9280c983cf212ed426789dd4724ed212d8d6aaa692b7099b21d', 'namespace': 'default', 'node': 'ai-worker0', 'pod': 'ei-sample-deployment-pose-bf16-amx-05-59c94bd6dd-2vw5v', 'service': 'kubelet'}, 'value': [1678856360.317, '0.074496713888867']}, {'metric': {'container': 'ei-fss', 'cpu': 'total', 'endpoint': 'https-metrics', 'id': '/kubepods.slice/kubepods-besteffort.slice/kubepods-besteffort-podc1b02e88_e7c7_494d_b700_42e46c1f306d.slice/cri-containerd-8eb30a61e0cb53f9f0a8c0c18dc645c56eb3686a459ce4441c537113ae8007ae.scope', 'image': 'gar-registry.caas.intel.com/cpio/ei-file-stream-service:2022WW47', 'instance': '10.45.247.200:10250', 'job': 'kubelet', 'metrics_path': '/metrics/cadvisor', 'name': '8eb30a61e0cb53f9f0a8c0c18dc645c56eb3686a459ce4441c537113ae8007ae', 'namespace': 'default', 'node': 'ai-worker0', 'pod': 'ei-sample-deployment-pose-bf16-amx-04-59c94bd6dd-whjrf', 'service': 'kubelet'}, 'value': [1678856360.317, '0.07538370000000011']}, {'metric': {'container': 'ei-fss', 'cpu': 'total', 'endpoint': 'https-metrics', 'id': '/kubepods.slice/kubepods-besteffort.slice/kubepods-besteffort-podf0bbadd5_e728_4dc7_ac09_67de87ab9ed9.slice/cri-containerd-d2606d2272b90c545952113b692da741b7958b163650096e2f624aeee76293a8.scope', 'image': 'gar-registry.caas.intel.com/cpio/ei-file-stream-service:2022WW47', 'instance': '10.45.247.200:10250', 'job': 'kubelet', 'metrics_path': '/metrics/cadvisor', 'name': 'd2606d2272b90c545952113b692da741b7958b163650096e2f624aeee76293a8', 'namespace': 'default', 'node': 'ai-worker0', 'pod': 'ei-sample-deployment-pose-bf16-amx-03-59c94bd6dd-57bn5', 'service': 'kubelet'}, 'value': [1678856360.317, '0.07195016111108998']}, {'metric': {'container': 'ei-fss', 'cpu': 'total', 'endpoint': 'https-metrics', 'id': '/kubepods.slice/kubepods-besteffort.slice/kubepods-besteffort-podf765b16c_07f8_4261_9b64_3517dc6bafb7.slice/cri-containerd-88d725ffe5a1ce389c7c711b044f1cbdd7b97a922268c6d9d0735d1ba203f048.scope', 'image': 'gar-registry.caas.intel.com/cpio/ei-file-stream-service:2022WW47', 'instance': '10.45.247.200:10250', 'job': 'kubelet', 'metrics_path': '/metrics/cadvisor', 'name': '88d725ffe5a1ce389c7c711b044f1cbdd7b97a922268c6d9d0735d1ba203f048', 'namespace': 'default', 'node': 'ai-worker0', 'pod': 'ei-sample-deployment-pose-bf16-amx-01-59c94bd6dd-n5rdt', 'service': 'kubelet'}, 'value': [1678856360.317, '0.07217161111111636']}, {'metric': {'container': 'ei-gws', 'cpu': 'total', 'endpoint': 'https-metrics', 'id': '/kubepods.slice/kubepods-besteffort.slice/kubepods-besteffort-podaf221d52_33c6_40a0_b6bf_e5e2bc7b88db.slice/cri-containerd-870edc8724b46c501ca89d89b821712566f2c55b1d2077b638d4cbb0f32dcada.scope', 'image': 'ccr-registry.caas.intel.com/cnbench/ei-gateway-server:2022WW51-ws-8080', 'instance': '10.45.247.200:10250', 'job': 'kubelet', 'metrics_path': '/metrics/cadvisor', 'name': '870edc8724b46c501ca89d89b821712566f2c55b1d2077b638d4cbb0f32dcada', 'namespace': 'default', 'node': 'ai-worker0', 'pod': 'ei-gateway-server-deployment-694bf969dd-xhbg9', 'service': 'kubelet'}, 'value': [1678856360.317, '0.0012775388888889615']}, {'metric': {'container': 'ei-infer-pose-bf16-amx-app', 'cpu': 'total', 'endpoint': 'https-metrics', 'id': '/kubepods.slice/kubepods-burstable.slice/kubepods-burstable-pod1ed9db9c_901c_4f66_8fc9_7021df62aa82.slice/cri-containerd-b859bbb535e7e5d4df15f7216c6bde41307a80821905a15f046b8a348a4601b4.scope', 'image': 'gar-registry.caas.intel.com/cpio/ei-inference-service-tensorflow:2022WW49', 'instance': '10.45.247.200:10250', 'job': 'kubelet', 'metrics_path': '/metrics/cadvisor', 'name': 'b859bbb535e7e5d4df15f7216c6bde41307a80821905a15f046b8a348a4601b4', 'namespace': 'default', 'node': 'ai-worker0', 'pod': 'ei-infer-deployment-pose-bf16-amx-01-5885789db6-plj6s', 'service': 'kubelet'}, 'value': [1678856360.317, '1.1298077888888887']}, {'metric': {'container': 'ei-wss', 'cpu': 'total', 'endpoint': 'https-metrics', 'id': '/kubepods.slice/kubepods-besteffort.slice/kubepods-besteffort-podd781997c_c6e4_4a9a_8814_f1a5e364edb4.slice/cri-containerd-d43dd1ddebde49d8cd5407a60d348e56d9384fcda992f264ae9ca5887ba0ab87.scope', 'image': 'gar-registry.caas.intel.com/cpio/ei-websocket-server:2022WW51', 'instance': '10.45.247.200:10250', 'job': 'kubelet', 'metrics_path': '/metrics/cadvisor', 'name': 'd43dd1ddebde49d8cd5407a60d348e56d9384fcda992f264ae9ca5887ba0ab87', 'namespace': 'default', 'node': 'ai-worker0', 'pod': 'ei-websocket-server-deployment-b4f68d987-95vnz', 'service': 'kubelet'}, 'value': [1678856360.317, '0.0023496805555573196']}, {'metric': {'container': 'nfs-subdir-external-provisioner', 'cpu': 'total', 'endpoint': 'https-metrics', 'id': '/kubepods.slice/kubepods-besteffort.slice/kubepods-besteffort-pod008ca2f8_cd34_4bb5_9e75_b46ec5ce9a23.slice/cri-containerd-710ae0fcfaef79b8c1cbf5871a10727a0da4ef1ca22a1fd9e475a740588b43e4.scope', 'image': 'k8s.gcr.io/sig-storage/nfs-subdir-external-provisioner:v4.0.2', 'instance': '10.45.247.200:10250', 'job': 'kubelet', 'metrics_path': '/metrics/cadvisor', 'name': '710ae0fcfaef79b8c1cbf5871a10727a0da4ef1ca22a1fd9e475a740588b43e4', 'namespace': 'default', 'node': 'ai-worker0', 'pod': 'nfs-subdir-external-provisioner-6f66496f8f-529tg', 'service': 'kubelet'}, 'value': [1678856360.317, '0.0010880638888895392']}, {'metric': {'container': 'redis', 'cpu': 'total', 'endpoint': 'https-metrics', 'id': '/kubepods.slice/kubepods-besteffort.slice/kubepods-besteffort-pod0d8f249f_8e44_4dae_82d3_618b15befd15.slice/cri-containerd-0d39607a911d680151ccaee4e31a4eeb21acbade8e1a9eb7cd5377c4796e012e.scope', 'image': 'docker.io/library/redis:6.0', 'instance': '10.45.247.200:10250', 'job': 'kubelet', 'metrics_path': '/metrics/cadvisor', 'name': '0d39607a911d680151ccaee4e31a4eeb21acbade8e1a9eb7cd5377c4796e012e', 'namespace': 'default', 'node': 'ai-worker0', 'pod': 'ei-redis-deployment-68df56c9d5-9kt42', 'service': 'kubelet'}, 'value': [1678856360.317, '0.009245313888888832']}, {'metric': {'container': 'tmp-shell', 'cpu': 'total', 'endpoint': 'https-metrics', 'id': '/kubepods.slice/kubepods-besteffort.slice/kubepods-besteffort-pod9cbe7477_0ea6_463d_8c1e_33eb5efda051.slice/cri-containerd-9093ed8c6f94ca6b98db8362a28e0ee47cc31e863e7c131462759af96d66c3e9.scope', 'image': 'docker.io/nicolaka/netshoot:latest', 'instance': '10.45.247.200:10250', 'job': 'kubelet', 'metrics_path': '/metrics/cadvisor', 'name': '9093ed8c6f94ca6b98db8362a28e0ee47cc31e863e7c131462759af96d66c3e9', 'namespace': 'default', 'node': 'ai-worker0', 'pod': 'tmp-shell', 'service': 'kubelet'}, 'value': [1678856360.317, '0']}]
+2023-03-14 21:59:20,333 - INFO - The query to fetch metrics from prometheus is: http://10.45.247.81:31090/api/v1/query?query=sum(container_memory_working_set_bytes{namespace="default",container!="", image!=""}) by (pod)
+2023-03-14 21:59:20,334 - INFO - metric_name is: memory_usage
+2023-03-14 21:59:20,334 - INFO - result is: [{'metric': {'pod': 'ei-sample-deployment-pose-bf16-amx-06-59c94bd6dd-7fqpw'}, 'value': [1678856360.321, '386318336']}, {'metric': {'pod': 'ei-sample-deployment-pose-bf16-amx-02-59c94bd6dd-hf2k2'}, 'value': [1678856360.321, '386564096']}, {'metric': {'pod': 'ei-sample-deployment-pose-bf16-amx-05-59c94bd6dd-2vw5v'}, 'value': [1678856360.321, '386441216']}, {'metric': {'pod': 'ei-sample-deployment-pose-bf16-amx-04-59c94bd6dd-whjrf'}, 'value': [1678856360.321, '386293760']}, {'metric': {'pod': 'ei-sample-deployment-pose-bf16-amx-03-59c94bd6dd-57bn5'}, 'value': [1678856360.321, '386551808']}, {'metric': {'pod': 'ei-sample-deployment-pose-bf16-amx-01-59c94bd6dd-n5rdt'}, 'value': [1678856360.321, '386134016']}, {'metric': {'pod': 'ei-gateway-server-deployment-694bf969dd-xhbg9'}, 'value': [1678856360.321, '56774656']}, {'metric': {'pod': 'ei-infer-deployment-pose-bf16-amx-01-5885789db6-plj6s'}, 'value': [1678856360.321, '518881280']}, {'metric': {'pod': 'ei-websocket-server-deployment-b4f68d987-95vnz'}, 'value': [1678856360.321, '5093212160']}, {'metric': {'pod': 'nfs-subdir-external-provisioner-6f66496f8f-529tg'}, 'value': [1678856360.321, '15564800']}, {'metric': {'pod': 'ei-redis-deployment-68df56c9d5-9kt42'}, 'value': [1678856360.321, '2445197312']}, {'metric': {'pod': 'tmp-shell'}, 'value': [1678856360.321, '847872']}]
+2023-03-14 21:59:20,334 - INFO - The query to fetch metrics from prometheus is: http://10.45.247.81:31090/api/v1/query?query=avg_over_time(ei_infer_fps{namespace="default"}[2m])
+2023-03-14 21:59:20,334 - INFO - metric_name is: ei_infer_fps
+2023-03-14 21:59:20,334 - INFO - result is: [{'metric': {'container': 'ei-infer-pose-bf16-amx-app', 'endpoint': 'web', 'instance': '10.244.120.46:8000', 'job': 'ei-infer-pose-bf16-amx-app', 'namespace': 'default', 'pod': 'ei-infer-deployment-pose-bf16-amx-01-5885789db6-plj6s', 'service': 'ei-infer-pose-bf16-amx-app'}, 'value': [1678856360.326, '14.067506742725328']}]
+2023-03-14 21:59:20,334 - INFO - The query to fetch metrics from prometheus is: http://10.45.247.81:31090/api/v1/query?query=avg_over_time(ei_drop_fps{namespace="default"}[2m])
+2023-03-14 21:59:20,334 - INFO - metric_name is: ei_drop_fps
+2023-03-14 21:59:20,334 - INFO - result is: [{'metric': {'container': 'ei-infer-pose-bf16-amx-app', 'endpoint': 'web', 'instance': '10.244.120.46:8000', 'job': 'ei-infer-pose-bf16-amx-app', 'namespace': 'default', 'pod': 'ei-infer-deployment-pose-bf16-amx-01-5885789db6-plj6s', 'service': 'ei-infer-pose-bf16-amx-app'}, 'value': [1678856360.33, '156.26237311181518']}]
+2023-03-14 21:59:20,334 - INFO - The query to fetch metrics from prometheus is: http://10.45.247.81:31090/api/v1/query?query=avg_over_time(ei_scale_ratio{namespace="default"}[2m])
+2023-03-14 21:59:20,334 - INFO - metric_name is: ei_scale_ratio
+2023-03-14 21:59:20,334 - INFO - result is: [{'metric': {'container': 'ei-infer-pose-bf16-amx-app', 'endpoint': 'web', 'instance': '10.244.120.46:8000', 'job': 'ei-infer-pose-bf16-amx-app', 'namespace': 'default', 'pod': 'ei-infer-deployment-pose-bf16-amx-01-5885789db6-plj6s', 'service': 'ei-infer-pose-bf16-amx-app'}, 'value': [1678856360.334, '12.109109066722283']}]
+2023-03-14 21:59:20,334 - INFO - Results written to metrics/5651_NON_AMX_BF16_metrics_20230314_215920.txt
+2023-03-14 21:59:20,398 - INFO - sleep 120 seconds for the next round ...
+2023-03-14 22:01:20,401 - INFO - -----------loop num:3/3------------
+2023-03-14 22:01:30,408 - INFO - 1.  fetch_emon.sh
+2023-03-14 22:01:30,410 - INFO - pwd=/home/ansible/yulu/ai_pipeline/ai_pipeline_benchmark/benchmarking/scripts/emon
+2023-03-14 22:01:32,327 - INFO - 10.45.247.200 | SUCCESS => {
+2023-03-14 22:01:32,328 - INFO - "ansible_facts": {
+2023-03-14 22:01:32,328 - INFO - "discovered_interpreter_python": "/usr/bin/python3"
+2023-03-14 22:01:32,328 - INFO - },
+2023-03-14 22:01:32,328 - INFO - "changed": false,
+2023-03-14 22:01:32,328 - INFO - "checksum": "1bb1c680bf42bce57bd33e9ee945d27bb8aeaafc",
+2023-03-14 22:01:32,328 - INFO - "dest": "runemon.sh",
+2023-03-14 22:01:32,329 - INFO - "gid": 1007,
+2023-03-14 22:01:32,329 - INFO - "group": "ansible",
+2023-03-14 22:01:32,329 - INFO - "mode": "0755",
+2023-03-14 22:01:32,329 - INFO - "owner": "ansible",
+2023-03-14 22:01:32,329 - INFO - "path": "runemon.sh",
+2023-03-14 22:01:32,329 - INFO - "size": 452,
+2023-03-14 22:01:32,329 - INFO - "state": "file",
+2023-03-14 22:01:32,329 - INFO - "uid": 1006
+2023-03-14 22:01:32,329 - INFO - }
+2023-03-14 22:01:33,714 - INFO - 10.45.247.200 | SUCCESS => {
+2023-03-14 22:01:33,714 - INFO - "ansible_facts": {
+2023-03-14 22:01:33,714 - INFO - "discovered_interpreter_python": "/usr/bin/python3"
+2023-03-14 22:01:33,714 - INFO - },
+2023-03-14 22:01:33,714 - INFO - "changed": false,
+2023-03-14 22:01:33,714 - INFO - "checksum": "0b7ce1d178a191ee4962273d5bcbcac8b825066d",
+2023-03-14 22:01:33,715 - INFO - "dest": "sapphirerapids_server_events_private.txt",
+2023-03-14 22:01:33,715 - INFO - "gid": 1007,
+2023-03-14 22:01:33,715 - INFO - "group": "ansible",
+2023-03-14 22:01:33,715 - INFO - "mode": "0664",
+2023-03-14 22:01:33,715 - INFO - "owner": "ansible",
+2023-03-14 22:01:33,715 - INFO - "path": "sapphirerapids_server_events_private.txt",
+2023-03-14 22:01:33,715 - INFO - "size": 23423,
+2023-03-14 22:01:33,715 - INFO - "state": "file",
+2023-03-14 22:01:33,715 - INFO - "uid": 1006
+2023-03-14 22:01:33,715 - INFO - }
+2023-03-14 22:01:34,786 - INFO - 10.45.247.200 | CHANGED | rc=0 >>
+2023-03-14 22:01:34,787 - INFO - 
+2023-03-14 22:01:35,828 - INFO - 10.45.247.200 | CHANGED | rc=0 >>
+2023-03-14 22:01:35,828 - INFO - 
+2023-03-14 22:01:35,925 - INFO - Sleep 5 seconds then collect emon data for 30 seconds
+2023-03-14 22:01:40,928 - INFO - Collecting 30 seconds sar data background
+2023-03-14 22:01:42,898 - INFO - 10.45.247.200 | CHANGED | rc=0 >>
+2023-03-14 22:01:42,899 - INFO - 
+2023-03-14 22:01:45,093 - INFO - 10.45.247.200 | CHANGED | rc=0 >>
+2023-03-14 22:01:45,093 - INFO - 
+2023-03-14 22:01:47,167 - INFO - 10.45.247.200 | CHANGED | rc=0 >>
+2023-03-14 22:01:47,167 - INFO - 
+2023-03-14 22:01:49,220 - INFO - 10.45.247.200 | CHANGED | rc=0 >>
+2023-03-14 22:01:49,221 - INFO - 
+2023-03-14 22:01:49,322 - INFO - Collecting EMON data
+2023-03-14 22:02:20,826 - INFO - 10.45.247.200 | CHANGED | rc=0 >>
+2023-03-14 22:02:20,827 - INFO - Usage: sep_vars.sh [emon_api]
+2023-03-14 22:02:20,827 - INFO - PATH=/opt/intel/sep/bin64:/opt/intel/sep/android_target:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin
+2023-03-14 22:02:20,827 - INFO - CPATH=/opt/intel/sep/config/emon_api:
+2023-03-14 22:02:20,827 - INFO - LIBRARY_PATH=/opt/intel/sep/lib64:
+2023-03-14 22:02:20,827 - INFO - LD_LIBRARY_PATH=
+2023-03-14 22:02:20,827 - INFO - SEP_BASE_DIR=/opt/intel/sep/bin64
+2023-03-14 22:02:20,827 - INFO - SEP is currently installed under /opt/intel/sep/bin64
+2023-03-14 22:02:20,827 - INFO - EMON collector successfully stopped.
+2023-03-14 22:02:20,934 - INFO - Sleep another 30 seconds to make sure the previous run exit
+2023-03-14 22:02:50,938 - INFO - Copy dat files
+2023-03-14 22:02:51,960 - INFO - 10.45.247.200 | CHANGED => {
+2023-03-14 22:02:51,960 - INFO - "changed": true,
+2023-03-14 22:02:51,960 - INFO - "checksum": "d4f546c4df062b1dea46f6388bf25116ad646136",
+2023-03-14 22:02:51,960 - INFO - "dest": "/home/ansible/yulu/ai_pipeline/ai_pipeline_benchmark/benchmarking/scripts/emon/emon10000/10.45.247.200/emon10000/cpuutil.log",
+2023-03-14 22:02:51,961 - INFO - "md5sum": "0ecd738bede2f21751ed314d8b68bf33",
+2023-03-14 22:02:51,961 - INFO - "remote_checksum": "d4f546c4df062b1dea46f6388bf25116ad646136",
+2023-03-14 22:02:51,961 - INFO - "remote_md5sum": null
+2023-03-14 22:02:51,961 - INFO - }
+2023-03-14 22:02:53,058 - INFO - 10.45.247.200 | CHANGED => {
+2023-03-14 22:02:53,058 - INFO - "changed": true,
+2023-03-14 22:02:53,059 - INFO - "checksum": "a1ae4938535fa02adf8324fe64c60b33f0cd95bb",
+2023-03-14 22:02:53,059 - INFO - "dest": "/home/ansible/yulu/ai_pipeline/ai_pipeline_benchmark/benchmarking/scripts/emon/emon10000/10.45.247.200/emon10000/diskutil.log",
+2023-03-14 22:02:53,059 - INFO - "md5sum": "721cc1a5dea034d1f818e994878ad42b",
+2023-03-14 22:02:53,059 - INFO - "remote_checksum": "a1ae4938535fa02adf8324fe64c60b33f0cd95bb",
+2023-03-14 22:02:53,059 - INFO - "remote_md5sum": null
+2023-03-14 22:02:53,059 - INFO - }
+2023-03-14 22:02:54,150 - INFO - 10.45.247.200 | CHANGED => {
+2023-03-14 22:02:54,151 - INFO - "changed": true,
+2023-03-14 22:02:54,151 - INFO - "checksum": "587137e27e385c30a7723e8b29fe8bdc28c4c9d8",
+2023-03-14 22:02:54,151 - INFO - "dest": "/home/ansible/yulu/ai_pipeline/ai_pipeline_benchmark/benchmarking/scripts/emon/emon10000/10.45.247.200/emon10000/netutil.log",
+2023-03-14 22:02:54,151 - INFO - "md5sum": "c09ce0e73c6d4989a639b2d78241ddd9",
+2023-03-14 22:02:54,151 - INFO - "remote_checksum": "587137e27e385c30a7723e8b29fe8bdc28c4c9d8",
+2023-03-14 22:02:54,151 - INFO - "remote_md5sum": null
+2023-03-14 22:02:54,152 - INFO - }
+2023-03-14 22:02:55,355 - INFO - 10.45.247.200 | CHANGED => {
+2023-03-14 22:02:55,356 - INFO - "changed": true,
+2023-03-14 22:02:55,356 - INFO - "checksum": "fcaa08ee7c81e66e7c5bc317dd3e29bf198d578f",
+2023-03-14 22:02:55,356 - INFO - "dest": "/home/ansible/yulu/ai_pipeline/ai_pipeline_benchmark/benchmarking/scripts/emon/emon10000/10.45.247.200/emon10000/top.log",
+2023-03-14 22:02:55,356 - INFO - "md5sum": "c0f98bcc84410122f1c989915332dac1",
+2023-03-14 22:02:55,356 - INFO - "remote_checksum": "fcaa08ee7c81e66e7c5bc317dd3e29bf198d578f",
+2023-03-14 22:02:55,356 - INFO - "remote_md5sum": null
+2023-03-14 22:02:55,357 - INFO - }
+2023-03-14 22:02:56,455 - INFO - 10.45.247.200 | CHANGED => {
+2023-03-14 22:02:56,455 - INFO - "changed": true,
+2023-03-14 22:02:56,455 - INFO - "checksum": "0eecf027044a52ff57e87a1ef1f9277e1ceb146e",
+2023-03-14 22:02:56,456 - INFO - "dest": "/home/ansible/yulu/ai_pipeline/ai_pipeline_benchmark/benchmarking/scripts/emon/emon10000/10.45.247.200/emon10000/emon-v.dat",
+2023-03-14 22:02:56,456 - INFO - "md5sum": "9ed6ca61f164c3a1ddac82b3adb8e41f",
+2023-03-14 22:02:56,456 - INFO - "remote_checksum": "0eecf027044a52ff57e87a1ef1f9277e1ceb146e",
+2023-03-14 22:02:56,456 - INFO - "remote_md5sum": null
+2023-03-14 22:02:56,456 - INFO - }
+2023-03-14 22:02:57,551 - INFO - 10.45.247.200 | CHANGED => {
+2023-03-14 22:02:57,551 - INFO - "changed": true,
+2023-03-14 22:02:57,551 - INFO - "checksum": "553de59ae1f861c17499a345947edac24f5ef5e6",
+2023-03-14 22:02:57,552 - INFO - "dest": "/home/ansible/yulu/ai_pipeline/ai_pipeline_benchmark/benchmarking/scripts/emon/emon10000/10.45.247.200/emon10000/emon-M.dat",
+2023-03-14 22:02:57,552 - INFO - "md5sum": "82b2e5d1d33c2feb6e5d5290b113dd3f",
+2023-03-14 22:02:57,552 - INFO - "remote_checksum": "553de59ae1f861c17499a345947edac24f5ef5e6",
+2023-03-14 22:02:57,552 - INFO - "remote_md5sum": null
+2023-03-14 22:02:57,552 - INFO - }
+2023-03-14 22:02:59,135 - INFO - 10.45.247.200 | CHANGED => {
+2023-03-14 22:02:59,135 - INFO - "changed": true,
+2023-03-14 22:02:59,135 - INFO - "checksum": "4e1fd1f2dbb393282ead9ede6f5a1c31024f275b",
+2023-03-14 22:02:59,135 - INFO - "dest": "/home/ansible/yulu/ai_pipeline/ai_pipeline_benchmark/benchmarking/scripts/emon/emon10000/10.45.247.200/emon10000/emon.dat",
+2023-03-14 22:02:59,136 - INFO - "md5sum": "fecc6fd5fb49a2dacb146231e69f3880",
+2023-03-14 22:02:59,136 - INFO - "remote_checksum": "4e1fd1f2dbb393282ead9ede6f5a1c31024f275b",
+2023-03-14 22:02:59,136 - INFO - "remote_md5sum": null
+2023-03-14 22:02:59,136 - INFO - }
+2023-03-14 22:02:59,242 - INFO - 2. fetch the matrics of ai_pipeline
+2023-03-14 22:02:59,242 - INFO - 3.  collect the result
+2023-03-14 22:02:59,401 - INFO - The query to fetch metrics from prometheus is: http://10.45.247.81:31090/api/v1/query?query=avg_over_time(rate(container_cpu_usage_seconds_total{namespace="default", container!=""}[2m])[2m:])
+2023-03-14 22:02:59,402 - INFO - metric_name is: cpu_usage
+2023-03-14 22:02:59,416 - INFO - result is: [{'metric': {'container': 'ei-fss', 'cpu': 'total', 'endpoint': 'https-metrics', 'id': '/kubepods.slice/kubepods-besteffort.slice/kubepods-besteffort-pod37bfe08c_1a35_4f31_aee2_d3ed773045f6.slice/cri-containerd-32957fce66e8ca89850f6a363f2bad55c4c434f4dd10e8ee22d59409d4d63156.scope', 'image': 'gar-registry.caas.intel.com/cpio/ei-file-stream-service:2022WW47', 'instance': '10.45.247.200:10250', 'job': 'kubelet', 'metrics_path': '/metrics/cadvisor', 'name': '32957fce66e8ca89850f6a363f2bad55c4c434f4dd10e8ee22d59409d4d63156', 'namespace': 'default', 'node': 'ai-worker0', 'pod': 'ei-sample-deployment-pose-bf16-amx-06-59c94bd6dd-7fqpw', 'service': 'kubelet'}, 'value': [1678856579.402, '0.0708190500000152']}, {'metric': {'container': 'ei-fss', 'cpu': 'total', 'endpoint': 'https-metrics', 'id': '/kubepods.slice/kubepods-besteffort.slice/kubepods-besteffort-pod443d56fd_7192_407b_aa7f_3a19c6164b35.slice/cri-containerd-8ef35ec5e997b42b467e9a537ce481f8b80255b055daf3b4d653e511cc959b79.scope', 'image': 'gar-registry.caas.intel.com/cpio/ei-file-stream-service:2022WW47', 'instance': '10.45.247.200:10250', 'job': 'kubelet', 'metrics_path': '/metrics/cadvisor', 'name': '8ef35ec5e997b42b467e9a537ce481f8b80255b055daf3b4d653e511cc959b79', 'namespace': 'default', 'node': 'ai-worker0', 'pod': 'ei-sample-deployment-pose-bf16-amx-02-59c94bd6dd-hf2k2', 'service': 'kubelet'}, 'value': [1678856579.402, '0.07862283333334845']}, {'metric': {'container': 'ei-fss', 'cpu': 'total', 'endpoint': 'https-metrics', 'id': '/kubepods.slice/kubepods-besteffort.slice/kubepods-besteffort-pod5b20665e_1471_41e3_a906_37dbadf61ded.slice/cri-containerd-1903d9a29e2cc9280c983cf212ed426789dd4724ed212d8d6aaa692b7099b21d.scope', 'image': 'gar-registry.caas.intel.com/cpio/ei-file-stream-service:2022WW47', 'instance': '10.45.247.200:10250', 'job': 'kubelet', 'metrics_path': '/metrics/cadvisor', 'name': '1903d9a29e2cc9280c983cf212ed426789dd4724ed212d8d6aaa692b7099b21d', 'namespace': 'default', 'node': 'ai-worker0', 'pod': 'ei-sample-deployment-pose-bf16-amx-05-59c94bd6dd-2vw5v', 'service': 'kubelet'}, 'value': [1678856579.402, '0.0740513750000092']}, {'metric': {'container': 'ei-fss', 'cpu': 'total', 'endpoint': 'https-metrics', 'id': '/kubepods.slice/kubepods-besteffort.slice/kubepods-besteffort-podc1b02e88_e7c7_494d_b700_42e46c1f306d.slice/cri-containerd-8eb30a61e0cb53f9f0a8c0c18dc645c56eb3686a459ce4441c537113ae8007ae.scope', 'image': 'gar-registry.caas.intel.com/cpio/ei-file-stream-service:2022WW47', 'instance': '10.45.247.200:10250', 'job': 'kubelet', 'metrics_path': '/metrics/cadvisor', 'name': '8eb30a61e0cb53f9f0a8c0c18dc645c56eb3686a459ce4441c537113ae8007ae', 'namespace': 'default', 'node': 'ai-worker0', 'pod': 'ei-sample-deployment-pose-bf16-amx-04-59c94bd6dd-whjrf', 'service': 'kubelet'}, 'value': [1678856579.402, '0.07098861388888812']}, {'metric': {'container': 'ei-fss', 'cpu': 'total', 'endpoint': 'https-metrics', 'id': '/kubepods.slice/kubepods-besteffort.slice/kubepods-besteffort-podf0bbadd5_e728_4dc7_ac09_67de87ab9ed9.slice/cri-containerd-d2606d2272b90c545952113b692da741b7958b163650096e2f624aeee76293a8.scope', 'image': 'gar-registry.caas.intel.com/cpio/ei-file-stream-service:2022WW47', 'instance': '10.45.247.200:10250', 'job': 'kubelet', 'metrics_path': '/metrics/cadvisor', 'name': 'd2606d2272b90c545952113b692da741b7958b163650096e2f624aeee76293a8', 'namespace': 'default', 'node': 'ai-worker0', 'pod': 'ei-sample-deployment-pose-bf16-amx-03-59c94bd6dd-57bn5', 'service': 'kubelet'}, 'value': [1678856579.402, '0.07329508611114255']}, {'metric': {'container': 'ei-fss', 'cpu': 'total', 'endpoint': 'https-metrics', 'id': '/kubepods.slice/kubepods-besteffort.slice/kubepods-besteffort-podf765b16c_07f8_4261_9b64_3517dc6bafb7.slice/cri-containerd-88d725ffe5a1ce389c7c711b044f1cbdd7b97a922268c6d9d0735d1ba203f048.scope', 'image': 'gar-registry.caas.intel.com/cpio/ei-file-stream-service:2022WW47', 'instance': '10.45.247.200:10250', 'job': 'kubelet', 'metrics_path': '/metrics/cadvisor', 'name': '88d725ffe5a1ce389c7c711b044f1cbdd7b97a922268c6d9d0735d1ba203f048', 'namespace': 'default', 'node': 'ai-worker0', 'pod': 'ei-sample-deployment-pose-bf16-amx-01-59c94bd6dd-n5rdt', 'service': 'kubelet'}, 'value': [1678856579.402, '0.07368884722220374']}, {'metric': {'container': 'ei-gws', 'cpu': 'total', 'endpoint': 'https-metrics', 'id': '/kubepods.slice/kubepods-besteffort.slice/kubepods-besteffort-podaf221d52_33c6_40a0_b6bf_e5e2bc7b88db.slice/cri-containerd-870edc8724b46c501ca89d89b821712566f2c55b1d2077b638d4cbb0f32dcada.scope', 'image': 'ccr-registry.caas.intel.com/cnbench/ei-gateway-server:2022WW51-ws-8080', 'instance': '10.45.247.200:10250', 'job': 'kubelet', 'metrics_path': '/metrics/cadvisor', 'name': '870edc8724b46c501ca89d89b821712566f2c55b1d2077b638d4cbb0f32dcada', 'namespace': 'default', 'node': 'ai-worker0', 'pod': 'ei-gateway-server-deployment-694bf969dd-xhbg9', 'service': 'kubelet'}, 'value': [1678856579.402, '0.0013368055555563133']}, {'metric': {'container': 'ei-infer-pose-bf16-amx-app', 'cpu': 'total', 'endpoint': 'https-metrics', 'id': '/kubepods.slice/kubepods-burstable.slice/kubepods-burstable-pod1ed9db9c_901c_4f66_8fc9_7021df62aa82.slice/cri-containerd-b859bbb535e7e5d4df15f7216c6bde41307a80821905a15f046b8a348a4601b4.scope', 'image': 'gar-registry.caas.intel.com/cpio/ei-inference-service-tensorflow:2022WW49', 'instance': '10.45.247.200:10250', 'job': 'kubelet', 'metrics_path': '/metrics/cadvisor', 'name': 'b859bbb535e7e5d4df15f7216c6bde41307a80821905a15f046b8a348a4601b4', 'namespace': 'default', 'node': 'ai-worker0', 'pod': 'ei-infer-deployment-pose-bf16-amx-01-5885789db6-plj6s', 'service': 'kubelet'}, 'value': [1678856579.402, '1.087952022222222']}, {'metric': {'container': 'ei-wss', 'cpu': 'total', 'endpoint': 'https-metrics', 'id': '/kubepods.slice/kubepods-besteffort.slice/kubepods-besteffort-podd781997c_c6e4_4a9a_8814_f1a5e364edb4.slice/cri-containerd-d43dd1ddebde49d8cd5407a60d348e56d9384fcda992f264ae9ca5887ba0ab87.scope', 'image': 'gar-registry.caas.intel.com/cpio/ei-websocket-server:2022WW51', 'instance': '10.45.247.200:10250', 'job': 'kubelet', 'metrics_path': '/metrics/cadvisor', 'name': 'd43dd1ddebde49d8cd5407a60d348e56d9384fcda992f264ae9ca5887ba0ab87', 'namespace': 'default', 'node': 'ai-worker0', 'pod': 'ei-websocket-server-deployment-b4f68d987-95vnz', 'service': 'kubelet'}, 'value': [1678856579.402, '0.0028391083333341766']}, {'metric': {'container': 'nfs-subdir-external-provisioner', 'cpu': 'total', 'endpoint': 'https-metrics', 'id': '/kubepods.slice/kubepods-besteffort.slice/kubepods-besteffort-pod008ca2f8_cd34_4bb5_9e75_b46ec5ce9a23.slice/cri-containerd-710ae0fcfaef79b8c1cbf5871a10727a0da4ef1ca22a1fd9e475a740588b43e4.scope', 'image': 'k8s.gcr.io/sig-storage/nfs-subdir-external-provisioner:v4.0.2', 'instance': '10.45.247.200:10250', 'job': 'kubelet', 'metrics_path': '/metrics/cadvisor', 'name': '710ae0fcfaef79b8c1cbf5871a10727a0da4ef1ca22a1fd9e475a740588b43e4', 'namespace': 'default', 'node': 'ai-worker0', 'pod': 'nfs-subdir-external-provisioner-6f66496f8f-529tg', 'service': 'kubelet'}, 'value': [1678856579.402, '0.0011891944444452443']}, {'metric': {'container': 'redis', 'cpu': 'total', 'endpoint': 'https-metrics', 'id': '/kubepods.slice/kubepods-besteffort.slice/kubepods-besteffort-pod0d8f249f_8e44_4dae_82d3_618b15befd15.slice/cri-containerd-0d39607a911d680151ccaee4e31a4eeb21acbade8e1a9eb7cd5377c4796e012e.scope', 'image': 'docker.io/library/redis:6.0', 'instance': '10.45.247.200:10250', 'job': 'kubelet', 'metrics_path': '/metrics/cadvisor', 'name': '0d39607a911d680151ccaee4e31a4eeb21acbade8e1a9eb7cd5377c4796e012e', 'namespace': 'default', 'node': 'ai-worker0', 'pod': 'ei-redis-deployment-68df56c9d5-9kt42', 'service': 'kubelet'}, 'value': [1678856579.402, '0.009705769444447771']}, {'metric': {'container': 'tmp-shell', 'cpu': 'total', 'endpoint': 'https-metrics', 'id': '/kubepods.slice/kubepods-besteffort.slice/kubepods-besteffort-pod9cbe7477_0ea6_463d_8c1e_33eb5efda051.slice/cri-containerd-9093ed8c6f94ca6b98db8362a28e0ee47cc31e863e7c131462759af96d66c3e9.scope', 'image': 'docker.io/nicolaka/netshoot:latest', 'instance': '10.45.247.200:10250', 'job': 'kubelet', 'metrics_path': '/metrics/cadvisor', 'name': '9093ed8c6f94ca6b98db8362a28e0ee47cc31e863e7c131462759af96d66c3e9', 'namespace': 'default', 'node': 'ai-worker0', 'pod': 'tmp-shell', 'service': 'kubelet'}, 'value': [1678856579.402, '0']}]
+2023-03-14 22:02:59,417 - INFO - The query to fetch metrics from prometheus is: http://10.45.247.81:31090/api/v1/query?query=sum(container_memory_working_set_bytes{namespace="default",container!="", image!=""}) by (pod)
+2023-03-14 22:02:59,417 - INFO - metric_name is: memory_usage
+2023-03-14 22:02:59,417 - INFO - result is: [{'metric': {'pod': 'ei-sample-deployment-pose-bf16-amx-06-59c94bd6dd-7fqpw'}, 'value': [1678856579.406, '386166784']}, {'metric': {'pod': 'ei-sample-deployment-pose-bf16-amx-02-59c94bd6dd-hf2k2'}, 'value': [1678856579.406, '386453504']}, {'metric': {'pod': 'ei-sample-deployment-pose-bf16-amx-05-59c94bd6dd-2vw5v'}, 'value': [1678856579.406, '386441216']}, {'metric': {'pod': 'ei-sample-deployment-pose-bf16-amx-04-59c94bd6dd-whjrf'}, 'value': [1678856579.406, '386166784']}, {'metric': {'pod': 'ei-sample-deployment-pose-bf16-amx-03-59c94bd6dd-57bn5'}, 'value': [1678856579.406, '386551808']}, {'metric': {'pod': 'ei-sample-deployment-pose-bf16-amx-01-59c94bd6dd-n5rdt'}, 'value': [1678856579.406, '386007040']}, {'metric': {'pod': 'ei-gateway-server-deployment-694bf969dd-xhbg9'}, 'value': [1678856579.406, '56774656']}, {'metric': {'pod': 'ei-infer-deployment-pose-bf16-amx-01-5885789db6-plj6s'}, 'value': [1678856579.406, '518889472']}, {'metric': {'pod': 'ei-websocket-server-deployment-b4f68d987-95vnz'}, 'value': [1678856579.406, '5093629952']}, {'metric': {'pod': 'nfs-subdir-external-provisioner-6f66496f8f-529tg'}, 'value': [1678856579.406, '15429632']}, {'metric': {'pod': 'ei-redis-deployment-68df56c9d5-9kt42'}, 'value': [1678856579.406, '2445897728']}, {'metric': {'pod': 'tmp-shell'}, 'value': [1678856579.406, '847872']}]
+2023-03-14 22:02:59,417 - INFO - The query to fetch metrics from prometheus is: http://10.45.247.81:31090/api/v1/query?query=avg_over_time(ei_infer_fps{namespace="default"}[2m])
+2023-03-14 22:02:59,417 - INFO - metric_name is: ei_infer_fps
+2023-03-14 22:02:59,417 - INFO - result is: [{'metric': {'container': 'ei-infer-pose-bf16-amx-app', 'endpoint': 'web', 'instance': '10.244.120.46:8000', 'job': 'ei-infer-pose-bf16-amx-app', 'namespace': 'default', 'pod': 'ei-infer-deployment-pose-bf16-amx-01-5885789db6-plj6s', 'service': 'ei-infer-pose-bf16-amx-app'}, 'value': [1678856579.41, '13.977776648180212']}]
+2023-03-14 22:02:59,417 - INFO - The query to fetch metrics from prometheus is: http://10.45.247.81:31090/api/v1/query?query=avg_over_time(ei_drop_fps{namespace="default"}[2m])
+2023-03-14 22:02:59,417 - INFO - metric_name is: ei_drop_fps
+2023-03-14 22:02:59,417 - INFO - result is: [{'metric': {'container': 'ei-infer-pose-bf16-amx-app', 'endpoint': 'web', 'instance': '10.244.120.46:8000', 'job': 'ei-infer-pose-bf16-amx-app', 'namespace': 'default', 'pod': 'ei-infer-deployment-pose-bf16-amx-01-5885789db6-plj6s', 'service': 'ei-infer-pose-bf16-amx-app'}, 'value': [1678856579.413, '156.05591279593847']}]
+2023-03-14 22:02:59,418 - INFO - The query to fetch metrics from prometheus is: http://10.45.247.81:31090/api/v1/query?query=avg_over_time(ei_scale_ratio{namespace="default"}[2m])
+2023-03-14 22:02:59,418 - INFO - metric_name is: ei_scale_ratio
+2023-03-14 22:02:59,418 - INFO - result is: [{'metric': {'container': 'ei-infer-pose-bf16-amx-app', 'endpoint': 'web', 'instance': '10.244.120.46:8000', 'job': 'ei-infer-pose-bf16-amx-app', 'namespace': 'default', 'pod': 'ei-infer-deployment-pose-bf16-amx-01-5885789db6-plj6s', 'service': 'ei-infer-pose-bf16-amx-app'}, 'value': [1678856579.417, '12.165468224965498']}]
+2023-03-14 22:02:59,418 - INFO - Results written to metrics/5651_NON_AMX_BF16_metrics_20230314_220259.txt
+2023-03-14 22:02:59,487 - INFO - Finished running all scenarios!

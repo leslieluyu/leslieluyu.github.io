@@ -1,0 +1,8 @@
+[master]
+10.250.18.15
+[emon]
+10.250.18.16
+10.250.18.18
+10.250.18.19
+[all:vars]
+ansible_ssh_common_args='-o StrictHostKeyChecking=no'

@@ -1,0 +1,3 @@
+10.250.18.16:22:ansible:/home/ansible/.ssh/id_rsa::
+10.250.18.18:22:ansible:/home/ansible/.ssh/id_rsa::
+10.250.18.19:22:ansible:/home/ansible/.ssh/id_rsa::
