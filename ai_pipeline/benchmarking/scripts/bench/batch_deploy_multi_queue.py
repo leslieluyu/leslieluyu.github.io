@@ -1,10 +1,10 @@
 import os
 import argparse
 import yaml
-import logging
 import subprocess
 import time
 from kubernetes import client, config
+from base import init_logger
 
 # Function to create a deployment from a YAML template with a given index
 def create_deployment(infer_suffix, template_path, infer_type):
@@ -36,26 +36,6 @@ def create_deployment(infer_suffix, template_path, infer_type):
     apps_v1.create_namespaced_deployment(
         body=dep, namespace="default")
 
-def init_logger(log_file):
-    # Configure logging to file and console
-    logger = logging.getLogger('batch_deploy')
-    logger.setLevel(logging.INFO)
-    formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
-
-    # Log to file
-    file_handler = logging.FileHandler(log_file)
-    file_handler.setLevel(logging.INFO)
-    file_handler.setFormatter(formatter)
-    logger.addHandler(file_handler)
-
-    # Log to console
-    console_handler = logging.StreamHandler()
-    console_handler.setLevel(logging.INFO)
-    console_handler.setFormatter(formatter)
-    logger.addHandler(console_handler)
-
-    logger.info("Starting batch deployment...")
-    return logger
 
 if __name__ == "__main__":
     # Parse command line arguments
@@ -66,7 +46,7 @@ if __name__ == "__main__":
     parser.add_argument("--end_num", '-e',type=int, default=50, help="Ending number for name suffixes of deployment in a queue")
     parser.add_argument("--begin_q",'-bq', type=int, default=1, help="Starting number for name suffixes of queue")
     parser.add_argument("--end_q", '-eq',type=int, default=1, help="Ending number for name suffixes of queue")
-    parser.add_argument("--log_file", '-l',type=str, default="batch_deploy_multi_queue.log", help="log file name")
+    parser.add_argument("--log_file", '-l',type=str, default="../logs/batch_deploy_multi_queue.log", help="log file name")
     parser.add_argument('--dry-run', action='store_true', help='Run the script in dry-run mode.')
     args = parser.parse_args()
     logger = init_logger(args.log_file)

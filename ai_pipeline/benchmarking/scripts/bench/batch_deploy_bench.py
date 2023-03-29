@@ -7,7 +7,7 @@ from datetime import datetime
 from kubernetes import client, config
 from pprint import pprint
 import random
-
+from base import init_logger
 
 
 def set_deployment_env(namespace, deploy_name, app_name, scenario):
@@ -91,26 +91,6 @@ def set_deployment_env(namespace, deploy_name, app_name, scenario):
 
 
 
-def init_logger(log_file):
-    # Configure logging to file and console
-    logger = logging.getLogger('batch_deploy')
-    logger.setLevel(logging.INFO)
-    formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
-
-    # Log to file
-    file_handler = logging.FileHandler(log_file)
-    file_handler.setLevel(logging.INFO)
-    file_handler.setFormatter(formatter)
-    logger.addHandler(file_handler)
-
-    # Log to console
-    console_handler = logging.StreamHandler()
-    console_handler.setLevel(logging.INFO)
-    console_handler.setFormatter(formatter)
-    logger.addHandler(console_handler)
-
-    logger.info("Starting batch deployment...")
-    return logger
 
 
 def test_create_deploy():
@@ -144,15 +124,16 @@ if __name__ == "__main__":
     prefix = '%02X%02X_' % (r(),r())
     print("prefix="+prefix)
     
-    logger = init_logger("batch_deploy_bench.log")
     # Parse command line arguments
     parser = argparse.ArgumentParser()
     parser.add_argument("--namespace", default="default", help="the namespace of the deployment")
     parser.add_argument("--deploy_name", default="ei-infer-deployment-pose-bf16-amx-01", help="the name of the deployment")
     parser.add_argument("--app_name", default="ei-infer-pose-bf16-amx-app", help="the name of the app name")
     parser.add_argument("--config_file", default="scenarios.json", help="the path to the scenarios config file")
+    parser.add_argument("--log_file", '-l',type=str, default="../logs/batch_deploy_bench.log", help="log file name")
     args = parser.parse_args()
 
+    logger = init_logger(args.log_file)
     # test_create_deploy()
     # sys.exit(0)
 
