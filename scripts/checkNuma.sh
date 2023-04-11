@@ -1,6 +1,6 @@
-
+NSP=${1:-hotel-res}
 FILENAME='/tmp/hotel.pod.info'
-kubectl get pod -o=custom-columns=NODE:.spec.nodeName,NS:.metadata.namespace,NAME:.metadata.name,STATUS:.status.phase -A|grep  'hotel-res'|sort > $FILENAME
+kubectl get pod -o=custom-columns=NODE:.spec.nodeName,NS:.metadata.namespace,NAME:.metadata.name,STATUS:.status.phase -A|grep  ${NSP}|sort > $FILENAME
   #while read -r line
   O_IFS=$IFS
   IFS=$'\n'
