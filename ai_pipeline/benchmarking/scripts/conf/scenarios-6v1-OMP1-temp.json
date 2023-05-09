@@ -1,0 +1,24 @@
+[
+    
+    {
+      "scenario_name": "NON_AMX_BF16",
+      "envs": [
+        {"name": "ONEDNN_MAX_CPU_ISA", "value": "AVX512_CORE"},
+        {"name": "INFER_MODEL_NAME", "value": "ssd_mobilenet_bf16"},
+        {"name": "OMP_NUM_THREADS", "value": "1"},
+        {"name": "INPUT_QUEUE_HOST", "value": "ei-redis-svc"},
+        {"name": "OUTPUT_BROKER_HOST", "value": "ei-redis-svc"},
+        {"name": "INFER_TYPE", "value": "pose-bf16-amx-01"}
+      ],
+      "resources":{
+        "requests": {
+            "cpu": "2",
+            "memory": "4Gi"
+        },
+        "limits": {
+            "cpu": "2",
+            "memory": "4Gi"
+        }
+      }
+    }
+  ]

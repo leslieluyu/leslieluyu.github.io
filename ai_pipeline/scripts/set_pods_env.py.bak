@@ -1,0 +1,32 @@
+import os
+from kubernetes import client, config
+
+# Load Kubernetes configuration
+config.load_kube_config()
+
+# Set the namespace and deployment name
+namespace = 'default'
+deployment_name = 'ei-sample-pose-bf16-amx-deployment'
+
+# Set the environment variables for each pod
+env_vars = [
+    {'name': 'ENV_VAR_1', 'value': 'value1'},
+    {'name': 'ENV_VAR_2', 'value': 'value2'},
+    {'name': 'ENV_VAR_3', 'value': 'value3'},
+    # Add more environment variables as needed
+]
+
+# Get the deployment object
+api = client.AppsV1Api()
+deployment = api.read_namespaced_deployment(deployment_name, namespace)
+
+# Set the environment variables for each container in the deployment
+for container in deployment.spec.template.spec.containers:
+    container.env = env_vars
+
+# Update the deployment object
+api.patch_namespaced_deployment(
+    name=deployment_name,
+    namespace=namespace,
+    body=deployment
+)

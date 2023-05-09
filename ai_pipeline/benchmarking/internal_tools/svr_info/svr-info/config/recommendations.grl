@@ -1,0 +1,99 @@
+rule DIMMSpeed "Platform supports faster DIMMs." {
+	when
+		Report.GetValue("DIMM", "Speed") != "" && Report.GetValue("DIMM", "Speed") != "Unknown" &&
+		(
+		(Report.GetValue("CPU", "Microarchitecture") == "CLX" && Report.GetValueAsInt("DIMM", "Speed") < 2933) ||
+		(Report.GetValue("CPU", "Microarchitecture") == "ICX" && Report.GetValueAsInt("DIMM", "Speed") < 3200) ||
+		(Report.GetValue("CPU", "Microarchitecture") == "SPR" && Report.GetValueAsInt("DIMM", "Speed") < 4800)
+		)
+	then
+		Report.AddRecommendation("DIMM Speed", "This server may support faster DRAM DIMMs. Best memory performance is achieved with the highest performing DIMMs.");
+		Retract("DIMMSpeed");
+}
+
+rule ConfiguredDIMMSpeed "Configured DIMM Speed less than maximum DIMM Speed." {
+	when
+		Report.GetValue("DIMM", "Configured Speed") != "" && Report.GetValue("DIMM", "Configured Speed") != "Unknown" &&
+		Report.GetValue("DIMM", "Speed") != "" && Report.GetValue("DIMM", "Speed") != "Unknown" &&
+		Report.GetValueAsInt("DIMM", "Configured Speed") < Report.GetValueAsInt("DIMM", "Speed")
+	then
+		Report.AddRecommendation("Configured DIMM Speed", "The configured speed of this server's DRAM DIMMs is less than the maximum speed supported by the DIMM. Best memory performance is achieved when DIMMs are running at maximum speed.");
+		Retract("ConfiguredDIMMSpeed");
+}
+
+rule JAVAVersion "Need JAVA 11.0.11+ for ICX+ crypto optimizations." {
+	when
+		Report.GetValue("Software Version", "Java") != "" &&
+		Report.VersionLessThan("Software Version", "Java", "11.0.11") &&
+		(Report.GetValue("CPU", "Microarchitecture") == "ICX" ||
+		Report.GetValue("CPU", "Microarchitecture") == "SPR")
+	then
+		Report.AddRecommendation("Java version", "Use Java version >= 11.0.11 to take advantage of cryptography acceleration on Icelake and Sapphire Rapids.");
+		Retract("JAVAVersion");
+}
+
+rule PowerPerfPolicy "Power & Perf Policy should be set to Performance." {
+	when
+		Report.GetValue("Power", "Power & Perf Policy") != "" &&
+		Report.GetValue("Power", "Power & Perf Policy") != "Performance"
+	then
+		Report.AddRecommendation("Power & Perf Policy", "Set system's Power & Perf Policy to 'Performance' for best CPU performance.");
+		Retract("PowerPerfPolicy");
+}
+
+rule FrequencyDriver "Frequency Driver should be Intel pstate." {
+	when
+		Report.GetValue("Power", "Frequency Driver") != "" &&
+		Report.GetValue("Power", "Frequency Driver") != "intel_pstate"
+	then
+		Report.AddRecommendation("Frequency driver", "Use the Intel pstate driver for best performance on Intel Xeon platforms.");
+		Retract("FrequencyDriver");
+}
+
+rule FrequencyGovernor "Frequency Governor should be set to Performance." {
+	when
+		Report.GetValue("Power", "Frequency Governor") != "" &&
+		Report.GetValue("Power", "Frequency Governor") != "performance"
+	then
+		Report.AddRecommendation("Frequency governor", "Set the CPU Frequency Governors to 'performance' for best CPU performance.");
+		Retract("FrequencyGovernor");
+}
+
+rule IRQBalance "IRQ Balance should be disabled." {
+	when
+		Report.GetValue("NIC", "IRQBalance") != "" &&
+		Report.GetValue("NIC", "IRQBalance") == "Enabled"
+	then
+		Report.AddRecommendation("IRQ Balance", "Disabling the IRQ Balance service and manually configuring network IRQ CPU affinity may improve network bandwidth and latency.");
+		Retract("IRQBalance");
+}
+
+rule MemoryChannels "All memory channels should be populated." {
+	when
+		Report.GetValue("CPU", "Memory Channels") != "" &&
+		Report.GetValue("CPU", "Sockets") != "" &&
+		Report.GetValue("Memory", "Populated Memory Channels") != "" &&
+		Report.GetValueAsInt("CPU", "Memory Channels") * Report.GetValueAsInt("CPU", "Sockets") !=
+		Report.GetValueAsInt("Memory", "Populated Memory Channels")
+	then
+		Report.AddRecommendation("Memory channels", "Populate all memory channels for best memory bandwidth.");
+		Retract("MemoryChannels");
+}
+
+rule TurboBoost "Turbo boost should be enabled." {
+	when
+		Report.GetValue("CPU", "Intel Turbo Boost") != "" &&
+		Report.GetValue("CPU", "Intel Turbo Boost") != "Enabled"
+	then
+		Report.AddRecommendation("Turbo", "Many workloads benefit from Intel Turbo Boost Technology.");
+		Retract("TurboBoost");
+}
+
+rule Hyperthreading "Hyperthreading should be enabled." {
+	when
+		Report.GetValue("CPU", "Hyperthreading") != "" &&
+		Report.GetValue("CPU", "Hyperthreading") != "Enabled"
+	then
+		Report.AddRecommendation("Hyperthreading", "Many workloads benefit from Intel Hyper-Theading Technology.");
+		Retract("Hyperthreading");
+}

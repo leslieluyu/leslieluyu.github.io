@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>System Health Inspector</title>
+    <link rel="icon" type="image/x-icon" href="https://www.intel.com/favicon.ico">
+    <meta name="viewport" content="width=device-width">
+
+    <link rel="stylesheet" href="https://unpkg.com/normalize.css@8.0.1/normalize.css"
+        integrity="sha384-M86HUGbBFILBBZ9ykMAbT3nVb0+2C7yZlF8X2CiKNpDOQjKroMJqIeGZ/Le8N2Qp" crossorigin="anonymous"
+        referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/pure-min.css"
+        integrity="sha384-Uu6IeWbM+gzNVXJcM9XV3SohHtmWE+3VGi496jvgX1jyvDTXfdK+rfZc8C1Aehk5" crossorigin="anonymous"
+        referrerpolicy="no-referrer" />
+    <script src="https://unpkg.com/chart.js@3.7.1/dist/chart.min.js"
+        integrity="sha384-7NrRHqlWUj2hJl3a/dZj/a1GxuQc56mJ3aYsEnydBYrY1jR+RSt6SBvK3sHfj+mJ" crossorigin="anonymous"
+        referrerpolicy="no-referrer"></script>
+
+    <style>
+        .content {
+            padding: 0 2em;
+            line-height: 1.6em;
+        }
+
+        .content h2 {
+            font-weight: 300;
+            color: #888;
+        }
+
+        .content h2:before {
+            content: '';
+            display: block;
+            position: relative;
+            width: 0;
+            height: 5em;
+            margin-top: -5em
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            background-color: whitesmoke;
+            z-index: 99;
+            width: 100%;
+            text-align: center;
+            margin: 0;
+            color: #07578c;
+            border-bottom: 1px solid #eee;
+        }
+
+        header h1 {
+            margin: 0.2em 0;
+            font-size: 3em;
+            font-weight: 300;
+        }
+
+         
+        #layout,
+        #menu,
+        .menu-link {
+            -webkit-transition: all 0.2s ease-out;
+            -moz-transition: all 0.2s ease-out;
+            -ms-transition: all 0.2s ease-out;
+            -o-transition: all 0.2s ease-out;
+            transition: all 0.2s ease-out;
+        }
+
+        #layout {
+            position: relative;
+            left: 0;
+            padding-left: 0;
+        }
+
+        #layout.active #menu {
+            left: 140px;
+            width: 140px;
+        }
+
+        #layout.active .menu-link {
+            left: 140px;
+        }
+
+         
+        #menu {
+            margin-left: -140px;
+             
+            width: 140px;
+            position: fixed;
+            top: 115px;
+            bottom: 0;
+            z-index: 99;
+             
+            background: #191818;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+         
+        #menu a {
+            color: #999;
+            border: none;
+            padding: 0.6em 0 0.6em 0.6em;
+        }
+
+         
+        #menu .pure-menu,
+        #menu .pure-menu ul {
+            border: none;
+            background: transparent;
+        }
+
+         
+        #menu .pure-menu ul,
+        #menu .pure-menu .menu-item-divided {
+            border-top: 1px solid #333;
+        }
+
+         
+        #menu .pure-menu li a:hover,
+        #menu .pure-menu li a:focus {
+            background: #333;
+        }
+
+         
+        #menu .pure-menu-selected,
+        #menu .pure-menu-heading {
+            background: #1f8dd6;
+        }
+
+         
+        #menu .pure-menu-selected a {
+            color: #fff;
+        }
+
+         
+        #menu .pure-menu-heading {
+            font-size: 110%;
+            color: #fff;
+            margin: 0;
+        }
+
+         
+
+         
+
+         
+        .menu-link {
+            position: fixed;
+            display: block;
+             
+            top: 115px;
+            left: 0;
+             
+            background: #000;
+            background: rgba(0, 0, 0, 0.7);
+            font-size: 10px;
+             
+            z-index: 10;
+            width: 2em;
+            height: auto;
+            padding: 1.5em .5em;
+        }
+
+        .menu-link:hover,
+        .menu-link:focus {
+            background: #000;
+        }
+
+        .menu-link span {
+            position: relative;
+            display: block;
+        }
+
+        .menu-link span,
+        .menu-link span:before,
+        .menu-link span:after {
+            background-color: #fff;
+            width: 100%;
+            height: 0.2em;
+        }
+
+        .menu-link span:before,
+        .menu-link span:after {
+            position: absolute;
+            margin-top: -0.6em;
+            content: " ";
+        }
+
+        .menu-link span:after {
+            margin-top: 0.6em;
+        }
+
+         
+
+         
+        @media (min-width: 72em) {
+
+            .header,
+            .content {
+                padding-left: 2em;
+                padding-right: 2em;
+            }
+
+            #layout {
+                padding-left: 140px;
+                 
+                left: 0;
+            }
+
+            #menu {
+                left: 140px;
+            }
+
+            .menu-link {
+                position: fixed;
+                left: 140px;
+                display: none;
+            }
+
+            #layout.active .menu-link {
+                left: 140px;
+            }
+        }
+
+        @media (max-width: 72em) {
+
+             
+            #layout.active {
+                position: relative;
+                left: 140px;
+            }
+        }
+
+         
+        .tab {
+            position: fixed;
+            top: 67px;
+            z-index: 99;
+            height: 46px;
+            width: 100%;
+            background-color: #f5f5f5;
+        }
+
+         
+        .tab button {
+            background-color: inherit;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+            float: left;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 14px 16px;
+            transition: 0.3s;
+            background-color: #ccc;
+            width: 175px;
+        }
+
+         
+        .tab button:hover {
+            background-color: #ddd;
+        }
+
+         
+        .tab button.active {
+            background-color: #fff;
+        }
+
+         
+        .tabcontent {
+            position: relative;
+            top: 115px;
+            display: none;
+            padding: 0px 0px;
+        }
+
+        .tabdefault {
+            display: block;
+        }
+
+        .tabnotdefault {
+        }
+
+        .master {
+            overflow: hidden;
+        }
+    </style>
+    <noscript>
+        <style type="text/css">
+            .tabcontent {display:block;}
+            .tabnotdefault {left: 140px;}
+        </style>
+    </noscript>
+</head>
+
+<body>
+    <header>
+        <h1>Intel&reg; System Health Inspector</h1>
+    </header>
+    <nav class="tab">
+        <button class="tablinks" onclick="openTab(event, 'configuration')" id="defaultOpen">Configuration</button>
+        <button class="tablinks" onclick="openTab(event, 'performance')">Performance</button>
+        <button class="tablinks" onclick="openTab(event, 'profile')">Profile</button>
+        <button class="tablinks" onclick="openTab(event, 'recommendation')">Recommendations</button>
+    </nav>
+    <div id="configuration" class="tabcontent tabdefault">
+        <div id="layout">
+            
+            <a href="#menu" id="menuLink" class="menu-link">
+                
+                <span></span>
+            </a>
+            <nav id="menu" class="pure-menu">
+                <a class="pure-menu-heading" href="#">Contents</a>
+                <ul class="pure-menu-list">
+                    <li class="pure-menu-item"><a href="#Host" class="pure-menu-link">System</a></li><li class="pure-menu-item"><a href="#CPU" class="pure-menu-link">CPU</a></li><li class="pure-menu-item"><a href="#Power" class="pure-menu-link">Power</a></li><li class="pure-menu-item"><a href="#Memory" class="pure-menu-link">Memory</a></li><li class="pure-menu-item"><a href="#NIC" class="pure-menu-link">Network</a></li><li class="pure-menu-item"><a href="#Disk" class="pure-menu-link">Storage</a></li><li class="pure-menu-item"><a href="#GPU" class="pure-menu-link">GPU</a></li><li class="pure-menu-item"><a href="#Vulnerability" class="pure-menu-link">Security</a></li><li class="pure-menu-item"><a href="#Process" class="pure-menu-link">Status</a></li>
+                </ul>
+            </nav>
+            <main id="main" class="content">
+                <noscript>
+                    <h3>JavaScript is disabled. Functionality is limited.</h3>
+                </noscript>
+                
+                
+                <section>
+                    <h2 id=Host>Host</h2>
+                    <table class="pure-table pure-table-striped"><tbody><tr><td style="font-weight:bold">Name</td><td>ai-worker0</td></tr><tr><td style="font-weight:bold">Time</td><td>Thu Mar  9 01:46:08 UTC 2023</td></tr></tbody></table>
+                    
+                </section>
+                
+                <section>
+                    <h2 id=System>System</h2>
+                    <table class="pure-table pure-table-striped"><tbody><tr><td style="font-weight:bold">Manufacturer</td><td>Intel Corporation</td></tr><tr><td style="font-weight:bold">Product Name</td><td>ArcherCity</td></tr><tr><td style="font-weight:bold">Version</td><td>....................</td></tr><tr><td style="font-weight:bold">Serial #</td><td>............</td></tr><tr><td style="font-weight:bold">UUID</td><td>88888888-8887-0216-0b15-3939a5a5a5a5</td></tr></tbody></table>
+                    
+                </section>
+                
+                <section>
+                    <h2 id=Baseboard>Baseboard</h2>
+                    <table class="pure-table pure-table-striped"><tbody><tr><td style="font-weight:bold">Manufacturer</td><td>Intel Corporation</td></tr><tr><td style="font-weight:bold">Product Name</td><td>ArcherCity</td></tr><tr><td style="font-weight:bold">Version</td><td>..........</td></tr><tr><td style="font-weight:bold">Serial #</td><td>............</td></tr></tbody></table>
+                    
+                </section>
+                
+                <section>
+                    <h2 id=Chassis>Chassis</h2>
+                    <table class="pure-table pure-table-striped"><tbody><tr><td style="font-weight:bold">Manufacturer</td><td>...............................</td></tr><tr><td style="font-weight:bold">Type</td><td>Rack Mount Chassis</td></tr><tr><td style="font-weight:bold">Version</td><td>..................</td></tr><tr><td style="font-weight:bold">Serial #</td><td>..................</td></tr></tbody></table>
+                    
+                </section>
+                
+                <section>
+                    <h2 id=BIOS>BIOS</h2>
+                    <table class="pure-table pure-table-striped"><tbody><tr><td style="font-weight:bold">Vendor</td><td>Intel Corporation</td></tr><tr><td style="font-weight:bold">Version</td><td>EGSDCRB1.SYS.8901.P01.2209200243</td></tr><tr><td style="font-weight:bold">Release Date</td><td>09/20/2022</td></tr></tbody></table>
+                    
+                </section>
+                
+                <section>
+                    <h2 id=Operating&#32;System>Operating System</h2>
+                    <table class="pure-table pure-table-striped"><tbody><tr><td style="font-weight:bold">OS</td><td>Ubuntu 22.04.1 LTS</td></tr><tr><td style="font-weight:bold">Kernel</td><td>5.19.0-32-generic</td></tr><tr><td style="font-weight:bold">Microcode</td><td>0x2b0000a1</td></tr></tbody></table>
+                    
+                </section>
+                
+                <section>
+                    <h2 id=Software&#32;Version>Software Version</h2>
+                    <table class="pure-table pure-table-striped"><tbody><tr><td style="font-weight:bold">GCC</td><td>gcc (Ubuntu 11.3.0-1ubuntu1~22.04) 11.3.0</td></tr><tr><td style="font-weight:bold">GLIBC</td><td>ldd (Ubuntu GLIBC 2.35-0ubuntu3.1) 2.35</td></tr><tr><td style="font-weight:bold">Binutils</td><td>GNU ld (GNU Binutils for Ubuntu) 2.38</td></tr><tr><td style="font-weight:bold">Python</td><td></td></tr><tr><td style="font-weight:bold">Python3</td><td>Python 3.10.6</td></tr><tr><td style="font-weight:bold">Java</td><td></td></tr><tr><td style="font-weight:bold">OpenSSL</td><td>OpenSSL 3.0.2 15 Mar 2022 (Library: OpenSSL 3.0.2 15 Mar 2022)</td></tr></tbody></table>
+                    
+                </section>
+                
+                <section>
+                    <h2 id=CPU>CPU</h2>
+                    <table class="pure-table pure-table-striped"><tbody><tr><td style="font-weight:bold">CPU Model</td><td>Intel(R) Xeon(R) Platinum 8480+</td></tr><tr><td style="font-weight:bold">Architecture</td><td>x86_64</td></tr><tr><td style="font-weight:bold">Microarchitecture</td><td>EMR</td></tr><tr><td style="font-weight:bold">Family</td><td>6</td></tr><tr><td style="font-weight:bold">Model</td><td>143</td></tr><tr><td style="font-weight:bold">Stepping</td><td>8</td></tr><tr><td style="font-weight:bold">Base Frequency</td><td>2.0GHz</td></tr><tr><td style="font-weight:bold">Maximum Frequency</td><td>3.8GHz</td></tr><tr><td style="font-weight:bold">All-core Maximum Frequency</td><td>3.0GHz</td></tr><tr><td style="font-weight:bold">CPUs</td><td>224</td></tr><tr><td style="font-weight:bold">On-line CPU List</td><td>0-223</td></tr><tr><td style="font-weight:bold">Hyperthreading</td><td>Enabled</td></tr><tr><td style="font-weight:bold">Cores per Socket</td><td>56</td></tr><tr><td style="font-weight:bold">Sockets</td><td>2</td></tr><tr><td style="font-weight:bold">NUMA Nodes</td><td>2</td></tr><tr><td style="font-weight:bold">NUMA CPU List</td><td>0-55,112-167 :: 56-111,168-223</td></tr><tr><td style="font-weight:bold">CHA Count</td><td>56</td></tr><tr><td style="font-weight:bold">L1d Cache</td><td>5.3 MiB (112 instances)</td></tr><tr><td style="font-weight:bold">L1i Cache</td><td>3.5 MiB (112 instances)</td></tr><tr><td style="font-weight:bold">L2 Cache</td><td>224 MiB (112 instances)</td></tr><tr><td style="font-weight:bold">L3 Cache</td><td>210 MiB (2 instances)</td></tr><tr><td style="font-weight:bold">Memory Channels</td><td>8</td></tr><tr><td style="font-weight:bold">Prefetchers</td><td>L2 HW, L2 Adj., DCU HW, DCU IP</td></tr><tr><td style="font-weight:bold">Intel Turbo Boost</td><td>Enabled</td></tr><tr><td style="font-weight:bold">PPINs</td><td>28c01e4dc22d9c44,28bec0ca2899eb34</td></tr></tbody></table>
+                    
+                </section>
+                
+                <section>
+                    <h2 id=ISA>ISA</h2>
+                    <table class="pure-table pure-table-striped"><tbody><tr><td style="font-weight:bold">AVX - Advanced Vector Extensions</td><td>Yes</td></tr><tr><td style="font-weight:bold">AVX2 - Advanced Vector Extensions 2</td><td>Yes</td></tr><tr><td style="font-weight:bold">AVX512F - AVX-512 Foundation</td><td>Yes</td></tr><tr><td style="font-weight:bold">AVX512_VNNI - Vector Neural Network Instructions</td><td>Yes</td></tr><tr><td style="font-weight:bold">AVX512_4VNNIW - VNNI Word Variable Precision</td><td>No</td></tr><tr><td style="font-weight:bold">AVX512_BF16 - BFLOAT16</td><td>Yes</td></tr><tr><td style="font-weight:bold">AES - Advanced Encryption Standard New Instructions (AES-NI)</td><td>Yes</td></tr><tr><td style="font-weight:bold">VAES - Vector AES</td><td>Yes</td></tr><tr><td style="font-weight:bold">AMX-BF16 - Advanced Matrix Extensions Tile BFLOAT16</td><td>Yes</td></tr><tr><td style="font-weight:bold">AMX-TILE - Advanced Matrix Extensions Tile Architecture</td><td>Yes</td></tr><tr><td style="font-weight:bold">AMX-INT8 - Advanced Matrix Extensions Tile 8-bit Integer</td><td>Yes</td></tr></tbody></table>
+                    
+                </section>
+                
+                <section>
+                    <h2 id=Accelerator>Accelerator</h2>
+                    <table class="pure-table pure-table-striped"><tbody><tr><td style="font-weight:bold">QAT</td><td>2</td></tr><tr><td style="font-weight:bold">DSA</td><td>2</td></tr><tr><td style="font-weight:bold">IAA</td><td>2</td></tr><tr><td style="font-weight:bold">DLB</td><td>2</td></tr></tbody></table>
+                    
+                </section>
+                
+                <section>
+                    <h2 id=Power>Power</h2>
+                    <table class="pure-table pure-table-striped"><tbody><tr><td style="font-weight:bold">TDP</td><td>350 watts</td></tr><tr><td style="font-weight:bold">Power & Perf Policy</td><td>Performance</td></tr><tr><td style="font-weight:bold">Frequency Governor</td><td>powersave</td></tr><tr><td style="font-weight:bold">Frequency Driver</td><td>intel_pstate</td></tr><tr><td style="font-weight:bold">Max C-State</td><td>9</td></tr></tbody></table>
+                    <h2>Optimizing CPU Performance</h2><p>Consider the following:
+	<ul>
+	<li>Most workloads benefit from <b>Intel Hyper-Threading Technology</b>.</li>
+	<li>The CPU can reach its maximum frequency if <b>Intel Turbo Boost Technology</b> is enabled.</li>
+	<li>Best performance is found when the <b>Power and Perf Policy</b> is set to <b>Performance</b>.</li>
+	<li>We recommend the <b>intel_pstate Frequency Driver</b>.</li>
+	<li>For best performance, set the <b>Frequency Governor</b> to <b>performance</b>.</li>
+	</ul></p>
+
+                </section>
+                
+                <section>
+                    <h2 id=Memory>Memory</h2>
+                    <table class="pure-table pure-table-striped"><tbody><tr><td style="font-weight:bold">Installed Memory</td><td>2048GB (32x64GB <OUT OF SPEC> 4800 MT/s [4400 MT/s])</td></tr><tr><td style="font-weight:bold">MemTotal</td><td>2113462360 kB</td></tr><tr><td style="font-weight:bold">MemFree</td><td>1978364572 kB</td></tr><tr><td style="font-weight:bold">MemAvailable</td><td>2071299600 kB</td></tr><tr><td style="font-weight:bold">Buffers</td><td>457044 kB</td></tr><tr><td style="font-weight:bold">Cached</td><td>98723880 kB</td></tr><tr><td style="font-weight:bold">HugePages_Total</td><td>0</td></tr><tr><td style="font-weight:bold">Hugepagesize</td><td>2048 kB</td></tr><tr><td style="font-weight:bold">Transparent Huge Pages</td><td>madvise</td></tr><tr><td style="font-weight:bold">Automatic NUMA Balancing</td><td>Enabled</td></tr><tr><td style="font-weight:bold">Populated Memory Channels</td><td>16</td></tr></tbody></table>
+                    
+                </section>
+                
+                <section>
+                    <h2 id=DIMM&#32;Population>DIMM Population</h2>
+                    <table class="pure-table pure-table-bordered"><thead><tr><th>Socket</th><th></th></tr></thead><tbody><tr><td>0</td><td><table class="pure-table pure-table-bordered"><thead><tr><th>Channel</th><th>Slots</th></tr></thead><tbody><tr><td>0</td><td><table class="pure-table pure-table-bordered"><tbody><tr><td style="background-color:lightgreen">64 GB @4400 MT/s <OUT OF SPEC> Synchronous Registered (Buffered) Samsung M321R8GA0BB0-CQKTE</td><td style="background-color:orange">64 GB @4400 MT/s <OUT OF SPEC> Synchronous Registered (Buffered) Samsung M321R8GA0BB0-CQKEG</td></tr></tbody></table></td></tr><tr><td>1</td><td><table class="pure-table pure-table-bordered"><tbody><tr><td style="background-color:orange">64 GB @4400 MT/s <OUT OF SPEC> Synchronous Registered (Buffered) Samsung M321R8GA0BB0-CQKEG</td><td style="background-color:orange">64 GB @4400 MT/s <OUT OF SPEC> Synchronous Registered (Buffered) Samsung M321R8GA0BB0-CQKEG</td></tr></tbody></table></td></tr><tr><td>2</td><td><table class="pure-table pure-table-bordered"><tbody><tr><td style="background-color:lightgreen">64 GB @4400 MT/s <OUT OF SPEC> Synchronous Registered (Buffered) Samsung M321R8GA0BB0-CQKTE</td><td style="background-color:orange">64 GB @4400 MT/s <OUT OF SPEC> Synchronous Registered (Buffered) Samsung M321R8GA0BB0-CQKEG</td></tr></tbody></table></td></tr><tr><td>3</td><td><table class="pure-table pure-table-bordered"><tbody><tr><td style="background-color:lightgreen">64 GB @4400 MT/s <OUT OF SPEC> Synchronous Registered (Buffered) Samsung M321R8GA0BB0-CQKTE</td><td style="background-color:orange">64 GB @4400 MT/s <OUT OF SPEC> Synchronous Registered (Buffered) Samsung M321R8GA0BB0-CQKEG</td></tr></tbody></table></td></tr><tr><td>4</td><td><table class="pure-table pure-table-bordered"><tbody><tr><td style="background-color:lightgreen">64 GB @4400 MT/s <OUT OF SPEC> Synchronous Registered (Buffered) Samsung M321R8GA0BB0-CQKTE</td><td style="background-color:orange">64 GB @4400 MT/s <OUT OF SPEC> Synchronous Registered (Buffered) Samsung M321R8GA0BB0-CQKEG</td></tr></tbody></table></td></tr><tr><td>5</td><td><table class="pure-table pure-table-bordered"><tbody><tr><td style="background-color:lightgreen">64 GB @4400 MT/s <OUT OF SPEC> Synchronous Registered (Buffered) Samsung M321R8GA0BB0-CQKTE</td><td style="background-color:orange">64 GB @4400 MT/s <OUT OF SPEC> Synchronous Registered (Buffered) Samsung M321R8GA0BB0-CQKEG</td></tr></tbody></table></td></tr><tr><td>6</td><td><table class="pure-table pure-table-bordered"><tbody><tr><td style="background-color:orange">64 GB @4400 MT/s <OUT OF SPEC> Synchronous Registered (Buffered) Samsung M321R8GA0BB0-CQKEG</td><td style="background-color:orange">64 GB @4400 MT/s <OUT OF SPEC> Synchronous Registered (Buffered) Samsung M321R8GA0BB0-CQKEG</td></tr></tbody></table></td></tr><tr><td>7</td><td><table class="pure-table pure-table-bordered"><tbody><tr><td style="background-color:orange">64 GB @4400 MT/s <OUT OF SPEC> Synchronous Registered (Buffered) Samsung M321R8GA0BB0-CQKEG</td><td style="background-color:orange">64 GB @4400 MT/s <OUT OF SPEC> Synchronous Registered (Buffered) Samsung M321R8GA0BB0-CQKEG</td></tr></tbody></table></td></tr></tbody></table></td></tr><tr><td>1</td><td><table class="pure-table pure-table-bordered"><thead><tr><th>Channel</th><th>Slots</th></tr></thead><tbody><tr><td>0</td><td><table class="pure-table pure-table-bordered"><tbody><tr><td style="background-color:orange">64 GB @4400 MT/s <OUT OF SPEC> Synchronous Registered (Buffered) Samsung M321R8GA0BB0-CQKEG</td><td style="background-color:orange">64 GB @4400 MT/s <OUT OF SPEC> Synchronous Registered (Buffered) Samsung M321R8GA0BB0-CQKEG</td></tr></tbody></table></td></tr><tr><td>1</td><td><table class="pure-table pure-table-bordered"><tbody><tr><td style="background-color:orange">64 GB @4400 MT/s <OUT OF SPEC> Synchronous Registered (Buffered) Samsung M321R8GA0BB0-CQKEG</td><td style="background-color:orange">64 GB @4400 MT/s <OUT OF SPEC> Synchronous Registered (Buffered) Samsung M321R8GA0BB0-CQKEG</td></tr></tbody></table></td></tr><tr><td>2</td><td><table class="pure-table pure-table-bordered"><tbody><tr><td style="background-color:orange">64 GB @4400 MT/s <OUT OF SPEC> Synchronous Registered (Buffered) Samsung M321R8GA0BB0-CQKEG</td><td style="background-color:orange">64 GB @4400 MT/s <OUT OF SPEC> Synchronous Registered (Buffered) Samsung M321R8GA0BB0-CQKEG</td></tr></tbody></table></td></tr><tr><td>3</td><td><table class="pure-table pure-table-bordered"><tbody><tr><td style="background-color:orange">64 GB @4400 MT/s <OUT OF SPEC> Synchronous Registered (Buffered) Samsung M321R8GA0BB0-CQKEG</td><td style="background-color:orange">64 GB @4400 MT/s <OUT OF SPEC> Synchronous Registered (Buffered) Samsung M321R8GA0BB0-CQKEG</td></tr></tbody></table></td></tr><tr><td>4</td><td><table class="pure-table pure-table-bordered"><tbody><tr><td style="background-color:orange">64 GB @4400 MT/s <OUT OF SPEC> Synchronous Registered (Buffered) Samsung M321R8GA0BB0-CQKEG</td><td style="background-color:orange">64 GB @4400 MT/s <OUT OF SPEC> Synchronous Registered (Buffered) Samsung M321R8GA0BB0-CQKEG</td></tr></tbody></table></td></tr><tr><td>5</td><td><table class="pure-table pure-table-bordered"><tbody><tr><td style="background-color:orange">64 GB @4400 MT/s <OUT OF SPEC> Synchronous Registered (Buffered) Samsung M321R8GA0BB0-CQKEG</td><td style="background-color:orange">64 GB @4400 MT/s <OUT OF SPEC> Synchronous Registered (Buffered) Samsung M321R8GA0BB0-CQKEG</td></tr></tbody></table></td></tr><tr><td>6</td><td><table class="pure-table pure-table-bordered"><tbody><tr><td style="background-color:lightgreen">64 GB @4400 MT/s <OUT OF SPEC> Synchronous Registered (Buffered) Samsung M321R8GA0BB0-CQKTE</td><td style="background-color:orange">64 GB @4400 MT/s <OUT OF SPEC> Synchronous Registered (Buffered) Samsung M321R8GA0BB0-CQKEG</td></tr></tbody></table></td></tr><tr><td>7</td><td><table class="pure-table pure-table-bordered"><tbody><tr><td style="background-color:orange">64 GB @4400 MT/s <OUT OF SPEC> Synchronous Registered (Buffered) Samsung M321R8GA0BB0-CQKEG</td><td style="background-color:lightgreen">64 GB @4400 MT/s <OUT OF SPEC> Synchronous Registered (Buffered) Samsung M321R8GA0BB0-CQKTE</td></tr></tbody></table></td></tr></tbody></table></td></tr></tbody></table>
+                    <h2>Optimizing Memory Performance</h2><p><ol>
+	<li>Use identical DIMM types throughout the platform:</li>
+	<ul>
+	<li>Same size, speed, and number of ranks</li>
+	</ul>
+	<li>Maximize the same number of channels populated in each memory controller</li>
+	<li>Use a "balanced" platform configuration:</li>
+	<ul>
+	<li>All available memory channels populated equally</li>
+	<li>Identical DIMMs in all locations (size/speed/rank)</li>
+	</ul>
+	<li>Use a "near-balanced" platform configuration:</li>
+	<ul>
+	<li>All available memory channels and sockets populated equally</li>
+	<li>Identical DIMMs in each "row", but different sized DIMMs in row #1 vs. row #2</li>
+	</ul>
+	</ol></p>
+	
+                </section>
+                
+                <section>
+                    <h2 id=DIMM>DIMM</h2>
+                    <table class="pure-table pure-table-striped"><thead><tr><th>Bank Locator</th><th>Locator</th><th>Manufacturer</th><th>Part</th><th>Serial</th><th>Size</th><th>Type</th><th>Detail</th><th>Speed</th><th>Rank</th><th>Configured Speed</th></tr></thead><tbody><tr><td>NODE 0</td><td>CPU0_DIMM_A1</td><td>Samsung</td><td>M321R8GA0BB0-CQKTE</td><td>019E1AC0</td><td>64 GB</td><td><OUT OF SPEC></td><td>Synchronous Registered (Buffered)</td><td>4800 MT/s</td><td>2</td><td>4400 MT/s</td></tr><tr><td>NODE 0</td><td>CPU0_DIMM_A2</td><td>Samsung</td><td>M321R8GA0BB0-CQKEG</td><td>02B3DC91</td><td>64 GB</td><td><OUT OF SPEC></td><td>Synchronous Registered (Buffered)</td><td>4800 MT/s</td><td>2</td><td>4400 MT/s</td></tr><tr><td>NODE 0</td><td>CPU0_DIMM_B1</td><td>Samsung</td><td>M321R8GA0BB0-CQKEG</td><td>02B3DC86</td><td>64 GB</td><td><OUT OF SPEC></td><td>Synchronous Registered (Buffered)</td><td>4800 MT/s</td><td>2</td><td>4400 MT/s</td></tr><tr><td>NODE 0</td><td>CPU0_DIMM_B2</td><td>Samsung</td><td>M321R8GA0BB0-CQKEG</td><td>02B3DE1E</td><td>64 GB</td><td><OUT OF SPEC></td><td>Synchronous Registered (Buffered)</td><td>4800 MT/s</td><td>2</td><td>4400 MT/s</td></tr><tr><td>NODE 1</td><td>CPU0_DIMM_C1</td><td>Samsung</td><td>M321R8GA0BB0-CQKTE</td><td>019E0C43</td><td>64 GB</td><td><OUT OF SPEC></td><td>Synchronous Registered (Buffered)</td><td>4800 MT/s</td><td>2</td><td>4400 MT/s</td></tr><tr><td>NODE 1</td><td>CPU0_DIMM_C2</td><td>Samsung</td><td>M321R8GA0BB0-CQKEG</td><td>02B3DD99</td><td>64 GB</td><td><OUT OF SPEC></td><td>Synchronous Registered (Buffered)</td><td>4800 MT/s</td><td>2</td><td>4400 MT/s</td></tr><tr><td>NODE 1</td><td>CPU0_DIMM_D1</td><td>Samsung</td><td>M321R8GA0BB0-CQKTE</td><td>019E0C9B</td><td>64 GB</td><td><OUT OF SPEC></td><td>Synchronous Registered (Buffered)</td><td>4800 MT/s</td><td>2</td><td>4400 MT/s</td></tr><tr><td>NODE 1</td><td>CPU0_DIMM_D2</td><td>Samsung</td><td>M321R8GA0BB0-CQKEG</td><td>02B3DBB7</td><td>64 GB</td><td><OUT OF SPEC></td><td>Synchronous Registered (Buffered)</td><td>4800 MT/s</td><td>2</td><td>4400 MT/s</td></tr><tr><td>NODE 2</td><td>CPU0_DIMM_E1</td><td>Samsung</td><td>M321R8GA0BB0-CQKTE</td><td>019E19D0</td><td>64 GB</td><td><OUT OF SPEC></td><td>Synchronous Registered (Buffered)</td><td>4800 MT/s</td><td>2</td><td>4400 MT/s</td></tr><tr><td>NODE 2</td><td>CPU0_DIMM_E2</td><td>Samsung</td><td>M321R8GA0BB0-CQKEG</td><td>02B3DC75</td><td>64 GB</td><td><OUT OF SPEC></td><td>Synchronous Registered (Buffered)</td><td>4800 MT/s</td><td>2</td><td>4400 MT/s</td></tr><tr><td>NODE 2</td><td>CPU0_DIMM_F1</td><td>Samsung</td><td>M321R8GA0BB0-CQKTE</td><td>019E2944</td><td>64 GB</td><td><OUT OF SPEC></td><td>Synchronous Registered (Buffered)</td><td>4800 MT/s</td><td>2</td><td>4400 MT/s</td></tr><tr><td>NODE 2</td><td>CPU0_DIMM_F2</td><td>Samsung</td><td>M321R8GA0BB0-CQKEG</td><td>02B3DDDD</td><td>64 GB</td><td><OUT OF SPEC></td><td>Synchronous Registered (Buffered)</td><td>4800 MT/s</td><td>2</td><td>4400 MT/s</td></tr><tr><td>NODE 3</td><td>CPU0_DIMM_G1</td><td>Samsung</td><td>M321R8GA0BB0-CQKEG</td><td>02B3DB2F</td><td>64 GB</td><td><OUT OF SPEC></td><td>Synchronous Registered (Buffered)</td><td>4800 MT/s</td><td>2</td><td>4400 MT/s</td></tr><tr><td>NODE 3</td><td>CPU0_DIMM_G2</td><td>Samsung</td><td>M321R8GA0BB0-CQKEG</td><td>02B3DB35</td><td>64 GB</td><td><OUT OF SPEC></td><td>Synchronous Registered (Buffered)</td><td>4800 MT/s</td><td>2</td><td>4400 MT/s</td></tr><tr><td>NODE 3</td><td>CPU0_DIMM_H1</td><td>Samsung</td><td>M321R8GA0BB0-CQKEG</td><td>02B3DB88</td><td>64 GB</td><td><OUT OF SPEC></td><td>Synchronous Registered (Buffered)</td><td>4800 MT/s</td><td>2</td><td>4400 MT/s</td></tr><tr><td>NODE 3</td><td>CPU0_DIMM_H2</td><td>Samsung</td><td>M321R8GA0BB0-CQKEG</td><td>02B3DB5F</td><td>64 GB</td><td><OUT OF SPEC></td><td>Synchronous Registered (Buffered)</td><td>4800 MT/s</td><td>2</td><td>4400 MT/s</td></tr><tr><td>NODE 4</td><td>CPU1_DIMM_A1</td><td>Samsung</td><td>M321R8GA0BB0-CQKEG</td><td>02B3DC7B</td><td>64 GB</td><td><OUT OF SPEC></td><td>Synchronous Registered (Buffered)</td><td>4800 MT/s</td><td>2</td><td>4400 MT/s</td></tr><tr><td>NODE 4</td><td>CPU1_DIMM_A2</td><td>Samsung</td><td>M321R8GA0BB0-CQKEG</td><td>02B3DD7C</td><td>64 GB</td><td><OUT OF SPEC></td><td>Synchronous Registered (Buffered)</td><td>4800 MT/s</td><td>2</td><td>4400 MT/s</td></tr><tr><td>NODE 4</td><td>CPU1_DIMM_B1</td><td>Samsung</td><td>M321R8GA0BB0-CQKEG</td><td>02B3DB55</td><td>64 GB</td><td><OUT OF SPEC></td><td>Synchronous Registered (Buffered)</td><td>4800 MT/s</td><td>2</td><td>4400 MT/s</td></tr><tr><td>NODE 4</td><td>CPU1_DIMM_B2</td><td>Samsung</td><td>M321R8GA0BB0-CQKEG</td><td>02B3DCBA</td><td>64 GB</td><td><OUT OF SPEC></td><td>Synchronous Registered (Buffered)</td><td>4800 MT/s</td><td>2</td><td>4400 MT/s</td></tr><tr><td>NODE 5</td><td>CPU1_DIMM_C1</td><td>Samsung</td><td>M321R8GA0BB0-CQKEG</td><td>02B3DD9D</td><td>64 GB</td><td><OUT OF SPEC></td><td>Synchronous Registered (Buffered)</td><td>4800 MT/s</td><td>2</td><td>4400 MT/s</td></tr><tr><td>NODE 5</td><td>CPU1_DIMM_C2</td><td>Samsung</td><td>M321R8GA0BB0-CQKEG</td><td>02B3DBF9</td><td>64 GB</td><td><OUT OF SPEC></td><td>Synchronous Registered (Buffered)</td><td>4800 MT/s</td><td>2</td><td>4400 MT/s</td></tr><tr><td>NODE 5</td><td>CPU1_DIMM_D1</td><td>Samsung</td><td>M321R8GA0BB0-CQKEG</td><td>02B3DB50</td><td>64 GB</td><td><OUT OF SPEC></td><td>Synchronous Registered (Buffered)</td><td>4800 MT/s</td><td>2</td><td>4400 MT/s</td></tr><tr><td>NODE 5</td><td>CPU1_DIMM_D2</td><td>Samsung</td><td>M321R8GA0BB0-CQKEG</td><td>02B3DB81</td><td>64 GB</td><td><OUT OF SPEC></td><td>Synchronous Registered (Buffered)</td><td>4800 MT/s</td><td>2</td><td>4400 MT/s</td></tr><tr><td>NODE 6</td><td>CPU1_DIMM_E1</td><td>Samsung</td><td>M321R8GA0BB0-CQKEG</td><td>02B3DD85</td><td>64 GB</td><td><OUT OF SPEC></td><td>Synchronous Registered (Buffered)</td><td>4800 MT/s</td><td>2</td><td>4400 MT/s</td></tr><tr><td>NODE 6</td><td>CPU1_DIMM_E2</td><td>Samsung</td><td>M321R8GA0BB0-CQKEG</td><td>02B3DBF0</td><td>64 GB</td><td><OUT OF SPEC></td><td>Synchronous Registered (Buffered)</td><td>4800 MT/s</td><td>2</td><td>4400 MT/s</td></tr><tr><td>NODE 6</td><td>CPU1_DIMM_F1</td><td>Samsung</td><td>M321R8GA0BB0-CQKEG</td><td>02B3DB4B</td><td>64 GB</td><td><OUT OF SPEC></td><td>Synchronous Registered (Buffered)</td><td>4800 MT/s</td><td>2</td><td>4400 MT/s</td></tr><tr><td>NODE 6</td><td>CPU1_DIMM_F2</td><td>Samsung</td><td>M321R8GA0BB0-CQKEG</td><td>02B3DDFB</td><td>64 GB</td><td><OUT OF SPEC></td><td>Synchronous Registered (Buffered)</td><td>4800 MT/s</td><td>2</td><td>4400 MT/s</td></tr><tr><td>NODE 7</td><td>CPU1_DIMM_G1</td><td>Samsung</td><td>M321R8GA0BB0-CQKTE</td><td>019E15B0</td><td>64 GB</td><td><OUT OF SPEC></td><td>Synchronous Registered (Buffered)</td><td>4800 MT/s</td><td>2</td><td>4400 MT/s</td></tr><tr><td>NODE 7</td><td>CPU1_DIMM_G2</td><td>Samsung</td><td>M321R8GA0BB0-CQKEG</td><td>02B3DDB3</td><td>64 GB</td><td><OUT OF SPEC></td><td>Synchronous Registered (Buffered)</td><td>4800 MT/s</td><td>2</td><td>4400 MT/s</td></tr><tr><td>NODE 7</td><td>CPU1_DIMM_H1</td><td>Samsung</td><td>M321R8GA0BB0-CQKEG</td><td>02B3DBC7</td><td>64 GB</td><td><OUT OF SPEC></td><td>Synchronous Registered (Buffered)</td><td>4800 MT/s</td><td>2</td><td>4400 MT/s</td></tr><tr><td>NODE 7</td><td>CPU1_DIMM_H2</td><td>Samsung</td><td>M321R8GA0BB0-CQKTE</td><td>019E1AEE</td><td>64 GB</td><td><OUT OF SPEC></td><td>Synchronous Registered (Buffered)</td><td>4800 MT/s</td><td>2</td><td>4400 MT/s</td></tr></tbody></table>
+                    
+                </section>
+                
+                <section>
+                    <h2 id=NIC>NIC</h2>
+                    <table class="pure-table pure-table-striped"><thead><tr><th>Name</th><th>Model</th><th>Speed</th><th>Link</th><th>Bus</th><th>Driver</th><th>Driver Version</th><th>Firmware Version</th><th>MAC Address</th><th>NUMA Node</th><th>IRQBalance</th></tr></thead><tbody><tr><td>enp1s0</td><td>Ethernet Controller I225-LM</td><td>Unknown!</td><td>no</td><td>0000:01:00.0</td><td>igc</td><td>5.19.0-32-generic</td><td>1053:8754</td><td>98:4f:ee:01:a0:01</td><td>0</td><td>Enabled</td></tr><tr><td>ens2</td><td>Ethernet Controller E810-C for QSFP</td><td>100000Mb/s</td><td>no</td><td>0000:16:00.0</td><td>ice</td><td>5.19.0-32-generic</td><td>3.10 0x8000acc8 1.3106.0</td><td>40:a6:b7:7b:15:60</td><td>0</td><td>Enabled</td></tr><tr><td>ens255</td><td>Ethernet Controller E810-C for QSFP</td><td>100000Mb/s</td><td>no</td><td>0000:19:00.0</td><td>ice</td><td>5.19.0-32-generic</td><td>3.10 0x8000acc8 1.3106.0</td><td>40:a6:b7:7b:15:64</td><td>0</td><td>Enabled</td></tr><tr><td>ens1f0</td><td>Ethernet Controller XXV710 for 25GbE SFP28</td><td>25000Mb/s</td><td>yes</td><td>0000:27:00.0</td><td>i40e</td><td>5.19.0-32-generic</td><td>8.10 0x80009424 1.2829.0</td><td>40:a6:b7:26:88:2c</td><td>0</td><td>Enabled</td></tr><tr><td>ens1f1</td><td>Ethernet Controller XXV710 for 25GbE SFP28</td><td>25000Mb/s</td><td>no</td><td>0000:27:00.1</td><td>i40e</td><td>5.19.0-32-generic</td><td>8.10 0x80009424 1.2829.0</td><td>40:a6:b7:26:88:2d</td><td>0</td><td>Enabled</td></tr><tr><td>ens4</td><td>Ethernet Controller E810-C for QSFP</td><td>100000Mb/s</td><td>no</td><td>0000:b8:00.0</td><td>ice</td><td>5.19.0-32-generic</td><td>3.10 0x8000acc8 1.3106.0</td><td>40:a6:b7:7b:27:24</td><td>1</td><td>Enabled</td></tr><tr><td>enp187s0</td><td>Ethernet Controller E810-C for QSFP</td><td>100000Mb/s</td><td>no</td><td>0000:bb:00.0</td><td>ice</td><td>5.19.0-32-generic</td><td>3.10 0x8000acc8 1.3106.0</td><td>40:a6:b7:7b:27:20</td><td>1</td><td>Enabled</td></tr></tbody></table>
+                    
+                </section>
+                
+                <section>
+                    <h2 id=Network&#32;IRQ&#32;Mapping>Network IRQ Mapping</h2>
+                    <table class="pure-table pure-table-striped"><tbody><tr><td style="font-weight:bold">Interface</td><td>ens1f0</td></tr><tr><td style="font-weight:bold">CPU:IRQs CPU:IRQs ...</td><td>0:507 1:558 2:543 3:584 4:495 5:498,522 6:541 7:502,562 9:492,542 10:563 11:570,577 12:505 13:547 14:491 15:565 16:574 18:494,600 19:503 20:525 21:532,567 22:561 23:575 24:566 25:555 26:592 28:512,572 29:598 30:581 31:585 32:551 33:509 34:556 35:517 36:554,589 38:534,569 39:531 40:571 41:603 42:548 43:537 44:546 46:582,607 48:524,530 49:521 50:533 51:490 52:538 53:527 54:536 112:516,550 113:593 114:559 116:539,599 118:500 119:497 120:564 121:523 122:544,579 123:608 124:496,520 125:493 126:583 127:596 129:528 130:535 131:595 132:506,540 133:513 134:514,549 135:511 136:545 137:604 139:602 140:591 141:529 142:590,597 143:588 144:504,510 145:568 147:576 149:508 150:553 151:557 152:552,587 153:606 154:499 155:501 157:594 158:573 159:526,560 160:515 161:519 162:580,605 163:578 164:601 165:586 167:518</td></tr></tbody></table>
+                    <h2>Optimizing Network Performance</h2><p>Network heavy workloads may benefit from manually configuring a range of CPUs to handle network interrupts.
+	<ul>
+	<li>The tables above includes the current status of the <b>IRQBalance</b> Service and how network interrupts are currently assigned to CPUs.</li>
+	</ul>
+	If system telemetry shows that the computer is CPU bound on one of the CPUs listed, consider tuning the CPU affinity for network IRQs.</p>
+	
+                </section>
+                
+                <section>
+                    <h2 id=Disk>Disk</h2>
+                    <table class="pure-table pure-table-striped"><thead><tr><th>NAME</th><th>MODEL</th><th>SIZE</th><th>MOUNTPOINT</th><th>FSTYPE</th><th>RQ-SIZE</th><th>MIN-IO</th><th>FwRev</th></tr></thead><tbody><tr><td>nvme0n1</td><td>INTEL SSDPELKX020T8</td><td>1.8T</td><td></td><td></td><td>1023</td><td>512</td><td></td></tr><tr><td>nvme0n1p1</td><td></td><td>512M</td><td>/boot/efi</td><td>vfat</td><td>1023</td><td>512</td><td></td></tr><tr><td>nvme0n1p2</td><td></td><td>1.8T</td><td>/</td><td>ext4</td><td>1023</td><td>512</td><td></td></tr><tr><td>nvme0n1p3</td><td></td><td>64.1M</td><td></td><td>iso9660</td><td>1023</td><td>512</td><td></td></tr><tr><td>nvme1n1</td><td>INTEL SSDPF21Q400GB</td><td>372.6G</td><td></td><td></td><td>1023</td><td>512</td><td></td></tr><tr><td>nvme2n1</td><td>INTEL SSDPF21Q400GB</td><td>372.6G</td><td></td><td></td><td>1023</td><td>512</td><td></td></tr></tbody></table>
+                    
+                </section>
+                
+                <section>
+                    <h2 id=Filesystem>Filesystem</h2>
+                    <table class="pure-table pure-table-striped"><thead><tr><th>Filesystem</th><th>Size</th><th>Used</th><th>Avail</th><th>Use%</th><th>Mounted</th></tr></thead><tbody><tr><td>tmpfs</td><td>202G</td><td>12M</td><td>202G</td><td>1%</td><td>/run</td></tr><tr><td>/dev/nvme0n1p2</td><td>1.8T</td><td>110G</td><td>1.7T</td><td>7%</td><td>/</td></tr><tr><td>tmpfs</td><td>1008G</td><td>0</td><td>1008G</td><td>0%</td><td>/dev/shm</td></tr><tr><td>tmpfs</td><td>5.0M</td><td>0</td><td>5.0M</td><td>0%</td><td>/run/lock</td></tr><tr><td>/dev/nvme0n1p1</td><td>511M</td><td>6.1M</td><td>505M</td><td>2%</td><td>/boot/efi</td></tr><tr><td>shm</td><td>64M</td><td>0</td><td>64M</td><td>0%</td><td>/run/containerd/io.containerd.grpc.v1.cri/sandboxes/ebbab09dc478c8d62ea2d77ec451a813f429520e12973329a097c49fb1420a02/shm</td></tr><tr><td>shm</td><td>64M</td><td>0</td><td>64M</td><td>0%</td><td>/run/containerd/io.containerd.grpc.v1.cri/sandboxes/2c4237c26e6ede0d3644fbfff30be82fc0705c630d3b7949adb52942bd595ae0/shm</td></tr><tr><td>shm</td><td>64M</td><td>0</td><td>64M</td><td>0%</td><td>/run/containerd/io.containerd.grpc.v1.cri/sandboxes/1a26291ae2c3827cb0e00a7800f9d3e09fad864e36b547fa1fc5ed6dfe197416/shm</td></tr><tr><td>shm</td><td>64M</td><td>0</td><td>64M</td><td>0%</td><td>/run/containerd/io.containerd.grpc.v1.cri/sandboxes/e7b7ad30621e17e3c92755daefaeeafdafed61403179cca3921492490b149e14/shm</td></tr><tr><td>shm</td><td>64M</td><td>0</td><td>64M</td><td>0%</td><td>/run/containerd/io.containerd.grpc.v1.cri/sandboxes/4d06b310bece023f211b639a83c953f0e72e79dd86a369fd541271c1718aebbe/shm</td></tr><tr><td>shm</td><td>64M</td><td>0</td><td>64M</td><td>0%</td><td>/run/containerd/io.containerd.grpc.v1.cri/sandboxes/e4c3a7e42a3bbabc13f32f1d5b30a75224aa95c7d772e451183dc76a9b1044e6/shm</td></tr><tr><td>shm</td><td>64M</td><td>0</td><td>64M</td><td>0%</td><td>/run/containerd/io.containerd.grpc.v1.cri/sandboxes/68e695607e3da1325aaa837ecb1933bf6d6d564a782824d8d852573444bef164/shm</td></tr><tr><td>shm</td><td>64M</td><td>0</td><td>64M</td><td>0%</td><td>/run/containerd/io.containerd.grpc.v1.cri/sandboxes/50590049f09617b09aca4052481c861c476dbbff2ae3649362b5f2550357214d/shm</td></tr><tr><td>shm</td><td>64M</td><td>0</td><td>64M</td><td>0%</td><td>/run/containerd/io.containerd.grpc.v1.cri/sandboxes/57d44b68bdfc467385e72d53b1e6d3c88a8690d2d1b1d7c297ef90185408283b/shm</td></tr><tr><td>shm</td><td>64M</td><td>0</td><td>64M</td><td>0%</td><td>/run/containerd/io.containerd.grpc.v1.cri/sandboxes/416e4a8fb18d7858794e90eebbe5c6de3a4819bc706b714e67162507618019f6/shm</td></tr><tr><td>shm</td><td>64M</td><td>0</td><td>64M</td><td>0%</td><td>/run/containerd/io.containerd.grpc.v1.cri/sandboxes/a073bb44df4c6104319cd5903f73a0ff33827ccf1d7c4d4a961671144a3b58d7/shm</td></tr><tr><td>shm</td><td>64M</td><td>0</td><td>64M</td><td>0%</td><td>/run/containerd/io.containerd.grpc.v1.cri/sandboxes/16b31509c4c89c501a36eae095ece9d633553f0e0400d45d255dce49f185194f/shm</td></tr><tr><td>shm</td><td>64M</td><td>0</td><td>64M</td><td>0%</td><td>/run/containerd/io.containerd.grpc.v1.cri/sandboxes/6f7993f5b607b2fc39ca6347e14af7493e9276d546ffa1ad59f44b5d722d82c1/shm</td></tr><tr><td>shm</td><td>64M</td><td>0</td><td>64M</td><td>0%</td><td>/run/containerd/io.containerd.grpc.v1.cri/sandboxes/d0eb2c7c661a94095a350cf568800c8c2e13f43d78e0ff74b2eb8b2f8791bf21/shm</td></tr><tr><td>shm</td><td>64M</td><td>0</td><td>64M</td><td>0%</td><td>/run/containerd/io.containerd.grpc.v1.cri/sandboxes/6488266ffbf0fc5c583c7ed5a029c9a371b5380ffceac20cc1e553dd3e039ceb/shm</td></tr><tr><td>tmpfs</td><td>202G</td><td>4.0K</td><td>202G</td><td>1%</td><td>/run/user/1006</td></tr><tr><td>shm</td><td>64M</td><td>0</td><td>64M</td><td>0%</td><td>/run/containerd/io.containerd.grpc.v1.cri/sandboxes/f5eddde6db4bc86b0dc9de5cb0b7da75f678dd0c1ed2de0150d540bed9712bf6/shm</td></tr><tr><td>shm</td><td>64M</td><td>0</td><td>64M</td><td>0%</td><td>/run/containerd/io.containerd.grpc.v1.cri/sandboxes/52a93fee32c16f0bd94e46550a6d1d402c9755fbda5d2184330396fd7eb1afb2/shm</td></tr><tr><td>shm</td><td>64M</td><td>0</td><td>64M</td><td>0%</td><td>/run/containerd/io.containerd.grpc.v1.cri/sandboxes/a2ae0bc16f69a0711eb070279dfd468194d1bfade06fc619b128c10103569e1d/shm</td></tr><tr><td>shm</td><td>64M</td><td>0</td><td>64M</td><td>0%</td><td>/run/containerd/io.containerd.grpc.v1.cri/sandboxes/117c2e6d2b7cfbc968cbde5bb18568c3a9b02cb51bd0f6ba90e8eab702a169a0/shm</td></tr><tr><td>shm</td><td>64M</td><td>0</td><td>64M</td><td>0%</td><td>/run/containerd/io.containerd.grpc.v1.cri/sandboxes/648784c076c1aa358d0ac986a5361b285b523978cab696916e4f30ecdf17d21a/shm</td></tr><tr><td>shm</td><td>64M</td><td>0</td><td>64M</td><td>0%</td><td>/run/containerd/io.containerd.grpc.v1.cri/sandboxes/d45bb8909af49717018d5f4ef373907dd3fd4cce1c757b6126c623ec669a1fc3/shm</td></tr><tr><td>shm</td><td>64M</td><td>0</td><td>64M</td><td>0%</td><td>/run/containerd/io.containerd.grpc.v1.cri/sandboxes/f5c48737f122840d365c6adb2a22d3263dce9b302d2cc6354fad12255c59397c/shm</td></tr><tr><td>shm</td><td>64M</td><td>0</td><td>64M</td><td>0%</td><td>/run/containerd/io.containerd.grpc.v1.cri/sandboxes/6691d9c428c76ef89ca80a63b130bad54677c0de810a40d3d72ef4550bfb5ee8/shm</td></tr><tr><td>shm</td><td>64M</td><td>0</td><td>64M</td><td>0%</td><td>/run/containerd/io.containerd.grpc.v1.cri/sandboxes/3e5e1e66590d704f779560a4910b83727225be0e9123bd6737c548cd347369b1/shm</td></tr><tr><td>shm</td><td>64M</td><td>0</td><td>64M</td><td>0%</td><td>/run/containerd/io.containerd.grpc.v1.cri/sandboxes/108eb98102f584f2dbe862b881c72d9ff82f79dab0fef7684c919d770953fbdd/shm</td></tr><tr><td>shm</td><td>64M</td><td>0</td><td>64M</td><td>0%</td><td>/run/containerd/io.containerd.grpc.v1.cri/sandboxes/00bc81420e5fab62623fef416c8cbac832165c5da2ac08adbf471377b84bae42/shm</td></tr><tr><td>shm</td><td>64M</td><td>0</td><td>64M</td><td>0%</td><td>/run/containerd/io.containerd.grpc.v1.cri/sandboxes/1394959cecfd13a1f7cbfdf1d9188abf95ce6b432f1ee116801ba05448fe08e7/shm</td></tr><tr><td>shm</td><td>64M</td><td>0</td><td>64M</td><td>0%</td><td>/run/containerd/io.containerd.grpc.v1.cri/sandboxes/b01238eefd4f82a9b4e1240557b34f4bceb4b8cfef67ff3b145f8c1c437551a2/shm</td></tr><tr><td>shm</td><td>64M</td><td>0</td><td>64M</td><td>0%</td><td>/run/containerd/io.containerd.grpc.v1.cri/sandboxes/f1efde6abab4bc6c2d2b9008c64b569347e8645ba050e637f4a48f486c6b8cda/shm</td></tr><tr><td>shm</td><td>64M</td><td>0</td><td>64M</td><td>0%</td><td>/run/containerd/io.containerd.grpc.v1.cri/sandboxes/1fcd916517f9fb6f39e8ad5802fa133042e4521352742f04e66758529719b52a/shm</td></tr><tr><td>shm</td><td>64M</td><td>0</td><td>64M</td><td>0%</td><td>/run/containerd/io.containerd.grpc.v1.cri/sandboxes/c4197f200234ac14f5ca61aed7362f2b5d0ced834680a1202efce7e15c3bd1f6/shm</td></tr><tr><td>shm</td><td>64M</td><td>4.0K</td><td>64M</td><td>1%</td><td>/run/containerd/io.containerd.grpc.v1.cri/sandboxes/6a5efd1b0a3804f4a90a9aa48a6a0875396c488199757d07b1904c8b336b1615/shm</td></tr><tr><td>shm</td><td>64M</td><td>4.0K</td><td>64M</td><td>1%</td><td>/run/containerd/io.containerd.grpc.v1.cri/sandboxes/29319bbd1bdfc90609a80437f85322136c782576cdf1b7d89d1bb17abe261b74/shm</td></tr><tr><td>shm</td><td>64M</td><td>4.0K</td><td>64M</td><td>1%</td><td>/run/containerd/io.containerd.grpc.v1.cri/sandboxes/5ecca7bdf0e65e8e95cdf766ad03d7ae347736a4cf60da056f763c14a375382c/shm</td></tr><tr><td>shm</td><td>64M</td><td>4.0K</td><td>64M</td><td>1%</td><td>/run/containerd/io.containerd.grpc.v1.cri/sandboxes/dbf198db7f83750046c0a958d102978c5e478f2febb68255c4a3fcfdd55a4e1d/shm</td></tr><tr><td>shm</td><td>64M</td><td>4.0K</td><td>64M</td><td>1%</td><td>/run/containerd/io.containerd.grpc.v1.cri/sandboxes/7f4ab3901f6dc9c22532209aa243f8fdab589a00ee58bb063746968e84546f89/shm</td></tr><tr><td>shm</td><td>64M</td><td>4.0K</td><td>64M</td><td>1%</td><td>/run/containerd/io.containerd.grpc.v1.cri/sandboxes/d0f1b20cf86bdac36af9db7c7225c8278783ff90141d2bdd88b7d7b87b6c0c9b/shm</td></tr><tr><td>shm</td><td>64M</td><td>4.0K</td><td>64M</td><td>1%</td><td>/run/containerd/io.containerd.grpc.v1.cri/sandboxes/65acb71e6cdb0b80674919131c5765a48552d939051bb96d639a68f0bf7a70c2/shm</td></tr><tr><td>shm</td><td>64M</td><td>4.0K</td><td>64M</td><td>1%</td><td>/run/containerd/io.containerd.grpc.v1.cri/sandboxes/7f606adbd2c30daf2b8c3bcf08a7392741d7515364024e3e6ee8251df6a51ee6/shm</td></tr><tr><td>shm</td><td>64M</td><td>4.0K</td><td>64M</td><td>1%</td><td>/run/containerd/io.containerd.grpc.v1.cri/sandboxes/3bf04e787bf9f36e7b0788a7b566c72d20734b0be2dee7b003a61f5f8e763ee5/shm</td></tr><tr><td>shm</td><td>64M</td><td>4.0K</td><td>64M</td><td>1%</td><td>/run/containerd/io.containerd.grpc.v1.cri/sandboxes/b2bfde6d10f889dc190ea2563b7b921f7106ee6479c8290244acb67abce85df6/shm</td></tr><tr><td>shm</td><td>64M</td><td>4.0K</td><td>64M</td><td>1%</td><td>/run/containerd/io.containerd.grpc.v1.cri/sandboxes/4b64f11dbaa9500dab058eef6a599b2cea08e012af135b80c44d23856270edcf/shm</td></tr><tr><td>shm</td><td>64M</td><td>4.0K</td><td>64M</td><td>1%</td><td>/run/containerd/io.containerd.grpc.v1.cri/sandboxes/439a498739a0698f6882bafb6cb3eae0e9d91830fe88874c61d39c6bdd1ead5e/shm</td></tr></tbody></table>
+                    
+                </section>
+                
+                <section>
+                    <h2 id=GPU>GPU</h2>
+                    No data found.
+                    
+                </section>
+                
+                <section>
+                    <h2 id=Vulnerability>Vulnerability</h2>
+                    <table class="pure-table pure-table-striped"><tbody><tr><td style="font-weight:bold">CVE-2017-5753</td><td>OK (Mitigation: usercopy/swapgs barriers and __user pointer sanitization)</td></tr><tr><td style="font-weight:bold">CVE-2017-5715</td><td>OK (Enhanced IBRS + IBPB are mitigating the vulnerability)</td></tr><tr><td style="font-weight:bold">CVE-2017-5754</td><td>OK (Not affected)</td></tr><tr><td style="font-weight:bold">CVE-2018-3640</td><td>OK (your CPU microcode mitigates the vulnerability)</td></tr><tr><td style="font-weight:bold">CVE-2018-3639</td><td>OK (Mitigation: Speculative Store Bypass disabled via prctl)</td></tr><tr><td style="font-weight:bold">CVE-2018-3615</td><td>OK (your CPU microcode mitigates the vulnerability)</td></tr><tr><td style="font-weight:bold">CVE-2018-3620</td><td>OK (Not affected)</td></tr><tr><td style="font-weight:bold">CVE-2018-3646</td><td>OK (your kernel reported your CPU model as not affected)</td></tr><tr><td style="font-weight:bold">CVE-2018-12126</td><td>OK (Not affected)</td></tr><tr><td style="font-weight:bold">CVE-2018-12130</td><td>OK (Not affected)</td></tr><tr><td style="font-weight:bold">CVE-2018-12127</td><td>OK (Not affected)</td></tr><tr><td style="font-weight:bold">CVE-2019-11091</td><td>OK (Not affected)</td></tr><tr><td style="font-weight:bold">CVE-2019-11135</td><td>OK (your CPU vendor reported your CPU model as not affected)</td></tr><tr><td style="font-weight:bold">CVE-2018-12207</td><td>OK (this system is not running a hypervisor)</td></tr><tr><td style="font-weight:bold">CVE-2020-0543</td><td>OK (your CPU vendor reported your CPU model as not affected)</td></tr></tbody></table>
+                    
+                </section>
+                
+                <section>
+                    <h2 id=Process>Process</h2>
+                    <table class="pure-table pure-table-striped"><thead><tr><th>PID</th><th>PPID</th><th>%CPU</th><th>%MEM</th><th>RSS</th><th>COMMAND</th></tr></thead><tbody><tr><td>3845744</td><td>3845729</td><td>46.5</td><td>0.0</td><td>783000</td><td>/opt/intel/oneapi/tensorflow/latest/bin/python /apps/infer_service.py</td></tr><tr><td>3844218</td><td>3844205</td><td>46.5</td><td>0.0</td><td>782680</td><td>/opt/intel/oneapi/tensorflow/latest/bin/python /apps/infer_service.py</td></tr><tr><td>3863858</td><td>3863843</td><td>45.9</td><td>0.0</td><td>783820</td><td>/opt/intel/oneapi/tensorflow/latest/bin/python /apps/infer_service.py</td></tr><tr><td>3851818</td><td>3851805</td><td>45.8</td><td>0.0</td><td>783428</td><td>/opt/intel/oneapi/tensorflow/latest/bin/python /apps/infer_service.py</td></tr><tr><td>3860479</td><td>3860465</td><td>45.7</td><td>0.0</td><td>783360</td><td>/opt/intel/oneapi/tensorflow/latest/bin/python /apps/infer_service.py</td></tr><tr><td>3851459</td><td>3851444</td><td>45.7</td><td>0.0</td><td>782760</td><td>/opt/intel/oneapi/tensorflow/latest/bin/python /apps/infer_service.py</td></tr><tr><td>3857068</td><td>3857053</td><td>45.3</td><td>0.0</td><td>785036</td><td>/opt/intel/oneapi/tensorflow/latest/bin/python /apps/infer_service.py</td></tr><tr><td>3850563</td><td>3850549</td><td>45.3</td><td>0.0</td><td>782280</td><td>/opt/intel/oneapi/tensorflow/latest/bin/python /apps/infer_service.py</td></tr><tr><td>3855657</td><td>3855643</td><td>45.0</td><td>0.0</td><td>782524</td><td>/opt/intel/oneapi/tensorflow/latest/bin/python /apps/infer_service.py</td></tr><tr><td>3862612</td><td>3862597</td><td>44.9</td><td>0.0</td><td>778476</td><td>/opt/intel/oneapi/tensorflow/latest/bin/python /apps/infer_service.py</td></tr><tr><td>3855272</td><td>3855257</td><td>44.6</td><td>0.0</td><td>784684</td><td>/opt/intel/oneapi/tensorflow/latest/bin/python /apps/infer_service.py</td></tr><tr><td>3845110</td><td>3845096</td><td>44.4</td><td>0.0</td><td>782480</td><td>/opt/intel/oneapi/tensorflow/latest/bin/python /apps/infer_service.py</td></tr><tr><td>3671108</td><td>3669314</td><td>25.5</td><td>0.0</td><td>411148</td><td>/usr/bin/python3 /apps/file_stream_service.py</td></tr><tr><td>3659559</td><td>3654705</td><td>25.5</td><td>0.0</td><td>410756</td><td>/usr/bin/python3 /apps/file_stream_service.py</td></tr><tr><td>3648614</td><td>3430214</td><td>25.5</td><td>0.0</td><td>411148</td><td>/usr/bin/python3 /apps/file_stream_service.py</td></tr><tr><td>3681028</td><td>3669114</td><td>25.4</td><td>0.0</td><td>410960</td><td>/usr/bin/python3 /apps/file_stream_service.py</td></tr><tr><td>3679232</td><td>3669585</td><td>25.4</td><td>0.0</td><td>411004</td><td>/usr/bin/python3 /apps/file_stream_service.py</td></tr><tr><td>3673799</td><td>3669643</td><td>25.4</td><td>0.0</td><td>410292</td><td>/usr/bin/python3 /apps/file_stream_service.py</td></tr><tr><td>3672843</td><td>3669726</td><td>25.4</td><td>0.0</td><td>410680</td><td>/usr/bin/python3 /apps/file_stream_service.py</td></tr></tbody></table>
+                    
+                </section>
+                
+                <section>
+                    <h2 id=Sensor>Sensor</h2>
+                    <table class="pure-table pure-table-striped"><thead><tr><th>Sensor</th><th>Reading</th><th>Status</th></tr></thead><tbody><tr><td>System Airflow</td><td>54 unspecified</td><td>ok</td></tr><tr><td>PSU2 In Current</td><td>2.96 Amps</td><td>ok</td></tr><tr><td>PSU2 Out Current</td><td>55 Amps</td><td>ok</td></tr><tr><td>Cpu Energy CPU1</td><td>1848 unspecifie</td><td>ok</td></tr><tr><td>Cpu Energy CPU2</td><td>1848 unspecifie</td><td>ok</td></tr><tr><td>Dimm Energy CPU1</td><td>67.20 unspecifi</td><td>ok</td></tr><tr><td>Dimm Energy CPU2</td><td>1159.20 unspeci</td><td>ok</td></tr><tr><td>Platform Energy</td><td>0 unspecified</td><td>ok</td></tr><tr><td>Pwm 1</td><td>59.98 unspecifi</td><td>ok</td></tr><tr><td>Pwm 2</td><td>59.98 unspecifi</td><td>ok</td></tr><tr><td>Pwm 3</td><td>59.98 unspecifi</td><td>ok</td></tr><tr><td>Pwm 4</td><td>59.98 unspecifi</td><td>ok</td></tr><tr><td>Pwm 5</td><td>59.98 unspecifi</td><td>ok</td></tr><tr><td>Pwm 6</td><td>59.98 unspecifi</td><td>ok</td></tr><tr><td>Pwm 13</td><td>59.98 unspecifi</td><td>ok</td></tr><tr><td>Pwm 14</td><td>59.98 unspecifi</td><td>ok</td></tr><tr><td>Pwm 15</td><td>59.98 unspecifi</td><td>ok</td></tr><tr><td>Pwm 16</td><td>59.98 unspecifi</td><td>ok</td></tr><tr><td>Pwm PSU2 Fan 1</td><td>39.98 unspecifi</td><td>ok</td></tr><tr><td>Fan 1</td><td>14630 RPM</td><td>ok</td></tr><tr><td>Fan 2</td><td>14740 RPM</td><td>ok</td></tr><tr><td>Fan 3</td><td>0 RPM</td><td>ok</td></tr><tr><td>Fan 4</td><td>14630 RPM</td><td>ok</td></tr><tr><td>Fan 5</td><td>0 RPM</td><td>ok</td></tr><tr><td>Fan 6</td><td>14520 RPM</td><td>ok</td></tr><tr><td>Fan 7</td><td>14410 RPM</td><td>ok</td></tr><tr><td>Fan 8</td><td>14630 RPM</td><td>ok</td></tr><tr><td>Fan 9</td><td>0 RPM</td><td>ok</td></tr><tr><td>Fan 10</td><td>0 RPM</td><td>ok</td></tr><tr><td>PSU2 Fan Speed 1</td><td>12862 RPM</td><td>ok</td></tr><tr><td>CPU Power</td><td>378 Watts</td><td>ok</td></tr><tr><td>Cpu Power Averag</td><td>198 Watts</td><td>ok</td></tr><tr><td>Cpu Power Averag</td><td>196 Watts</td><td>ok</td></tr><tr><td>Cpu Power Cap CP</td><td>204 Watts</td><td>ok</td></tr><tr><td>Cpu Power Cap CP</td><td>204 Watts</td><td>ok</td></tr><tr><td>Dimm Power Avera</td><td>38 Watts</td><td>ok</td></tr><tr><td>Dimm Power Avera</td><td>38 Watts</td><td>ok</td></tr><tr><td>Dimm Power Cap C</td><td>0 Watts</td><td>ok</td></tr><tr><td>Dimm Power Cap C</td><td>0 Watts</td><td>ok</td></tr><tr><td>Memory Power</td><td>75 Watts</td><td>ok</td></tr></tbody></table>
+                    
+                </section>
+                
+                <section>
+                    <h2 id=Chassis&#32;Status>Chassis Status</h2>
+                    <table class="pure-table pure-table-striped"><tbody><tr><td style="font-weight:bold">Last Power Event</td><td></td></tr><tr><td style="font-weight:bold">Power Overload</td><td>false</td></tr><tr><td style="font-weight:bold">Main Power Fault</td><td>false</td></tr><tr><td style="font-weight:bold">Power Restore Policy</td><td>always-off</td></tr><tr><td style="font-weight:bold">Drive Fault</td><td>false</td></tr><tr><td style="font-weight:bold">Cooling/Fan Fault</td><td>false</td></tr><tr><td style="font-weight:bold">System Time</td><td>03/08/23 17:46:08 PST</td></tr></tbody></table>
+                    
+                </section>
+                
+                <section>
+                    <h2 id=System&#32;Event&#32;Log>System Event Log</h2>
+                    <table class="pure-table pure-table-striped"><thead><tr><th>Date</th><th>Time</th><th>Sensor</th><th>Status</th><th>Event</th></tr></thead><tbody><tr><td>01/18/23</td><td>14:56:11 PST</td><td>Voltage #0xe1</td><td>Upper Non-critical going high</td><td>Asserted</td></tr><tr><td>02/03/23</td><td>18:44:38 PST</td><td>Voltage #0xe1</td><td>Upper Non-critical going high</td><td>Asserted</td></tr></tbody></table>
+                    
+                </section>
+                
+                <section>
+                    <h2 id=Kernel&#32;Log>Kernel Log</h2>
+                    <table class="pure-table pure-table-striped"><thead><tr><th>Entries</th></tr></thead><tbody><tr><td>[  +0.000014] audit: type=1400 audit(1678326363.513:30043689): apparmor="DENIED" operation="open" class="file" profile="snap.net-snmp.snmpd" name="/proc/sys/net/ipv6/neigh/lo/retrans_time_ms" pid=3555 comm="snmpd" requested_mask="r" denied_mask="r" fsuid=0 ouid=0</td></tr><tr><td>[  +0.000009] audit: type=1400 audit(1678326363.513:30043690): apparmor="DENIED" operation="open" class="file" profile="snap.net-snmp.snmpd" name="/proc/sys/net/ipv6/conf/lo/forwarding" pid=3555 comm="snmpd" requested_mask="r" denied_mask="r" fsuid=0 ouid=0</td></tr><tr><td>[  +0.000006] audit: type=1400 audit(1678326363.513:30043691): apparmor="DENIED" operation="open" class="file" profile="snap.net-snmp.snmpd" name="/proc/sys/net/ipv6/neigh/lo/base_reachable_time_ms" pid=3555 comm="snmpd" requested_mask="r" denied_mask="r" fsuid=0 ouid=0</td></tr><tr><td>[  +0.000123] audit: type=1400 audit(1678326363.513:30043692): apparmor="DENIED" operation="open" class="file" profile="snap.net-snmp.snmpd" name="/proc/sys/net/ipv4/neigh/ens1f0/retrans_time_ms" pid=3555 comm="snmpd" requested_mask="r" denied_mask="r" fsuid=0 ouid=0</td></tr><tr><td>[  +0.000014] audit: type=1400 audit(1678326363.513:30043693): apparmor="DENIED" operation="open" class="file" profile="snap.net-snmp.snmpd" name="/proc/sys/net/ipv6/neigh/ens1f0/retrans_time_ms" pid=3555 comm="snmpd" requested_mask="r" denied_mask="r" fsuid=0 ouid=0</td></tr><tr><td>[  +0.000016] audit: type=1400 audit(1678326363.513:30043694): apparmor="DENIED" operation="open" class="file" profile="snap.net-snmp.snmpd" name="/proc/sys/net/ipv6/conf/ens1f0/forwarding" pid=3555 comm="snmpd" requested_mask="r" denied_mask="r" fsuid=0 ouid=0</td></tr><tr><td>[  +0.000015] audit: type=1400 audit(1678326363.513:30043695): apparmor="DENIED" operation="open" class="file" profile="snap.net-snmp.snmpd" name="/proc/sys/net/ipv6/neigh/ens1f0/base_reachable_time_ms" pid=3555 comm="snmpd" requested_mask="r" denied_mask="r" fsuid=0 ouid=0</td></tr><tr><td>[  +0.001514] audit: type=1400 audit(1678326363.517:30043696): apparmor="DENIED" operation="open" class="file" profile="snap.net-snmp.snmpd" name="/proc/sys/net/ipv4/neigh/vxlan.calico/retrans_time_ms" pid=3555 comm="snmpd" requested_mask="r" denied_mask="r" fsuid=0 ouid=0</td></tr><tr><td>[  +0.000015] audit: type=1400 audit(1678326363.517:30043697): apparmor="DENIED" operation="open" class="file" profile="snap.net-snmp.snmpd" name="/proc/sys/net/ipv6/neigh/vxlan.calico/retrans_time_ms" pid=3555 comm="snmpd" requested_mask="r" denied_mask="r" fsuid=0 ouid=0</td></tr><tr><td>[  +6.000809] kauditd_printk_skb: 257 callbacks suppressed</td></tr><tr><td>[  +0.000009] audit: type=1400 audit(1678326369.517:30043955): apparmor="DENIED" operation="open" class="file" profile="snap.net-snmp.snmpd" name="/proc/sys/net/ipv4/neigh/lo/retrans_time_ms" pid=3555 comm="snmpd" requested_mask="r" denied_mask="r" fsuid=0 ouid=0</td></tr><tr><td>[  +0.000014] audit: type=1400 audit(1678326369.517:30043956): apparmor="DENIED" operation="open" class="file" profile="snap.net-snmp.snmpd" name="/proc/sys/net/ipv6/neigh/lo/retrans_time_ms" pid=3555 comm="snmpd" requested_mask="r" denied_mask="r" fsuid=0 ouid=0</td></tr><tr><td>[  +0.000009] audit: type=1400 audit(1678326369.517:30043957): apparmor="DENIED" operation="open" class="file" profile="snap.net-snmp.snmpd" name="/proc/sys/net/ipv6/conf/lo/forwarding" pid=3555 comm="snmpd" requested_mask="r" denied_mask="r" fsuid=0 ouid=0</td></tr><tr><td>[  +0.000007] audit: type=1400 audit(1678326369.517:30043958): apparmor="DENIED" operation="open" class="file" profile="snap.net-snmp.snmpd" name="/proc/sys/net/ipv6/neigh/lo/base_reachable_time_ms" pid=3555 comm="snmpd" requested_mask="r" denied_mask="r" fsuid=0 ouid=0</td></tr><tr><td>[  +0.000103] audit: type=1400 audit(1678326369.517:30043959): apparmor="DENIED" operation="open" class="file" profile="snap.net-snmp.snmpd" name="/proc/sys/net/ipv4/neigh/ens1f0/retrans_time_ms" pid=3555 comm="snmpd" requested_mask="r" denied_mask="r" fsuid=0 ouid=0</td></tr><tr><td>[  +0.000008] audit: type=1400 audit(1678326369.517:30043960): apparmor="DENIED" operation="open" class="file" profile="snap.net-snmp.snmpd" name="/proc/sys/net/ipv6/neigh/ens1f0/retrans_time_ms" pid=3555 comm="snmpd" requested_mask="r" denied_mask="r" fsuid=0 ouid=0</td></tr><tr><td>[  +0.000018] audit: type=1400 audit(1678326369.517:30043961): apparmor="DENIED" operation="open" class="file" profile="snap.net-snmp.snmpd" name="/proc/sys/net/ipv6/conf/ens1f0/forwarding" pid=3555 comm="snmpd" requested_mask="r" denied_mask="r" fsuid=0 ouid=0</td></tr><tr><td>[  +0.000021] audit: type=1400 audit(1678326369.517:30043962): apparmor="DENIED" operation="open" class="file" profile="snap.net-snmp.snmpd" name="/proc/sys/net/ipv6/neigh/ens1f0/base_reachable_time_ms" pid=3555 comm="snmpd" requested_mask="r" denied_mask="r" fsuid=0 ouid=0</td></tr><tr><td>[  +0.003716] audit: type=1400 audit(1678326369.521:30043963): apparmor="DENIED" operation="open" class="file" profile="snap.net-snmp.snmpd" name="/proc/sys/net/ipv4/neigh/vxlan.calico/retrans_time_ms" pid=3555 comm="snmpd" requested_mask="r" denied_mask="r" fsuid=0 ouid=0</td></tr><tr><td>[  +0.000019] audit: type=1400 audit(1678326369.521:30043964): apparmor="DENIED" operation="open" class="file" profile="snap.net-snmp.snmpd" name="/proc/sys/net/ipv6/neigh/vxlan.calico/retrans_time_ms" pid=3555 comm="snmpd" requested_mask="r" denied_mask="r" fsuid=0 ouid=0</td></tr></tbody></table>
+                    
+                </section>
+                
+                <section>
+                    <h2 id=PMU>PMU</h2>
+                    <table class="pure-table pure-table-striped"><tbody><tr><td style="font-weight:bold">cpu_cycles</td><td>Active</td></tr><tr><td style="font-weight:bold">instructions</td><td>Inactive</td></tr><tr><td style="font-weight:bold">ref_cycles</td><td>Inactive</td></tr><tr><td style="font-weight:bold">topdown_slots</td><td>Inactive</td></tr><tr><td style="font-weight:bold">gen_programmable_1</td><td>Inactive</td></tr><tr><td style="font-weight:bold">gen_programmable_2</td><td>Inactive</td></tr><tr><td style="font-weight:bold">gen_programmable_3</td><td>Inactive</td></tr><tr><td style="font-weight:bold">gen_programmable_4</td><td>Inactive</td></tr><tr><td style="font-weight:bold">gen_programmable_5</td><td>Inactive</td></tr><tr><td style="font-weight:bold">gen_programmable_6</td><td>Inactive</td></tr><tr><td style="font-weight:bold">gen_programmable_7</td><td>Inactive</td></tr><tr><td style="font-weight:bold">gen_programmable_8</td><td>Inactive</td></tr></tbody></table>
+                    
+                </section>
+                
+                <h3>svr-info version: 2.0.2_2022-06-13_fd08b622</h3>
+            </main>
+        </div>
+    </div>
+    <div id="performance" class="tabcontent tabnotdefault">
+        <main class="content">
+            <h3>Use the "-all" flag to collect all performance data. See "-help" for flags used to select specific micro-benchmarks.</h3>
+            
+            
+            <section>
+                <h2 id=Core&#32;Frequency>Core Frequency</h2>
+                <canvas id="scatterchart1"></canvas>
+<script>
+new Chart(document.getElementById('scatterchart1'), {
+    type: 'scatter',
+    data: {
+        datasets: [
+{
+	label: 'spec',
+	data: [{x: 1, y: 3.8},{x: 2, y: 3.8},{x: 3, y: 3.8},{x: 4, y: 3.8},{x: 5, y: 3.8},{x: 6, y: 3.8},{x: 7, y: 3.8},{x: 8, y: 3.8},{x: 9, y: 3.8},{x: 10, y: 3.8},{x: 11, y: 3.8},{x: 12, y: 3.8},{x: 13, y: 3.8},{x: 14, y: 3.8},{x: 15, y: 3.8},{x: 16, y: 3.8},{x: 17, y: 3.8},{x: 18, y: 3.8},{x: 19, y: 3.8},{x: 20, y: 3.8},{x: 21, y: 3.8},{x: 22, y: 3.8},{x: 23, y: 3.8},{x: 24, y: 3.8},{x: 25, y: 3.8},{x: 26, y: 3.8},{x: 27, y: 3.8},{x: 28, y: 3.8},{x: 29, y: 3.6},{x: 30, y: 3.6},{x: 31, y: 3.6},{x: 32, y: 3.6},{x: 33, y: 3.6},{x: 34, y: 3.6},{x: 35, y: 3.4},{x: 36, y: 3.4},{x: 37, y: 3.4},{x: 38, y: 3.4},{x: 39, y: 3.4},{x: 40, y: 3.4},{x: 41, y: 3.2},{x: 42, y: 3.2},{x: 43, y: 3.2},{x: 44, y: 3.2},{x: 45, y: 3.1},{x: 46, y: 3.1},{x: 47, y: 3.1},{x: 48, y: 3.1},{x: 49, y: 3.1},{x: 50, y: 3.1},{x: 51, y: 3.0},{x: 52, y: 3.0},{x: 53, y: 3.0},{x: 54, y: 3.0},{x: 55, y: 3.0},{x: 56, y: 3.0}],
+	backgroundColor: '#9F0162',
+	borderColor: '#9F0162',
+	borderWidth: 1,
+	showLine: true
+}
+,
+{
+	label: 'measured',
+	data: [{x: 1, y: 3.5},{x: 2, y: 3.1},{x: 3, y: 3.0},{x: 4, y: 2.9},{x: 5, y: 2.9},{x: 6, y: 2.8},{x: 7, y: 2.7},{x: 8, y: 2.6},{x: 9, y: 2.6},{x: 10, y: 2.6},{x: 11, y: 2.6},{x: 12, y: 2.6},{x: 13, y: 2.6},{x: 14, y: 2.6},{x: 15, y: 2.5},{x: 16, y: 2.5},{x: 17, y: 2.5},{x: 18, y: 2.4},{x: 19, y: 2.5},{x: 20, y: 2.5},{x: 21, y: 2.4},{x: 22, y: 2.4},{x: 23, y: 2.3},{x: 24, y: 2.3},{x: 25, y: 2.3},{x: 26, y: 2.4},{x: 27, y: 2.4},{x: 28, y: 2.4},{x: 29, y: 2.3},{x: 30, y: 2.4},{x: 31, y: 2.4},{x: 32, y: 2.3},{x: 33, y: 2.4},{x: 34, y: 2.4},{x: 35, y: 2.4},{x: 36, y: 2.3},{x: 37, y: 2.3},{x: 38, y: 2.3},{x: 39, y: 2.3},{x: 40, y: 2.3},{x: 41, y: 2.3},{x: 42, y: 2.3},{x: 43, y: 2.3},{x: 44, y: 2.3},{x: 45, y: 2.3},{x: 46, y: 2.3},{x: 47, y: 2.2},{x: 48, y: 2.2},{x: 49, y: 2.3},{x: 50, y: 2.3},{x: 51, y: 2.4},{x: 52, y: 2.3},{x: 53, y: 2.3},{x: 54, y: 2.3},{x: 55, y: 2.3},{x: 56, y: 2.3}],
+	backgroundColor: '#009F81',
+	borderColor: '#009F81',
+	borderWidth: 1,
+	showLine: true
+}
+]
+    },
+    options: {
+        aspectRatio: 2,
+        scales: {
+            x: {
+                beginAtZero: false,
+                title: {
+                    text: "Core Count",
+                    display: true
+                }
+            },
+            y: {
+                beginAtZero: true,
+                title: {
+                    text: "Frequency (GHz)",
+                    display: true
+                },
+            }
+        },
+        plugins: {
+            title: {
+                text: "",
+                display: true,
+                font: {
+                    size: 18
+                }
+            },
+            tooltip: {
+                callbacks: {
+                    label: function(ctx) {
+                        //console.log(ctx);
+                        return ctx.dataset.label + " (" + ctx.parsed.x + ", " + ctx.parsed.y + ")";
+                    }
+                }
+            },
+            legend: {
+                display: true
+            }
+        }
+    }
+});
+</script>
+
+
+            </section>
+            
+            <section>
+                <h2 id=Health>Health</h2>
+                <table class="pure-table pure-table-striped"><tbody><tr><td style="font-weight:bold">CPU Speed</td><td>1054767 ops/s</td></tr><tr><td style="font-weight:bold">Single-core Turbo</td><td>1344 MHz</td></tr><tr><td style="font-weight:bold">All-core Turbo</td><td>2136 MHz</td></tr><tr><td style="font-weight:bold">Turbo TDP</td><td>682.20 Watts</td></tr><tr><td style="font-weight:bold">Idle TDP</td><td>379.96 Watts</td></tr><tr><td style="font-weight:bold">Memory Peak Bandwidth</td><td>438.2 GB/s</td></tr><tr><td style="font-weight:bold">Memory Minimum Latency</td><td>124.0 ns</td></tr><tr><td style="font-weight:bold">Disk Speed</td><td>6331 iops</td></tr></tbody></table>
+            </section>
+            
+            <section>
+                <h2 id=Memory&#32;Bandwidth&#32;and&#32;Latency>Memory Bandwidth and Latency</h2>
+                <canvas id="memBandwdithLatency"></canvas>
+<script>
+new Chart(document.getElementById('memBandwdithLatency'), {
+    type: 'scatter',
+    data: {
+        datasets: [
+{
+	label: '10.45.247.200',
+	data: [{x: 3.6, y: 156.20},{x: 7.3, y: 123.98},{x: 12.5, y: 165.84},{x: 19.4, y: 158.03},{x: 26.8, y: 139.08},{x: 37.0, y: 132.12},{x: 47.3, y: 176.31},{x: 60.8, y: 141.96},{x: 86.0, y: 144.72},{x: 118.0, y: 159.25},{x: 145.4, y: 159.49},{x: 191.4, y: 159.94},{x: 264.8, y: 176.80},{x: 435.2, y: 336.61},{x: 434.8, y: 386.89},{x: 436.3, y: 323.44},{x: 437.1, y: 380.05},{x: 438.2, y: 382.80},{x: 438.1, y: 338.81}],
+	backgroundColor: '#9F0162',
+	borderColor: '#9F0162',
+	borderWidth: 1,
+	showLine: true
+}
+]
+    },
+    options: {
+        aspectRatio: 2,
+        scales: {
+            x: {
+                beginAtZero: false,
+                title: {
+                    text: "Bandwidth (GB/s)",
+                    display: true
+                }
+            },
+            y: {
+                beginAtZero: true,
+                title: {
+                    text: "Latency (ns)",
+                    display: true
+                },
+            }
+        },
+        plugins: {
+            title: {
+                text: "",
+                display: true,
+                font: {
+                    size: 18
+                }
+            },
+            tooltip: {
+                callbacks: {
+                    label: function(ctx) {
+                        //console.log(ctx);
+                        return ctx.dataset.label + " (" + ctx.parsed.x + ", " + ctx.parsed.y + ")";
+                    }
+                }
+            },
+            legend: {
+                display: true
+            }
+        }
+    }
+});
+</script>
+
+
+            </section>
+            
+            <section>
+                <h2 id=Memory&#32;NUMA&#32;Bandwidth>Memory NUMA Bandwidth</h2>
+                <table class="pure-table pure-table-striped"><thead><tr><th>Node</th><th>0</th><th>1</th></tr></thead><tbody><tr><td style="font-weight:bold">0</td><td>223501.5</td><td>132041.0</td></tr><tr><td style="font-weight:bold">1</td><td>124579.2</td><td>214815.8</td></tr></tbody></table>
+            </section>
+            
+            <h3>&nbsp;</h3>
+        </main>
+    </div>
+    <div id="profile" class="tabcontent tabnotdefault">
+        <main class="content">
+            <h3>Use the "-profile" flag to collect system profile data. See "-help" for flags used to set the sample frequency and count.</h3>
+            
+            
+            <section>
+                <h2 id=Average&#32;CPU&#32;Utilization>Average CPU Utilization</h2>
+                No data found.
+            </section>
+            
+            <section>
+                <h2 id=CPU&#32;Utilization>CPU Utilization</h2>
+                No data found.
+            </section>
+            
+            <section>
+                <h2 id=IRQ&#32;Rate>IRQ Rate</h2>
+                No data found.
+            </section>
+            
+            <section>
+                <h2 id=Drive&#32;Stats>Drive Stats</h2>
+                No data found.
+            </section>
+            
+            <section>
+                <h2 id=Network&#32;Stats>Network Stats</h2>
+                No data found.
+            </section>
+            
+            <h3>&nbsp;</h3>
+        </main>
+    </div>
+    <div id="recommendation" class="tabcontent tabnotdefault">
+        <main class="content">
+        <h3>Recommendations are provided for your consideration. Some may not be relevant to your use case.</h3>
+            
+            
+            <section>
+                <h2 id=Recommendation>Recommendation</h2>
+                <table class="pure-table pure-table-striped"><thead><tr><th>Short Description</th><th>Long Description</th></tr></thead><tbody><tr><td>IRQ Balance</td><td>Disabling the IRQ Balance service and manually configuring network IRQ CPU affinity may improve network bandwidth and latency.</td></tr><tr><td>Configured DIMM Speed</td><td>The configured speed of this server's DRAM DIMMs is less than the maximum speed supported by the DIMM. Best memory performance is achieved when DIMMs are running at maximum speed.</td></tr><tr><td>Frequency governor</td><td>Set the CPU Frequency Governors to 'performance' for best CPU performance.</td></tr></tbody></table>
+            </section>
+            
+            <h3>&nbsp;</h3>
+        </main>
+    </div>
+    <script> 
+        (function (window, document) {
+            var layout = document.getElementById('layout'),
+                menu = document.getElementById('menu'),
+                menuLink = document.getElementById('menuLink'),
+                content = document.getElementById('main');
+
+            function toggleClass(element, className) {
+                var classes = element.className.split(/\s+/),
+                    length = classes.length,
+                    i = 0;
+                for (; i < length; i++) {
+                    if (classes[i] === className) {
+                        classes.splice(i, 1);
+                        break;
+                    }
+                }
+                
+                if (length === classes.length) {
+                    classes.push(className);
+                }
+                element.className = classes.join(' ');
+            }
+
+            function toggleAll(e) {
+                var active = 'active';
+                e.preventDefault();
+                toggleClass(layout, active);
+                toggleClass(menu, active);
+                toggleClass(menuLink, active);
+            }
+
+            menuLink.onclick = function (e) {
+                toggleAll(e);
+            };
+
+            content.onclick = function (e) {
+                if (menu.className.indexOf('active') !== -1) {
+                    toggleAll(e);
+                }
+            };
+
+        }(this, this.document));
+    </script>
+    <script>
+        function openTab(evt, tabName) {
+            
+            var i, tabcontent, tablinks;
+
+            
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+
+            
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+
+            
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+        
+        document.getElementById("defaultOpen").click();
+    </script>
+</body>
+
+</html>

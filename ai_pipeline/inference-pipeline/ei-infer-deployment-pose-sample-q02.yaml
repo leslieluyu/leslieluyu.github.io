@@ -1,0 +1,102 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    deployment.kubernetes.io/revision: "5"
+  creationTimestamp: "2023-03-21T06:25:36Z"
+  generation: 5
+  name: ei-infer-deployment-pose-sample-q02
+  namespace: default
+  resourceVersion: "6758487"
+  uid: 2d3c5853-6397-4307-b07c-e85607545852
+spec:
+  progressDeadlineSeconds: 600
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app: ei-infer-pose-multi-queue-app
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: ei-infer-pose-multi-queue-app
+    spec:
+      containers:
+      - env:
+        - name: INFER_MODEL_NAME
+          value: ssd_mobilenet_bf16
+        - name: INPUT_QUEUE_HOST
+          value: ei-redis-svc
+        - name: OUTPUT_BROKER_HOST
+          value: ei-redis-svc
+        - name: INFER_TYPE
+          value: pose-sample-q02
+        - name: ONEDNN_MAX_CPU_ISA
+          value: AVX512_CORE_AMX
+        - name: OMP_NUM_THREADS
+          value: "1"
+        - name: TF_NUM_INTEROP_THREADS
+          value: "1"
+        - name: TF_NUM_INTRAOP_THREADS
+          value: "10"
+        image: gar-registry.caas.intel.com/cpio/ei-inference-service-tensorflow:2023WW11
+        imagePullPolicy: IfNotPresent
+        name: ei-infer-pose-multi-queue-app
+        ports:
+        - containerPort: 8000
+          name: web
+          protocol: TCP
+        resources:
+          limits:
+            cpu: "1"
+            memory: 4Gi
+          requests:
+            cpu: "1"
+            memory: 4Gi
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+      dnsPolicy: ClusterFirst
+      initContainers:
+      - command:
+        - sh
+        - -c
+        - until nslookup ei-redis-svc; do echo waiting for ei-redis-svc; sleep 2;
+          done;
+        image: busybox:1.31
+        imagePullPolicy: IfNotPresent
+        name: init-ei-infer-pose-multi-queue-app
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+      nodeSelector:
+        css-actor: demo
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+status:
+  availableReplicas: 1
+  conditions:
+  - lastTransitionTime: "2023-03-21T07:40:15Z"
+    lastUpdateTime: "2023-03-21T07:40:15Z"
+    message: Deployment has minimum availability.
+    reason: MinimumReplicasAvailable
+    status: "True"
+    type: Available
+  - lastTransitionTime: "2023-03-21T09:15:52Z"
+    lastUpdateTime: "2023-03-21T09:15:52Z"
+    message: ReplicaSet "ei-infer-deployment-pose-sample-q02-6669c67f95" has successfully
+      progressed.
+    reason: NewReplicaSetAvailable
+    status: "True"
+    type: Progressing
+  observedGeneration: 5
+  readyReplicas: 1
+  replicas: 1
+  updatedReplicas: 1

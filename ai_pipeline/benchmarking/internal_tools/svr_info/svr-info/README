@@ -1,0 +1,23 @@
+Intel® System Health Inspector (aka svr-info) is a Linux OS utility for assessing
+the state and health of Intel Xeon computers.
+
+These Materials are licensed to you under the Free User Type as defined in the 
+enclosed Intel End User License Agreement for Developer Tools (Version October 
+2021) (“EULA”). Furthermore, the Materials are considered “Pre-Release Materials” 
+as described in Section 3.2 of the EULA. This means that in addition to all the 
+other terms of the EULA, You may not (i) modify or incorporate the Pre-Release 
+Materials into Your Product; (ii) continue to use the Pre-Release Materials once 
+a commercial version is released; or (iii) disclose to any third party any 
+benchmarks, performance results, or other information relating to the Pre-Release 
+Materials.
+
+HOW TO REPORT SECURITY VULNERABILITIES: If you have information about a
+security issue or vulnerability with Intel® System Health Inspector, please
+send an e-mail to secure@intel.com. Encrypt sensitive information using our
+PGP public key.
+
+WARNING: svr_info's micro-benchmarks are intended to be run on idle systems.
+Recommend running without micro-benchmarks on busy and/or production systems.
+
+To see program options and usage, run the program with the -h option, e.g.,
+   ./svr-info -h
