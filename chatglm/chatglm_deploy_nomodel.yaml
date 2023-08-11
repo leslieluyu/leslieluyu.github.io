@@ -31,11 +31,11 @@ spec:
         - containerPort: 8080
         resources:
           limits:
-            cpu: 12000m
-            memory: 30Gi
+            cpu: 8000m
+            memory: 26Gi
           requests:
-            cpu: 12000m
-            memory: 30Gi
+            cpu: 8000m
+            memory: 26Gi
       serviceAccountName: default
       volumes:
       - name: model-volume

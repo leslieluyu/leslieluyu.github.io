@@ -1,0 +1,30 @@
+FROM nginx/nginx-ingress:3.2.0 as base
+
+USER root
+# Install LuaJIT 2.1 and dependencies
+RUN apt-get update \
+  && apt-get install -y lua-cjson libluajit-5.1-dev wget
+
+# Remove incompatible luajit 
+RUN rm -rf /usr/local/lib/luajit* /etc/nginx/lua
+
+# Get Lua module source
+RUN wget -O lua-module.tar.gz https://github.com/openresty/lua-nginx-module/archive/v0.10.24.tar.gz
+RUN tar -xzf lua-module.tar.gz
+
+# Get Nginx source
+RUN wget -O nginx.tar.gz https://nginx.org/download/nginx-1.25.1.tar.gz 
+RUN tar -xzf nginx.tar.gz
+
+# Build Nginx with Lua module
+RUN cd nginx-1.25.1 \
+  && ./configure --with-compat --add-dynamic-module=../lua-nginx-module-0.10.24 \
+  --with-luajit-inc=/usr/include/luajit-2.1 \
+  && make modules 
+
+# Copy artifacts to new image
+FROM base 
+COPY --from=0 /nginx-1.25.1/objs/ngx_http_lua_module.so /etc/nginx/modules/ngx_http_lua_module.so
+COPY --from=0 /nginx-1.25.1/objs/nginx /usr/sbin/nginx
+
+ENV LUA_PACKAGE_PATH "/etc/nginx/modules/?.lua"
