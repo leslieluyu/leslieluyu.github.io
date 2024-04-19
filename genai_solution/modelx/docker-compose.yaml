@@ -1,0 +1,20 @@
+version: "3.7"
+
+networks:
+  modelx:
+
+services:
+  modelxd:
+    image: kubegems/modelx:latest
+    restart: always
+    ports:
+      - "8280:8080"
+    command:
+      - --s3-url=http://otcloud-server.bj.intel.com:8080
+      - --s3-access-key=minioadmin
+      - --s3-secret-key=minioadmin
+      - --s3-bucket=modelx
+      - --enable-redirect=true
+      - --listen=:8080
+    networks:
+      - modelx
