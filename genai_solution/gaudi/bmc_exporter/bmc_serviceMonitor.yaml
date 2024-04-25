@@ -1,0 +1,21 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  labels:
+    release: stable
+    app: bmc-monitoring
+    release: prometheus-stack
+  name: bmc-monitoring-service-monitor
+  namespace: monitoring
+spec:
+  endpoints:
+  - interval: 5m
+    path: /metric
+    port: bmc-monitoring-endpoint
+    scrapeTimeout: 1m30s
+  namespaceSelector:
+    matchNames:
+    - monitoring
+  selector:
+    matchLabels:
+      app: bmc-monitoring

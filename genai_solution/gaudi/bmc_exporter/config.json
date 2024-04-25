@@ -1,0 +1,12 @@
+{
+    "username": "cloud",
+    "password": "intel.1234",
+    "port": "5000",
+    "servers": [
+        {
+            "password": "cloud",
+            "username": "intel.1234",
+            "hostname": "192.168.1.3"
+        }
+    ]
+}

@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: bmc-exporter-conf
+  namespace: monitoring
+data:
+  config.json: |
+    {
+    "username": "cloud",
+    "password": "intel.1234",
+    "port": "5000",
+    "servers": [
+    {
+      "hostname": "192.168.1.3"
+    }
+    ]
+    }
