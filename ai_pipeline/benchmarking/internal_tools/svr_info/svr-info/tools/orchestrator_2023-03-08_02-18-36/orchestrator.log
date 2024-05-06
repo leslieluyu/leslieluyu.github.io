@@ -1,6 +1,0 @@
-2023/03/08 02:18:36.780926 main.go:653: Starting up orchestrator, version 2.0.3__, PID 1156757, PPID 2897463, arguments: ./orchestrator
-2023/03/08 02:18:36.781389 target.go:161: run: sudo -kS ls
-2023/03/08 02:18:36.804565 collection.go:197: collection starting for target: ai-master
-2023/03/08 02:18:36.804709 target.go:161: run: which tar
-2023/03/08 02:18:36.826988 target.go:161: run: tar -C /tmp/orchestrator.tmp.4101479309 -xf /tmp/orchestrator.tmp.4101479309/collector_deps_amd64.tgz
-2023/03/08 02:18:37.044766 target.go:161: run: /tmp/orchestrator.tmp.4101479309/collector /tmp/orchestrator.tmp.4101479309/ai-master_reports_collector.yaml

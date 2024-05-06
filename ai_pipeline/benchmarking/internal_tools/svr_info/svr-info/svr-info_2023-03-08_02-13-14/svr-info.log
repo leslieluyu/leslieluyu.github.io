@@ -1,2 +1,0 @@
-2023/03/08 02:13:14.027650 main.go:653: Starting up svr-info, version 2.0.3__, PID 1152785, PPID 2897463, arguments: svr-info
-2023/03/08 02:13:14.027855 util.go:32: Error: could not find required asset: collector
