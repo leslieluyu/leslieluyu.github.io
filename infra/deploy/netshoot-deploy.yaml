@@ -15,5 +15,17 @@ spec:
       containers:
         - name: my-container
           image: nicolaka/netshoot
+          env:
+            - name: TESTT_PORT
+              value: "$(TEST_PORT)"
           command: ["/bin/bash"]
           args: ["-c", "while true; do ping localhost; sleep 60;done"]
+          env:
+            - name: SPECIAL
+              valueFrom:
+                configMapKeyRef:
+                  name: special-config
+                  key: SPECIAL_LEVEL	
+          envFrom:
+          - configMapRef:
+              name: special-config
