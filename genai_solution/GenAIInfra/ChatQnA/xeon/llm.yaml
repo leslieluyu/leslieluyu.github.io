@@ -31,7 +31,7 @@ spec:
 kind: Service
 apiVersion: v1
 metadata:
-  name: llm-deploy
+  name: llm-svc
 spec:
   type: NodePort
   selector:

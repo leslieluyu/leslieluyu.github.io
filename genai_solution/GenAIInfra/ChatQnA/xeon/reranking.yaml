@@ -31,7 +31,7 @@ spec:
 kind: Service
 apiVersion: v1
 metadata:
-  name: reranking-deploy
+  name: reranking-svc
 spec:
   type: NodePort
   selector:

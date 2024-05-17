@@ -24,7 +24,7 @@ spec:
         name: tei-embedding-service-deploy
         args:
         - --model-id
-        - ${EMBEDDING_MODEL_ID}
+        - $(EMBEDDING_MODEL_ID)
         volumeMounts:
         - mountPath: /data
           name: model-volume
@@ -55,7 +55,7 @@ spec:
 kind: Service
 apiVersion: v1
 metadata:
-  name: tei-embedding-service-deploy
+  name: tei-embedding-svc
 spec:
   type: NodePort
   selector:

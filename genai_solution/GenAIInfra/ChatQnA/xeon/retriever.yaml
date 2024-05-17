@@ -31,7 +31,7 @@ spec:
 kind: Service
 apiVersion: v1
 metadata:
-  name: retriever-deploy
+  name: retriever-svc
 spec:
   type: NodePort
   selector:
@@ -40,4 +40,4 @@ spec:
     - name: service
       port: 7000
       targetPort: 7000
-      nodePort: 30600
+      nodePort: 30700
