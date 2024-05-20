@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "qna-config.fullname" . }}-qna-config
+  labels:
+  {{- include "qna-config.labels" . | nindent 4 }}
+data:
+  CHAT_BASE_URL: {{ .Values.qnaConfig.CHAT_BASE_URL | quote }}
+  EMBEDDING_MODEL_ID: {{ .Values.qnaConfig.EMBEDDING_MODEL_ID | quote }}
+  HUGGINGFACEHUB_API_TOKEN: {{ .Values.qnaConfig.HUGGINGFACEHUB_API_TOKEN | quote }}
+  INDEX_NAME: {{ .Values.qnaConfig.INDEX_NAME | quote }}
+  LLM_MODEL_ID: {{ .Values.qnaConfig.LLM_MODEL_ID | quote }}
+  MEGA_SERVICE_HOST_IP: {{ .Values.qnaConfig.MEGA_SERVICE_HOST_IP | quote }}
+  REDIS_URL: {{ .Values.qnaConfig.REDIS_URL | quote }}
+  RERANK_MODEL_ID: {{ .Values.qnaConfig.RERANK_MODEL_ID | quote }}
+  TEI_EMBEDDING_ENDPOINT: {{ .Values.qnaConfig.TEI_EMBEDDING_ENDPOINT | quote }}
+  TEI_RERANKING_ENDPOINT: {{ .Values.qnaConfig.TEI_RERANKING_ENDPOINT | quote }}
+  TGI_LLM_ENDPOINT: {{ .Values.qnaConfig.TGI_LLM_ENDPOINT | quote }}

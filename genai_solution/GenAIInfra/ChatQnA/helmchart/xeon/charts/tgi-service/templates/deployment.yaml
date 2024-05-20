@@ -1,0 +1,51 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "tgi-service.fullname" . }}-ervice-deploy
+  labels:
+  {{- include "tgi-service.labels" . | nindent 4 }}
+spec:
+  replicas: {{ .Values.serviceDeploy.replicas }}
+  selector:
+    matchLabels:
+      app: tgi-service-deploy
+    {{- include "tgi-service.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      labels:
+        app: tgi-service-deploy
+      {{- include "tgi-service.selectorLabels" . | nindent 8 }}
+      annotations:
+        sidecar.istio.io/rewriteAppHTTPProbers: "true"
+    spec:
+      containers:
+      - args: {{- toYaml .Values.serviceDeploy.tgiServiceDeployDemo.args | nindent 8 }}
+        env:
+        - name: KUBERNETES_CLUSTER_DOMAIN
+          value: {{ quote .Values.kubernetesClusterDomain }}
+        envFrom:
+        - configMapRef:
+            name: qna-config
+        image: {{ .Values.serviceDeploy.tgiServiceDeployDemo.image.repository }}:{{ .Values.erviceDeploy.tgiServiceDeployDemo.image.tag
+          | default .Chart.AppVersion }}
+        name: tgi-service-deploy-demo
+        ports:
+        - containerPort: 80
+        resources: {}
+        volumeMounts:
+        - mountPath: /data
+          name: model-volume
+        - mountPath: /dev/shm
+          name: shm
+      hostIPC: true
+      nodeSelector: {{- toYaml .Values.serviceDeploy.nodeSelector | nindent 8 }}
+      serviceAccountName: default
+      volumes:
+      - hostPath:
+          path: /mnt/model
+          type: Directory
+        name: model-volume
+      - emptyDir:
+          medium: Memory
+          sizeLimit: 1Gi
+        name: shm

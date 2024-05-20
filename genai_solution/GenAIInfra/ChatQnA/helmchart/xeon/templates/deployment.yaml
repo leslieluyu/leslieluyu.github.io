@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "chaqna-xeon-backend-server.fullname" . }}-deploy
+  labels:
+  {{- include "chaqna-xeon-backend-server.labels" . | nindent 4 }}
+spec:
+  replicas: {{ .Values.deploy.replicas }}
+  selector:
+    matchLabels:
+      app: chaqna-xeon-backend-server-deploy
+    {{- include "chaqna-xeon-backend-server.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      labels:
+        app: chaqna-xeon-backend-server-deploy
+      {{- include "chaqna-xeon-backend-server.selectorLabels" . | nindent 8 }}
+      annotations:
+        sidecar.istio.io/rewriteAppHTTPProbers: "true"
+    spec:
+      containers:
+      - env:
+        - name: KUBERNETES_CLUSTER_DOMAIN
+          value: {{ quote .Values.kubernetesClusterDomain }}
+        envFrom:
+        - configMapRef:
+            name: qna-config
+        image: {{ .Values.deploy.chaqnaXeonBackendServerDeploy.image.repository }}:{{ .Values.deploy.chaqnaXeonBackendServerDeploy.image.tag
+          | default .Chart.AppVersion }}
+        name: chaqna-xeon-backend-server-deploy
+        ports:
+        - containerPort: 8888
+        resources: {}
+      hostIPC: true
+      serviceAccountName: default

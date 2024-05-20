@@ -1,0 +1,17 @@
+erviceDeploy:
+  replicas: 1
+  teiEmbeddingServiceDeploy:
+    args:
+    - --model-id
+    - $(EMBEDDING_MODEL_ID)
+    image:
+      repository: ghcr.io/huggingface/text-embeddings-inference
+      tag: cpu-1.2
+kubernetesClusterDomain: cluster.local
+vc:
+  ports:
+  - name: service
+    nodePort: 30606
+    port: 6006
+    targetPort: 80
+  type: NodePort

@@ -1,0 +1,13 @@
+kubernetesClusterDomain: cluster.local
+qnaConfig:
+  EMBEDDING_MODEL_ID: "BAAI/bge-base-en-v1.5"
+  TEI_EMBEDDING_ENDPOINT: "http://tei-embedding-svc.default.svc.cluster.local:6006"
+  REDIS_URL: "redis://redis-vector-db.default.svc.cluster.local:6379"
+  INDEX_NAME: "rag-redis"
+  RERANK_MODEL_ID: "BAAI/bge-reranker-large"
+  TEI_RERANKING_ENDPOINT: "http://tei-reranking-svc.default.svc.cluster.local:8808"
+  HUGGINGFACEHUB_API_TOKEN: ${your-huggingface-token}
+  LLM_MODEL_ID: "Intel/neural-chat-7b-v3-3"
+  TGI_LLM_ENDPOINT: "http://tgi-svc.default.svc.cluster.local:9009"
+  MEGA_SERVICE_HOST_IP: {host_ip}
+  CHAT_BASE_URL: "${chat_qna_backendurl}/v1/chatqna"

@@ -1,0 +1,19 @@
+erviceDeploy:
+  nodeSelector:
+    llmdemo: "true"
+  replicas: 1
+  tgiServiceDeployDemo:
+    args:
+    - --model-id
+    - $(LLM_MODEL_ID)
+    image:
+      repository: ghcr.io/huggingface/text-generation-inference
+      tag: "1.4"
+kubernetesClusterDomain: cluster.local
+svc:
+  ports:
+  - name: service
+    nodePort: 30909
+    port: 9009
+    targetPort: 80
+  type: NodePort

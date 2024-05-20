@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "redis-vector-db.fullname" . }}-redis-vector-db
+  labels:
+  {{- include "redis-vector-db.labels" . | nindent 4 }}
+spec:
+  replicas: {{ .Values.redisVectorDb.replicas }}
+  selector:
+    matchLabels:
+      app: redis-vector-db
+    {{- include "redis-vector-db.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      labels:
+        app: redis-vector-db
+      {{- include "redis-vector-db.selectorLabels" . | nindent 8 }}
+    spec:
+      containers:
+      - env:
+        - name: KUBERNETES_CLUSTER_DOMAIN
+          value: {{ quote .Values.kubernetesClusterDomain }}
+        image: {{ .Values.redisVectorDb.redisVectorDb.image.repository }}:{{ .Values.redisVectorDb.redisVectorDb.image.tag
+          | default .Chart.AppVersion }}
+        name: redis-vector-db
+        ports:
+        - containerPort: 6379
+        - containerPort: 8001
+        resources: {}

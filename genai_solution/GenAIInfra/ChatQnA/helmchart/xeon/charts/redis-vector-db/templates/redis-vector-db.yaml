@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "redis-vector-db.fullname" . }}-redis-vector-db
+  labels:
+  {{- include "redis-vector-db.labels" . | nindent 4 }}
+spec:
+  type: {{ .Values.redisVectorDb.type }}
+  selector:
+    app: redis-vector-db
+  {{- include "redis-vector-db.selectorLabels" . | nindent 4 }}
+  ports:
+	{{- .Values.redisVectorDb.ports | toYaml | nindent 2 -}}

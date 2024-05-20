@@ -1,0 +1,15 @@
+kubernetesClusterDomain: cluster.local
+redisVectorDb:
+  ports:
+  - name: redis-service
+    port: 6379
+    targetPort: 6379
+  - name: redis-insight
+    port: 8001
+    targetPort: 8001
+  redisVectorDb:
+    image:
+      repository: redis/redis-stack
+      tag: 7.2.0-v9
+  replicas: 1
+  type: NodePort
