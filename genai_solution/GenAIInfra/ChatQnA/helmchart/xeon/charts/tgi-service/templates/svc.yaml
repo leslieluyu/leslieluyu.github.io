@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ include "tgi-service.fullname" . }}-vc
+  name: {{ include "tgi-service.fullname" . }}-svc
   labels:
   {{- include "tgi-service.labels" . | nindent 4 }}
 spec:

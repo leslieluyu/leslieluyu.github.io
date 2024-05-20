@@ -1,4 +1,4 @@
-erviceDeploy:
+serviceDeploy:
   nodeSelector:
     llmdemo: "true"
   replicas: 1

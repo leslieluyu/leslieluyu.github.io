@@ -14,12 +14,14 @@ type: application
 # to the chart and its templates, including the app version.
 # Versions are expected to follow Semantic Versioning (https://semver.org/)
 dependencies:
-  - name redis-vector-db
-    version: "0.1.0"
-  - name tei-embedding-service
-    version: "0.1.0"
-  - name tgi-service
-    version: "0.1.0"
+  - name: qna-config
+    version: 0.1.0
+  - name: redis-vector-db
+    version: 0.1.0
+  - name: tei-embedding-service
+    version: 0.1.0
+  - name: tgi-service
+    version: 0.1.0
 
 version: 0.1.0
 # This is the version number of the application being deployed. This version number should be
