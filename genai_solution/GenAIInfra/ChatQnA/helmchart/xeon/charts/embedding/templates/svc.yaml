@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "embedding.fullname" . }}-svc
+  labels:
+  {{- include "embedding.labels" . | nindent 4 }}
+spec:
+  type: {{ .Values.svc.type }}
+  selector:
+    app: embedding-deploy
+  {{- include "embedding.selectorLabels" . | nindent 4 }}
+  ports:
+	{{- .Values.svc.ports | toYaml | nindent 2 }}

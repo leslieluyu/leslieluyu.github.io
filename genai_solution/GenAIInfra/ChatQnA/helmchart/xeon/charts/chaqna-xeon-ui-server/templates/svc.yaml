@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "chaqna-xeon-ui-server.fullname" . }}-svc
+  labels:
+  {{- include "chaqna-xeon-ui-server.labels" . | nindent 4 }}
+spec:
+  type: {{ .Values.svc.type }}
+  selector:
+    app: chaqna-xeon-ui-server-deploy
+  {{- include "chaqna-xeon-ui-server.selectorLabels" . | nindent 4 }}
+  ports:
+	{{- .Values.svc.ports | toYaml | nindent 2 }}

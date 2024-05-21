@@ -1,17 +1,17 @@
-erviceDeploy:
+serviceDeploy:
   replicas: 1
-  teiEmbeddingServiceDeploy:
+  teiRerankingServiceDeploy:
     args:
     - --model-id
-    - $(EMBEDDING_MODEL_ID)
+    - $(RERANK_MODEL_ID)
     image:
       repository: ghcr.io/huggingface/text-embeddings-inference
       tag: cpu-1.2
 kubernetesClusterDomain: cluster.local
-vc:
+svc:
   ports:
   - name: service
-    nodePort: 30606
-    port: 6006
+    nodePort: 30808
+    port: 8808
     targetPort: 80
   type: NodePort

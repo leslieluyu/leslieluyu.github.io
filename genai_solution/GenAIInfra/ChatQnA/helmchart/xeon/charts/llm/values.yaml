@@ -1,0 +1,14 @@
+deploy:
+  llmDeploy:
+    image:
+      repository: opea/gen-ai-comps
+      tag: llm-tgi-server
+  replicas: 1
+kubernetesClusterDomain: cluster.local
+svc:
+  ports:
+  - name: service
+    nodePort: 30900
+    port: 9000
+    targetPort: 9000
+  type: NodePort

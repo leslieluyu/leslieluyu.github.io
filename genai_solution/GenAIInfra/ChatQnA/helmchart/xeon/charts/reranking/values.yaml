@@ -1,0 +1,14 @@
+deploy:
+  replicas: 1
+  rerankingDeploy:
+    image:
+      repository: opea/gen-ai-comps
+      tag: reranking-tei-xeon-server
+kubernetesClusterDomain: cluster.local
+svc:
+  ports:
+  - name: service
+    nodePort: 30800
+    port: 8000
+    targetPort: 8000
+  type: NodePort

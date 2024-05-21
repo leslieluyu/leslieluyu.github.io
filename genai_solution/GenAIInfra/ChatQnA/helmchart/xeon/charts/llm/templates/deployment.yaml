@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "llm.fullname" . }}-deploy
+  labels:
+  {{- include "llm.labels" . | nindent 4 }}
+spec:
+  replicas: {{ .Values.deploy.replicas }}
+  selector:
+    matchLabels:
+      app: llm-deploy
+    {{- include "llm.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      labels:
+        app: llm-deploy
+      {{- include "llm.selectorLabels" . | nindent 8 }}
+      annotations:
+        sidecar.istio.io/rewriteAppHTTPProbers: "true"
+    spec:
+      containers:
+      - env:
+        - name: KUBERNETES_CLUSTER_DOMAIN
+          value: {{ quote .Values.kubernetesClusterDomain }}
+        - name: TGI_LLM_ENDPOINT
+          value: {{ .Values.global.qnaConfig.TGI_LLM_ENDPOINT | quote }}
+        - name: HUGGINGFACEHUB_API_TOKEN
+          value: {{ .Values.global.qnaConfig.HUGGINGFACEHUB_API_TOKEN | quote }}
+        image: {{ .Values.deploy.llmDeploy.image.repository }}:{{ .Values.deploy.llmDeploy.image.tag
+          | default .Chart.AppVersion }}
+        name: llm-deploy
+        ports:
+        - containerPort: 9000
+        resources: {}
+      hostIPC: true
+      serviceAccountName: default

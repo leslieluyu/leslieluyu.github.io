@@ -1,0 +1,14 @@
+deploy:
+  replicas: 1
+  retrieverDeploy:
+    image:
+      repository: opea/gen-ai-comps
+      tag: retriever-redis-server
+kubernetesClusterDomain: cluster.local
+svc:
+  ports:
+  - name: service
+    nodePort: 30700
+    port: 7000
+    targetPort: 7000
+  type: NodePort

@@ -1,0 +1,14 @@
+deploy:
+  embeddingDeploy:
+    image:
+      repository: opea/gen-ai-comps
+      tag: embedding-tei-server
+  replicas: 1
+kubernetesClusterDomain: cluster.local
+svc:
+  ports:
+  - name: service
+    nodePort: 30600
+    port: 6000
+    targetPort: 6000
+  type: NodePort

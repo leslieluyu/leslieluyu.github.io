@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "reranking.fullname" . }}-deploy
+  labels:
+  {{- include "reranking.labels" . | nindent 4 }}
+spec:
+  replicas: {{ .Values.deploy.replicas }}
+  selector:
+    matchLabels:
+      app: reranking-deploy
+    {{- include "reranking.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      labels:
+        app: reranking-deploy
+      {{- include "reranking.selectorLabels" . | nindent 8 }}
+      annotations:
+        sidecar.istio.io/rewriteAppHTTPProbers: "true"
+    spec:
+      containers:
+      - env:
+        - name: KUBERNETES_CLUSTER_DOMAIN
+          value: {{ quote .Values.kubernetesClusterDomain }}
+        - name: TEI_RERANKING_ENDPOINT
+          value: {{ .Values.global.qnaConfig.TEI_RERANKING_ENDPOINT | quote }}
+        - name: HUGGINGFACEHUB_API_TOKEN
+          value: {{ .Values.global.qnaConfig.HUGGINGFACEHUB_API_TOKEN | quote }}
+        image: {{ .Values.deploy.rerankingDeploy.image.repository }}:{{ .Values.deploy.rerankingDeploy.image.tag
+          | default .Chart.AppVersion }}
+        name: reranking-deploy
+        ports:
+        - containerPort: 8000
+        resources: {}
+      hostIPC: true
+      serviceAccountName: default

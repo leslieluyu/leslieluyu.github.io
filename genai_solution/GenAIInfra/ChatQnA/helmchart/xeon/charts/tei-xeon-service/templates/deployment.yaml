@@ -1,35 +1,35 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "tei-embedding-service.fullname" . }}-ervice-deploy
+  name: {{ include "tei-xeon-service.fullname" . }}-ervice-deploy
   labels:
-  {{- include "tei-embedding-service.labels" . | nindent 4 }}
+  {{- include "tei-xeon-service.labels" . | nindent 4 }}
 spec:
   replicas: {{ .Values.serviceDeploy.replicas }}
   selector:
     matchLabels:
-      app: tei-embedding-service-deploy
-    {{- include "tei-embedding-service.selectorLabels" . | nindent 6 }}
+      app: tei-reranking-service-deploy
+    {{- include "tei-xeon-service.selectorLabels" . | nindent 6 }}
   template:
     metadata:
       labels:
-        app: tei-embedding-service-deploy
-      {{- include "tei-embedding-service.selectorLabels" . | nindent 8 }}
+        app: tei-reranking-service-deploy
+      {{- include "tei-xeon-service.selectorLabels" . | nindent 8 }}
       annotations:
         sidecar.istio.io/rewriteAppHTTPProbers: "true"
     spec:
       containers:
-      - args: {{- toYaml .Values.serviceDeploy.teiEmbeddingServiceDeploy.args | nindent
+      - args: {{- toYaml .Values.serviceDeploy.teiRerankingServiceDeploy.args | nindent
           8 }}
         env:
         - name: KUBERNETES_CLUSTER_DOMAIN
           value: {{ quote .Values.kubernetesClusterDomain }}
-        - name: EMBEDDING_MODEL_ID
-          value: {{ .Values.global.qnaConfig.EMBEDDING_MODEL_ID | quote }}          
-        image: {{ .Values.serviceDeploy.teiEmbeddingServiceDeploy.image.repository }}:{{
-          .Values.serviceDeploy.teiEmbeddingServiceDeploy.image.tag | default .Chart.AppVersion
+        - name: RERANK_MODEL_ID
+          value: {{ .Values.global.qnaConfig.RERANK_MODEL_ID | quote }}
+        image: {{ .Values.serviceDeploy.teiRerankingServiceDeploy.image.repository }}:{{
+          .Values.serviceDeploy.teiRerankingServiceDeploy.image.tag | default .Chart.AppVersion
           }}
-        name: tei-embedding-service-deploy
+        name: tei-reranking-service-deploy
         ports:
         - containerPort: 80
         resources: {}

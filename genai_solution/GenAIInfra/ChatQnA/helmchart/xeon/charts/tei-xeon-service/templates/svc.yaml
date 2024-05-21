@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "tei-xeon-service.fullname" . }}-svc
+  labels:
+  {{- include "tei-xeon-service.labels" . | nindent 4 }}
+spec:
+  type: {{ .Values.svc.type }}
+  selector:
+    app: tei-reranking-service-deploy
+  {{- include "tei-xeon-service.selectorLabels" . | nindent 4 }}
+  ports:
+	{{- .Values.svc.ports | toYaml | nindent 2 }}

@@ -23,9 +23,8 @@ spec:
         env:
         - name: KUBERNETES_CLUSTER_DOMAIN
           value: {{ quote .Values.kubernetesClusterDomain }}
-        envFrom:
-        - configMapRef:
-            name: qna-config
+        - name: LLM_MODEL_ID
+          value: {{ .Values.global.qnaConfig.LLM_MODEL_ID | quote }}
         image: {{ .Values.serviceDeploy.tgiServiceDeployDemo.image.repository }}:{{ .Values.serviceDeploy.tgiServiceDeployDemo.image.tag
           | default .Chart.AppVersion }}
         name: tgi-service-deploy-demo

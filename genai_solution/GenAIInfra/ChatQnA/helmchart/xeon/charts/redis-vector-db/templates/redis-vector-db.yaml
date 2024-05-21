@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ include "redis-vector-db.fullname" . }}-redis-vector-db
+  name: {{ include "redis-vector-db.fullname" . }}
   labels:
   {{- include "redis-vector-db.labels" . | nindent 4 }}
 spec:

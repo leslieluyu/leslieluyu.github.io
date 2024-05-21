@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "embedding.fullname" . }}-deploy
+  labels:
+  {{- include "embedding.labels" . | nindent 4 }}
+spec:
+  replicas: {{ .Values.deploy.replicas }}
+  selector:
+    matchLabels:
+      app: embedding-deploy
+    {{- include "embedding.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      labels:
+        app: embedding-deploy
+      {{- include "embedding.selectorLabels" . | nindent 8 }}
+      annotations:
+        sidecar.istio.io/rewriteAppHTTPProbers: "true"
+    spec:
+      containers:
+      - env:
+        - name: KUBERNETES_CLUSTER_DOMAIN
+          value: {{ quote .Values.kubernetesClusterDomain }}
+        - name: TEI_EMBEDDING_ENDPOINT
+          value: {{ .Values.global.qnaConfig.TEI_EMBEDDING_ENDPOINT | quote }}  
+        image: {{ .Values.deploy.embeddingDeploy.image.repository }}:{{ .Values.deploy.embeddingDeploy.image.tag
+          | default .Chart.AppVersion }}
+        name: embedding-deploy
+        ports:
+        - containerPort: 6000
+        resources: {}
+      hostIPC: true
+      serviceAccountName: default

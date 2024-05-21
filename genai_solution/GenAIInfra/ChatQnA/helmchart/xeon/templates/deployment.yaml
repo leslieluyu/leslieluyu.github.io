@@ -22,9 +22,8 @@ spec:
       - env:
         - name: KUBERNETES_CLUSTER_DOMAIN
           value: {{ quote .Values.kubernetesClusterDomain }}
-        envFrom:
-        - configMapRef:
-            name: qna-config
+        - name: MEGA_SERVICE_HOST_IP
+          value: {{ .Values.global.qnaConfig.MEGA_SERVICE_HOST_IP | quote }}
         image: {{ .Values.deploy.chaqnaXeonBackendServerDeploy.image.repository }}:{{ .Values.deploy.chaqnaXeonBackendServerDeploy.image.tag
           | default .Chart.AppVersion }}
         name: chaqna-xeon-backend-server-deploy

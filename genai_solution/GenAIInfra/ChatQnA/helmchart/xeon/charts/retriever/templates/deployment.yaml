@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "retriever.fullname" . }}-deploy
+  labels:
+  {{- include "retriever.labels" . | nindent 4 }}
+spec:
+  replicas: {{ .Values.deploy.replicas }}
+  selector:
+    matchLabels:
+      app: retriever-deploy
+    {{- include "retriever.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      labels:
+        app: retriever-deploy
+      {{- include "retriever.selectorLabels" . | nindent 8 }}
+      annotations:
+        sidecar.istio.io/rewriteAppHTTPProbers: "true"
+    spec:
+      containers:
+      - env:
+        - name: KUBERNETES_CLUSTER_DOMAIN
+          value: {{ quote .Values.kubernetesClusterDomain }}
+        - name: REDIS_URL
+          value: {{ .Values.global.qnaConfig.REDIS_URL | quote }}  
+        - name: INDEX_NAME
+          value: {{ .Values.global.qnaConfig.INDEX_NAME | quote }}  
+        - name: TEI_EMBEDDING_ENDPOINT
+          value: {{ .Values.global.qnaConfig.TEI_EMBEDDING_ENDPOINT | quote }}  
+
+        image: {{ .Values.deploy.retrieverDeploy.image.repository }}:{{ .Values.deploy.retrieverDeploy.image.tag
+          | default .Chart.AppVersion }}
+        name: retriever-deploy
+        ports:
+        - containerPort: 6000
+        resources: {}
+      hostIPC: true
+      serviceAccountName: default
