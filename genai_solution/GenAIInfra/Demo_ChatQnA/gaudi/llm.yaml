@@ -24,7 +24,8 @@ spec:
       - envFrom:
         - configMapRef:
             name: qna-config
-        image: opea/gen-ai-comps:llm-tgi-server
+        image: opea/llm-tgi:latest
+        imagePullPolicy: IfNotPresent
         name: llm-deploy
         args:
         ports:
@@ -36,11 +37,10 @@ apiVersion: v1
 metadata:
   name: llm-svc
 spec:
-  type: NodePort
+  type: ClusterIP
   selector:
     app: llm-deploy
   ports:
     - name: service
       port: 9000
       targetPort: 9000
-      nodePort: 30900

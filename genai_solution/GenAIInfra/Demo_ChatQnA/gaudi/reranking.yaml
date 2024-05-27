@@ -24,7 +24,8 @@ spec:
       - envFrom:
         - configMapRef:
             name: qna-config
-        image: opea/gen-ai-comps:reranking-tei-server
+        image: opea/reranking-tei:latest
+        imagePullPolicy: IfNotPresent
         name: reranking-deploy
         args:
         ports:

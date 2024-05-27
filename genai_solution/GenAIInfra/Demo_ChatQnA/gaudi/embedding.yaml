@@ -24,7 +24,8 @@ spec:
       - envFrom:
         - configMapRef:
             name: qna-config
-        image: opea/gen-ai-comps:embedding-tei-server
+        image: opea/embedding-tei:latest
+        imagePullPolicy: IfNotPresent
         name: embedding-deploy
         args:
         ports:

@@ -24,11 +24,12 @@ spec:
       - envFrom:
         - configMapRef:
             name: qna-config
-        image: opea/gen-ai-comps:retriever-redis-server
+        image: opea/retriever-redis:latest
+        imagePullPolicy: IfNotPresent
         name: retriever-deploy
         args:
         ports:
-        - containerPort: 6000
+        - containerPort: 7000
       serviceAccountName: default
 ---
 kind: Service

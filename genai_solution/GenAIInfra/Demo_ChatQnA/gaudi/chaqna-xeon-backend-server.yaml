@@ -24,7 +24,8 @@ spec:
       - envFrom:
         - configMapRef:
             name: qna-config
-        image: opea/gen-ai-comps:chatqna-megaservice-server
+        image: opea/chatqna:latest
+        imagePullPolicy: IfNotPresent
         name: chaqna-xeon-backend-server-deploy
         args:
         ports:

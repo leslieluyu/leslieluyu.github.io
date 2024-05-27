@@ -29,11 +29,6 @@ spec:
         args:
         - --model-id
         - $(LLM_MODEL_ID)
-        #- "/data/Llama-2-7b-hf"
-        # - "/data/Mistral-7B-Instruct-v0.2"
-        # - --quantize
-        # - "bitsandbytes-fp4"
-#        - --disable-custom-kernels
         volumeMounts:
         - mountPath: /data
           name: model-volume
@@ -44,19 +39,13 @@ spec:
         resources:
           limits:
             habana.ai/gaudi: 1
-          # limits:
-          #   cpu: 56000m
-          #   memory: 26Gi
-          # requests:
-          #   cpu: 56000m
-          #   memory: 26Gi
       serviceAccountName: default
       nodeSelector:
       volumes:
       - name: model-volume
         hostPath:
           # directory location on host
-          path: /mnt/data0/weights
+          path: /mnt/models
           # this field is optional
           type: Directory
       - name: shm

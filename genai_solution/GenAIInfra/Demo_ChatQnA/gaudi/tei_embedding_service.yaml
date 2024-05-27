@@ -47,7 +47,7 @@ spec:
       - name: model-volume
         hostPath:
           # directory location on host
-          path: /mnt/data0/weights
+          path: /mnt/models
           # this field is optional
           type: Directory
       - name: shm
