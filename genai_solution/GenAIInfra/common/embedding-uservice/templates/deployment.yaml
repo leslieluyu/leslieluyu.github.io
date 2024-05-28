@@ -31,33 +31,15 @@ spec:
         - name: {{ .Release.Name }}
           env:
             - name: TEI_EMBEDDING_ENDPOINT
-              value: {{ .Values.global.qnaConfig.TEI_EMBEDDING_ENDPOINT | quote }}
-            - name: HUGGINGFACEHUB_API_TOKEN
-              value: {{ .Values.global.qnaConfig.TEI_EMBEDDING_ENDPOINT | quote }}
+              value: "http://{{ .Release.Name }}-tei:{{ .Values.tei.service.port }}"
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}"
-          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          imagePullPolicy: IfNotPresent
           ports:
-            - name: embedding-uservice
-              containerPort: 9000
+            - name: embedding-usvc
+              containerPort:  {{ .Values.service.targetPort }}
               protocol: TCP
-          startupProbe:
-            exec:
-              command:
-              - curl
-              - http://{{ .Release.Name }}-tgi
-            initialDelaySeconds: 5
-            periodSeconds: 5
-            failureThreshold: 120
-#          livenessProbe:
-#            httpGet:
-#              path: /
-#              port: 9000
-#          readinessProbe:
-#            httpGet:
-#              path: /
-#              port: 9000
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       {{- with .Values.nodeSelector }}

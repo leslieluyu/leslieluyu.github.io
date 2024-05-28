@@ -1,32 +1,27 @@
-# tei
+# embedding-uservice
 
-Helm chart for deploying Hugging Face Text Generation Inference service.
+Helm chart for deploying embedding microservice.
+
+embedding-uservice depends on TEI, refer to tei for more config details.
 
 ## Installing the Chart
 
 To install the chart, run the following:
 
 ```console
-$ export MODELDIR=/mnt
-$ export MODELNAME="bigscience/bloom-560m"
-$ helm install tei tei --set hftei.volume=${MODELDIR} --set hftei.modelId=${MODELNAME}
+$ export HFTOKEN="insert-your-huggingface-token-here"
+$ export MODELDIR="/mnt"
+$ export MODELNAME="m-a-p/OpenCodeInterpreter-DS-6.7B"
+$ helm install embedding embedding-uservice --set HUGGINGFACEHUB_API_TOKEN=${HFTOKEN} --set tei.volume=${MODELDIR} --set tei.embedding_MODEL_ID=${MODELNAME}
 ```
-
-By default, the tei service will downloading the "bigscience/bloom-560m" which is about 1.1GB.
-
-If you already cached the model locally, you can pass it to container like this example:
-
-MODELDIR=/home/ubuntu/hfmodels
-
-MODELNAME="/data/models--bigscience--bloom-560m"
 
 ## Values
 
-| Key           | Type   | Default                                           | Description                                                                                                                              |
-| ------------- | ------ | ------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
-| hftei.modelId | string | `"BAAI/bge-base-en-v1.5"`                         | Models id from https://huggingface.co/, or predownloaded model directory                                                                 |
-| hftei.port    | string | `"80"`                                            | Hugging Face Text Generation Inference service port                                                                                      |
-| hftei.volume  | string | `"/mnt/model"`                                          | Cached models directory, tei will not download if the model is cached here. The "volume" will be mounted to container as /data directory |
-| hftei.image   | string | `"ghcr.io/huggingface/text-embeddings-inference"` |                                                                                                                                          |
-| hftei.tag     | string | `"cpu-1.2"`                                           |                                                                                                                                          |
-| service.port  | string | `"80"`                                            | The service port                                                                                                                         |
+| Key                      | Type   | Default                               | Description                                                                                                                              |
+| ------------------------ | ------ | ------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| HUGGINGFACEHUB_API_TOKEN | string | `""`                                  | Your own Hugging Face API token                                                                                                          |
+| image.repository         | string | `"opea/embedding-tgi:latest"`               |                                                                                                                                          |
+| service.port             | string | `"9000"`                              |                                                                                                                                          |
+| tei.EMBEDDING_MODEL_ID         | string | `"m-a-p/OpenCodeInterpreter-DS-6.7B"` | Models id from https://huggingface.co/, or predownloaded model directory                                                                 |
+| tei.port                 | string | `"80"`                                | Hugging Face Text Generation Inference service port                                                                                      |
+| tei.volume               | string | `"/mnt"`                              | Cached models directory, tgi will not download if the model is cached here. The "volume" will be mounted to container as /data directory |

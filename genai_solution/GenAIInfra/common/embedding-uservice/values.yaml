@@ -1,18 +1,18 @@
 # Copyright (C) 2024 Intel Corporation
 # SPDX-License-Identifier: Apache-2.0
 
-# Default values for llm-uservice.
+# Default values for embedding-uservice.
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
 replicaCount: 1
-
+HUGGINGFACEHUB_API_TOKEN: "insert-your-huggingface-token-here"
 
 image:
-  repository: opea/gen-ai-comps:embedding-tei-server
+  repository: opea/embedding-tei:latest
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  # tag: "1.0"
+  #tag: "1.0"
 
 imagePullSecrets: []
 nameOverride: ""
@@ -33,9 +33,9 @@ securityContext: {}
 
 service:
   type: ClusterIP
-  # The default port for llm service is 9000
-  port: 6000
-  targetPort: 6000 
+  # The default port for embedding service is 9000
+  port: 6006
+  targetPort: 80
 
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious
@@ -55,30 +55,14 @@ tolerations: []
 
 affinity: {}
 
-# To override values in subchart tei
+# To override values in subchart tgi
 tei:
+  EMBEDDING_MODEL_ID: "BAAI/bge-base-en-v1.5"
   hftei:
-    modelId: m-a-p/OpenCodeInterpreter-DS-6.7B
-    # modelId: /data/OpenCodeInterpreter-DS-6.7B
-    port: 80
     volume: /mnt/model
 
   image:
-    repository: ghcr.io/huggingface/text-generation-inference
+    repository: ghcr.io/huggingface/text-embeddings-inference
     pullPolicy: IfNotPresent
     # Overrides the image tag whose default is the chart appVersion.
-    tag: "1.4"
-
-global:
-  qnaConfig:
-    REDIS_URL: "redis://chaqna-xeon-redis-vector-db.default.svc.cluster.local:6379"
-    INDEX_NAME: "rag-redis"
-    EMBEDDING_MODEL_ID: "BAAI/bge-base-en-v1.5"
-    RERANK_MODEL_ID: "BAAI/bge-reranker-large"
-    LLM_MODEL_ID: "Intel/neural-chat-7b-v3-3"
-    TEI_EMBEDDING_ENDPOINT: "http://chaqna-xeon-tei-embedding-service-svc.default.svc.cluster.local:6006"
-    TEI_RERANKING_ENDPOINT: "http://chaqna-xeon-tei-xeon-service-svc.default.svc.cluster.local:8808"
-    TGI_LLM_ENDPOINT: "http://chaqna-xeon-tgi-service-svc.default.svc.cluster.local:9009"
-    MEGA_SERVICE_HOST_IP: "172.16.3.15"
-    HUGGINGFACEHUB_API_TOKEN: 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
-    CHAT_BASE_URL: "${chat_qna_backendurl}/v1/chatqna"
+    tag: "cpu-1.2"
