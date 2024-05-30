@@ -1,0 +1,88 @@
+-- Max concurrent requests
+local maxConcurrent = 3 -- #tonumber(wrk.args[1]) 
+
+-- Request body
+local reqBody = '{"prompt": "What is AI?", "history": []}' --  wrk.args[2]
+
+-- Target URL
+local url = "v1/completions" -- wrk.args[3]  
+
+-- Pending requests counter
+local pending = 0
+
+-- Queue for failed requests
+local queue = {}
+
+-- Function to retry requests
+function requests(req)
+  pending = pending + 1
+  
+  local res, err = wrk.format("POST", url, req)
+  return res, err  
+end
+
+-- Init prints args
+function init(args)
+ if not wrk.args then
+    print("Required arguments missing!") 
+ else
+    print("Arguments:")
+    for i,v in ipairs(wrk.args) do
+        print(i,v)
+    end
+ end
+  wrk.headers["Content-Type"] = "application/json"
+  wrk.thread:sleep(1)
+end
+
+-- Request function
+function request()
+  
+  if pending >= maxConcurrent then
+    wrk.thread:sleep(1) 
+    return
+  end
+
+  pending = pending + 1
+
+  local res, err = requests(reqBody)
+
+  if res then
+   
+    local status, headers, body = wrk.response()
+    pending = pending - 1
+    return res, err
+  
+  elseif err == "SOCKET_ERROR : Connection refused" then
+   
+    table.insert(queue, 1, {res, err})
+  
+  else
+   
+    pending = pending - 1
+    return nil, err
+  end
+
+end
+
+-- Response handler  
+function response(status, headers, body)
+
+  if status == 502 then
+    
+    if #queue > 0 then
+      local req = table.remove(queue)
+      requests(req) 
+    end
+
+  end
+
+  pending = pending - 1
+
+  if pending < maxConcurrent and #queue > 0 then
+    
+    local req = table.remove(queue)
+    requests(req)
+  end
+
+end

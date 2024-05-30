@@ -1,0 +1,19 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: llm-deploy
+  labels:
+    app: llm-deploy
+spec:
+  type: NodePort
+  selector:
+    app: llm-deploy
+  ports:
+    - name: service
+      port: 8080
+      targetPort: 8000
+      nodePort: 30021
+    - name: metric-service
+      port: 8090
+      targetPort: 8090
+      nodePort: 30022

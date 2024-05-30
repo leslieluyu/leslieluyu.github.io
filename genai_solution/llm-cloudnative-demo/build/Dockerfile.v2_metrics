@@ -1,0 +1,63 @@
+ARG UBUNTU_VER=22.04
+FROM ubuntu:${UBUNTU_VER} as demo
+
+# See http://bugs.python.org/issue19846
+ENV LANG C.UTF-8
+#ENV http_proxy http://proxy-dmz.intel.com:911
+#ENV https_proxy http://proxy-dmz.intel.com:912
+#ENV no_proxy localhost,127.0.0.1,*.intel.com
+
+# ARG BRANCH=main
+# ARG REPO=https://github.com/intel-sandbox/cloud.performance.generative.ai.workload.git
+
+SHELL ["/bin/bash", "--login", "-c"]
+
+# Install system dependencies
+RUN apt-get update && apt-get install -y --no-install-recommends --fix-missing \
+    autoconf \
+    build-essential \
+    git \
+    libgl1-mesa-glx \
+    libglib2.0-0 \
+    numactl \
+    time \
+    wget \
+    && rm -rf /var/lib/apt/lists/*
+
+# Install and config conda
+RUN wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh --no-check-certificate -O /tmp/miniconda.sh && \
+    /bin/bash /tmp/miniconda.sh -b -p /opt/miniconda3 && \
+    rm /tmp/miniconda.sh
+ENV PATH /opt/miniconda3/bin:$PATH
+# RUN conda init bash
+RUN conda create -n llmenv python=3.9 -y
+# Make RUN commands use the new environment:
+RUN echo "conda activate llmenv" >> ~/.bashrc
+SHELL ["conda", "run", "-n", "llmenv", "/bin/bash", "-c"]
+
+# RUN pip install --no-cache-dir --upgrade pip
+# RUN pip install --no-cache-dir setuptools
+
+# Download the code
+# RUN git clone --single-branch --branch=${BRANCH} ${REPO} /llm-workload
+WORKDIR /app
+
+COPY api.py adapter.py convert.py model_worker.py utils.py ./
+COPY llm_metrics.py llm_metrics.py
+COPY requirements-all.txt requirements.txt
+RUN python --version
+RUN pip install -r requirements.txt --no-cache-dir
+RUN rm requirements.txt
+# Replace libraries for performance data collection
+COPY extension/transformers/utils.py /opt/miniconda3/envs/llmenv/lib/python3.9/site-packages/transformers/generation/utils.py
+COPY extension/bigdl-llm-cpp/llama.py /opt/miniconda3/envs/llmenv/lib/python3.9/site-packages/bigdl/llm/ggml/model/llama/llama.py
+COPY extension/bigdl-llm-cpp/llama_types.py /opt/miniconda3/envs/llmenv/lib/python3.9/site-packages/bigdl/llm/ggml/model/llama/llama_types.py
+
+# KMP
+ENV KMP_BLOCKTIME=1
+ENV KMP_SETTINGS=1
+ENV KMP_AFFINITY=granularity=fine,compact,1,0
+# OMP
+ENV OMP_NUM_THREADS=36
+
+CMD ["numactl", "-C", "0-35", "-m", "0", "conda", "run", "--no-capture-output", "-n", "llmenv", "python", "api.py"]

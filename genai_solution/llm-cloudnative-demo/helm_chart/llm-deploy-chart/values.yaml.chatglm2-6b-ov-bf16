@@ -1,0 +1,35 @@
+kubernetesClusterDomain: cluster.local
+llmDeploy:
+  llmDeployDemo:
+    env:
+      framework: openvino
+      llamaCppThreads: "16"
+      metricPort: "8090"
+      modelDtype: bf16
+      modelName: chatglm2-6b
+      modelPath: /models/chatglm2-6b-ov
+      ompNumThreads: "16"
+      svcPort: "8000"
+    image:
+      repository: ccr-registry.caas.intel.com/cnbench/llm-server 
+      tag: v2-slim-latest 
+    resources:
+      limits:
+        cpu: "16"
+        memory: 60Gi
+      requests:
+        cpu: "16"
+        memory: 60Gi
+  nodeSelector:
+    llmdemo: "true"
+  ports:
+  - name: service
+    nodePort: 30021
+    port: 8080
+    targetPort: 8000
+  - name: metric-service
+    nodePort: 30022
+    port: 8090
+    targetPort: 8090
+  replicas: 1
+  type: NodePort

@@ -1,0 +1,9 @@
+Running 1s test @ http://llm.intel.com
+  3 threads and 3 connections
+  Thread Stats   Avg      Stdev     99%   +/- Stdev
+    Latency     -nanus    -nanus   0.00us    0.00%
+    Req/Sec       -nan      -nan   0.00      0.00%
+  3 requests in 1.01s, 549.00B read
+  Non-2xx or 3xx responses: 3
+Requests/sec:      2.97
+Transfer/sec:     544.32B

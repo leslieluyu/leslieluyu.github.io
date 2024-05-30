@@ -1,0 +1,77 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: llm-deploy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: llm-deploy
+  template:
+    metadata:
+      annotations:
+        sidecar.istio.io/rewriteAppHTTPProbers: "true"
+      labels:
+        app: llm-deploy
+    spec:
+      nodeSelector:
+        llmdemo: "true"
+      containers:
+      - env:
+        - name: OMP_NUM_THREADS
+          value: "16"
+        - name: MODEL_NAME
+          value: "chatglm2-6b"
+        - name: MODEL_PATH
+          value: "/models/chatglm2-6b"
+        - name: MODEL_DTYPE
+          value: "fp16"
+        - name: SVC_PORT
+          value: "8000"
+        - name: METRIC_PORT
+          value: "8090"
+        image: docker201904/llm-inference-api:chatglm2.v1-metrics-port
+        name: llm-deploy-demo
+        command: ["python3","llm_inference_api.py"]
+        volumeMounts:
+        - mountPath: /models
+          name: model-volume
+        ports:
+        - containerPort: 8000
+        - containerPort: 8090
+        resources:
+          limits:
+            cpu: 16000m
+            memory: 26Gi
+          requests:
+            cpu: 16000m
+            memory: 26Gi
+      serviceAccountName: default
+      volumes:
+      - name: model-volume
+        hostPath:
+          # directory location on host
+          path: /mnt/model
+          # this field is optional
+          type: Directory
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: llm-deploy
+  labels:
+    app: llm-deploy
+spec:
+  type: NodePort
+  selector:
+    app: llm-deploy
+  ports:
+    - name: service
+      port: 8080
+      targetPort: 8000
+      nodePort: 30021
+    - name: metric-service
+      port: 8090
+      targetPort: 8090
+      nodePort: 30022

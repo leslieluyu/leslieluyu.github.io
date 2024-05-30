@@ -1,0 +1,35 @@
+kubernetesClusterDomain: cluster.local
+llmDeploy:
+  llmDeployDemo:
+    env:
+      framework: xfastertransformer
+      llamaCppThreads: "16"
+      metricPort: "8090"
+      modelDtype: fp16
+      modelName: qwen-7b-chat
+      modelPath: /models/qwen-7b-chat-xft
+      ompNumThreads: "16"
+      svcPort: "8000"
+    image:
+      repository: ccr-registry.caas.intel.com/cnbench/llm-server 
+      tag: v2-slim-latest 
+    resources:
+      limits:
+        cpu: "16"
+        memory: 16Gi
+      requests:
+        cpu: "16"
+        memory: 16Gi
+  nodeSelector:
+    llmdemo: "true"
+  ports:
+  - name: service
+    nodePort: 30021
+    port: 8080
+    targetPort: 8000
+  - name: metric-service
+    nodePort: 30022
+    port: 8090
+    targetPort: 8090
+  replicas: 1
+  type: NodePort

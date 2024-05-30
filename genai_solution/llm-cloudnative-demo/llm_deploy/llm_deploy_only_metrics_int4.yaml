@@ -1,0 +1,68 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: llm-deploy
+  labels:
+     app: llm-deploy-multi
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: llm-deploy
+  template:
+    metadata:
+      annotations:
+        sidecar.istio.io/rewriteAppHTTPProbers: "true"
+      labels:
+        app: llm-deploy
+    spec:
+      nodeSelector:
+        llmdemo: "true"
+      containers:
+      - env:
+        - name: OMP_NUM_THREADS
+          value: "16"
+        - name: LLAMA_CPP_THREADS
+          value: "16"
+        - name: MODEL_NAME
+          value: "chatglm2-6b"
+        - name: MODEL_PATH
+          value: "/models/chatglm2-6b"
+        - name: MODEL_DTYPE
+          value: "int4"
+        - name: FRAMEWORK
+          value: "bigdl-llm-transformers"
+        - name: SVC_PORT
+          value: "8000"
+        - name: METRIC_PORT
+          value: "8090"
+        #image: ccr-registry.caas.intel.com/cnbench/llm-inference-api:chatglm2.v1-metrics-port
+        #image: docker201904/llm-inference-api:chatglm2.v1-metrics-new
+        image: docker201904/llm-inference-api:v2_metrics
+        #image: chzhyang/llm-inference-api:v1
+        name: llm-deploy-demo
+        #command: ["python3","llm_inference_api.py"]
+        command: ["conda", "run", "--no-capture-output", "-n", "llmenv", "python", "api.py"]
+        volumeMounts:
+        - mountPath: /models
+          name: model-volume
+        ports:
+        - containerPort: 8000
+        - containerPort: 8090
+        resources:
+          limits:
+            cpu: 16
+            memory: 26Gi
+          requests:
+            cpu: 16
+            memory: 26Gi
+      serviceAccountName: default
+      volumes:
+      - name: model-volume
+        hostPath:
+          # directory location on host
+          path: /mnt/model
+          # this field is optional
+          type: Directory
+

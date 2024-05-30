@@ -1,0 +1,122 @@
+{
+    "prompts" : {
+    "11:8":   "?",
+    "12:8":   "of the",
+    "16:46": "over the years it has been",
+    "27:7": "the quick brown fox jumped over the lazy dog and then went on a long walk around",
+    "30:2": "the constitution provides a framework for the government of the country and establishes institutions powers and duties of various institutions",
+    "44:3": "the latest research shows promise in using machine learning techniques to analyze medical images and assist doctors in detecting diseases early however there are still challenges in ensuring the systems are unbiased",
+    "79:36": "the latest research shows promise in using machine learning techniques to analyze medical images and assist doctors in detecting diseases early however there are still challenges in ensuring the systems are unbiased.the latest research shows promise in using machine learning techniques to analyze medical images and assist doctors in detecting diseases early however there are still challenges in ensuring the systems are unbiased",
+    "149:36": "the latest research shows promise in using machine learning techniques to analyze medical images and assist doctors in detecting diseases early however there are still challenges in ensuring the systems are unbiased.the latest research shows promise in using machine learning techniques to analyze medical images and assist doctors in detecting diseases early however there are still challenges in ensuring the systems are unbiased. the latest research shows promise in using machine learning techniques to analyze medical images and assist doctors in detecting diseases early however there are still challenges in ensuring the systems are unbiased.the latest research shows promise in using machine learning techniques to analyze medical images and assist doctors in detecting diseases early however there are still challenges in ensuring the systems are unbiased",
+    "257:842": "Please provide a detailed story  no less than 512 tokens in length.  At daybreak the young hero embarked on a perilous journey through the misty vale. Wary of lurking beasts, he tread lightly over the damp earth. In the distance, a majestic castle loomed over the horizon. The lad hoped to find refuge there. As the sun rose over the hills, its brilliant rays illuminated the landscape. The dense fog began to dissipate, revealing a winding path. Cautious, the traveler gripped his walking stick and proceeded ahead. He soon arrived at a fork in the road. Unsure which route to take, he chose the path to the left. After some time, he came upon a babbling brook. The cool water looked inviting. Kneeling down to take a drink, he noticed tiny fish swimming along with the current. He watched them for a moment, then continued on. Before long, the trail became rocky and steep. Clambering over large boulders, he reached a sheer cliffside. There was no choice but to scale the precipice. Please generate an article of 2024  words",
+    "576:694": "Please provide a detailed story  no less than 512 tokens in length, At daybreak the young hero embarked on a perilous journey through the misty vale. Wary of lurking beasts, he tread lightly over the damp earth. In the distance, a majestic castle loomed over the horizon. The lad hoped to find refuge there. As the sun rose over the hills, its brilliant rays illuminated the landscape. The dense fog began to dissipate, revealing a winding path. Cautious, the traveler gripped his walking stick and proceeded ahead. He soon arrived at a fork in the road. Unsure which route to take, he chose the path to the left. After some time, he came upon a babbling brook. The cool water looked inviting. Kneeling down to take a drink, he noticed tiny fish swimming along with the current. He watched them for a moment, then continued on. Before long, the trail became rocky and steep. Clambering over large boulders, he reached a sheer cliffside. There was no choice but to scale the precipice. Finding handholds in the rock face, he started to climb. It was arduous work. His muscles ached but he persevered, finally pulling himself up onto a ledge. He sat there catching his breath and gazed out at the vistas before him. In the far distance, he could make out the turrets of the castle. It gave him hope. With renewed vigor, the lad ventured upward. As the sun passed its zenith, he neared the summit. Glancing back, he saw how far he had come. Towering pines now looked diminutive from this height. Pressing forward, he pushed through waist-high drifts of snow. Icy winds nipped at his cheeks but could not deter him. At last he reached the top. An immense valley spread out below. Nestled within was the majestic castle, now close at hand. But the final stretch would prove the most perilous. Hugging the mountainside, he inched along a narrow outcropping with a precipitous drop. He dared not look down. The risk was great, but he trusted in his abilities. Inch by inch he traversed the ledge, finally reaching more stable ground. From there, it was a short hike to the castle gates. He arrived there exhausted but jubilant. The grand wooden doors slowly opened, and he was greeted by a friendly maiden. Welcome to our castle, brave lad, she said. Stay and rest here as long as you like. At last, he had found a sanctuary. His long journey was at an end.",
+    "1050:607": "Please provide a detailed story  no less than 1024 tokens in length. based on my input: Continue this story no less than 1024 words: At daybreak the young hero embarked on a perilous journey through the misty vale. Wary of lurking beasts, he tread lightly over the damp earth. In the distance, a majestic castle loomed over the horizon. The lad hoped to find refuge there. As the sun rose over the hills, its brilliant rays illuminated the landscape. The dense fog began to dissipate, revealing a winding path. Cautious, the traveler gripped his walking stick and proceeded ahead. He soon arrived at a fork in the road. Unsure which route to take, he chose the path to the left. After some time, he came upon a babbling brook. The cool water looked inviting. Kneeling down to take a drink, he noticed tiny fish swimming along with the current. He watched them for a moment, then continued on. Before long, the trail became rocky and steep. Clambering over large boulders, he reached a sheer cliffside. There was no choice but to scale the precipice. Finding handholds in the rock face, he started to climb. It was arduous work. His muscles ached but he persevered, finally pulling himself up onto a ledge. He sat there catching his breath and gazed out at the vistas before him. In the far distance, he could make out the turrets of the castle. It gave him hope. With renewed vigor, the lad ventured upward. As the sun passed its zenith, he neared the summit. Glancing back, he saw how far he had come. Towering pines now looked diminutive from this height. Pressing forward, he pushed through waist-high drifts of snow. Icy winds nipped at his cheeks but could not deter him. At last he reached the top. An immense valley spread out below. Nestled within was the majestic castle, now close at hand. But the final stretch would prove the most perilous. Hugging the mountainside, he inched along a narrow outcropping with a precipitous drop. He dared not look down. The risk was great, but he trusted in his abilities. Inch by inch he traversed the ledge, finally reaching more stable ground. From there, it was a short hike to the castle gates. He arrived there exhausted but jubilant. The grand wooden doors slowly opened, and he was greeted by a friendly maiden. Welcome to our castle, brave lad, she said. Stay and rest here as long as you like. At last, he had found a sanctuary. His long journey was at an end. At daybreak the young hero embarked on a perilous journey through the misty vale. Wary of lurking beasts, he tread lightly over the damp earth. In the distance, a majestic castle loomed over the horizon. The lad hoped to find refuge there. As the sun rose over the hills, its brilliant rays illuminated the landscape. The dense fog began to dissipate, revealing a winding path. Cautious, the traveler gripped his walking stick and proceeded ahead. He soon arrived at a fork in the road. Unsure which route to take, he chose the path to the left. After some time, he came upon a babbling brook. The cool water looked inviting. Kneeling down to take a drink, he noticed tiny fish swimming along with the current. He watched them for a moment, then continued on. Before long, the trail became rocky and steep. Clambering over large boulders, he reached a sheer cliffside. There was no choice but to scale the precipice. Finding handholds in the rock face, he started to climb. It was arduous work. His muscles ached but he persevered, finally pulling himself up onto a ledge. He sat there catching his breath and gazed out at the vistas before him. In the far distance, he could make out the turrets of the castle. It gave him hope. With renewed vigor, the lad ventured upward. As the sun passed its zenith, he neared the summit. Glancing back, he saw how far he had come. Towering pines now looked diminutive from this height. Pressing forward, he pushed through waist-high drifts of snow. Icy winds nipped at his cheeks but could not deter him. At last he reached the top. An immense valley spread out below. Nestled within was the majestic castle, now close at hand. But the final stretch would prove the most perilous. Hugging the mountainside, he inched along a narrow outcropping with a precipitous drop. He dared not look down. The risk was great, but he trusted in his abilities. ",
+    "2029:588": "At daybreak the young hero embarked on a perilous journey through the misty vale. Wary of lurking beasts, he tread lightly over the damp earth. In the distance, a majestic castle loomed over the horizon. The lad hoped to find refuge there. As the sun rose over the hills, its brilliant rays illuminated the landscape. The dense fog began to dissipate, revealing a winding path. Cautious, the traveler gripped his walking stick and proceeded ahead. He soon arrived at a fork in the road. Unsure which route to take, he chose the path to the left. After some time, he came upon a babbling brook. The cool water looked inviting. Kneeling down to take a drink, he noticed tiny fish swimming along with the current. He watched them for a moment, then continued on. Before long, the trail became rocky and steep. Clambering over large boulders, he reached a sheer cliffside. There was no choice but to scale the precipice. Finding handholds in the rock face, he started to climb. It was arduous work. His muscles ached but he persevered, finally pulling himself up onto a ledge. He sat there catching his breath and gazed out at the vistas before him. In the far distance, he could make out the turrets of the castle. It gave him hope. With renewed vigor, the lad ventured upward. As the sun passed its zenith, he neared the summit. Glancing back, he saw how far he had come. Towering pines now looked diminutive from this height. Pressing forward, he pushed through waist-high drifts of snow. Icy winds nipped at his cheeks but could not deter him. At last he reached the top. An immense valley spread out below. Nestled within was the majestic castle, now close at hand. But the final stretch would prove the most perilous. Hugging the mountainside, he inched along a narrow outcropping with a precipitous drop. He dared not look down. The risk was great, but he trusted in his abilities. Inch by inch he traversed the ledge, finally reaching more stable ground. From there, it was a short hike to the castle gates. He arrived there exhausted but jubilant. The grand wooden doors slowly opened, and he was greeted by a friendly maiden. Welcome to our castle, brave lad, she said. Stay and rest here as long as you like. At last, he had found a sanctuary. His long journey was at an end. At daybreak the young hero embarked on a perilous journey through the misty vale. Wary of lurking beasts, he tread lightly over the damp earth. In the distance, a majestic castle loomed over the horizon. The lad hoped to find refuge there. As the sun rose over the hills, its brilliant rays illuminated the landscape. The dense fog began to dissipate, revealing a winding path. Cautious, the traveler gripped his walking stick and proceeded ahead. He soon arrived at a fork in the road. Unsure which route to take, he chose the path to the left. After some time, he came upon a babbling brook. The cool water looked inviting. Kneeling down to take a drink, he noticed tiny fish swimming along with the current. He watched them for a moment, then continued on. Before long, the trail became rocky and steep. Clambering over large boulders, he reached a sheer cliffside. There was no choice but to scale the precipice. Finding handholds in the rock face, he started to climb. It was arduous work. His muscles ached but he persevered, finally pulling himself up onto a ledge. He sat there catching his breath and gazed out at the vistas before him. In the far distance, he could make out the turrets of the castle. It gave him hope. With renewed vigor, the lad ventured upward. As the sun passed its zenith, he neared the summit. Glancing back, he saw how far he had come. Towering pines now looked diminutive from this height. Pressing forward, he pushed through waist-high drifts of snow. Icy winds nipped at his cheeks but could not deter him. At last he reached the top. An immense valley spread out below. Nestled within was the majestic castle, now close at hand. But the final stretch would prove the most perilous. Hugging the mountainside, he inched along a narrow outcropping with a precipitous drop. He dared not look down. The risk was great, but he trusted in his abilities. At daybreak the young hero embarked on a perilous journey through the misty vale. Wary of lurking beasts, he tread lightly over the damp earth. In the distance, a majestic castle loomed over the horizon. The lad hoped to find refuge there. As the sun rose over the hills, its brilliant rays illuminated the landscape. The dense fog began to dissipate, revealing a winding path. Cautious, the traveler gripped his walking stick and proceeded ahead. He soon arrived at a fork in the road. Unsure which route to take, he chose the path to the left. After some time, he came upon a babbling brook. The cool water looked inviting. Kneeling down to take a drink, he noticed tiny fish swimming along with the current. He watched them for a moment, then continued on. Before long, the trail became rocky and steep. Clambering over large boulders, he reached a sheer cliffside. There was no choice but to scale the precipice. Finding handholds in the rock face, he started to climb. It was arduous work. His muscles ached but he persevered, finally pulling himself up onto a ledge. He sat there catching his breath and gazed out at the vistas before him. In the far distance, he could make out the turrets of the castle. It gave him hope. With renewed vigor, the lad ventured upward. As the sun passed its zenith, he neared the summit. Glancing back, he saw how far he had come. Towering pines now looked diminutive from this height. Pressing forward, he pushed through waist-high drifts of snow. Icy winds nipped at his cheeks but could not deter him. At last he reached the top. An immense valley spread out below. Nestled within was the majestic castle, now close at hand. But the final stretch would prove the most perilous. Hugging the mountainside, he inched along a narrow outcropping with a precipitous drop. He dared not look down. The risk was great, but he trusted in his abilities. Inch by inch he traversed the ledge, finally reaching more stable ground. From there, it was a short hike to the castle gates. He arrived there exhausted but jubilant. The grand wooden doors slowly opened, and he was greeted by a friendly maiden. Welcome to our castle, brave lad, she said. Stay and rest here as long as you like. At last, he had found a sanctuary. His long journey was at an end. At daybreak the young hero embarked on a perilous journey through the misty vale. Wary of lurking beasts, he tread lightly over the damp earth. In the distance, a majestic castle loomed over the horizon. The lad hoped to find refuge there. As the sun rose over the hills, its brilliant rays illuminated the landscape. The dense fog began to dissipate, revealing a winding path. Cautious, the traveler gripped his walking stick and proceeded ahead. He soon arrived at a fork in the road. Unsure which route to take, he chose the path to the left. After some time, he came upon a babbling brook. The cool water looked inviting. Kneeling down to take a drink, he noticed tiny fish swimming along with the current. He watched them for a moment, then continued on. Before long, the trail became rocky and steep. Clambering over large boulders, he reached a sheer cliffside. There was no choice but to scale the precipice. Finding handholds in the rock face, he started to climb. It was arduous work. His muscles ached but he persevered, finally pulling himself up onto a ledge. He sat there catching his breath and gazed out at the vistas before him. In the far distance, he could make out the turrets of the castle. It gave him hope. With renewed vigor, the lad ventured upward. As the sun passed its zenith, he neared the summit. Glancing back, he saw how far he had come. Towering pines now looked diminutive from this height. Pressing forward, he pushed through waist-high drifts of snow. Icy winds nipped at his cheeks but could not deter him. At last he reached the top. An immense valley spread out below. Nestled within was the majestic castle, now close at hand. But the final stretch would prove the most perilous. Hugging the mountainside, he inched along a narrow outcropping with a precipitous drop. He dared not look down. The risk was great, but he trusted in his abilities.  Please generate an article of 512  words"
+ },
+
+"scenarios":
+    [
+        
+        {
+            "name" : "scenario1-testall-model-framework-precsion-prompts",
+            "prefix" : "",
+            "model_maps": 
+            [
+            {
+                "MODEL_NAME": "llama2-7b",
+                "MODEL_PATH": "/models/Llama-2-7b-hf",
+                "FRAMEWORK": "transformers",
+                "MODEL_DTYPE": "fp16"
+            },
+            {
+                "MODEL_NAME": "llama2-7b",
+                "MODEL_PATH": "/models/Llama-2-7b-hf",
+                "FRAMEWORK": "bigdl-llm-transformers",
+                "MODEL_DTYPE": "int8"
+            },     
+            {
+                "MODEL_NAME": "llama2-7b",
+                "MODEL_PATH": "/models/Llama-2-7b-hf",
+                "FRAMEWORK": "bigdl-llm-transformers",
+                "MODEL_DTYPE": "int4"
+            },
+            {
+                "MODEL_NAME": "llama2-7b",
+                "MODEL_PATH": "/models/llama2-7b-ov",
+                "FRAMEWORK": "openvino",
+                "MODEL_DTYPE": "bf16"
+            },
+            {
+                "MODEL_NAME": "llama2-7b",
+                "MODEL_PATH": "/models/llama2-7b-ov-int8",
+                "FRAMEWORK": "openvino",
+                "MODEL_DTYPE": "int8"
+            },
+            {
+                "MODEL_NAME": "chatglm2-6b",
+                "MODEL_PATH": "/models/chatglm2-6b",
+                "FRAMEWORK": "transformers",
+                "MODEL_DTYPE": "fp16"
+            },
+            {
+                "MODEL_NAME": "chatglm2-6b",
+                "MODEL_PATH": "/models/chatglm2-6b",
+                "FRAMEWORK": "bigdl-llm-transformers",
+                "MODEL_DTYPE": "int8"
+            },
+            {
+                "MODEL_NAME": "chatglm2-6b",
+                "MODEL_PATH": "/models/chatglm2-6b",
+                "FRAMEWORK": "bigdl-llm-transformers",
+                "MODEL_DTYPE": "int4"
+            },
+            {
+                "MODEL_NAME": "chatglm2-6b",
+                "MODEL_PATH": "/models/chatglm2-6b-ov",
+                "FRAMEWORK": "openvino",
+                "MODEL_DTYPE": "bf16"
+            },
+            {
+                "MODEL_NAME": "chatglm2-6b",
+                "MODEL_PATH": "/models/chatglm2-6b-ov-int8",
+                "FRAMEWORK": "openvino",
+                "MODEL_DTYPE": "int8"
+            },   
+            {
+                "MODEL_NAME": "qwen-7b-chat",
+                "MODEL_PATH": "/models/qwen-7b-chat-xft",
+                "FRAMEWORK": "xfastertransformer",
+                "MODEL_DTYPE": "fp16"
+            },
+            {
+                "MODEL_NAME": "qwen-7b-chat",
+                "MODEL_PATH": "/models/qwen-7b-chat-xft",
+                "FRAMEWORK": "xfastertransformer",
+                "MODEL_DTYPE": "bf16"
+            },
+            {
+                "MODEL_NAME": "qwen-7b-chat",
+                "MODEL_PATH": "/models/qwen-7b-chat-xft",
+                "FRAMEWORK": "xfastertransformer",
+                "MODEL_DTYPE": "int8"
+            },
+            {
+                "MODEL_NAME": "qwen-7b-chat",
+                "MODEL_PATH": "/models/qwen-7b-chat-xft",
+                "FRAMEWORK": "xfastertransformer",
+                "MODEL_DTYPE": "int4"
+            }
+            ],
+            "max_cores" : 112,
+            "iteration" : 1,
+            "numa_order" : 0,
+            "hyperthreading" : 0,
+            "benchmark_type" : 0,
+            "scale_type" : 2,
+            "cpu_max": 224,
+            "cpu_step": 8,
+            "cpu_index" :56,
+            "prompt_keys": ["30:2"]
+        }
+    ]
+}

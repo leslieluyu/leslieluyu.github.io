@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: llm-deploy
+  labels:
+    app: llm-deploy
+  {{- include "llm-deploy-chart.labels" . | nindent 4 }}
+spec:
+  type: {{ .Values.llmDeploy.type }}
+  selector:
+    app: llm-deploy
+  ports:
+	{{- .Values.llmDeploy.ports | toYaml | nindent 2 -}}

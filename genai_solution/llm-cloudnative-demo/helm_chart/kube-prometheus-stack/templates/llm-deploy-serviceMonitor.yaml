@@ -1,0 +1,14 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: llm-deploy
+  labels:
+    svc-monitor: llm-deploy
+    release: prometheus-stack
+spec:
+  selector:
+    matchLabels:
+      app: llm-deploy
+  endpoints:
+  - port: metric-service
+    interval: 15s

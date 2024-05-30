@@ -1,0 +1,78 @@
+
+---
+- hosts: job
+  gather_facts: yes
+  tasks:
+  - name: Copy job.sh script to remote host
+    block:
+      - name: Copy metric_jobs.sh
+        copy:
+          src: ./metric_jobs.sh  # Replace with the actual path to your local job.sh script
+          dest: /tmp/metric_jobs.sh  # Replace with the desired path on the remote host
+          mode: 0755  # Set appropriate permissions on the remote host
+      - name: Copy metric_jobs_multi.sh
+        copy:
+          src: ./metric_jobs_multi.sh  # Replace with the actual path to your local job.sh script
+          dest: /tmp/metric_jobs_multi.sh  # Replace with the desired path on the remote host
+          mode: 0755  # Set appropriate permissions on the remote host
+      - name: Copy mon_bw.sh
+        copy:
+          src: ./mon_bw.sh  # Replace with the actual path to your local job.sh script
+          dest: /tmp/mon_bw.sh  # Replace with the desired path on the remote host
+          mode: 0755  # Set appropriate permissions on the remote host
+      - name: Copy mon_bw_by_pid.sh
+        copy:
+          src: ./mon_bw_by_pid.sh  # Replace with the actual path to your local job.sh script
+          dest: /tmp/mon_bw_by_pid.sh  # Replace with the desired path on the remote host
+          mode: 0755  # Set appropriate permissions on the remote host
+    tags:
+        - copy_job
+
+  - name: Execute job.sh
+    shell: |
+      /tmp/metric_jobs.sh {{LOG_PATH}} {{PIDS}} 2>&1 |tee /tmp/metric_jobs.log  &
+    async: 600  # Adjust the timeout as needed
+    poll: 0
+    register: job_execution
+    tags:
+        - run_job
+  - name: Execute job.sh of multi_deploy
+    shell: |
+      /tmp/metric_jobs_multi.sh {{LOG_PATH}} {{PIDS}} {{scenario_folder_name}} 2>&1 |tee /tmp/metric_jobs_multi.log  &
+    async: 600  # Adjust the timeout as needed
+    poll: 0
+    register: job_execution
+    tags:
+        - run_job_multi
+  - name: Get the PID of job.sh
+    shell: cat /tmp/metric_jobs.pgid
+    register: job_pid
+    ignore_errors: yes
+    tags:
+        - get_jobid
+
+  - name: Stop job.sh and its sub-processes gracefully
+    shell: |
+      if [ -n "{{ job_pid.stdout }}" ]; then
+        sudo pkill -INT -g {{ job_pid.stdout }}
+        sleep 1
+        sudo pkill -g {{ job_pid.stdout }}
+      fi
+    tags:
+        - stop_job
+
+  - name: get pid by cmdline
+    shell: |
+      {{ cmd }} 
+    register: myvar
+    tags:
+        - get_pid
+  - name: debug llm_pid
+    debug: msg="{{myvar.stdout}}"
+    tags:
+        - output_jobid 
+  - name: Set threads fact
+    set_fact:
+      ret_str: "{{ llm_pid.stdout }}"
+    tags:
+        - set_ret_str   

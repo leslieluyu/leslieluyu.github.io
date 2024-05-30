@@ -1,0 +1,78 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: llm-deploy
+  labels:
+     app_deploy: llm-deploy-multi
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: llm-deploy
+  template:
+    metadata:
+      annotations:
+        sidecar.istio.io/rewriteAppHTTPProbers: "true"
+      labels:
+        app: llm-deploy
+        exact_pod: llm-deploy
+    spec:
+      nodeSelector:
+        llmdemo: "true"
+      containers:
+      - env:
+        - name: OMP_NUM_THREADS
+          value: "16"
+        - name: LLM_SERVER_N_THREADS
+          value: "16"
+        - name: LLM_SERVER_MODEL_NAME
+          value: "chatglm2-6b"
+        - name: LLM_SERVER_MODEL_PATH
+          value: "/models/chatglm2-6b"
+        - name: LLM_SERVER_MODEL_DTYPE
+          value: "int4"
+        - name: LLM_SERVER_BACKEND
+          value: "bigdl-llm-transformers"
+        - name: LLM_SERVER_SVC_PORT
+          value: "8000"
+        - name: LLM_SERVER_METRIC_PORT
+          value: "8090"
+        #image: ccr-registry.caas.intel.com/cnbench/llm-inference-api:chatglm2.v1-metrics-port
+        #image: docker201904/llm-inference-api:chatglm2.v1-metrics-new
+        #image: chzhyang/llm-inference-api:v1
+        # image: docker201904/llm-inference-api:v2_metrics
+        image: ccr-registry.caas.intel.com/cnbench/llm-server:v2-slim-latest 
+        name: llm-deploy-demo
+        #command: ["python3","llm_inference_api.py"]
+        command: ["conda", "run", "--no-capture-output", "-n", "llmenv", "python", "api.py"]
+        volumeMounts:
+        - mountPath: /models
+          name: model-volume
+        - mountPath: /opt/miniconda3
+          name: libs-volume
+        ports:
+        - containerPort: 8000
+        - containerPort: 8090
+        resources:
+          limits:
+            cpu: 16
+            memory: 26Gi
+          requests:
+            cpu: 16
+            memory: 26Gi
+      serviceAccountName: default
+      volumes:
+      - name: model-volume
+        hostPath:
+          # directory location on host
+          path: /mnt/model
+          # this field is optional
+          type: Directory
+      - name: libs-volume
+        hostPath:
+          # directory location on host
+          path: /mnt/miniconda3-docker
+          # this field is optional
+          type: Directory        
+
