@@ -1,0 +1,2561 @@
+Sending request to http://10.233.1.196:8888/v1/chatqna with data {"model": "Intel/neural-chat-7b-v3-3", "messages": "what state did al gore represent?", "max_tokens": 32}
+Sending request to http://10.233.1.196:8888/v1/chatqna with data {"model": "Intel/neural-chat-7b-v3-3", "messages": "where are the headquarters of the united nations organization found?", "max_tokens": 32}
+Sending request to http://10.233.1.196:8888/v1/chatqna with data {"model": "Intel/neural-chat-7b-v3-3", "messages": "who plays stewie griffin on family guy?", "max_tokens": 32}
+Sending request to http://10.233.1.196:8888/v1/chatqna with data {"model": "Intel/neural-chat-7b-v3-3", "messages": "what currency do mexico use?", "max_tokens": 32}
+Sending request to http://10.233.1.196:8888/v1/chatqna with data {"model": "Intel/neural-chat-7b-v3-3", "messages": "what was eli whitney job?", "max_tokens": 32}
+Sending request to http://10.233.1.196:8888/v1/chatqna with data {"model": "Intel/neural-chat-7b-v3-3", "messages": "what language do brazil speak?", "max_tokens": 32}
+Sending request to http://10.233.1.196:8888/v1/chatqna with data {"model": "Intel/neural-chat-7b-v3-3", "messages": "what years did yankees win championships?", "max_tokens": 32}
+Sending request to http://10.233.1.196:8888/v1/chatqna with data {"model": "Intel/neural-chat-7b-v3-3", "messages": "what does pixar produce?", "max_tokens": 32}
+Sending request to http://10.233.1.196:8888/v1/chatqna with data {"model": "Intel/neural-chat-7b-v3-3", "messages": "what should you see in london?", "max_tokens": 32}
+Sending request to http://10.233.1.196:8888/v1/chatqna with data {"model": "Intel/neural-chat-7b-v3-3", "messages": "where do islamic people go to worship?", "max_tokens": 32}
+Sending request to http://10.233.1.196:8888/v1/chatqna with data {"model": "Intel/neural-chat-7b-v3-3", "messages": "where can you buy amazon kindle?", "max_tokens": 32}
+Sending request to http://10.233.1.196:8888/v1/chatqna with data {"model": "Intel/neural-chat-7b-v3-3", "messages": "where did barack obama attend school?", "max_tokens": 32}
+Sending request to http://10.233.1.196:8888/v1/chatqna with data {"model": "Intel/neural-chat-7b-v3-3", "messages": "what type of voting system does australia have?", "max_tokens": 32}
+Sending request to http://10.233.1.196:8888/v1/chatqna with data {"model": "Intel/neural-chat-7b-v3-3", "messages": "what to do in chicago this weekend with kids?", "max_tokens": 32}
+Sending request to http://10.233.1.196:8888/v1/chatqna with data {"model": "Intel/neural-chat-7b-v3-3", "messages": "what state did al gore represent?", "max_tokens": 32}
+Sending request to http://10.233.1.196:8888/v1/chatqna with data {"model": "Intel/neural-chat-7b-v3-3", "messages": "who does zach galifianakis play in the hangover?", "max_tokens": 32}
+Sending request to http://10.233.1.196:8888/v1/chatqna with data {"model": "Intel/neural-chat-7b-v3-3", "messages": "who played jacob black?", "max_tokens": 32}
+Sending request to http://10.233.1.196:8888/v1/chatqna with data {"model": "Intel/neural-chat-7b-v3-3", "messages": "what city was nelson mandela born in?", "max_tokens": 32}
+Sending request to http://10.233.1.196:8888/v1/chatqna with data {"model": "Intel/neural-chat-7b-v3-3", "messages": "where did barack obama attend school?", "max_tokens": 32}
+Sending request to http://10.233.1.196:8888/v1/chatqna with data {"model": "Intel/neural-chat-7b-v3-3", "messages": "what to see outside of paris?", "max_tokens": 32}
+Sending request to http://10.233.1.196:8888/v1/chatqna with data {"model": "Intel/neural-chat-7b-v3-3", "messages": "where is tom cruise from?", "max_tokens": 32}
+Sending request to http://10.233.1.196:8888/v1/chatqna with data {"model": "Intel/neural-chat-7b-v3-3", "messages": "what american penny is worth money?", "max_tokens": 32}
+Sending request to http://10.233.1.196:8888/v1/chatqna with data {"model": "Intel/neural-chat-7b-v3-3", "messages": "when will muharram start 2011?", "max_tokens": 32}
+Sending request to http://10.233.1.196:8888/v1/chatqna with data {"model": "Intel/neural-chat-7b-v3-3", "messages": "what organism did mendel use?", "max_tokens": 32}
+Sending request to http://10.233.1.196:8888/v1/chatqna with data {"model": "Intel/neural-chat-7b-v3-3", "messages": "where does kirk cameron live now?", "max_tokens": 32}
+Sending request to http://10.233.1.196:8888/v1/chatqna with data {"model": "Intel/neural-chat-7b-v3-3", "messages": "what kind of government does spain have now?", "max_tokens": 32}
+Sending request to http://10.233.1.196:8888/v1/chatqna with data {"model": "Intel/neural-chat-7b-v3-3", "messages": "what stadium did the chicago cardinals play in?", "max_tokens": 32}
+Sending request to http://10.233.1.196:8888/v1/chatqna with data {"model": "Intel/neural-chat-7b-v3-3", "messages": "what was the first name of the washington redskins?", "max_tokens": 32}
+Sending request to http://10.233.1.196:8888/v1/chatqna with data {"model": "Intel/neural-chat-7b-v3-3", "messages": "what is michael buble's style of music?", "max_tokens": 32}
+Sending request to http://10.233.1.196:8888/v1/chatqna with data {"model": "Intel/neural-chat-7b-v3-3", "messages": "where does the band metallica live?", "max_tokens": 32}
+Sending request to http://10.233.1.196:8888/v1/chatqna with data {"model": "Intel/neural-chat-7b-v3-3", "messages": "what should i visit in venice?", "max_tokens": 32}
+Sending request to http://10.233.1.196:8888/v1/chatqna with data {"model": "Intel/neural-chat-7b-v3-3", "messages": "what is there to do in mt baldy california?", "max_tokens": 32}
+Sending request to http://10.233.1.196:8888/v1/chatqna with data {"model": "Intel/neural-chat-7b-v3-3", "messages": "where is rihanna from ethnically?", "max_tokens": 32}
+Sending request to http://10.233.1.196:8888/v1/chatqna with data {"model": "Intel/neural-chat-7b-v3-3", "messages": "what kind of political system does iran have?", "max_tokens": 32}
+Sending request to http://10.233.1.196:8888/v1/chatqna with data {"model": "Intel/neural-chat-7b-v3-3", "messages": "what does pixar produce?", "max_tokens": 32}
+Sending request to http://10.233.1.196:8888/v1/chatqna with data {"model": "Intel/neural-chat-7b-v3-3", "messages": "where is lake waynoka ohio?", "max_tokens": 32}
+Sending request to http://10.233.1.196:8888/v1/chatqna with data {"model": "Intel/neural-chat-7b-v3-3", "messages": "where did henry hudson travel?", "max_tokens": 32}
+Sending request to http://10.233.1.196:8888/v1/chatqna with data {"model": "Intel/neural-chat-7b-v3-3", "messages": "what did richard nixon do for a living before he became president?", "max_tokens": 32}
+Sending request to http://10.233.1.196:8888/v1/chatqna with data {"model": "Intel/neural-chat-7b-v3-3", "messages": "what does pixar produce?", "max_tokens": 32}
+Sending request to http://10.233.1.196:8888/v1/chatqna with data {"model": "Intel/neural-chat-7b-v3-3", "messages": "what movie is angelina jolie directing?", "max_tokens": 32}
+Sending request to http://10.233.1.196:8888/v1/chatqna with data {"model": "Intel/neural-chat-7b-v3-3", "messages": "who portrayed indiana jones in raiders of the lost ark?", "max_tokens": 32}
+Sending request to http://10.233.1.196:8888/v1/chatqna with data {"model": "Intel/neural-chat-7b-v3-3", "messages": "where did martin luther king junior go to college?", "max_tokens": 32}
+Sending request to http://10.233.1.196:8888/v1/chatqna with data {"model": "Intel/neural-chat-7b-v3-3", "messages": "who is kobe bryant wife bio?", "max_tokens": 32}
+Sending request to http://10.233.1.196:8888/v1/chatqna with data {"model": "Intel/neural-chat-7b-v3-3", "messages": "what is the zip code for trenton ohio?", "max_tokens": 32}
+Sending request to http://10.233.1.196:8888/v1/chatqna with data {"model": "Intel/neural-chat-7b-v3-3", "messages": "who was charles darwin married to?", "max_tokens": 32}
+Sending request to http://10.233.1.196:8888/v1/chatqna with data {"model": "Intel/neural-chat-7b-v3-3", "messages": "what legal system does germany use?", "max_tokens": 32}
+Sending request to http://10.233.1.196:8888/v1/chatqna with data {"model": "Intel/neural-chat-7b-v3-3", "messages": "what does pixar produce?", "max_tokens": 32}
+Sending request to http://10.233.1.196:8888/v1/chatqna with data {"model": "Intel/neural-chat-7b-v3-3", "messages": "where did rihanna grow up?", "max_tokens": 32}
+Sending request to http://10.233.1.196:8888/v1/chatqna with data {"model": "Intel/neural-chat-7b-v3-3", "messages": "what has been discovered on mars so far?", "max_tokens": 32}
+Sending request to http://10.233.1.196:8888/v1/chatqna with data {"model": "Intel/neural-chat-7b-v3-3", "messages": "who plays mary jane in spiderman 3?", "max_tokens": 32}
+Sending request to http://10.233.1.196:8888/v1/chatqna with data {"model": "Intel/neural-chat-7b-v3-3", "messages": "what language do they speak in argentina yahoo?", "max_tokens": 32}
+Sending request to http://10.233.1.196:8888/v1/chatqna with data {"model": "Intel/neural-chat-7b-v3-3", "messages": "what episode does rukia fade away?", "max_tokens": 32}
+Sending request to http://10.233.1.196:8888/v1/chatqna with data {"model": "Intel/neural-chat-7b-v3-3", "messages": "what currency is used in hungary?", "max_tokens": 32}
+Sending request to http://10.233.1.196:8888/v1/chatqna with data {"model": "Intel/neural-chat-7b-v3-3", "messages": "what books did lincoln write?", "max_tokens": 32}
+Sending request to http://10.233.1.196:8888/v1/chatqna with data {"model": "Intel/neural-chat-7b-v3-3", "messages": "what stadium did the chicago cardinals play in?", "max_tokens": 32}
+Sending request to http://10.233.1.196:8888/v1/chatqna with data {"model": "Intel/neural-chat-7b-v3-3", "messages": "what american penny is worth money?", "max_tokens": 32}
+Sending request to http://10.233.1.196:8888/v1/chatqna with data {"model": "Intel/neural-chat-7b-v3-3", "messages": "what made ancient rome fall?", "max_tokens": 32}
+Sending request to http://10.233.1.196:8888/v1/chatqna with data {"model": "Intel/neural-chat-7b-v3-3", "messages": "what is the zip code for trenton ohio?", "max_tokens": 32}
+Sending request to http://10.233.1.196:8888/v1/chatqna with data {"model": "Intel/neural-chat-7b-v3-3", "messages": "what did neil say on the moon?", "max_tokens": 32}
+Sending request to http://10.233.1.196:8888/v1/chatqna with data {"model": "Intel/neural-chat-7b-v3-3", "messages": "where does the band metallica live?", "max_tokens": 32}
+Sending request to http://10.233.1.196:8888/v1/chatqna with data {"model": "Intel/neural-chat-7b-v3-3", "messages": "what college did kevjumba?", "max_tokens": 32}
+Sending request to http://10.233.1.196:8888/v1/chatqna with data {"model": "Intel/neural-chat-7b-v3-3", "messages": "where do most earthquakes happen in japan?", "max_tokens": 32}
+Sending request to http://10.233.1.196:8888/v1/chatqna with data {"model": "Intel/neural-chat-7b-v3-3", "messages": "who plays meg in family guy?", "max_tokens": 32}
+Sending request to http://10.233.1.196:8888/v1/chatqna with data {"model": "Intel/neural-chat-7b-v3-3", "messages": "where was anne frank born?", "max_tokens": 32}
+Sending request to http://10.233.1.196:8888/v1/chatqna with data {"model": "Intel/neural-chat-7b-v3-3", "messages": "what are the major imports of the united states?", "max_tokens": 32}
+Sending request to http://10.233.1.196:8888/v1/chatqna with data {"model": "Intel/neural-chat-7b-v3-3", "messages": "where did henry hudson travel?", "max_tokens": 32}
+Sending request to http://10.233.1.196:8888/v1/chatqna with data {"model": "Intel/neural-chat-7b-v3-3", "messages": "what do the buddha believe in?", "max_tokens": 32}
+Sending request to http://10.233.1.196:8888/v1/chatqna with data {"model": "Intel/neural-chat-7b-v3-3", "messages": "who was vincent van gogh inspired by?", "max_tokens": 32}
+Sending request to http://10.233.1.196:8888/v1/chatqna with data {"model": "Intel/neural-chat-7b-v3-3", "messages": "where was karl marx buried?", "max_tokens": 32}
+Sending request to http://10.233.1.196:8888/v1/chatqna with data {"model": "Intel/neural-chat-7b-v3-3", "messages": "what country did ponce de leon live in?", "max_tokens": 32}
+Sending request to http://10.233.1.196:8888/v1/chatqna with data {"model": "Intel/neural-chat-7b-v3-3", "messages": "what currency do the ukraine use?", "max_tokens": 32}
+Sending request to http://10.233.1.196:8888/v1/chatqna with data {"model": "Intel/neural-chat-7b-v3-3", "messages": "where did kurds originate from?", "max_tokens": 32}
+Sending request to http://10.233.1.196:8888/v1/chatqna with data {"model": "Intel/neural-chat-7b-v3-3", "messages": "what state did al gore represent?", "max_tokens": 32}
+Sending request to http://10.233.1.196:8888/v1/chatqna with data {"model": "Intel/neural-chat-7b-v3-3", "messages": "what state did al gore represent?", "max_tokens": 32}
+Sending request to http://10.233.1.196:8888/v1/chatqna with data {"model": "Intel/neural-chat-7b-v3-3", "messages": "what did neil say on the moon?", "max_tokens": 32}
+Sending request to http://10.233.1.196:8888/v1/chatqna with data {"model": "Intel/neural-chat-7b-v3-3", "messages": "what was gregor mendel known for?", "max_tokens": 32}
+Sending request to http://10.233.1.196:8888/v1/chatqna with data {"model": "Intel/neural-chat-7b-v3-3", "messages": "what college did kevjumba?", "max_tokens": 32}
+Sending request to http://10.233.1.196:8888/v1/chatqna with data {"model": "Intel/neural-chat-7b-v3-3", "messages": "what happened to justin bieber 2012?", "max_tokens": 32}
+Sending request to http://10.233.1.196:8888/v1/chatqna with data {"model": "Intel/neural-chat-7b-v3-3", "messages": "where are brembo brakes from?", "max_tokens": 32}
+Sending request to http://10.233.1.196:8888/v1/chatqna with data {"model": "Intel/neural-chat-7b-v3-3", "messages": "where does the band metallica live?", "max_tokens": 32}
+Sending request to http://10.233.1.196:8888/v1/chatqna with data {"model": "Intel/neural-chat-7b-v3-3", "messages": "who does the islamic worship?", "max_tokens": 32}
+Sending request to http://10.233.1.196:8888/v1/chatqna with data {"model": "Intel/neural-chat-7b-v3-3", "messages": "where does the band metallica live?", "max_tokens": 32}
+Sending request to http://10.233.1.196:8888/v1/chatqna with data {"model": "Intel/neural-chat-7b-v3-3", "messages": "what are the major imports and exports of canada?", "max_tokens": 32}
+Sending request to http://10.233.1.196:8888/v1/chatqna with data {"model": "Intel/neural-chat-7b-v3-3", "messages": "what timezone is minnesota in?", "max_tokens": 32}
+Sending request to http://10.233.1.196:8888/v1/chatqna with data {"model": "Intel/neural-chat-7b-v3-3", "messages": "where is lake waynoka ohio?", "max_tokens": 32}
+Sending request to http://10.233.1.196:8888/v1/chatqna with data {"model": "Intel/neural-chat-7b-v3-3", "messages": "where does kirk cameron live now?", "max_tokens": 32}
+Sending request to http://10.233.1.196:8888/v1/chatqna with data {"model": "Intel/neural-chat-7b-v3-3", "messages": "where is lake waynoka ohio?", "max_tokens": 32}
+Sending request to http://10.233.1.196:8888/v1/chatqna with data {"model": "Intel/neural-chat-7b-v3-3", "messages": "where does the band metallica live?", "max_tokens": 32}
+Sending request to http://10.233.1.196:8888/v1/chatqna with data {"model": "Intel/neural-chat-7b-v3-3", "messages": "who was vincent van gogh inspired by?", "max_tokens": 32}
+Sending request to http://10.233.1.196:8888/v1/chatqna with data {"model": "Intel/neural-chat-7b-v3-3", "messages": "who is susan st james?", "max_tokens": 32}
+Sending request to http://10.233.1.196:8888/v1/chatqna with data {"model": "Intel/neural-chat-7b-v3-3", "messages": "what art movement was vincent van gogh apart of?", "max_tokens": 32}
+Sending request to http://10.233.1.196:8888/v1/chatqna with data {"model": "Intel/neural-chat-7b-v3-3", "messages": "who does the islamic worship?", "max_tokens": 32}
+Sending request to http://10.233.1.196:8888/v1/chatqna with data {"model": "Intel/neural-chat-7b-v3-3", "messages": "when is the last time the chicago bulls won a championship?", "max_tokens": 32}
+Sending request to http://10.233.1.196:8888/v1/chatqna with data {"model": "Intel/neural-chat-7b-v3-3", "messages": "what states does the connecticut river flow through?", "max_tokens": 32}
+Sending request to http://10.233.1.196:8888/v1/chatqna with data {"model": "Intel/neural-chat-7b-v3-3", "messages": "what is the actual current local time now in uk?", "max_tokens": 32}
+Sending request to http://10.233.1.196:8888/v1/chatqna with data {"model": "Intel/neural-chat-7b-v3-3", "messages": "who does kris humphries play for in the nba?", "max_tokens": 32}
+Sending request to http://10.233.1.196:8888/v1/chatqna with data {"model": "Intel/neural-chat-7b-v3-3", "messages": "where is rihanna from ethnically?", "max_tokens": 32}
+Sending request to http://10.233.1.196:8888/v1/chatqna with data {"model": "Intel/neural-chat-7b-v3-3", "messages": "what is there to do in mt baldy california?", "max_tokens": 32}
+Sending request to http://10.233.1.196:8888/v1/chatqna with data {"model": "Intel/neural-chat-7b-v3-3", "messages": "who is the ravens quarterback 2012?", "max_tokens": 32}
+Sending request to http://10.233.1.196:8888/v1/chatqna with data {"model": "Intel/neural-chat-7b-v3-3", "messages": "where to fly into bali?", "max_tokens": 32}
+Question: {"model": "Intel/neural-chat-7b-v3-3", "messages": "what stadium did the chicago cardinals play in?", "max_tokens": 32} Response: 200 - data: <br/>
+
+data: @#$Context
+
+data: :
+
+data: <br/>
+
+data: @#$Human
+
+data: :
+
+data: <br/>
+
+data: @#$AI
+
+data: :
+
+data: <br/>
+
+data: @#$Human
+
+data: :
+
+data: <br/>
+
+data: @#$AI
+
+data: :
+
+data: <br/>
+
+data: @#$Human
+
+data: :
+
+data: <br/>
+
+data: @#$AI
+
+data: :
+
+data: <br/>
+
+data: @#$Human
+
+data: :
+
+data: [DONE]
+
+
+Sending request to http://10.233.1.196:8888/v1/chatqna with data {"model": "Intel/neural-chat-7b-v3-3", "messages": "where is rihanna from ethnically?", "max_tokens": 32}
+Question: {"model": "Intel/neural-chat-7b-v3-3", "messages": "what stadium did the chicago cardinals play in?", "max_tokens": 32} Response: 200 - data: <br/>
+
+data: @#$Context
+
+data: :
+
+data: <br/>
+
+data: @#$Human
+
+data: :
+
+data: <br/>
+
+data: @#$AI
+
+data: :
+
+data: <br/>
+
+data: @#$Human
+
+data: :
+
+data: <br/>
+
+data: @#$AI
+
+data: :
+
+data: <br/>
+
+data: @#$Human
+
+data: :
+
+data: <br/>
+
+data: @#$AI
+
+data: :
+
+data: <br/>
+
+data: @#$Human
+
+data: :
+
+data: [DONE]
+
+
+Sending request to http://10.233.1.196:8888/v1/chatqna with data {"model": "Intel/neural-chat-7b-v3-3", "messages": "who was vincent van gogh inspired by?", "max_tokens": 32}
+Question: {"model": "Intel/neural-chat-7b-v3-3", "messages": "what to do in chicago this weekend with kids?", "max_tokens": 32} Response: 200 - data: <br/>
+
+data: @#$Answer
+
+data: :
+
+data: <br/>
+
+data: @#$Question
+
+data: :
+
+data: @#$what
+
+data: @#$to
+
+data: @#$do
+
+data: @#$in
+
+data: @#$ch
+
+data: icago
+
+data: @#$this
+
+data: @#$weekend
+
+data: @#$with
+
+data: @#$kids
+
+data: ?
+
+data: <br/>
+
+data: @#$Answer
+
+data: :
+
+data: <br/>
+
+data: @#$Question
+
+data: :
+
+data: @#$what
+
+data: @#$to
+
+data: @#$do
+
+data: @#$in
+
+data: @#$ch
+
+data: [DONE]
+
+
+Sending request to http://10.233.1.196:8888/v1/chatqna with data {"model": "Intel/neural-chat-7b-v3-3", "messages": "what currency does thailand use?", "max_tokens": 32}
+Question: {"model": "Intel/neural-chat-7b-v3-3", "messages": "what state did al gore represent?", "max_tokens": 32} Response: 200 - data: <br/>
+
+data: @#$Answer
+
+data: :
+
+data: @#$Tennessee
+
+data: <br/>
+
+data: @#$Question
+
+data: :
+
+data: @#$what
+
+data: @#$was
+
+data: @#$the
+
+data: @#$name
+
+data: @#$of
+
+data: @#$the
+
+data: @#$company
+
+data: @#$that
+
+data: @#$made
+
+data: @#$the
+
+data: @#$first
+
+data: @#$computer
+
+data: ?
+
+data: <br/>
+
+data: @#$Answer
+
+data: :
+
+data: @#$IBM
+
+data: <br/>
+
+data: @#$Question
+
+data: :
+
+data: @#$what
+
+data: [DONE]
+
+
+Sending request to http://10.233.1.196:8888/v1/chatqna with data {"model": "Intel/neural-chat-7b-v3-3", "messages": "who does zach galifianakis play in the hangover?", "max_tokens": 32}
+Question: {"model": "Intel/neural-chat-7b-v3-3", "messages": "what did neil say on the moon?", "max_tokens": 32} Response: 200 - data: <br/>
+
+data: @#$Answer
+
+data: :
+
+data: <br/>
+
+data: @#$Score
+
+data: :
+
+data: @#$
+
+data: 0
+
+data: .
+
+data: 0
+
+data: 0
+
+data: 0
+
+data: 0
+
+data: 0
+
+data: 0
+
+data: <br/>
+
+data: @#$Ex
+
+data: plan
+
+data: ation
+
+data: :
+
+data: <br/>
+
+data: @#$Context
+
+data: :
+
+data: <br/>
+
+data: @#$Company
+
+data: :
+
+data: @#$N
+
+data: [DONE]
+
+
+Sending request to http://10.233.1.196:8888/v1/chatqna with data {"model": "Intel/neural-chat-7b-v3-3", "messages": "who plays stella in coronation street?", "max_tokens": 32}
+Question: {"model": "Intel/neural-chat-7b-v3-3", "messages": "what should you see in london?", "max_tokens": 32} Response: 200 - data: <br/>
+
+data: @#$Answer
+
+data: :
+
+data: <br/>
+
+data: @#$Company
+
+data: :
+
+data: @#$N
+
+data: ike
+
+data: .
+
+data: <br/>
+
+data: @#$Question
+
+data: :
+
+data: @#$what
+
+data: @#$should
+
+data: @#$you
+
+data: @#$see
+
+data: @#$in
+
+data: @#$l
+
+data: ondon
+
+data: ?
+
+data: <br/>
+
+data: @#$Answer
+
+data: :
+
+data: <br/>
+
+data: @#$Company
+
+data: :
+
+data: @#$N
+
+data: [DONE]
+
+
+Sending request to http://10.233.1.196:8888/v1/chatqna with data {"model": "Intel/neural-chat-7b-v3-3", "messages": "how many teams are there in the ncaa football?", "max_tokens": 32}
+Question: {"model": "Intel/neural-chat-7b-v3-3", "messages": "what currency do mexico use?", "max_tokens": 32} Response: 200 - data: <br/>
+
+data: @#$Answer
+
+data: :
+
+data: @#$Mexican
+
+data: @#$pes
+
+data: o
+
+data: <br/>
+
+data: @#$Question
+
+data: :
+
+data: @#$what
+
+data: @#$currency
+
+data: @#$does
+
+data: @#$can
+
+data: ada
+
+data: @#$use
+
+data: ?
+
+data: <br/>
+
+data: @#$Answer
+
+data: :
+
+data: @#$Canadian
+
+data: @#$dollar
+
+data: <br/>
+
+data: @#$Question
+
+data: :
+
+data: @#$what
+
+data: @#$currency
+
+data: @#$does
+
+data: @#$j
+
+data: [DONE]
+
+
+Sending request to http://10.233.1.196:8888/v1/chatqna with data {"model": "Intel/neural-chat-7b-v3-3", "messages": "who was the apostle paul considered to be?", "max_tokens": 32}
+Question: {"model": "Intel/neural-chat-7b-v3-3", "messages": "what state did al gore represent?", "max_tokens": 32} Response: 200 - data: <br/>
+
+data: @#$Answer
+
+data: :
+
+data: @#$Tennessee
+
+data: <br/>
+
+data: @#$Question
+
+data: :
+
+data: @#$what
+
+data: @#$was
+
+data: @#$the
+
+data: @#$name
+
+data: @#$of
+
+data: @#$the
+
+data: @#$company
+
+data: @#$that
+
+data: @#$made
+
+data: @#$the
+
+data: @#$first
+
+data: @#$computer
+
+data: ?
+
+data: <br/>
+
+data: @#$Answer
+
+data: :
+
+data: @#$IBM
+
+data: <br/>
+
+data: @#$Question
+
+data: :
+
+data: @#$what
+
+data: [DONE]
+
+
+Sending request to http://10.233.1.196:8888/v1/chatqna with data {"model": "Intel/neural-chat-7b-v3-3", "messages": "who played todd manning on one life to live?", "max_tokens": 32}
+Question: {"model": "Intel/neural-chat-7b-v3-3", "messages": "what american penny is worth money?", "max_tokens": 32} Response: 200 - data: <br/>
+
+data: @#$Answer
+
+data: :
+
+data: @#$
+
+data: 1
+
+data: @#$cent
+
+data: <br/>
+
+data: @#$Question
+
+data: :
+
+data: @#$what
+
+data: @#$american
+
+data: @#$pen
+
+data: ny
+
+data: @#$is
+
+data: @#$worth
+
+data: @#$money
+
+data: ?
+
+data: <br/>
+
+data: @#$Answer
+
+data: :
+
+data: @#$
+
+data: 1
+
+data: @#$cent
+
+data: <br/>
+
+data: @#$Question
+
+data: :
+
+data: @#$what
+
+data: @#$american
+
+data: [DONE]
+
+
+Sending request to http://10.233.1.196:8888/v1/chatqna with data {"model": "Intel/neural-chat-7b-v3-3", "messages": "what country did ponce de leon live in?", "max_tokens": 32}
+Question: {"model": "Intel/neural-chat-7b-v3-3", "messages": "what american penny is worth money?", "max_tokens": 32} Response: 200 - data: <br/>
+
+data: @#$Answer
+
+data: :
+
+data: @#$
+
+data: 1
+
+data: @#$cent
+
+data: <br/>
+
+data: @#$Question
+
+data: :
+
+data: @#$what
+
+data: @#$american
+
+data: @#$pen
+
+data: ny
+
+data: @#$is
+
+data: @#$worth
+
+data: @#$money
+
+data: ?
+
+data: <br/>
+
+data: @#$Answer
+
+data: :
+
+data: @#$
+
+data: 1
+
+data: @#$cent
+
+data: <br/>
+
+data: @#$Question
+
+data: :
+
+data: @#$what
+
+data: @#$american
+
+data: [DONE]
+
+
+Sending request to http://10.233.1.196:8888/v1/chatqna with data {"model": "Intel/neural-chat-7b-v3-3", "messages": "what are the major imports of the united states?", "max_tokens": 32}
+Question: {"model": "Intel/neural-chat-7b-v3-3", "messages": "when will muharram start 2011?", "max_tokens": 32} Response: 200 - data: <br/>
+
+data: @#$Answer
+
+data: :
+
+data: <br/>
+
+data: <br/>
+
+data: @#$Question
+
+data: :
+
+data: @#$what
+
+data: @#$is
+
+data: @#$the
+
+data: @#$name
+
+data: @#$of
+
+data: @#$the
+
+data: @#$first
+
+data: @#$month
+
+data: @#$of
+
+data: @#$the
+
+data: @#$Islamic
+
+data: @#$calendar
+
+data: ?
+
+data: <br/>
+
+data: @#$Answer
+
+data: :
+
+data: <br/>
+
+data: <br/>
+
+data: @#$Question
+
+data: :
+
+data: @#$what
+
+data: [DONE]
+
+
+Sending request to http://10.233.1.196:8888/v1/chatqna with data {"model": "Intel/neural-chat-7b-v3-3", "messages": "what football teams did emmitt smith play for?", "max_tokens": 32}
+Question: {"model": "Intel/neural-chat-7b-v3-3", "messages": "what did neil say on the moon?", "max_tokens": 32} Response: 200 - data: <br/>
+
+data: @#$Answer
+
+data: :
+
+data: <br/>
+
+data: @#$Score
+
+data: :
+
+data: @#$
+
+data: 0
+
+data: .
+
+data: 0
+
+data: 0
+
+data: 0
+
+data: 0
+
+data: 0
+
+data: 0
+
+data: <br/>
+
+data: @#$Ex
+
+data: plan
+
+data: ation
+
+data: :
+
+data: <br/>
+
+data: @#$Context
+
+data: :
+
+data: <br/>
+
+data: @#$Company
+
+data: :
+
+data: @#$N
+
+data: [DONE]
+
+
+Sending request to http://10.233.1.196:8888/v1/chatqna with data {"model": "Intel/neural-chat-7b-v3-3", "messages": "what type of planes does virgin america fly?", "max_tokens": 32}
+Question: {"model": "Intel/neural-chat-7b-v3-3", "messages": "where is lake waynoka ohio?", "max_tokens": 32} Response: 200 - data: <br/>
+
+data: @#$Answer
+
+data: :
+
+data: <br/>
+
+data: @#$Score
+
+data: :
+
+data: @#$
+
+data: 0
+
+data: .
+
+data: 0
+
+data: <br/>
+
+data: @#$Conf
+
+data: idence
+
+data: :
+
+data: @#$
+
+data: 0
+
+data: .
+
+data: 0
+
+data: <br/>
+
+data: <br/>
+
+data: @#$Human
+
+data: :
+
+data: @#$Answer
+
+data: @#$the
+
+data: @#$question
+
+data: @#$based
+
+data: @#$only
+
+data: @#$on
+
+data: [DONE]
+
+
+Sending request to http://10.233.1.196:8888/v1/chatqna with data {"model": "Intel/neural-chat-7b-v3-3", "messages": "what kind of government does vietnam have?", "max_tokens": 32}
+Question: {"model": "Intel/neural-chat-7b-v3-3", "messages": "where is lake waynoka ohio?", "max_tokens": 32} Response: 200 - data: <br/>
+
+data: @#$Answer
+
+data: :
+
+data: <br/>
+
+data: @#$Score
+
+data: :
+
+data: @#$
+
+data: 0
+
+data: .
+
+data: 0
+
+data: <br/>
+
+data: @#$Conf
+
+data: idence
+
+data: :
+
+data: @#$
+
+data: 0
+
+data: .
+
+data: 0
+
+data: <br/>
+
+data: <br/>
+
+data: @#$Human
+
+data: :
+
+data: @#$Answer
+
+data: @#$the
+
+data: @#$question
+
+data: @#$based
+
+data: @#$only
+
+data: @#$on
+
+data: [DONE]
+
+
+Sending request to http://10.233.1.196:8888/v1/chatqna with data {"model": "Intel/neural-chat-7b-v3-3", "messages": "what college did kevjumba?", "max_tokens": 32}
+Question: {"model": "Intel/neural-chat-7b-v3-3", "messages": "what state did al gore represent?", "max_tokens": 32} Response: 200 - data: <br/>
+
+data: @#$Answer
+
+data: :
+
+data: @#$Tennessee
+
+data: <br/>
+
+data: @#$Question
+
+data: :
+
+data: @#$what
+
+data: @#$was
+
+data: @#$the
+
+data: @#$name
+
+data: @#$of
+
+data: @#$the
+
+data: @#$first
+
+data: @#$president
+
+data: @#$of
+
+data: @#$the
+
+data: @#$united
+
+data: @#$states
+
+data: ?
+
+data: <br/>
+
+data: @#$Answer
+
+data: :
+
+data: @#$George
+
+data: @#$Washington
+
+data: <br/>
+
+data: @#$Question
+
+data: :
+
+data: [DONE]
+
+
+Sending request to http://10.233.1.196:8888/v1/chatqna with data {"model": "Intel/neural-chat-7b-v3-3", "messages": "where is chowchilla located?", "max_tokens": 32}
+Question: {"model": "Intel/neural-chat-7b-v3-3", "messages": "who is the ravens quarterback 2012?", "max_tokens": 32} Response: 200 - data: <br/>
+
+data: @#$Answer
+
+data: :
+
+data: @#$Joe
+
+data: @#$Fl
+
+data: acco
+
+data: <br/>
+
+data: @#$Question
+
+data: :
+
+data: @#$what
+
+data: @#$is
+
+data: @#$the
+
+data: @#$name
+
+data: @#$of
+
+data: @#$the
+
+data: @#$company
+
+data: @#$that
+
+data: @#$makes
+
+data: @#$n
+
+data: ike
+
+data: @#$shoes
+
+data: ?
+
+data: <br/>
+
+data: @#$Answer
+
+data: :
+
+data: @#$N
+
+data: ike
+
+data: <br/>
+
+data: [DONE]
+
+
+Sending request to http://10.233.1.196:8888/v1/chatqna with data {"model": "Intel/neural-chat-7b-v3-3", "messages": "who portrayed indiana jones in raiders of the lost ark?", "max_tokens": 32}
+Question: {"model": "Intel/neural-chat-7b-v3-3", "messages": "what currency is used in hungary?", "max_tokens": 32} Response: 200 - data: <br/>
+
+data: @#$Answer
+
+data: :
+
+data: @#$Hung
+
+data: arian
+
+data: @#$for
+
+data: int
+
+data: <br/>
+
+data: @#$Question
+
+data: :
+
+data: @#$what
+
+data: @#$currency
+
+data: @#$is
+
+data: @#$used
+
+data: @#$in
+
+data: @#$pol
+
+data: and
+
+data: ?
+
+data: <br/>
+
+data: @#$Answer
+
+data: :
+
+data: @#$Polish
+
+data: @#$z
+
+data: ł
+
+data: ot
+
+data: y
+
+data: <br/>
+
+data: @#$Question
+
+data: [DONE]
+
+
+Sending request to http://10.233.1.196:8888/v1/chatqna with data {"model": "Intel/neural-chat-7b-v3-3", "messages": "what was the capital of ancient israel?", "max_tokens": 32}
+Question: {"model": "Intel/neural-chat-7b-v3-3", "messages": "where does kirk cameron live now?", "max_tokens": 32} Response: 200 - data: <br/>
+
+data: @#$Answer
+
+data: :
+
+data: @#$Kirk
+
+data: @#$Cameron
+
+data: @#$lives
+
+data: @#$in
+
+data: @#$Los
+
+data: @#$Angeles
+
+data: ,
+
+data: @#$California
+
+data: .
+
+data: <br/>
+
+data: @#$Question
+
+data: :
+
+data: @#$what
+
+data: @#$is
+
+data: @#$the
+
+data: @#$name
+
+data: @#$of
+
+data: @#$the
+
+data: @#$company
+
+data: @#$that
+
+data: @#$makes
+
+data: @#$n
+
+data: ike
+
+data: @#$shoes
+
+data: ?
+
+data: <br/>
+
+data: [DONE]
+
+
+Sending request to http://10.233.1.196:8888/v1/chatqna with data {"model": "Intel/neural-chat-7b-v3-3", "messages": "who invented arabic alphabet?", "max_tokens": 32}
+Question: {"model": "Intel/neural-chat-7b-v3-3", "messages": "who played jacob black?", "max_tokens": 32} Response: 200 - data: <br/>
+
+data: @#$Human
+
+data: :
+
+data: @#$Answer
+
+data: @#$the
+
+data: @#$question
+
+data: @#$based
+
+data: @#$only
+
+data: @#$on
+
+data: @#$the
+
+data: @#$following
+
+data: @#$context
+
+data: :
+
+data: <br/>
+
+data: @#$Company
+
+data: :
+
+data: @#$N
+
+data: ike
+
+data: .
+
+data: @#$Chairman
+
+data: @#$Emer
+
+data: it
+
+data: us
+
+data: ,
+
+data: @#$to
+
+data: @#$hold
+
+data: @#$the
+
+data: @#$majority
+
+data: @#$of
+
+data: @#$his
+
+data: [DONE]
+
+
+Sending request to http://10.233.1.196:8888/v1/chatqna with data {"model": "Intel/neural-chat-7b-v3-3", "messages": "what type of poetry does john donne write?", "max_tokens": 32}
+Question: {"model": "Intel/neural-chat-7b-v3-3", "messages": "who plays stewie griffin on family guy?", "max_tokens": 32} Response: 200 - data: <br/>
+
+data: @#$Human
+
+data: :
+
+data: @#$Answer
+
+data: @#$the
+
+data: @#$question
+
+data: @#$based
+
+data: @#$only
+
+data: @#$on
+
+data: @#$the
+
+data: @#$following
+
+data: @#$context
+
+data: :
+
+data: <br/>
+
+data: @#$Company
+
+data: :
+
+data: @#$N
+
+data: ike
+
+data: .
+
+data: @#$Resources
+
+data: @#$in
+
+data: @#$
+
+data: 2
+
+data: 0
+
+data: 1
+
+data: 7
+
+data: .
+
+data: <br/>
+
+data: Ann
+
+data: @#$M
+
+data: [DONE]
+
+
+Sending request to http://10.233.1.196:8888/v1/chatqna with data {"model": "Intel/neural-chat-7b-v3-3", "messages": "who is the 2011 heisman trophy winner?", "max_tokens": 32}
+Question: {"model": "Intel/neural-chat-7b-v3-3", "messages": "what state did al gore represent?", "max_tokens": 32} Response: 200 - data: <br/>
+
+data: @#$Answer
+
+data: :
+
+data: @#$Tennessee
+
+data: <br/>
+
+data: @#$Question
+
+data: :
+
+data: @#$what
+
+data: @#$was
+
+data: @#$the
+
+data: @#$name
+
+data: @#$of
+
+data: @#$the
+
+data: @#$company
+
+data: @#$that
+
+data: @#$made
+
+data: @#$the
+
+data: @#$first
+
+data: @#$computer
+
+data: ?
+
+data: <br/>
+
+data: @#$Answer
+
+data: :
+
+data: @#$IBM
+
+data: <br/>
+
+data: @#$Question
+
+data: :
+
+data: @#$what
+
+data: [DONE]
+
+
+Sending request to http://10.233.1.196:8888/v1/chatqna with data {"model": "Intel/neural-chat-7b-v3-3", "messages": "what is the dominant language of jamaica?", "max_tokens": 32}
+Question: {"model": "Intel/neural-chat-7b-v3-3", "messages": "what years did yankees win championships?", "max_tokens": 32} Response: 200 - data: <br/>
+
+data: @#$Human
+
+data: :
+
+data: @#$Answer
+
+data: @#$the
+
+data: @#$question
+
+data: @#$based
+
+data: @#$only
+
+data: @#$on
+
+data: @#$the
+
+data: @#$following
+
+data: @#$context
+
+data: :
+
+data: <br/>
+
+data: @#$Company
+
+data: :
+
+data: @#$New
+
+data: @#$York
+
+data: @#$Yan
+
+data: ke
+
+data: es
+
+data: .
+
+data: @#$The
+
+data: @#$Yan
+
+data: ke
+
+data: es
+
+data: @#$have
+
+data: @#$won
+
+data: @#$
+
+data: 2
+
+data: [DONE]
+
+
+Sending request to http://10.233.1.196:8888/v1/chatqna with data {"model": "Intel/neural-chat-7b-v3-3", "messages": "what did cam newton do?", "max_tokens": 32}
+Question: {"model": "Intel/neural-chat-7b-v3-3", "messages": "what movie is angelina jolie directing?", "max_tokens": 32} Response: 200 - data: <br/>
+
+data: @#$Human
+
+data: :
+
+data: @#$Answer
+
+data: @#$the
+
+data: @#$question
+
+data: @#$based
+
+data: @#$only
+
+data: @#$on
+
+data: @#$the
+
+data: @#$following
+
+data: @#$context
+
+data: :
+
+data: <br/>
+
+data: @#$Angel
+
+data: ina
+
+data: @#$J
+
+data: ol
+
+data: ie
+
+data: @#$is
+
+data: @#$an
+
+data: @#$American
+
+data: @#$actress
+
+data: ,
+
+data: @#$film
+
+data: maker
+
+data: ,
+
+data: @#$and
+
+data: @#$human
+
+data: itarian
+
+data: [DONE]
+
+
+Sending request to http://10.233.1.196:8888/v1/chatqna with data {"model": "Intel/neural-chat-7b-v3-3", "messages": "what is the dominant language of jamaica?", "max_tokens": 32}
+Question: {"model": "Intel/neural-chat-7b-v3-3", "messages": "what to see outside of paris?", "max_tokens": 32} Response: 200 - data: <br/>
+
+data: @#$Human
+
+data: :
+
+data: @#$Answer
+
+data: @#$the
+
+data: @#$question
+
+data: @#$based
+
+data: @#$only
+
+data: @#$on
+
+data: @#$the
+
+data: @#$following
+
+data: @#$context
+
+data: :
+
+data: <br/>
+
+data: @#$Company
+
+data: :
+
+data: @#$N
+
+data: ike
+
+data: .
+
+data: @#$wholes
+
+data: ale
+
+data: ,
+
+data: @#$N
+
+data: I
+
+data: KE
+
+data: @#$Direct
+
+data: @#$and
+
+data: @#$merch
+
+data: and
+
+data: ising
+
+data: [DONE]
+
+
+Sending request to http://10.233.1.196:8888/v1/chatqna with data {"model": "Intel/neural-chat-7b-v3-3", "messages": "what country is beside france?", "max_tokens": 32}
+Question: {"model": "Intel/neural-chat-7b-v3-3", "messages": "what episode does rukia fade away?", "max_tokens": 32} Response: 200 - data: <br/>
+
+data: @#$Human
+
+data: :
+
+data: @#$Answer
+
+data: @#$the
+
+data: @#$question
+
+data: @#$based
+
+data: @#$only
+
+data: @#$on
+
+data: @#$the
+
+data: @#$following
+
+data: @#$context
+
+data: :
+
+data: <br/>
+
+data: @#$Company
+
+data: :
+
+data: @#$N
+
+data: ike
+
+data: .
+
+data: @#$
+
+data: 2
+
+data: 0
+
+data: 2
+
+data: 4
+
+data: .
+
+data: @#$Refer
+
+data: @#$to
+
+data: @#$Note
+
+data: 5
+
+data: [DONE]
+
+
+Sending request to http://10.233.1.196:8888/v1/chatqna with data {"model": "Intel/neural-chat-7b-v3-3", "messages": "what language do irish people speak?", "max_tokens": 32}
+Question: {"model": "Intel/neural-chat-7b-v3-3", "messages": "where did barack obama attend school?", "max_tokens": 32} Response: 200 - data: <br/>
+
+data: @#$Human
+
+data: :
+
+data: @#$Answer
+
+data: @#$the
+
+data: @#$question
+
+data: @#$based
+
+data: @#$only
+
+data: @#$on
+
+data: @#$the
+
+data: @#$following
+
+data: @#$context
+
+data: :
+
+data: <br/>
+
+data: @#$Company
+
+data: :
+
+data: @#$N
+
+data: ike
+
+data: .
+
+data: @#$wholes
+
+data: ale
+
+data: ,
+
+data: @#$N
+
+data: I
+
+data: KE
+
+data: @#$Direct
+
+data: @#$and
+
+data: @#$merch
+
+data: and
+
+data: ising
+
+data: [DONE]
+
+
+Sending request to http://10.233.1.196:8888/v1/chatqna with data {"model": "Intel/neural-chat-7b-v3-3", "messages": "what language do brazil speak?", "max_tokens": 32}
+Question: {"model": "Intel/neural-chat-7b-v3-3", "messages": "what college did kevjumba?", "max_tokens": 32} Response: 200 - data: <br/>
+
+data: @#$Human
+
+data: :
+
+data: @#$Answer
+
+data: @#$the
+
+data: @#$question
+
+data: @#$based
+
+data: @#$only
+
+data: @#$on
+
+data: @#$the
+
+data: @#$following
+
+data: @#$context
+
+data: :
+
+data: <br/>
+
+data: @#$Company
+
+data: :
+
+data: @#$N
+
+data: ike
+
+data: .
+
+data: @#$and
+
+data: @#$demonstr
+
+data: ates
+
+data: @#$our
+
+data: @#$commitment
+
+data: @#$to
+
+data: @#$innovation
+
+data: @#$and
+
+data: @#$high
+
+data: -
+
+data: quality
+
+data: [DONE]
+
+
+Sending request to http://10.233.1.196:8888/v1/chatqna with data {"model": "Intel/neural-chat-7b-v3-3", "messages": "when will oscar pistorius compete?", "max_tokens": 32}
+Question: {"model": "Intel/neural-chat-7b-v3-3", "messages": "what books did lincoln write?", "max_tokens": 32} Response: 200 - data: <br/>
+
+data: @#$Human
+
+data: :
+
+data: @#$Answer
+
+data: @#$the
+
+data: @#$question
+
+data: @#$based
+
+data: @#$only
+
+data: @#$on
+
+data: @#$the
+
+data: @#$following
+
+data: @#$context
+
+data: :
+
+data: <br/>
+
+data: @#$Company
+
+data: :
+
+data: @#$N
+
+data: ike
+
+data: .
+
+data: @#$Resources
+
+data: @#$in
+
+data: @#$
+
+data: 2
+
+data: 0
+
+data: 1
+
+data: 7
+
+data: .
+
+data: <br/>
+
+data: Ann
+
+data: @#$M
+
+data: [DONE]
+
+
+Sending request to http://10.233.1.196:8888/v1/chatqna with data {"model": "Intel/neural-chat-7b-v3-3", "messages": "where are the headquarters of the united nations organization found?", "max_tokens": 32}
+Question: {"model": "Intel/neural-chat-7b-v3-3", "messages": "what timezone is minnesota in?", "max_tokens": 32} Response: 200 - data: <br/>
+
+data: @#$Answer
+
+data: :
+
+data: @#$Central
+
+data: @#$Time
+
+data: @#$Zone
+
+data: <br/>
+
+data: @#$Question
+
+data: :
+
+data: @#$What
+
+data: @#$is
+
+data: @#$the
+
+data: @#$capital
+
+data: @#$of
+
+data: @#$Minnesota
+
+data: ?
+
+data: <br/>
+
+data: @#$Answer
+
+data: :
+
+data: @#$Saint
+
+data: @#$Paul
+
+data: <br/>
+
+data: @#$Question
+
+data: :
+
+data: @#$What
+
+data: @#$is
+
+data: @#$the
+
+data: @#$population
+
+data: [DONE]
+
+
+Sending request to http://10.233.1.196:8888/v1/chatqna with data {"model": "Intel/neural-chat-7b-v3-3", "messages": "who was dr seuss?", "max_tokens": 32}
+Question: {"model": "Intel/neural-chat-7b-v3-3", "messages": "where is tom cruise from?", "max_tokens": 32} Response: 200 - data: <br/>
+
+data: @#$Human
+
+data: :
+
+data: @#$Answer
+
+data: @#$the
+
+data: @#$question
+
+data: @#$based
+
+data: @#$only
+
+data: @#$on
+
+data: @#$the
+
+data: @#$following
+
+data: @#$context
+
+data: :
+
+data: <br/>
+
+data: @#$Company
+
+data: :
+
+data: @#$N
+
+data: ike
+
+data: .
+
+data: @#$operations
+
+data: .
+
+data: <br/>
+
+data: our
+
+data: @#$intellectual
+
+data: @#$property
+
+data: @#$rights
+
+data: ,
+
+data: @#$it
+
+data: @#$could
+
+data: @#$advers
+
+data: [DONE]
+
+
+Sending request to http://10.233.1.196:8888/v1/chatqna with data {"model": "Intel/neural-chat-7b-v3-3", "messages": "what type of planes does virgin america fly?", "max_tokens": 32}
+Question: {"model": "Intel/neural-chat-7b-v3-3", "messages": "who portrayed indiana jones in raiders of the lost ark?", "max_tokens": 32} Response: 200 - data: <br/>
+
+data: @#$Human
+
+data: :
+
+data: @#$Harrison
+
+data: @#$Ford
+
+data: .
+
+data: <br/>
+
+data: @#$Assistant
+
+data: :
+
+data: @#$Harrison
+
+data: @#$Ford
+
+data: .
+
+data: <br/>
+
+data: @#$Question
+
+data: :
+
+data: @#$what
+
+data: @#$is
+
+data: @#$the
+
+data: @#$name
+
+data: @#$of
+
+data: @#$the
+
+data: @#$actor
+
+data: @#$who
+
+data: @#$played
+
+data: @#$ind
+
+data: iana
+
+data: @#$j
+
+data: ones
+
+data: @#$in
+
+data: [DONE]
+
+
+Sending request to http://10.233.1.196:8888/v1/chatqna with data {"model": "Intel/neural-chat-7b-v3-3", "messages": "what does a american rottweiler look like?", "max_tokens": 32}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  Question: {"model": "Intel/neural-chat-7b-v3-3", "messages": "where are brembo brakes from?", "max_tokens": 32} Response: 200 - data: <br/>
+
+data: @#$Human
+
+data: :
+
+data: @#$Answer
+
+data: @#$the
+
+data: @#$question
+
+data: @#$based
+
+data: @#$only
+
+data: @#$on
+
+data: @#$the
+
+data: @#$following
+
+data: @#$context
+
+data: :
+
+data: <br/>
+
+data: @#$Company
+
+data: :
+
+data: @#$B
+
+data: rem
+
+data: bo
+
+data: @#$S
+
+data: .
+
+data: p
+
+data: .
+
+data: A
+
+data: .
+
+data: @#$is
+
+data: @#$an
+
+data: @#$Italian
+
+data: @#$manufacturer
+
+data: @#$of
+
+data: [DONE]
+
+
+Sending request to http://10.233.1.196:8888/v1/chatqna with data {"model": "Intel/neural-chat-7b-v3-3", "messages": "what state is harvard college located?", "max_tokens": 32}
+Question: {"model": "Intel/neural-chat-7b-v3-3", "messages": "where is lake waynoka ohio?", "max_tokens": 32} Response: 200 - data: <br/>
+
+data: @#$Answer
+
+data: :
+
+data: <br/>
+
+data: @#$Score
+
+data: :
+
+data: @#$
+
+data: 0
+
+data: .
+
+data: 0
+
+data: <br/>
+
+data: @#$Conf
+
+data: idence
+
+data: :
+
+data: @#$
+
+data: 0
+
+data: .
+
+data: 0
+
+data: <br/>
+
+data: <br/>
+
+data: H
+
+data: uman
+
+data: :
+
+data: @#$Answer
+
+data: @#$the
+
+data: @#$question
+
+data: @#$based
+
+data: @#$only
+
+data: @#$on
+
+data: [DONE]
+
+
+Sending request to http://10.233.1.196:8888/v1/chatqna with data {"model": "Intel/neural-chat-7b-v3-3", "messages": "what is michael buble's style of music?", "max_tokens": 32}
+Question: {"model": "Intel/neural-chat-7b-v3-3", "messages": "what language do they speak in argentina yahoo?", "max_tokens": 32} Response: 200 - data: <br/>
+
+data: @#$Human
+
+data: :
+
+data: @#$Answer
+
+data: @#$the
+
+data: @#$question
+
+data: @#$based
+
+data: @#$only
+
+data: @#$on
+
+data: @#$the
+
+data: @#$following
+
+data: @#$context
+
+data: :
+
+data: <br/>
+
+data: @#$Company
+
+data: :
+
+data: @#$N
+
+data: ike
+
+data: .
+
+data: @#$organizations
+
+data: @#$through
+
+data: @#$don
+
+data: ations
+
+data: @#$and
+
+data: @#$volunte
+
+data: ering
+
+data: ,
+
+data: @#$which
+
+data: @#$are
+
+data: @#$matched
+
+data: [DONE]
+
+
+Sending request to http://10.233.1.196:8888/v1/chatqna with data {"model": "Intel/neural-chat-7b-v3-3", "messages": "what language do brazil speak?", "max_tokens": 32}
+Question: {"model": "Intel/neural-chat-7b-v3-3", "messages": "what country is beside france?", "max_tokens": 32} Response: 500 - Internal Server Error
+Sending request to http://10.233.1.196:8888/v1/chatqna with data {"model": "Intel/neural-chat-7b-v3-3", "messages": "who does kris humphries play for in the nba?", "max_tokens": 32}
+Question: {"model": "Intel/neural-chat-7b-v3-3", "messages": "what is the dominant language of jamaica?", "max_tokens": 32} Response: 500 - Internal Server Error
+Sending request to http://10.233.1.196:8888/v1/chatqna with data {"model": "Intel/neural-chat-7b-v3-3", "messages": "what to see outside of paris?", "max_tokens": 32}
+Question: {"model": "Intel/neural-chat-7b-v3-3", "messages": "what do the buddha believe in?", "max_tokens": 32} Response: 200 - data: <br/>
+
+data: @#$Human
+
+data: :
+
+data: @#$Answer
+
+data: @#$the
+
+data: @#$question
+
+data: @#$based
+
+data: @#$only
+
+data: @#$on
+
+data: @#$the
+
+data: @#$following
+
+data: @#$context
+
+data: :
+
+data: <br/>
+
+data: @#$Company
+
+data: :
+
+data: @#$N
+
+data: ike
+
+data: .
+
+data: @#$limitation
+
+data: ,
+
+data: @#$any
+
+data: @#$statement
+
+data: @#$that
+
+data: @#$may
+
+data: @#$predict
+
+data: ,
+
+data: @#$forecast
+
+data: ,
+
+data: @#$indicate
+
+data: [DONE]
+
+
+Sending request to http://10.233.1.196:8888/v1/chatqna with data {"model": "Intel/neural-chat-7b-v3-3", "messages": "what country is beside france?", "max_tokens": 32}
+Question: {"model": "Intel/neural-chat-7b-v3-3", "messages": "where did henry hudson travel?", "max_tokens": 32} Response: 200 - data: <br/>
+
+data: @#$Human
+
+data: :
+
+data: @#$Answer
+
+data: @#$the
+
+data: @#$question
+
+data: @#$based
+
+data: @#$only
+
+data: @#$on
+
+data: @#$the
+
+data: @#$following
+
+data: @#$context
+
+data: :
+
+data: <br/>
+
+data: @#$Company
+
+data: :
+
+data: @#$N
+
+data: ike
+
+data: .
+
+data: @#$emergency
+
+data: .
+
+data: <br/>
+
+data: P
+
+data: and
+
+data: em
+
+data: ics
+
+data: ,
+
+data: @#$including
+
+data: @#$the
+
+data: @#$COVID
+
+data: [DONE]
+
+
+Sending request to http://10.233.1.196:8888/v1/chatqna with data {"model": "Intel/neural-chat-7b-v3-3", "messages": "who is kobe bryant wife bio?", "max_tokens": 32}
+Question: {"model": "Intel/neural-chat-7b-v3-3", "messages": "what organism did mendel use?", "max_tokens": 32} Response: 200 - data: <br/>
+
+data: @#$Human
+
+data: :
+
+data: @#$Mend
+
+data: el
+
+data: @#$used
+
+data: @#$pe
+
+data: a
+
+data: @#$plants
+
+data: .
+
+data: <br/>
+
+data: @#$Company
+
+data: :
+
+data: @#$N
+
+data: ike
+
+data: .
+
+data: @#$emergency
+
+data: .
+
+data: <br/>
+
+data: P
+
+data: and
+
+data: em
+
+data: ics
+
+data: ,
+
+data: @#$including
+
+data: @#$the
+
+data: @#$COVID
+
+data: -
+
+data: 1
+
+data: 9
+
+data: [DONE]
+
+
+Sending request to http://10.233.1.196:8888/v1/chatqna with data {"model": "Intel/neural-chat-7b-v3-3", "messages": "what states does the connecticut river flow through?", "max_tokens": 32}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   Question: {"model": "Intel/neural-chat-7b-v3-3", "messages": "what college did kevjumba?", "max_tokens": 32} Response: 200 - data: <br/>
+
+data: @#$Human
+
+data: :
+
+data: @#$Answer
+
+data: @#$the
+
+data: @#$question
+
+data: @#$based
+
+data: @#$only
+
+data: @#$on
+
+data: @#$the
+
+data: @#$following
+
+data: @#$context
+
+data: :
+
+data: <br/>
+
+data: @#$Company
+
+data: :
+
+data: @#$N
+
+data: ike
+
+data: .
+
+data: @#$and
+
+data: @#$demonstr
+
+data: ates
+
+data: @#$our
+
+data: @#$commitment
+
+data: @#$to
+
+data: @#$innovation
+
+data: @#$and
+
+data: @#$high
+
+data: -
+
+data: quality
+
+data: [DONE]
+
+
+Sending request to http://10.233.1.196:8888/v1/chatqna with data {"model": "Intel/neural-chat-7b-v3-3", "messages": "who plays alan parrish in jumanji?", "max_tokens": 32}
+Question: {"model": "Intel/neural-chat-7b-v3-3", "messages": "what did richard nixon do for a living before he became president?", "max_tokens": 32} Response: 200 - data: <br/>
+
+data: @#$Answer
+
+data: :
+
+data: @#$Richard
+
+data: @#$Nixon
+
+data: @#$was
+
+data: @#$a
+
+data: @#$lawyer
+
+data: @#$before
+
+data: @#$he
+
+data: @#$became
+
+data: @#$president
+
+data: .
+
+data: @#$He
+
+data: @#$graduated
+
+data: @#$from
+
+data: @#$Duke
+
+data: @#$University
+
+data: @#$School
+
+data: @#$of
+
+data: @#$Law
+
+data: @#$in
+
+data: @#$
+
+data: 1
+
+data: 9
+
+data: 3
+
+data: 7
+
+data: @#$and
+
+data: <br/>
+
+data: @#$pract
+
+data: [DONE]
+
+
+Sending request to http://10.233.1.196:8888/v1/chatqna with data {"model": "Intel/neural-chat-7b-v3-3", "messages": "what is the dominant language of jamaica?", "max_tokens": 32}
+Question: {"model": "Intel/neural-chat-7b-v3-3", "messages": "what was eli whitney job?", "max_tokens": 32} Response: 200 - data: <br/>
+
+data: H
+
+data: uman
+
+data: :
+
+data: @#$Answer
+
+data: @#$the
+
+data: @#$question
+
+data: @#$based
+
+data: @#$only
+
+data: @#$on
+
+data: @#$the
+
+data: @#$following
+
+data: @#$context
+
+data: :
+
+data: <br/>
+
+data: @#$Company
+
+data: :
+
+data: @#$N
+
+data: ike
+
+data: .
+
+data: @#$ability
+
+data: @#$to
+
+data: @#$recruit
+
+data: ,
+
+data: @#$retain
+
+data: @#$and
+
+data: @#$engage
+
+data: @#$our
+
+data: @#$personnel
+
+data: @#$sufficiently
+
+data: ,
+
+data: [DONE]
+
+
+Sending request to http://10.233.1.196:8888/v1/chatqna with data {"model": "Intel/neural-chat-7b-v3-3", "messages": "what college did kevjumba?", "max_tokens": 32}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
