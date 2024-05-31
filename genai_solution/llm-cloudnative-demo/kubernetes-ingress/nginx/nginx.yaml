@@ -13,6 +13,15 @@ spec:
       labels:
         app: nginx
     spec:
+      nodeSelector:
+        demo: "chatqna"
+      topologySpreadConstraints:
+      - maxSkew: 1
+        topologyKey: kubernetes.io/hostname
+        whenUnsatisfiable: ScheduleAnyway
+        labelSelector:
+               matchLabels:
+                 app: nginx
       containers:
       - name: nginx
         image: nginx:latest
