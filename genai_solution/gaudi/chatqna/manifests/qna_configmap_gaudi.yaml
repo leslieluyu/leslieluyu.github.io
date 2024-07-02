@@ -1,0 +1,26 @@
+# Copyright (C) 2024 Intel Corporation
+# SPDX-License-Identifier: Apache-2.0
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: qna-config
+data:
+  http_proxy: "http://192.168.1.253:3128"
+  https_proxy: "http://192.168.1.253:3128"
+    #no_proxy: .default.svc.cluster.local,.intel.com,10.0.0.0/8,192.168.0.0/16,localhost,127.0.0.0/8,embedding-svc,retriever-svc,reranking-svc,llm-svc
+  no_proxy: .default.svc.cluster.local,embedding-svc,retriever-svc,reranking-svc,llm-svc
+  EMBEDDING_MODEL_ID: "BAAI/bge-base-en-v1.5"
+  RERANK_MODEL_ID: "BAAI/bge-reranker-base"
+    #LLM_MODEL_ID: "Intel/neural-chat-7b-v3-3"
+  LLM_MODEL_ID: "/data/neural-chat-7b-v3-3"
+  TEI_EMBEDDING_ENDPOINT: "http://tei-embedding-svc:6006"
+  TEI_RERANKING_ENDPOINT: "http://tei-reranking-svc:8808"
+  TGI_LLM_ENDPOINT: "http://tgi-gaudi-svc:9009"
+  REDIS_URL: "redis://redis-vector-db:6379"
+  INDEX_NAME: "rag-redis"
+  HUGGINGFACEHUB_API_TOKEN: "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"
+  EMBEDDING_SERVICE_HOST_IP: embedding-svc
+  RETRIEVER_SERVICE_HOST_IP: retriever-svc
+  RERANK_SERVICE_HOST_IP: reranking-svc
+  LLM_SERVICE_HOST_IP: llm-svc
