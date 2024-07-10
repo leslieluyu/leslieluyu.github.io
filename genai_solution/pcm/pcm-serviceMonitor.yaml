@@ -15,4 +15,4 @@ spec:
       app: pcm-service
   endpoints:
   - port: pcm-metrics
-    interval: 30s
+    interval: 2s
