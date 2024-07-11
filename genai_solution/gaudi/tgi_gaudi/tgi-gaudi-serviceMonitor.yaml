@@ -12,7 +12,7 @@ spec:
       any: true
   selector:
     matchLabels:
-      app: tgi-gaudi-deploy
+      app.kubernetes.io/name: tgi
   endpoints:
-  - port: metric-service
+  - port: tgi
     interval: 30s
