@@ -1,0 +1,18 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  labels:
+    app.kubernetes.io/name: cadvisor-metric-exporter
+    app.kubernetes.io/version: v0.0.1
+    release: prometheus-stack
+  name: cadvisor-metric-exporter
+  namespace: monitoring
+spec:
+  namespaceSelector:
+      any: true
+  selector:
+    matchLabels:
+      app: cadvisor-service
+  endpoints:
+  - port: cadvisor-metrics
+    interval: 15s
