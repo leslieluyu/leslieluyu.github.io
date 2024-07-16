@@ -15,4 +15,4 @@ spec:
       app.kubernetes.io/name: tgi
   endpoints:
   - port: tgi
-    interval: 30s
+    interval: 5s

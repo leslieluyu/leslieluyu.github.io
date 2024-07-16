@@ -2,17 +2,17 @@ apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
   labels:
-    app.kubernetes.io/name: tei-reranking-exporter
+    app.kubernetes.io/name: chatqna-backend-svc-exporter
     app.kubernetes.io/version: v0.0.1
     release: prometheus-stack
-  name: tei-reranking-exporter
+  name: chatqna-backend-svc-exporter
   namespace: monitoring
 spec:
   namespaceSelector:
       any: true
   selector:
     matchLabels:
-      app: tei-reranking-service-deploy
+      app: chaqna-xeon-backend-server-deploy
   endpoints:
-  - port: tei-reranking-svc
+  - port: chaqna-xeon-backend-server-svc
     interval: 5s

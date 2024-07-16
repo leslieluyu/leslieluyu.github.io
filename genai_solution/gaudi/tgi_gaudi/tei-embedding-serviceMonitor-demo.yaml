@@ -15,4 +15,4 @@ spec:
       app: tei-embedding-service-deploy
   endpoints:
   - port: tei-embedding-svc
-    interval: 30s
+    interval: 5s
