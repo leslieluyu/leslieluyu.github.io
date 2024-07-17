@@ -19,7 +19,7 @@ spec:
             - name: TESTT_PORT
               value: "$(TEST_PORT)"
           command: ["/bin/bash"]
-          args: ["-c", "while true; do ping localhost; sleep 60;done"]
+          args: ["-c", "while true; do ping -c 1 localhost; sleep 60;done"]
           env:
             - name: SPECIAL
               valueFrom:
