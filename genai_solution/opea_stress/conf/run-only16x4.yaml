@@ -1,0 +1,16 @@
+profile:
+  storage:
+    hostpath: /opt/opea/test_reports
+  global-settings:
+    tool: locust
+    locustfile: /home/yulu/OPEA/cloud.performance.benchmark.OPEAStress/locust/aistress.py
+    bench-target: "chatqnafixed"
+    host: http://100.83.122.244:30888
+    stop-timeout: 120
+    processes: 4
+    namespace: default
+    run-time: 60m
+  runs:
+  - name: t_1
+    users: 16
+    max-request: 64

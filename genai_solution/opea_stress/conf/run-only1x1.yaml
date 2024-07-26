@@ -1,0 +1,17 @@
+profile:
+  storage:
+    hostpath: /home/yulu/OPEA/test_reports
+  global-settings:
+    tool: locust
+    locustfile: /home/yulu/OPEA/cloud.performance.benchmark.OPEAStress/locust/bench_chatqna.py
+    host:  http://100.83.122.244:30888
+    stop-timeout: 120
+    namespace: default
+    run-time: 60m
+  runs:
+  - name: t_warm
+    users: 1
+    max-request: 8
+  #- name: t_1
+  #  users: 16
+  #  max-request: 64

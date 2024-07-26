@@ -1,0 +1,19 @@
+profile:
+  storage:
+    hostpath: /home/yulu/OPEA/test_reports
+  global-settings:
+    tool: locust
+    locustfile: /home/yulu/OPEA/cloud.performance.benchmark.OPEAStress/locust/aistress.py
+    bench-target: "tgifixed"
+    host: http://172.21.216.46:9009
+    stop-timeout: 120
+    processes: 4
+    namespace: default
+    run-time: 60m
+  runs:
+  - name: t_warm
+    users: 4
+    max-request: 128
+  - name: t_1
+    users: 1
+    max-request: 4
