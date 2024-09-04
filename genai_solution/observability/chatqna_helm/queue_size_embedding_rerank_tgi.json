@@ -18,7 +18,7 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 35,
+  "id": 32,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -108,7 +108,7 @@
           },
           "disableTextWrap": false,
           "editorMode": "builder",
-          "expr": "te_queue_size{service=\"tei-reranking-svc\"}",
+          "expr": "te_queue_size{service=\"chatqna-tei\"}",
           "fullMetaSearch": false,
           "includeNullMetadata": true,
           "instant": false,
@@ -207,7 +207,7 @@
           },
           "disableTextWrap": false,
           "editorMode": "builder",
-          "expr": "te_queue_size{service=\"tei-embedding-svc\"}",
+          "expr": "te_queue_size{service=\"chatqna-tei\"}",
           "fullMetaSearch": false,
           "includeNullMetadata": true,
           "instant": false,
@@ -631,6 +631,6 @@
   "timezone": "",
   "title": "tei-embedding & tei-reranking",
   "uid": "e5994584-3fa7-43ab-ae9f-c5562244b678",
-  "version": 2,
+  "version": 3,
   "weekStart": ""
 }
