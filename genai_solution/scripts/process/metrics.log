@@ -1,0 +1,37 @@
+Container ID: 17620c3f03b020f7eb53e5790b4ca2537cee324d6d49abcb5606590c6680bf4d
+podName: chatqna-data-prep-854d5c4d7c-wfptv
+rdt_container_cpu_utilization:
+  Average: 0.00
+  Max: 0.00
+  Values: [0.00053, 0.002119]
+rdt_container_memory:
+  Average: 1116.65
+  Max: 1116.77
+  Values: [1116.64453125, 1116.76953125]
+rdt_container_sum_local_memory_bandwidth:
+  Average: 0.53
+  Max: 1.87
+  Values: [0.233472, 1.245184]
+rdt_container_sum_total_memory_bandwidth:
+  Average: 0.69
+  Max: 2.72
+  Values: [0.466944, 1.712128]
+
+Container ID: 381b5f130c88ac05c76dacda99df39adb2f812e2c573dfdec7e0b794192f06f9
+podName: chatqna-embedding-usvc-54c6788cd9-xp5lp
+rdt_container_cpu_utilization:
+  Average: 0.07
+  Max: 0.53
+  Values: [0.003076, 0.004511]
+rdt_container_memory:
+  Average: 321.15
+  Max: 325.18
+  Values: [261.25390625, 261.11328125]
+rdt_container_sum_local_memory_bandwidth:
+  Average: 30.33
+  Max: 450.06
+  Values: [2.101248, 2.8794880000000003]
+rdt_container_sum_total_memory_bandwidth:
+  Average: 56.24
+  Max: 660.34
+  Values: [3.346432, 3.7355519999999998]
