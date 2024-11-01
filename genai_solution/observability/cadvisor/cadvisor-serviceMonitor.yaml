@@ -15,4 +15,4 @@ spec:
       app: cadvisor-service
   endpoints:
   - port: cadvisor-metrics
-    interval: 15s
+    interval: 2s

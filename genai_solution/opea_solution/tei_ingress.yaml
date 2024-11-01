@@ -1,0 +1,32 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: tei-ingress
+  namespace: benchmarking
+  annotations:
+    nginx.org/lb-method: "round_robin"
+    nginx.org/max-conns: "10"
+      #nginx.ingress.kubernetes.io/proxy-buffer-size: "16k" 
+      #nginx.ingress.kubernetes.io/proxy-buffers-number: "4"
+      #nginx.ingress.kubernetes.io/proxy-max-temp-file-size: "1024m"
+    # nginx.org/proxy-requests: "4"
+    nginx.ingress.kubernetes.io/proxy-read-timeout: "600"
+    nginx.ingress.kubernetes.io/proxy-next-upstream-timeout: "600"
+    nginx.ingress.kubernetes.io/proxy-connect-timeout: '600'
+    nginx.ingress.kubernetes.io/proxy-send-timeout: '600'
+    nginx.ingress.kubernetes.io/proxy-read-timeout: '600'
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: tei.ingress.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: chatqna-tei
+                port:
+                  number: 80
+                    #maxConns: 1
+

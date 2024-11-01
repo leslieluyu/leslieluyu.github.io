@@ -12,7 +12,7 @@ spec:
       any: true
   selector:
     matchLabels:
-      app: app.kubernetes.io/name: tei
+      app.kubernetes.io/name: tei
   endpoints:
   - port: tei
     interval: 5s
