@@ -15,10 +15,10 @@ spec:
       labels:
         app: memory-bandwidth-exporter
     spec:
-      nodeName: "satg-opea-4node-0"
+      nodeName: "satg-opea-4"
       containers:
       - name: memory-bandwidth-exporter
-        image: opea/memory-bandwidth-exporter:latest
+        image: docker201904/memory-bandwidth-exporter:v1.0
         imagePullPolicy: IfNotPresent
         env:
         - name: NODE_NAME
@@ -27,6 +27,14 @@ spec:
               fieldPath: spec.nodeName
         - name: NAMESPACE_WHITELIST
           value: "calico-apiserver,calico-system,kube-system,tigera-operator"
+        - name: COLLECTER_INTERVAL
+          value: 1s
+        - name: CONTAINER_METRICS
+          value: "all"
+        - name: CLASS_METRICS
+          value: "none"
+        - name: NODE_METRICS
+          value: "none"
         volumeMounts:
         - name: hooks
           mountPath: /etc/containers/oci/hooks.d/
