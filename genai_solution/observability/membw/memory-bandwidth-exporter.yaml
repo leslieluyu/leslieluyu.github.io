@@ -35,6 +35,8 @@ spec:
           value: "none"
         - name: NODE_METRICS
           value: "none"
+        - name: WEB_LISTEN_ADDRESS
+          value: ":9100"
         volumeMounts:
         - name: hooks
           mountPath: /etc/containers/oci/hooks.d/
