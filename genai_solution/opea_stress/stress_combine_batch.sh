@@ -15,13 +15,17 @@ script_start_time=$(date +%s)
 # Define your variables (example values)
 command="./stresscli.py load-test --profile run-v1.0-gaudi-128-ql.yaml"
 DATA_FILE_PATH="/home/yulu/OPEA/test_docs/pubmed"
+
+# full combination of all the parameter
 file_names=("pubmed_10.txt" "pubmed_100.txt" "pubmed_1000.txt" "pubmed_10000.txt")
 max_lines=("10" "100" "100" "1000")
-file_names=("pubmed_10.txt")
-max_lines=("10")
-#batch_sizes=(1 2 4 8 16 32 64 128)
-batch_sizes=(1 2)
+batch_sizes=(1 2 4 8 16 32 64 128)
 max_tokens=(64 128 256 512 1024)
+
+# file_names=("pubmed_10.txt")
+# max_lines=("10")
+# batch_sizes=(1 2)
+
 max_tokens=(64 128)
 
 namespace="benchmark-yulu"
@@ -218,11 +222,14 @@ function do_main_job() {
 
                 eval "$command" 2>&1 | tee -a "$logfile"
                 end_time=$(date +%s)
+                duration=$((end_time - start_time))
                 echo -e "====== 4 Executing: $command. Time spent: $duration seconds." 2>&1| tee -a "$logfile" 
 
                 round_end_time=$(date +%s)
                 round_duration=$((round_end_time - round_start_time))
-                echo -e "====== Finished a round [file_name:${file_name},MAX_LINES:${MAX_LINES},MAX_BATCH_SIZE:${bs},MAX_TOKENS:${max_token}]. Time spent: $round_duration seconds.\n\n" 2>&1| tee -a "$logfile"
+                script_end_time=$(date +%s)
+                total_duration=$((script_end_time - script_start_time))
+                echo -e "====== Finished a round [file_name:${file_name},MAX_LINES:${MAX_LINES},MAX_BATCH_SIZE:${bs},MAX_TOKENS:${max_token}]. Round Time spent: $round_duration seconds. Total time spent: $total_duration seconds.\n\n " 2>&1| tee -a "$logfile"
             done
             echo -e "====== Finished ALL Max_tokens:(${max_tokens[*]}) ... file_name:${file_name},MAX_LINES:${max_line},MAX_BATCH_SIZE:${bs}" 2>&1| tee -a "$logfile" 
         done
