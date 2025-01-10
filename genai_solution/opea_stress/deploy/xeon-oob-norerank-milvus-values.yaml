@@ -1,0 +1,91 @@
+# Copyright (C) 2024 Intel Corporation
+# SPDX-License-Identifier: Apache-2.0
+
+chatqna-ui:
+  image:
+    repository: opea/chatqna-conversation-ui
+    tag: "${IMGVER}"
+tei:
+  image:
+    repository: ghcr.io/huggingface/text-embeddings-inference
+    tag: cpu-1.5
+  resources:
+    limits:
+      habana.ai/gaudi: 0
+  evenly_distributed: True
+tgi:
+  LLM_MODEL_ID: Intel/neural-chat-7b-v3-3
+  MAX_BATCH_SIZE: "1"
+  MAX_INPUT_LENGTH: "2048"
+  MAX_TOTAL_TOKENS: "4096"
+milvus:
+  enabled: true
+  cluster:
+    enabled: false
+  etcd:
+    replicaCount: 1
+  pulsar:
+    enabled: false
+  minio:
+    mode: standalone
+data-prep:
+  image:
+    repository: opea/dataprep-milvus
+    tag: "${IMGVER}"
+  port: 6010
+  # text embedding inference service URL, e.g. http://<service-name>:<port>
+  TEI_EMBEDDING_ENDPOINT: "http://chatqna-tei:80"
+  # milvus DB configurations
+  #MILVUS_HOST: "milvustest"
+  MILVUS_PORT: "19530"
+  COLLECTION_NAME: "rag_milvus"
+  MOSEC_EMBEDDING_ENDPOINT: ""
+  MOSEC_EMBEDDING_MODEL: ""
+  evenly_distributed: True
+  livenessProbe:
+    httpGet:
+      path: v1/health_check
+      port: data-prep
+    initialDelaySeconds: 5
+    periodSeconds: 5
+    failureThreshold: 2400
+retriever-usvc:
+  image:
+    repository: opea/retriever-milvus
+    tag: "${IMGVER}"
+  port: 7000
+  # text embedding inference service URL, e.g. http://<service-name>:<port>
+  #TEI_EMBEDDING_ENDPOINT: "http://dataprep-tei:80"
+  # milvus DB configurations
+  #MILVUS_HOST: "dataprep-milvus"
+  MILVUS_PORT: "19530"
+  COLLECTION_NAME: "rag_milvus"
+  MOSEC_EMBEDDING_ENDPOINT: ""
+  MOSEC_EMBEDDING_MODEL: ""
+  evenly_distributed: True
+embedding-usvc:
+  image:
+    repository: opea/embedding-tei
+    tag: "${IMGVER}"
+  evenly_distributed: True
+reranking-usvc:
+  image:
+    repository: opea/reranking-tei
+    tag: "${IMGVER}"
+  evenly_distributed: True
+llm-uservice:
+  image:
+    repository: opea/llm-tgi
+    tag: "${IMGVER}"
+  LLM_MODEL_ID: Intel/neural-chat-7b-v3-3
+  evenly_distributed: True
+
+image:
+  tag: "${IMGVER}"
+service:
+  type: NodePort
+evenly_distributed: True
+
+global:
+  modelUseHostPath: ${MODELDIR}
+  

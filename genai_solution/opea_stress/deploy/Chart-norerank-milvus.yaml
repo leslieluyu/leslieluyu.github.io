@@ -1,0 +1,44 @@
+# Copyright (C) 2024 Intel Corporation
+# SPDX-License-Identifier: Apache-2.0
+
+apiVersion: v2
+name: chatqna
+description: The Helm chart to deploy ChatQnA
+type: application
+dependencies:
+  - name: tgi
+    version: 1.0.0
+    repository: "file://../common/tgi"
+  - name: tei
+    version: 1.0.0
+    repository: "file://../common/tei"
+  - name: milvus
+    version: 4.2.15
+    repository: https://zilliztech.github.io/milvus-helm/
+  - name: retriever-usvc
+    version: 1.0.0
+    repository: "file://../common/retriever-usvc"
+  - name: data-prep
+    version: 1.0.0
+    repository: "file://../common/data-prep"
+  - name: ui
+    alias: chatqna-ui
+    version: 1.0.0
+    repository: "file://../common/ui"
+  - name: mongodb
+    version: 1.0.0
+    repository: "file://../common/mongodb"
+  - name: chathistory-usvc
+    version: 1.0.0
+    repository: "file://../common/chathistory-usvc"
+  - name: prompt-usvc
+    version: 1.0.0
+    repository: "file://../common/prompt-usvc"
+  - name: embedding-usvc
+    version: 1.0.0
+    repository: "file://../common/embedding-usvc"
+  - name: llm-uservice
+    version: 1.0.0
+    repository: "file://../common/llm-uservice"
+version: 1.0.0
+appVersion: "v1.0"

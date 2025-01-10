@@ -1,0 +1,127 @@
+# Copyright (C) 2024 Intel Corporation
+# SPDX-License-Identifier: Apache-2.0
+
+# Default values for chatqna.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+replicaCount: 1
+LOGFLAG: "True"
+image:
+  repository: opea/chatqna-without-rerank
+  pullPolicy: IfNotPresent
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: "${IMGVER}"
+
+port: 8888
+service:
+  type: NodePort
+  port: 8888
+  nodePort: 30888
+
+nginx:
+  service:
+    type: NodePort
+
+securityContext:
+  readOnlyRootFilesystem: true
+  allowPrivilegeEscalation: false
+  runAsNonRoot: true
+  runAsUser: 1000
+  capabilities:
+    drop:
+    - ALL
+  seccompProfile:
+    type: RuntimeDefault
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
+
+# This is just to avoid Helm errors when HPA is NOT used
+# (use hpa-values.yaml files to actually enable HPA).
+autoscaling:
+  enabled: false
+
+# Override values in specific subcharts
+tgi:
+  LLM_MODEL_ID: Intel/neural-chat-7b-v3-3
+  MAX_BATCH_SIZE: "1"
+  MAX_INPUT_LENGTH: "2048"
+  MAX_TOTAL_TOKENS: "4096"
+# disable guardrails-usvc by default
+# See guardrails-values.yaml for guardrail related options
+guardrails-usvc:
+  enabled: false
+
+# If you would like to switch to traditional UI image
+# Uncomment the following lines
+chatqna-ui:
+  image:
+    repository: "opea/chatqna-ui"
+    tag: "${IMGVER}"
+  containerPort: "5173"
+tei:
+  image:
+    repository: ghcr.io/huggingface/text-embeddings-inference
+    tag: cpu-1.5
+  resources:
+    limits:
+      habana.ai/gaudi: 0
+  evenly_distributed: True
+data-prep:
+  image:
+    repository: opea/dataprep-redis
+    tag: "${IMGVER}"
+  port: 6010
+  evenly_distributed: True
+  livenessProbe:
+    httpGet:
+      path: v1/health_check
+      port: data-prep
+    initialDelaySeconds: 5
+    periodSeconds: 5
+    failureThreshold: 2400
+  LOGFLAG: "True"
+
+retriever-usvc:
+  image:
+    repository: opea/retriever-redis
+    tag: "${IMGVER}"
+  port: 7000
+  evenly_distributed: True
+  LOGFLAG: "True"
+embedding-usvc:
+  image:
+    repository: opea/embedding-tei
+    tag: "${IMGVER}"
+  evenly_distributed: True
+  LOGFLAG: "True"
+llm-uservice:
+  image:
+    repository: opea/llm-tgi
+    tag: "1.0_fix"
+  LLM_MODEL_ID: Intel/neural-chat-7b-v3-3
+  evenly_distributed: True
+  LOGFLAG: "True"
+
+
+global:
+  http_proxy: ""
+  https_proxy: ""
+  no_proxy: ""
+  HUGGINGFACEHUB_API_TOKEN: "insert-your-huggingface-token-here"
+  # set modelUseHostPath or modelUsePVC to use model cache.
+  modelUseHostPath: ${MODELDIR}
+  # modelUseHostPath: /mnt/opea-models
+  # modelUsePVC: model-volume
+
+  # Install Prometheus serviceMonitors for service components
+  monitoring: false
+
+  # Prometheus Helm install release name needed for serviceMonitors
+  prometheusRelease: prometheus-stack
+
+

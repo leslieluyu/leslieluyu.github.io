@@ -1,0 +1,121 @@
+# Copyright (C) 2024 Intel Corporation
+# SPDX-License-Identifier: Apache-2.0
+
+chatqna-ui:
+  image:
+    repository: opea/chatqna-conversation-ui
+    tag: "${DEMO_IMGVER}"
+tei:
+  image:
+    repository: opea/tei-gaudi
+    tag: "${IMGVER}"
+  resources:
+    limits:
+      habana.ai/gaudi: 1
+  evenly_distributed: True
+teirerank:
+  accelDevice: "gaudi"
+  image:
+    repository: opea/tei-gaudi
+    tag: "${IMGVER}"
+  resources:
+    limits:
+      habana.ai/gaudi: 1
+  securityContext:
+    readOnlyRootFilesystem: false
+  evenly_distributed: True
+tgi:
+  accelDevice: "gaudi"
+  image:
+    repository: ghcr.io/huggingface/tgi-gaudi
+    tag: "2.0.5"
+  resources:
+    limits:
+      habana.ai/gaudi: 1
+  MAX_INPUT_LENGTH: "1024"
+  MAX_TOTAL_TOKENS: "2048"
+  CUDA_GRAPHS: ""
+  livenessProbe:
+    initialDelaySeconds: 5
+    periodSeconds: 5
+    timeoutSeconds: 1
+  readinessProbe:
+    initialDelaySeconds: 5
+    periodSeconds: 5
+    timeoutSeconds: 1
+  startupProbe:
+    initialDelaySeconds: 5
+    periodSeconds: 5
+    timeoutSeconds: 1
+    failureThreshold: 120
+milvus:
+  enabled: true
+  cluster:
+    enabled: false
+  etcd:
+    replicaCount: 1
+  pulsar:
+    enabled: false
+  minio:
+    mode: standalone
+data-prep:
+  image:
+    repository: opea/dataprep-milvus
+    tag: "${DEMO_IMGVER}"
+  port: 6010
+  # text embedding inference service URL, e.g. http://<service-name>:<port>
+  TEI_EMBEDDING_ENDPOINT: "http://chatdemo-tei:80"
+  # milvus DB configurations
+  #MILVUS_HOST: "milvustest"
+  MILVUS_PORT: "19530"
+  COLLECTION_NAME: "rag_milvus"
+  MOSEC_EMBEDDING_ENDPOINT: ""
+  MOSEC_EMBEDDING_MODEL: ""
+  evenly_distributed: True
+  livenessProbe:
+    httpGet:
+      path: v1/health_check
+      port: data-prep
+    initialDelaySeconds: 5
+    periodSeconds: 5
+    failureThreshold: 2400
+retriever-usvc:
+  image:
+    repository: opea/retriever-milvus
+    tag: "${DEMO_IMGVER}"
+  port: 7000
+  # text embedding inference service URL, e.g. http://<service-name>:<port>
+  #TEI_EMBEDDING_ENDPOINT: "http://dataprep-tei:80"
+  # milvus DB configurations
+  #MILVUS_HOST: "dataprep-milvus"
+  MILVUS_PORT: "19530"
+  COLLECTION_NAME: "rag_milvus"
+  MOSEC_EMBEDDING_ENDPOINT: ""
+  MOSEC_EMBEDDING_MODEL: ""
+  evenly_distributed: True
+embedding-usvc:
+  image:
+    repository: opea/embedding-tei
+    tag: "${IMGVER}"
+  evenly_distributed: True
+reranking-usvc:
+  image:
+    repository: opea/reranking-tei
+    tag: "${DEMO_IMGVER}"
+  evenly_distributed: True
+llm-uservice:
+  image:
+    repository: opea/llm-tgi
+    tag: "${IMGVER}"
+  LLM_MODEL_ID: Intel/neural-chat-7b-v3-3
+  evenly_distributed: True
+
+image:
+  tag: "${DEMO_IMGVER}"
+service:
+  type: NodePort
+evenly_distributed: True
+
+global:
+  modelUseHostPath: ${MODELDIR}
+  
