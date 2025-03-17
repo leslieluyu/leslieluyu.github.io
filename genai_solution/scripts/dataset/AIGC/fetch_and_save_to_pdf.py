@@ -34,30 +34,22 @@ def fetch_content(url):
     else:
         return "Failed to retrieve content."
 
-def save_to_pdf(content, title, output_file):
-    pdf = PDF()
-    pdf.add_page()
-    pdf.chapter_title(title)
-    pdf.chapter_body(content)
-    pdf.output(output_file)
-
-def crawl_webpage(url):
-    # response = requests.get(url)
-    # return response.text
-    webpage_type = check_webpage_type(url)
-    
-    if webpage_type == 'html':
-        content = extract_from_html(url)
-        print(f"")
-    elif webpage_type == 'github_markdown':
-        content = extract_from_github_markdown(url)
-    else:
-        print(f"Unsupported webpage type: {webpage_type}")
-    print(f"webpage_type: {webpage_type}")
-    return content
+def read_markdown_file(markdown_file_path, output_file):
+    try:
+        with open(markdown_file_path, 'r', encoding='utf-8') as file:
+            markdown_content = file.read()
+        
+        # Convert markdown content to HTML
+        html_content = markdown.markdown(markdown_content, extensions=['fenced_code', 'tables'])
+        
+        # Save the HTML content to PDF
+        save_to_pdf(html_content, output_file)
+        print(f"PDF saved as {output_file}")
+    except Exception as e:
+        print(f"Error reading markdown file {markdown_file_path}: {e}")
 
 
-def save_to_pdf(html_content, output_file):
+def save_to_pdf(content, output_file):
     try:
         options = {
             'page-size': 'Letter',
@@ -78,13 +70,27 @@ def save_to_pdf(html_content, output_file):
             code { font-family: monospace; }
         </style>
         """
-        html_content = css + html_content
+        html_content = css + content
         
         pdfkit.from_string(html_content, output_file, options=options)
     except Exception as e:
         print(f"Error saving PDF: {e}")
         raise
 
+def crawl_webpage(url):
+    # response = requests.get(url)
+    # return response.text
+    webpage_type = check_webpage_type(url)
+    
+    if webpage_type == 'html':
+        content = extract_from_html(url)
+        print(f"")
+    elif webpage_type == 'github_markdown':
+        content = extract_from_github_markdown(url)
+    else:
+        print(f"Unsupported webpage type: {webpage_type}")
+    print(f"webpage_type: {webpage_type}")
+    return content
 
 
 def extract_links(file_path):
@@ -178,7 +184,7 @@ def extract_links(file_path):
     return links_dict
 
 
-def extract_from_html(url):
+def extract_from_html_old(url):
     try:
         response = requests.get(url)
         response.raise_for_status()  # Raise an exception for bad status codes
@@ -192,6 +198,28 @@ def extract_from_html(url):
         print(f"Error fetching {url}: {e}")
         return None
 
+
+def extract_from_html(url):
+    try:
+        response = requests.get(url)
+        response.raise_for_status()  # Raise an exception for bad status codes
+        soup = BeautifulSoup(response.text, 'html.parser')
+        
+        # Extract the main content of the page
+        main_content = soup.find('main')  # Assuming the main content is within a <main> tag
+        if not main_content:
+            main_content = soup.find('article')  # Fallback to <article> if <main> is not found
+        if not main_content:
+            main_content = soup.find('body')  # Fallback to <body> if <article> is not found
+        
+        # Extract text from the main content
+        text = main_content.get_text(separator='\n', strip=True)
+        return text
+    
+    except requests.exceptions.RequestException as e:
+        print(f"Error fetching {url}: {e}")
+        return None
+    
 def extract_from_github_markdown(url):
     try:
         # Extract the owner, repo, and path from the URL
@@ -350,6 +378,11 @@ if __name__ == "__main__":
     parser.add_argument('output_dir', type=str, help="Path to the output directory.")
     parser.add_argument('--test_extract', action='store_true', help="Only test the extraction of links from the given file.")
     parser.add_argument('--save_by_links', action='store_true', help="Read links directly from a links file and save PDFs without extracting links from text.")
+    parser.add_argument('--markdown_file', type=str, help="Path to a markdown file to convert to PDF.")
     args = parser.parse_args()
 
-    main(args.file_path, args.output_dir, args.test_extract, args.save_by_links)
+    if args.markdown_file:
+        output_file = os.path.join(args.output_dir, 'output.pdf')
+        read_markdown_file(args.markdown_file, output_file)
+    else:
+        main(args.file_path, args.output_dir, args.test_extract, args.save_by_links)
