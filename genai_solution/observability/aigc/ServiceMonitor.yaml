@@ -1,0 +1,13 @@
+# servicemonitor.yaml
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: custom-http-exporter
+  labels:
+    release: prometheus-stack
+spec:
+  selector:
+    matchLabels:
+      app: custom-http-exporter
+  endpoints:
+  - port: http

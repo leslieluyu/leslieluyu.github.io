@@ -1,0 +1,37 @@
+# deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: custom-http-exporter
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: custom-http-exporter
+  template:
+    metadata:
+      labels:
+        app: custom-http-exporter
+    spec:
+      containers:
+      - name: custom-http-exporter
+        image: docker201904/custom-exporter:v0.1
+        ports:
+        - containerPort: 8000
+      nodeName: satg-opea-4node-0
+---
+# service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: custom-http-exporter
+  labels:
+    app: custom-http-exporter
+spec:
+  selector:
+    app: custom-http-exporter
+  ports:
+  - name: http
+    port: 8000
+    targetPort: 8000
+  type: ClusterIP
