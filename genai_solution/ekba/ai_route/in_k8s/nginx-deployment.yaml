@@ -1,0 +1,54 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-hostpath-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx-hostpath
+  template:
+    metadata:
+      labels:
+        app: nginx-hostpath
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:latest
+        ports:
+        - containerPort: 80
+        volumeMounts:
+        - name: nginx-config
+          mountPath: /etc/nginx/nginx.conf
+          subPath: nginx.conf
+        - name: nginx-confd
+          mountPath: /etc/nginx/conf.d/
+        - name: nginx-logs #添加日志挂载
+          mountPath: /var/log/nginx/
+      volumes:
+      - name: nginx-config
+        hostPath:
+          path: /mnt/nginx
+          type: DirectoryOrCreate
+      - name: nginx-confd
+        hostPath:
+          path: /mnt/nginx/conf.d/ #主机上的conf.d目录的路径
+          type: DirectoryOrCreate
+      - name: nginx-logs #添加日志卷
+        hostPath:
+          path: /mnt/nginx/logs/ #主机日志目录
+          type: DirectoryOrCreate
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-hostpath-service
+spec:
+  selector:
+    app: nginx-hostpath
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 81
+      nodePort: 31888 # 添加 nodePort 字段
+  type: NodePort # 修改 Service 类型为 NodePort
