@@ -18,7 +18,13 @@ spec:
         image: docker201904/custom-exporter:v0.1
         ports:
         - containerPort: 8000
-      nodeName: satg-opea-4node-0
+        env:
+        - name: http_proxy
+          value: "http://child-prc.intel.com:912"
+        - name: https_proxy
+          value: "http://child-prc.intel.com:912"
+        - name: no_proxy
+          value: "10.96.0.1,10.96.0.0/12,10.0.0.0/8,svc,svc.cluster.local,.svc.cluster.local,localhost,127.0.0.1,intel.com,.intel.com,10.0.0.0/8,10.239.241.65,10.239.241.85,10.239.241.94"
 ---
 # service.yaml
 apiVersion: v1
