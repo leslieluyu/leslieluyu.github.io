@@ -1,0 +1,14 @@
+admin:
+  enabled: true        # Master Admin API switch
+  http:
+    enabled: true      # Enable HTTP access
+    service:
+      port: 8001       # Default Admin port
+  tls:
+    enabled: false     # Disable TLS unless needed
+
+# Optional security configuration
+env:
+  admin_gui_auth: basic-auth
+  admin_gui_session_conf: '{"secret":"bXkta29uZy1wYXNzd29yZA=="}'
+
