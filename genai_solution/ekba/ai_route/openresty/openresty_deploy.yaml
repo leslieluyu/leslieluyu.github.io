@@ -1,0 +1,81 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: openresty
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: openresty
+  template:
+    metadata:
+      labels:
+        app: openresty
+    spec:
+      securityContext:
+        fsGroup: 1000
+      volumes:
+      - name: lua-scripts
+        hostPath:
+          path: /mnt/openresty/lua
+          type: DirectoryOrCreate
+      - name: nginx-conf
+        hostPath:
+          path: /mnt/openresty/conf
+          type: Directory
+      - name: log-path
+        hostPath:
+          path: /mnt/openresty/logs
+          type: DirectoryOrCreate
+      - name: run-volume
+        hostPath:
+          path: /mnt/openresty/run
+          type: DirectoryOrCreate
+      initContainers:
+      - name: set-ulimit-and-permissions
+        image: busybox
+        command: ["sh", "-c", "ulimit -n 65535 && chown 1000:1000 /run && chmod 755 /run && sysctl -w fs.aio-max-nr=65536"]
+        securityContext:
+          privileged: true
+        volumeMounts:
+        - name: run-volume
+          mountPath: /run
+      containers:
+      - name: openresty
+        image: openresty/openresty:1.21.4.1-alpine
+        volumeMounts:
+        - mountPath: /usr/local/openresty/nginx/conf/lua
+          name: lua-scripts
+        - mountPath: /usr/local/openresty/nginx/conf/nginx.conf
+          name: nginx-conf
+          subPath: nginx.conf
+        - mountPath: /var/log/openresty
+          name: log-path
+        - mountPath: /run
+          name: run-volume
+        securityContext:
+          # runAsUser: 1000
+          # runAsGroup: 1000
+          runAsUser: 0 # if needed.
+          # ulimits:
+          # - name: nofile
+          #   soft: 65536
+          #   hard: 65536
+        lifecycle:
+          postStart:
+            exec:
+              command: ["/bin/sh", "-c", "nginx -s reload || true"]
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: openresty-service
+spec:
+  selector:
+    app: openresty
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 80
+  type: LoadBalancer
