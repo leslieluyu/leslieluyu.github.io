@@ -2,6 +2,12 @@ local cjson = require("cjson")
 
 ngx.log(ngx.INFO, "Starting route.lua execution")
 
+-- Define upstream servers in Lua
+local upstream_servers = {
+    ["Intel/neural-chat-7b-v3-3"] = "http://chatqna.benchmark-yulu.svc.cluster.local:8888",
+    ["qianwen"] = "http://chatqna.benchmark-yulu2.svc.cluster.local:8888"
+}
+
 ngx.req.read_body()
 local request_body = ngx.req.get_body_data()
 
@@ -20,12 +26,11 @@ if request_body then
         local model = data.model
         ngx.log(ngx.INFO, "Model from request: ", model)
 
-        if model == "Intel/neural-chat-7b-v3-3" then
-            ngx.log(ngx.INFO, "Routing to /upstreamA")
-            ngx.var.target = "/upstreamA"
-        elseif model == "qianwen" then
-            ngx.log(ngx.INFO, "Routing to /upstreamB")
-            ngx.var.target = "/upstreamB"
+        -- Get the upstream server based on the model
+        local upstream = upstream_servers[model]
+        if upstream then
+            ngx.log(ngx.INFO, "Routing to upstream: ", upstream)
+            ngx.var.upstream = upstream
         else
             ngx.log(ngx.INFO, "Unknown model: ", model)
             ngx.say("Unknown model")
@@ -33,8 +38,8 @@ if request_body then
             return
         end
 
-        -- Proxy the request to the target location
-        ngx.exec(ngx.var.target)
+        -- Proxy the request to the target upstream while maintaining the URI
+        return ngx.exec("@dynamic_proxy")
     else
         ngx.log(ngx.INFO, "No model field in request body")
         ngx.say("Invalid request body")
