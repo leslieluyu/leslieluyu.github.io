@@ -20,26 +20,12 @@ if request_body then
         local model = data.model
         ngx.log(ngx.INFO, "Model from request: ", model)
 
-        local res = nil
-
         if model == "Intel/neural-chat-7b-v3-3" then
             ngx.log(ngx.INFO, "Routing to /upstreamA")
-            res = ngx.location.capture("/upstreamA", {
-                method = ngx.HTTP_POST,
-                body = request_body,
-                headers = {
-                    ["Content-Type"] = "application/json"
-                }
-            })
+            ngx.var.target = "/upstreamA"
         elseif model == "qianwen" then
             ngx.log(ngx.INFO, "Routing to /upstreamB")
-            res = ngx.location.capture("/upstreamB", {
-                method = ngx.HTTP_POST,
-                body = request_body,
-                headers = {
-                    ["Content-Type"] = "application/json"
-                }
-            })
+            ngx.var.target = "/upstreamB"
         else
             ngx.log(ngx.INFO, "Unknown model: ", model)
             ngx.say("Unknown model")
@@ -47,18 +33,8 @@ if request_body then
             return
         end
 
-        if res then
-            ngx.log(ngx.INFO, "Subrequest successful, status: ", res.status)
-            ngx.status = res.status
-            ngx.say(res.body)
-            ngx.exit(ngx.HTTP_OK)
-            return
-        else
-            ngx.log(ngx.ERR, "Subrequest failed")
-            ngx.say("Subrequest failed")
-            ngx.exit(ngx.HTTP_INTERNAL_SERVER_ERROR)
-            return
-        end
+        -- Proxy the request to the target location
+        ngx.exec(ngx.var.target)
     else
         ngx.log(ngx.INFO, "No model field in request body")
         ngx.say("Invalid request body")
