@@ -1,0 +1,21 @@
+CTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" 
+"http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>com.user.dynv6</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/Users/luyumini/project/dynv6/update_ipv6.sh</string>
+  </array>
+  <key>StartInterval</key>
+  <integer>3600</integer> <!-- runs every 60 minutes -->
+  <key>RunAtLoad</key>
+  <true/>
+  <key>StandardOutPath</key>
+  <string>/tmp/dynv6.out</string>
+  <key>StandardErrorPath</key>
+  <string>/tmp/dynv6.err</string>
+</dict>
+</plist>
+
